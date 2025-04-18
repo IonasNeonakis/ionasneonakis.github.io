@@ -6,7 +6,7 @@ import classNames from "classnames";
 import { Footer, Header, RouteGuard } from "@/components";
 import { baseURL, effects, style } from "@/app/resources";
 
-import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
 import { Source_Code_Pro } from "next/font/google";
 
 import { person, home } from "@/app/resources/content";
@@ -39,7 +39,7 @@ export async function generateMetadata() {
   };
 }
 
-const primary = Inter({
+const primary = Raleway({
   variable: "--font-primary",
   subsets: ["latin"],
   display: "swap",

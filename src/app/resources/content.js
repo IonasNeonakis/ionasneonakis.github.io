@@ -9,7 +9,7 @@ const person = {
   role: "Software engineer",
   avatar: "/images/avatar.jpg",
   location: "Europe/Paris", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "French"], // optional: Leave the array empty if you don't want to display languages
+  languages: ["French", "English", "Greek"], // optional: Leave the array empty if you don't want to display languages
 };
 
 
@@ -17,14 +17,14 @@ const social = [
   // Links are automatically displayed.
   // Import new icons in /once-ui/icons.ts
   {
-    name: "GitHub",
-    icon: "github",
-    link: "https://github.com/IonasNeonakis",
-  },
-  {
     name: "LinkedIn",
     icon: "linkedin",
     link: "https://www.linkedin.com/in/ionas-neonakis/",
+  },
+  {
+    name: "GitHub",
+    icon: "github",
+    link: "https://github.com/IonasNeonakis",
   },
   {
     name: "Email",
