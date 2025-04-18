@@ -12,16 +12,6 @@ const person = {
   languages: ["English", "French"], // optional: Leave the array empty if you don't want to display languages
 };
 
-const newsletter = {
-  display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: (
-    <>
-      I occasionally write about design, technology, and share thoughts on the intersection of
-      creativity and engineering.
-    </>
-  ),
-};
 
 const social = [
   // Links are automatically displayed.
@@ -29,22 +19,17 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/IonasNeonakis",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-  },
-  {
-    name: "X",
-    icon: "x",
-    link: "",
+    link: "https://www.linkedin.com/in/ionas-neonakis/",
   },
   {
     name: "Email",
     icon: "email",
-    link: "mailto:example@gmail.com",
+    link: "mailto:ionas.neonakis@gmail.com",
   },
 ];
 
@@ -71,10 +56,6 @@ const about = {
   },
   avatar: {
     display: true,
-  },
-  calendar: {
-    display: true,
-    link: "https://cal.com",
   },
   intro: {
     display: true,
@@ -282,4 +263,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, home, about, blog, work, gallery };
