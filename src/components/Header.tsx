@@ -1,13 +1,12 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 
 import {Fade, Flex, IconButton, Line, ToggleButton} from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 
 import {routes, display, social} from "@/app/resources";
-import { person, home, about, blog, work, gallery } from "@/app/resources/content";
+import { person, home, about, blog, work } from "@/app/resources/content";
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
@@ -25,7 +24,7 @@ export const Header = () => {
         padding="8"
         horizontal="center"
       >
-        <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
+        <Flex paddingLeft="12" fillWidth vertical="center" textVariant="display-strong-xs">
           <Flex hide="s">{person.name}</Flex>
         </Flex>
         <Flex fillWidth horizontal="center">
@@ -90,23 +89,6 @@ export const Header = () => {
                     prefixIcon="book"
                     href="/blog"
                     selected={pathname.startsWith("/blog")}
-                  />
-                </>
-              )}
-              {routes["/gallery"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="gallery"
-                    href="/gallery"
-                    label={gallery.label}
-                    selected={pathname.startsWith("/gallery")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="gallery"
-                    href="/gallery"
-                    selected={pathname.startsWith("/gallery")}
                   />
                 </>
               )}

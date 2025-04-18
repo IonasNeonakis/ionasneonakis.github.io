@@ -1,11 +1,10 @@
-const baseURL = "demo.magic-portfolio.com";
+const baseURL = "localhost:3000"; // Set to your domain name or IP address
 
 const routes = {
   "/": true,
   "/about": true,
   "/work": true,
   "/blog": true,
-  "/gallery": true,
 };
 
 // Enable password protection on selected routes
