@@ -6,6 +6,7 @@ import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
+import { Metadata } from "next";
 
 interface WorkParams {
   params: Promise<{
@@ -20,7 +21,7 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
   }));
 }
 
-export async function generateMetadata({ params}: WorkParams) {
+export async function generateMetadata({ params}: WorkParams): Promise<Metadata | undefined> {
   const { slug } = await params;
 
 
@@ -43,8 +44,13 @@ export async function generateMetadata({ params}: WorkParams) {
   return {
     title,
     description,
-    images,
-    team,
+    creator: person.name,
+    icons : images.map((image) => ({
+      url: image,
+      type: "image/png",
+      sizes: "any",
+    })),
+    authors: team.map((person) => ( { name: person.name, url: person.linkedIn })),
     openGraph: {
       title,
       description,
@@ -63,7 +69,7 @@ export async function generateMetadata({ params}: WorkParams) {
       description,
       images: [ogImage],
     },
-  };
+  } satisfies Metadata;
 }
 
 export default async function Project(props: WorkParams) {

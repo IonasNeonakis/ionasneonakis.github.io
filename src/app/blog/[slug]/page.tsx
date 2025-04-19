@@ -6,6 +6,7 @@ import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
+import { Metadata } from "next";
 
 interface BlogParams {
   params: Promise<{
@@ -20,7 +21,7 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
   }));
 }
 
-export async function generateMetadata( { params } : BlogParams) {
+export async function generateMetadata( { params } : BlogParams) : Promise<Metadata | undefined> {
   const { slug } = await params;
 
   let post = getPosts(["src", "app", "blog", "posts"]).find((post) => post.slug === slug);
@@ -33,9 +34,7 @@ export async function generateMetadata( { params } : BlogParams) {
     title,
     publishedAt: publishedTime,
     summary: description,
-    images,
     image,
-    team,
   } = post.metadata;
   let ogImage = image ? `https://${baseURL}${image}` : `https://${baseURL}/og?title=${title}`;
 
