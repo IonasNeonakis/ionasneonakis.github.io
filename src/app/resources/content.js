@@ -168,7 +168,7 @@ const about = {
   },
 };
 
-const blog = {
+const blog = { // todo remove file
   label: "Blog",
   title: "Writing about design and tech...",
   description: `Read what ${person.name} has been up to recently`,

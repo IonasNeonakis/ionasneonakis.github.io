@@ -10,12 +10,25 @@ import {
   Tag,
   Text,
 } from "@/once-ui/components";
-import { baseURL } from "@/app/resources";
+import { baseURL, createI18nContent } from "@/app/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
-import { person, about, social } from "@/app/resources/content";
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import {JSX} from "react";
 
-export async function generateMetadata() {
+interface AboutParams {
+  params: Promise<{
+    locale: string;
+  }>;
+}
+
+export async function generateMetadata(
+  { params } : AboutParams
+) {
+  const { locale } = await params;
+  const t = await getTranslations();
+  const { about } = createI18nContent(t);
+
   const title = about.title;
   const description = about.description;
   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
@@ -27,7 +40,7 @@ export async function generateMetadata() {
       title,
       description,
       type: "website",
-      url: `https://${baseURL}/about`,
+      url: `https://${baseURL}/${locale}/blog`,
       images: [
         {
           url: ogImage,
@@ -44,7 +57,16 @@ export async function generateMetadata() {
   };
 }
 
-export default function About() {
+export default async function About(
+  { params } : AboutParams
+) {
+  const {locale} = await params;
+  setRequestLocale(locale);
+
+  const t = await getTranslations();
+
+  const {person, about, social } = createI18nContent(t);
+
   const structure = [
     {
       title: about.intro.title,

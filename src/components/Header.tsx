@@ -1,20 +1,37 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import {useParams} from "next/navigation";
 
 import {Fade, Flex, IconButton, Line, ToggleButton} from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 
-import {routes, display, social} from "@/app/resources";
-import { person, home, about, blog, work } from "@/app/resources/content";
+import {routes, display, social, createI18nContent} from "@/app/resources";
+import {useTransition} from "react";
+import {Locale, useRouter, usePathname, routing} from "@/i18n/routing";
+import {useTranslations} from "next-intl";
 
 export const Header = () => {
-  const pathname = usePathname() ?? "";
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const pathname = usePathname() ?? '';
+  const {locale} = useParams();
 
+  function handleLanguageChange(locale: string) {
+    const nextLocale = locale as Locale;
+    startTransition(() => {
+      router.replace(
+        pathname,
+        {locale: nextLocale}
+      )
+    })
+  }
+
+  const t = useTranslations();
+  const {person, home, about, blog, work} = createI18nContent(t);
   return (
     <>
-      <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
+      <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9}/>
+      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9}/>
       <Flex
         fitHeight
         className={styles.position}
@@ -38,22 +55,22 @@ export const Header = () => {
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s">
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+                <ToggleButton prefixIcon="home" href={`/${locale}`} selected={pathname === "/"}/>
               )}
-              <Line vert maxHeight="24" />
+              <Line vert maxHeight="24"/>
               {routes["/about"] && (
                 <>
                   <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="person"
-                    href="/about"
+                    href={`/${locale}/about`}
                     label={about.label}
                     selected={pathname === "/about"}
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="person"
-                    href="/about"
+                    href={`/${locale}/work`}
                     selected={pathname === "/about"}
                   />
                 </>
@@ -63,14 +80,15 @@ export const Header = () => {
                   <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="grid"
-                    href="/work"
+                    href={`/${locale}/work`}
                     label={work.label}
                     selected={pathname.startsWith("/work")}
                   />
+                  { /* todo check if this is correct */}
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="grid"
-                    href="/work"
+                    href={`/${locale}/blog`}
                     selected={pathname.startsWith("/work")}
                   />
                 </>
@@ -80,7 +98,7 @@ export const Header = () => {
                   <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="book"
-                    href="/blog"
+                    href={`/${locale}/blog`}
                     label={blog.label}
                     selected={pathname.startsWith("/blog")}
                   />
@@ -103,19 +121,41 @@ export const Header = () => {
             textVariant="body-default-s"
             gap="20"
           >
-            <Flex hide="s" gap="16">          {social.map(
-              (item) =>
-                item.link && (
-                  <IconButton
-                    key={item.name}
-                    href={item.link}
-                    icon={item.icon}
-                    tooltip={item.name}
-                    size="s"
-                    variant="ghost"
-                  />
-                ),
-            )}
+            {routing.locales.length > 1 && <Flex
+                background="surface"
+                border="neutral-medium"
+                borderStyle="solid"
+                radius="m-4"
+                shadow="l"
+                padding="4"
+                gap="2"
+                vertical="center">
+              {routing.locales.map((locale, index) => (
+                <ToggleButton
+                  key={index}
+                  selected={locale === locale}
+                  onClick={() => handleLanguageChange(locale)}
+                  className={isPending && 'pointer-events-none opacity-60' || ''}
+                >
+                  {locale.toUpperCase()}
+                </ToggleButton>
+              ))}
+            </Flex>
+            }
+            <Flex hide="s" gap="16">
+              {social.map(
+                (item) =>
+                  item.link && (
+                    <IconButton
+                      key={item.name}
+                      href={item.link}
+                      icon={item.icon}
+                      tooltip={item.name}
+                      size="s"
+                      variant="ghost"
+                    />
+                  ),
+              )}
             </Flex>
           </Flex>
         </Flex>

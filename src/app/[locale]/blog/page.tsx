@@ -1,9 +1,22 @@
 import { Column, Heading } from "@/once-ui/components";
 import { Posts } from "@/components/blog/Posts";
-import { baseURL } from "@/app/resources";
-import { blog, person } from "@/app/resources/content";
+import {baseURL, createI18nContent} from "@/app/resources";
+import {getTranslations, setRequestLocale} from "next-intl/server";
 
-export async function generateMetadata() {
+interface PageParams {
+  params: Promise<{
+    locale: string;
+  }>;
+}
+
+export async function generateMetadata(
+  { params } : PageParams
+) {
+  const { locale } = await params;
+
+  const t = await getTranslations();
+  const { blog } = createI18nContent(t);
+
   const title = blog.title;
   const description = blog.description;
   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
@@ -15,7 +28,7 @@ export async function generateMetadata() {
       title,
       description,
       type: "website",
-      url: `https://${baseURL}/blog`,
+      url: `https://${baseURL}/${locale}/blog`,
       images: [
         {
           url: ogImage,
@@ -32,7 +45,16 @@ export async function generateMetadata() {
   };
 }
 
-export default function Blog() {
+export default async function Blog(
+  { params } : PageParams
+) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const t = await getTranslations();
+  const { person, blog } = createI18nContent(t);
+
+
   return (
     <Column maxWidth="s">
       <script
@@ -61,8 +83,8 @@ export default function Blog() {
         {blog.title}
       </Heading>
       <Column fillWidth flex={1}>
-        <Posts range={[1, 3]} thumbnail />
-        <Posts range={[4]} columns="2" />
+        <Posts range={[1, 3]} thumbnail locale={locale}/>
+        <Posts range={[4]} columns="2" locale={locale}/>
       </Column>
     </Column>
   );

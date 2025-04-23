@@ -2,30 +2,44 @@ import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
 import { getPosts } from "@/app/utils/utils";
 import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text } from "@/once-ui/components";
-import { baseURL } from "@/app/resources";
+import {baseURL, createI18nContent} from "@/app/resources";
 import { person } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
 import { Metadata } from "next";
+import {routing} from "@/i18n/routing";
+import {useTranslations} from "next-intl";
 
 interface WorkParams {
   params: Promise<{
     slug: string;
+    locale: string;
   }>;
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "work", "projects"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  const { locales } = routing;
+
+  // Create an array to store all posts from all locales todo
+  const allPosts: { slug: string; locale: "fr" | "en"; }[] = [];
+
+  // Fetch posts for each locale
+  for (const locale of locales) {
+    const posts = getPosts(['src', 'app', '[locale]', 'work', 'projects', locale]);
+    allPosts.push(...posts.map(post => ({
+      slug: post.slug,
+      locale: locale,
+    })));
+  }
+
+  return allPosts;
 }
 
-export async function generateMetadata({ params}: WorkParams): Promise<Metadata | undefined> {
-  const { slug } = await params;
+export async function generateMetadata({ params }: WorkParams): Promise<Metadata | undefined> {
+  const { slug, locale } = await params;
 
 
-  let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slug);
+  let post = getPosts(["src", "app", "[locale]", "work", "projects", locale]).find((post) => post.slug === slug);
 
   if (!post) {
     return;
@@ -56,7 +70,7 @@ export async function generateMetadata({ params}: WorkParams): Promise<Metadata 
       description,
       type: "article",
       publishedTime,
-      url: `https://${baseURL}/work/${post.slug}`,
+      url: `https://${baseURL}/${locale}/work/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -73,10 +87,16 @@ export async function generateMetadata({ params}: WorkParams): Promise<Metadata 
 }
 
 export default async function Project(props: WorkParams) {
-  const params = await props.params;
-  let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === params.slug);
+  const { slug, locale } = await props.params;
+
+  // todo check if there are "let" in the codebase
+  const post = getPosts(['src', 'app', '[locale]', 'work', 'projects', locale]).find((post) => post.slug === slug)
+
+  const t = useTranslations();
+  const { person } = createI18nContent(t);
 
   if (!post) {
+    console.log("qsd")
     notFound();
   }
 
@@ -101,7 +121,7 @@ export default async function Project(props: WorkParams) {
             image: post.metadata.image
               ? `https://${baseURL}${post.metadata.image}`
               : `https://${baseURL}/og?title=${post.metadata.title}`,
-            url: `https://${baseURL}/work/${post.slug}`,
+            url: `https://${baseURL}/${locale}/work/${post.slug}`,
             author: {
               "@type": "Person",
               name: person.name,
@@ -110,7 +130,7 @@ export default async function Project(props: WorkParams) {
         }}
       />
       <Column maxWidth="xs" gap="16">
-        <Button href="/work" variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
+        <Button href={`/${locale}/work`} variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
           Projects
         </Button>
         <Heading variant="display-strong-s">{post.metadata.title}</Heading>

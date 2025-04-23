@@ -1,9 +1,14 @@
 import { Flex, IconButton, SmartLink, Text } from "@/once-ui/components";
-import { person, social } from "@/app/resources/content";
 import styles from "./Footer.module.scss";
+import {useTranslations} from "next-intl";
+import {createI18nContent} from "@/app/resources";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+
+  const t = useTranslations();
+  const { person, social } = createI18nContent(t);
 
   return (
     <Flex

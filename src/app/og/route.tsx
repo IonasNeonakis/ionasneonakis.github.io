@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
-import { baseURL } from "@/app/resources";
-import { person } from "@/app/resources/content";
+import {baseURL, createI18nContent} from "@/app/resources";
+import {getTranslations} from "next-intl/server";
 
 export const runtime = "edge";
 
@@ -11,6 +11,9 @@ export async function GET(request: Request) {
     res.arrayBuffer(),
   );
   const fontData = await font;
+
+  const t = await getTranslations();
+  const { person } = createI18nContent(t);
 
   return new ImageResponse(
     <div

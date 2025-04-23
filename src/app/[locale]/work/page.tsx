@@ -1,10 +1,26 @@
 import { getPosts } from "@/app/utils/utils";
 import { Column } from "@/once-ui/components";
 import { Projects } from "@/components/work/Projects";
-import { baseURL } from "@/app/resources";
-import { person, work } from "@/app/resources/content";
+import {baseURL, createI18nContent} from "@/app/resources";
+import {getTranslations, setRequestLocale} from "next-intl/server";
 
-export async function generateMetadata() {
+
+interface WorkParams {
+  params: Promise<{
+    locale: string;
+  }>;
+}
+
+
+export async function generateMetadata(
+  {params}: WorkParams
+) {
+  const {locale} = await params;
+
+
+  const t = await getTranslations();
+  const { work } = createI18nContent(t);
+
   const title = work.title;
   const description = work.description;
   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
@@ -16,7 +32,7 @@ export async function generateMetadata() {
       title,
       description,
       type: "website",
-      url: `https://${baseURL}/work/`,
+      url: `https://${baseURL}/${locale}/work/`,
       images: [
         {
           url: ogImage,
@@ -33,8 +49,17 @@ export async function generateMetadata() {
   };
 }
 
-export default function Work() {
-  let allProjects = getPosts(["src", "app", "work", "projects"]);
+export default async function Work(
+  {params}: WorkParams
+) {
+  const {locale} = await params;
+
+  setRequestLocale(locale);
+  let allProjects = getPosts(['src', 'app', '[locale]', 'work', 'projects', locale]);
+
+  const t = await getTranslations();
+  const { person, work } = createI18nContent(t);
+
 
   return (
     <Column maxWidth="m">
@@ -63,7 +88,7 @@ export default function Work() {
           }),
         }}
       />
-      <Projects />
+      <Projects locale={locale}/>
     </Column>
   );
 }

@@ -14,3 +14,7 @@ export {
   blog,
   work,
 } from "@/app/resources/content";
+
+export {
+  createI18nContent
+} from "@/app/resources/content-i18n"

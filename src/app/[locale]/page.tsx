@@ -1,13 +1,29 @@
 import React from "react";
 
-import { Heading, Flex, Text, Button, Avatar, RevealFx, Arrow, Column } from "@/once-ui/components";
-import { Projects } from "@/components/work/Projects";
+import {Heading, Flex, Text, Button, Avatar, RevealFx, Column} from "@/once-ui/components";
+import {Projects} from "@/components/work/Projects";
 
-import { baseURL, routes } from "@/app/resources";
-import { home, about, person } from "@/app/resources/content";
-import { Posts } from "@/components/blog/Posts";
+import {baseURL, createI18nContent, routes} from "@/app/resources";
+import {Posts} from "@/components/blog/Posts";
+import {getTranslations, setRequestLocale} from "next-intl/server";
+import {useTranslations} from "next-intl";
 
-export async function generateMetadata() {
+
+interface HomeParams {
+  params: Promise<{
+    locale: string;
+  }>;
+}
+
+export async function generateMetadata(
+  {params}: HomeParams
+) {
+  const {locale} = await params;
+
+  const t = await getTranslations();
+  const {home} = createI18nContent(t);
+
+
   const title = home.title;
   const description = home.description;
   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
@@ -19,7 +35,7 @@ export async function generateMetadata() {
       title,
       description,
       type: "website",
-      url: `https://${baseURL}`,
+      url: `https://${baseURL}/${locale}`,
       images: [
         {
           url: ogImage,
@@ -36,7 +52,15 @@ export async function generateMetadata() {
   };
 }
 
-export default function Home() {
+export default async function Home(
+  {params} : HomeParams
+) {
+  const {locale} = await params;
+
+  setRequestLocale(locale);
+  const t = await getTranslations();
+  const {home, about, person} = createI18nContent(t);
+
   return (
     <Column maxWidth="m" gap="xl" horizontal="center">
       <script
@@ -77,7 +101,7 @@ export default function Home() {
             <Button
               id="about"
               data-border="rounded"
-              href="/about"
+              href={`/${locale}/about`}
               variant="secondary"
               size="m"
               arrowIcon
@@ -85,7 +109,7 @@ export default function Home() {
               <Flex gap="8" vertical="center">
                 {about.avatar.display && (
                   <Avatar
-                    style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
+                    style={{marginLeft: "-0.75rem", marginRight: "0.25rem"}}
                     src={person.avatar}
                     size="m"
                   />
@@ -97,21 +121,21 @@ export default function Home() {
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
+        <Projects range={[1, 1]} locale={locale}/>
       </RevealFx>
       {routes["/blog"] && (
         <Flex fillWidth gap="24" mobileDirection="column">
           <Flex flex={1} paddingLeft="l">
             <Heading as="h2" variant="display-strong-xs" wrap="balance">
-              Latest from the blog
+              Latest from the blog // todo
             </Heading>
           </Flex>
           <Flex flex={3} paddingX="20">
-            <Posts range={[1, 2]} columns="2" />
+            <Posts range={[1, 2]} columns="2" locale={locale}/>
           </Flex>
         </Flex>
       )}
-      <Projects range={[2]} />
+      <Projects range={[2]} locale={locale}/>
     </Column>
   );
 }

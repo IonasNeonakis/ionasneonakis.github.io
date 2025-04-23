@@ -12,6 +12,7 @@ interface PostProps {
 export default function Post({ post, thumbnail }: PostProps) {
   const tags = post.metadata.tag.split(",").map((tag: string) => tag.trim());
 
+  // todo chheck hfrer
   return (
     <SmartLink
       fillWidth
