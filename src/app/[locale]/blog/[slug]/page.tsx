@@ -1,13 +1,13 @@
-import { notFound } from "next/navigation";
-import { CustomMDX } from "@/components/mdx";
-import { getPosts } from "@/app/utils/utils";
-import { AvatarGroup, Button, Column, Heading, Row, Text } from "@/once-ui/components";
+import {notFound} from "next/navigation";
+import {CustomMDX} from "@/components/mdx";
+import {getPosts} from "@/app/utils/utils";
+import {AvatarGroup, Button, Column, Heading, Row, Text} from "@/once-ui/components";
 import {baseURL, createI18nContent} from "@/app/resources";
-import { formatDate } from "@/app/utils/formatDate";
+import {formatDate} from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
-import { Metadata } from "next";
+import {Metadata} from "next";
 import {routing} from "@/i18n/routing";
-import {getTranslations, setRequestLocale} from "next-intl/server";
+import {setRequestLocale} from "next-intl/server";
 import {useTranslations} from "next-intl";
 import {use} from "react";
 
@@ -18,27 +18,25 @@ interface BlogParams {
   }>;
 }
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-
+export async function generateStaticParams(): Promise<{
+  slug: string;
+  locale: string;
+}[]> {
   const locales = routing.locales;
-  // Create an array to store all posts from all locales
-  const allPosts: { slug: string; locale: "fr" | "en"; }[] = []; // todo change types here
 
-  for (const locale of locales) {
+  return locales.flatMap(locale => {
     const posts = getPosts(['src', 'app', '[locale]', 'blog', 'posts', locale]);
-    allPosts.push(...posts.map(post => ({
+    return posts.map(post => ({
       slug: post.slug,
       locale: locale,
-    })));
-  }
-
-  return allPosts;
+    }));
+  });
 }
 
 export async function generateMetadata( { params } : BlogParams) : Promise<Metadata | undefined> {
   const { slug, locale } = await params;
 
-  const post = getPosts(["src", "app", "blog", "posts"]).find((post) => post.slug === slug);
+  const post = getPosts(["src", "app", "[locale]", "blog", "posts", locale]).find((post) => post.slug === slug);
 
   if (!post) {
     return;

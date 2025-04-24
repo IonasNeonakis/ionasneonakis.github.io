@@ -1,14 +1,16 @@
-import { notFound } from "next/navigation";
-import { CustomMDX } from "@/components/mdx";
-import { getPosts } from "@/app/utils/utils";
-import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text } from "@/once-ui/components";
+import {notFound} from "next/navigation";
+import {CustomMDX} from "@/components/mdx";
+import {getPosts} from "@/app/utils/utils";
+import {AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text} from "@/once-ui/components";
 import {baseURL, createI18nContent} from "@/app/resources";
-import { person } from "@/app/resources/content";
-import { formatDate } from "@/app/utils/formatDate";
+import {person} from "@/app/resources/content";
+import {formatDate} from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
-import { Metadata } from "next";
+import {Metadata} from "next";
 import {routing} from "@/i18n/routing";
 import {useTranslations} from "next-intl";
+import {use} from "react";
+import {setRequestLocale} from "next-intl/server";
 
 interface WorkParams {
   params: Promise<{
@@ -17,22 +19,16 @@ interface WorkParams {
   }>;
 }
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
+export async function generateStaticParams(): Promise<{ slug: string, locale: string }[]> {
   const { locales } = routing;
 
-  // Create an array to store all posts from all locales todo
-  const allPosts: { slug: string; locale: "fr" | "en"; }[] = [];
-
-  // Fetch posts for each locale
-  for (const locale of locales) {
+  return locales.flatMap(locale => {
     const posts = getPosts(['src', 'app', '[locale]', 'work', 'projects', locale]);
-    allPosts.push(...posts.map(post => ({
+    return posts.map(post => ({
       slug: post.slug,
       locale: locale,
-    })));
-  }
-
-  return allPosts;
+    }));
+  });
 }
 
 export async function generateMetadata({ params }: WorkParams): Promise<Metadata | undefined> {
@@ -86,10 +82,10 @@ export async function generateMetadata({ params }: WorkParams): Promise<Metadata
   } satisfies Metadata;
 }
 
-export default async function Project(props: WorkParams) {
-  const { slug, locale } = await props.params;
+export default function Project( { params }: WorkParams) {
+  const { slug, locale } = use(params);
+  setRequestLocale(locale)
 
-  // todo check if there are "let" in the codebase
   const post = getPosts(['src', 'app', '[locale]', 'work', 'projects', locale]).find((post) => post.slug === slug)
 
   const t = useTranslations();

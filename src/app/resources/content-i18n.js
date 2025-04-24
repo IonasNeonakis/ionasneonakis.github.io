@@ -1,8 +1,8 @@
 
 const createI18nContent = (t) => {
     const person = {
-        firstName: 'Selene',
-        lastName:  'Yu',
+        firstName: 'Ionas',
+        lastName:  'NEONAKIS',
         get name() {
             return `${this.firstName} ${this.lastName}`;
         },
