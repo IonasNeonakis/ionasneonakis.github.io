@@ -12,8 +12,9 @@ import {Source_Code_Pro} from "next/font/google";
 import {Background, Column, Flex, ToastProvider} from "@/once-ui/components";
 import {getMessages, getTranslations, setRequestLocale} from "next-intl/server";
 import {routing} from "@/i18n/routing";
-import {NextIntlClientProvider} from "next-intl";
+import {NextIntlClientProvider, hasLocale} from "next-intl";
 import React from "react";
+import {notFound} from "next/navigation";
 
 interface LayoutParams {
   params: Promise<{
@@ -86,7 +87,6 @@ interface RootLayoutProps {
   params: Promise<{ locale: string }>;
 }
 
-//todo is this needed ?
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
 }
@@ -97,13 +97,17 @@ export default async function RootLayout({
                                          }: RootLayoutProps) {
   const { locale } = await params;
 
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   setRequestLocale(locale);
   const messages = await getMessages(); // todo read documentation
   return (
     <NextIntlClientProvider messages={messages}>
       <Flex
         as="html"
-        lang="en"
+        lang={locale}
         background="page"
         data-neutral={style.neutral}
         data-brand={style.brand}

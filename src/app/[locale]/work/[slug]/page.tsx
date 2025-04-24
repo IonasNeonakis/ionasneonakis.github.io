@@ -39,13 +39,13 @@ export async function generateMetadata({ params }: WorkParams): Promise<Metadata
   const { slug, locale } = await params;
 
 
-  let post = getPosts(["src", "app", "[locale]", "work", "projects", locale]).find((post) => post.slug === slug);
+  const post = getPosts(["src", "app", "[locale]", "work", "projects", locale]).find((post) => post.slug === slug);
 
   if (!post) {
     return;
   }
 
-  let {
+  const {
     title,
     publishedAt: publishedTime,
     summary: description,
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: WorkParams): Promise<Metadata
     image,
     team,
   } = post.metadata;
-  let ogImage = image ? `https://${baseURL}${image}` : `https://${baseURL}/og?title=${title}`;
+  const ogImage = image ? `https://${baseURL}${image}` : `https://${baseURL}/og?title=${title}`;
 
   return {
     title,
@@ -96,7 +96,6 @@ export default async function Project(props: WorkParams) {
   const { person } = createI18nContent(t);
 
   if (!post) {
-    console.log("qsd")
     notFound();
   }
 

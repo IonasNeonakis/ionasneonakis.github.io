@@ -2,6 +2,8 @@ import { Column, Heading } from "@/once-ui/components";
 import { Posts } from "@/components/blog/Posts";
 import {baseURL, createI18nContent} from "@/app/resources";
 import {getTranslations, setRequestLocale} from "next-intl/server";
+import {use} from "react";
+import {useTranslations} from "next-intl";
 
 interface PageParams {
   params: Promise<{
@@ -45,13 +47,14 @@ export async function generateMetadata(
   };
 }
 
-export default async function Blog(
+export default function Blog(
   { params } : PageParams
 ) {
-  const { locale } = await params;
+
+  const { locale } = use(params) ;
   setRequestLocale(locale);
 
-  const t = await getTranslations();
+  const t = useTranslations();
   const { person, blog } = createI18nContent(t);
 
 

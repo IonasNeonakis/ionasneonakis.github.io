@@ -3,6 +3,8 @@ import { Column } from "@/once-ui/components";
 import { Projects } from "@/components/work/Projects";
 import {baseURL, createI18nContent} from "@/app/resources";
 import {getTranslations, setRequestLocale} from "next-intl/server";
+import {useTranslations} from "next-intl";
+import {use} from "react";
 
 
 interface WorkParams {
@@ -49,15 +51,15 @@ export async function generateMetadata(
   };
 }
 
-export default async function Work(
+export default function Work(
   {params}: WorkParams
 ) {
-  const {locale} = await params;
+  const {locale} = use(params);
 
   setRequestLocale(locale);
-  let allProjects = getPosts(['src', 'app', '[locale]', 'work', 'projects', locale]);
+  const t = useTranslations();
 
-  const t = await getTranslations();
+  const allProjects = getPosts(['src', 'app', '[locale]', 'work', 'projects', locale]);
   const { person, work } = createI18nContent(t);
 
 

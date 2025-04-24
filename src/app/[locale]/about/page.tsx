@@ -14,7 +14,8 @@ import { baseURL, createI18nContent } from "@/app/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import {JSX} from "react";
+import {JSX, use} from "react";
+import {useTranslations} from "next-intl";
 
 interface AboutParams {
   params: Promise<{
@@ -57,13 +58,13 @@ export async function generateMetadata(
   };
 }
 
-export default async function About(
+export default function About(
   { params } : AboutParams
 ) {
-  const {locale} = await params;
+  const {locale} = use(params);
   setRequestLocale(locale);
 
-  const t = await getTranslations();
+  const t =  useTranslations();
 
   const {person, about, social } = createI18nContent(t);
 

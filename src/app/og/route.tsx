@@ -5,8 +5,8 @@ import {getTranslations} from "next-intl/server";
 export const runtime = "edge";
 
 export async function GET(request: Request) {
-  let url = new URL(request.url);
-  let title = url.searchParams.get("title") || "Portfolio";
+  const url = new URL(request.url);
+  const title = url.searchParams.get("title") || "Portfolio";
   const font = fetch(new URL("../../../public/fonts/Raleway.ttf", import.meta.url)).then((res) =>
     res.arrayBuffer(),
   );

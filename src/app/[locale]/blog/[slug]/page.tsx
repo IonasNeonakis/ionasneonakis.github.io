@@ -9,6 +9,7 @@ import { Metadata } from "next";
 import {routing} from "@/i18n/routing";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import {useTranslations} from "next-intl";
+import {use} from "react";
 
 interface BlogParams {
   params: Promise<{
@@ -37,19 +38,19 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 export async function generateMetadata( { params } : BlogParams) : Promise<Metadata | undefined> {
   const { slug, locale } = await params;
 
-  let post = getPosts(["src", "app", "blog", "posts"]).find((post) => post.slug === slug);
+  const post = getPosts(["src", "app", "blog", "posts"]).find((post) => post.slug === slug);
 
   if (!post) {
     return;
   }
 
-  let {
+  const {
     title,
     publishedAt: publishedTime,
     summary: description,
     image,
   } = post.metadata;
-  let ogImage = image ? `https://${baseURL}${image}` : `https://${baseURL}/og?title=${title}`;
+  const ogImage = image ? `https://${baseURL}${image}` : `https://${baseURL}/og?title=${title}`;
 
   return {
     title,
@@ -75,17 +76,18 @@ export async function generateMetadata( { params } : BlogParams) : Promise<Metad
   };
 }
 
-export default async function Blog({params}: BlogParams) {
-  const {slug, locale} = await params;
-  setRequestLocale(locale)
+export default function Blog({params}: BlogParams) {
+  const { slug, locale } = use(params) ;
+  setRequestLocale(locale);
 
-  let post = getPosts(["src", "app", "[locale]", "blog", "posts", locale]).find((post) => post.slug === slug);
+  const t = useTranslations();
+
+  const post = getPosts(["src", "app", "[locale]", "blog", "posts", locale]).find((post) => post.slug === slug);
 
   if (!post) {
     notFound();
   }
 
-  const t = await getTranslations();
   const { person } = createI18nContent(t);
 
   const avatars =

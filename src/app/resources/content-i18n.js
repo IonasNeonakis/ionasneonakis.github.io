@@ -16,26 +16,21 @@ const createI18nContent = (t) => {
         // Links are automatically displayed.
         // Import new icons in /once-ui/icons.ts
         {
-            name: 'GitHub',
-            icon: 'github',
-            link: 'https://github.com/once-ui-system/nextjs-starter',
+            name: "LinkedIn",
+            icon: "linkedin",
+            link: "https://www.linkedin.com/in/ionas-neonakis/",
         },
         {
-            name: 'LinkedIn',
-            icon: 'linkedin',
-            link: 'https://www.linkedin.com/company/once-ui/',
+            name: "GitHub",
+            icon: "github",
+            link: "https://github.com/IonasNeonakis",
         },
         {
-            name: 'X',
-            icon: 'x',
-            link: '',
+            name: "Email",
+            icon: "email",
+            link: "mailto:ionas.neonakis@gmail.com",
         },
-        {
-            name: 'Email',
-            icon: 'email',
-            link: 'mailto:example@gmail.com',
-        },
-    ]
+    ];
 
     const home = {
         label: t("home.label"),

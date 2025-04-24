@@ -12,7 +12,8 @@
     "title": "{name}'s Portfolio",
     "description": "Portfolio website showcasing my work as a {role}",
     "headline": "Design engineer and builder",
-    "subline": "I'm Selene, a design engineer at FLY, where I craft intuitive user experiences. After hours, I build my own projects."
+    "subline": "I'm Selene, a design engineer at FLY, where I craft intuitive user experiences. After hours, I build my own projects.",
+    "blog header": "Latest from the blog"
   },
   "about": {
     "label": "About",

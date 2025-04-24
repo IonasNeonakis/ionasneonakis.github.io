@@ -1,4 +1,4 @@
-import React from "react";
+import React, {use} from "react";
 
 import {Heading, Flex, Text, Button, Avatar, RevealFx, Column} from "@/once-ui/components";
 import {Projects} from "@/components/work/Projects";
@@ -52,13 +52,15 @@ export async function generateMetadata(
   };
 }
 
-export default async function Home(
+export default function Home(
   {params} : HomeParams
 ) {
-  const {locale} = await params;
+  const {locale} = use(params);
 
   setRequestLocale(locale);
-  const t = await getTranslations();
+
+  const t = useTranslations();
+
   const {home, about, person} = createI18nContent(t);
 
   return (
@@ -127,7 +129,7 @@ export default async function Home(
         <Flex fillWidth gap="24" mobileDirection="column">
           <Flex flex={1} paddingLeft="l">
             <Heading as="h2" variant="display-strong-xs" wrap="balance">
-              Latest from the blog // todo
+              {t("home.blog header")}
             </Heading>
           </Flex>
           <Flex flex={3} paddingX="20">
