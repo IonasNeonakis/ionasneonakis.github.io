@@ -29,6 +29,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: todreove
+        run: echo "{{ github.event.repository.name }}"
+
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install pnpm
@@ -61,7 +64,7 @@ jobs:
       - name: Build with Next.js
         run: pnpm next build
         env:
-          NEXT_PUBLIC_BASE_PATH: '/${{ github.event.repository.name }}'
+          NEXT_PUBLIC_BASE_PATH: '/portfolio-ionas'
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
