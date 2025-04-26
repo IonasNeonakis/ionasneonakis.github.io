@@ -48,12 +48,20 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-pnpm-
+      - name: Restore cache for Next.js build
+        uses: actions/cache@v4
+        with:
+          path: .next                 # Cache for Next.js build artifacts
+          key: ${{ runner.os }}-next-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-next-${{ github.sha }}
+            ${{ runner.os }}-next-
       - name: Install dependencies
         run: pnpm install
-        env:
-          NEXT_PUBLIC_BASE_PATH: '/${{ github.event.repository.name }}'
       - name: Build with Next.js
         run: pnpm next build
+        env:
+          NEXT_PUBLIC_BASE_PATH: '/${{ github.event.repository.name }}'
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
