@@ -7,8 +7,6 @@ import {baseURL, createI18nContent, routes} from "@/app/resources";
 import {Posts} from "@/components/blog/Posts";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import {useTranslations} from "next-intl";
-import nextConfig from "../../../next.config.mjs";
-
 
 interface HomeParams {
   params: Promise<{

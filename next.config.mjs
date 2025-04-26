@@ -12,7 +12,7 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   output: "export",
-  basePath: "/portfolio-ionas",
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   images: {
     unoptimized: true
   }

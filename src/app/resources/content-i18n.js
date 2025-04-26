@@ -7,7 +7,7 @@ const createI18nContent = (t) => {
             return `${this.firstName} ${this.lastName}`;
         },
         role:  t("person.role"),
-        avatar: "/images/avatar.jpg",
+        avatar: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.jpg`,
         location: "Europe/Paris", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
         languages: ["French", "English", "Greek"], // optional: Leave the array empty if you don't want to display languages
     };
