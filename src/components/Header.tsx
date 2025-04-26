@@ -16,8 +16,8 @@ export const Header = () => {
   const pathname = usePathname() ?? '';
   const {locale} = useParams();
 
-  function handleLanguageChange(locale: string) {
-    const nextLocale = locale as Locale;
+  function handleLanguageChange(newLocale: string) {
+    const nextLocale = newLocale as Locale;
     startTransition(() => {
       router.replace(
         pathname,
@@ -129,14 +129,14 @@ export const Header = () => {
                 padding="4"
                 gap="2"
                 vertical="center">
-              {routing.locales.map((locale, index) => (
+              {routing.locales.map((buttonLocale, index) => (
                 <ToggleButton
                   key={index}
-                  selected={locale === locale}
-                  onClick={() => handleLanguageChange(locale)}
+                  selected={locale == buttonLocale}
+                  onClick={() => handleLanguageChange(buttonLocale)}
                   className={isPending && 'pointer-events-none opacity-60' || ''}
                 >
-                  {locale.toUpperCase()}
+                  {buttonLocale.toUpperCase()}
                 </ToggleButton>
               ))}
             </Flex>
