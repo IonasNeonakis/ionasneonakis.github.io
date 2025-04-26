@@ -80,7 +80,7 @@ export default function Work(
               "@type": "Person",
               name: person.name,
             },
-            hasPart: allProjects.map((project) => ({
+            hasPart: allProjects.map((project) => ({ // todo check url
               "@type": "CreativeWork",
               headline: project.metadata.title,
               description: project.metadata.summary,

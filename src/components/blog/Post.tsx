@@ -11,14 +11,13 @@ interface PostProps {
 
 export default function Post({ post, thumbnail }: PostProps) {
   const tags = post.metadata.tag.split(",").map((tag: string) => tag.trim());
-
   return (
     <SmartLink
       fillWidth
       className={styles.hover}
       unstyled
       key={post.slug}
-      href={`/blog/${post.slug}`}
+      href={`blog/${post.slug}`}
     >
       <Flex
         position="relative"

@@ -7,6 +7,7 @@ import {baseURL, createI18nContent, routes} from "@/app/resources";
 import {Posts} from "@/components/blog/Posts";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import {useTranslations} from "next-intl";
+import nextConfig from "../../../next.config.mjs";
 
 
 interface HomeParams {
@@ -112,7 +113,7 @@ export default function Home(
                 {about.avatar.display && (
                   <Avatar
                     style={{marginLeft: "-0.75rem", marginRight: "0.25rem"}}
-                    src={person.avatar}
+                    src={`${nextConfig.basePath}/${person.avatar}`}
                     size="m"
                   />
                 )}
