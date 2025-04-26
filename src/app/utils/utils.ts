@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import {notFound} from 'next/navigation';
+import {addBasePath} from "@/app/utils/imageUtils";
 
 type Team = {
   name: string;
@@ -19,8 +21,6 @@ type Metadata = {
   team: Team[];
   link?: string;
 };
-
-import { notFound } from 'next/navigation';
 
 function getMDXFiles(dir: string) {
   if (!fs.existsSync(dir)) {
@@ -42,8 +42,8 @@ function readMDXFile(filePath: string) {
     title: data.title || "",
     publishedAt: data.publishedAt,
     summary: data.summary || "",
-    image: data.image || "",
-    images: data.images || [],
+    image: data.image !== undefined ? addBasePath(data.image) : "",
+    images: data.images?.map((image: string) => addBasePath(image)) || [],
     tag: data.tag || [],
     team: data.team || [],
     link: data.link || "",

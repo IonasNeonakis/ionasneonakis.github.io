@@ -1,3 +1,4 @@
+import {addBasePath} from "@/app/utils/imageUtils";
 
 const createI18nContent = (t) => {
     const person = {
@@ -7,7 +8,7 @@ const createI18nContent = (t) => {
             return `${this.firstName} ${this.lastName}`;
         },
         role:  t("person.role"),
-        avatar: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.jpg`,
+        avatar: addBasePath("/images/avatar.jpg"),
         location: "Europe/Paris", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
         languages: ["French", "English", "Greek"], // optional: Leave the array empty if you don't want to display languages
     };
@@ -71,7 +72,7 @@ const createI18nContent = (t) => {
                     achievements: t("about.work.experiences.FLY.achievements").split(";"),
                     images: [ // optional: leave the array empty if you don't want to display images
                         {
-                            src: '/images/projects/project-01/cover-01.jpg',
+                            src: addBasePath('/images/projects/project-01/cover-01.jpg'),
                             alt: 'Once UI Project',
                             width: 16,
                             height: 9
@@ -110,13 +111,13 @@ const createI18nContent = (t) => {
                     description: <>{t("about.technical.skills.Figma.description")}</>,
                     images: [
                         {
-                            src: '/images/projects/project-01/cover-02.jpg',
+                            src: addBasePath('/images/projects/project-01/cover-02.jpg'),
                             alt: 'Project image',
                             width: 16,
                             height: 9
                         },
                         {
-                            src: '/images/projects/project-01/cover-03.jpg',
+                            src: addBasePath('/images/projects/project-01/cover-03.jpg'),
                             alt: 'Project image',
                             width: 16,
                             height: 9
@@ -128,7 +129,7 @@ const createI18nContent = (t) => {
                     description: <>{t("about.technical.skills.Nextjs.description")}</>, // "." not accepted in next-intl namespace
                     images: [
                         {
-                            src: '/images/projects/project-01/cover-04.jpg',
+                            src: addBasePath('/images/projects/project-01/cover-04.jpg'),
                             alt: 'Project image',
                             width: 16,
                             height: 9

@@ -1,6 +1,7 @@
-import { getPosts } from "@/app/utils/utils";
+import {getPosts} from "@/app/utils/utils";
 import { Column } from "@/once-ui/components";
 import { ProjectCard } from "@/components";
+import {addBasePath} from "@/app/utils/imageUtils";
 
 interface ProjectsProps {
   range?: [number, number?];
@@ -29,7 +30,7 @@ export function Projects({ range, locale }: ProjectsProps) {
           title={post.metadata.title}
           description={post.metadata.summary}
           content={post.content}
-          avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
+          avatars={post.metadata.team?.map((member) => ({ src: addBasePath(member.avatar) })) || []}
           link={post.metadata.link || ""}
         />
       ))}
