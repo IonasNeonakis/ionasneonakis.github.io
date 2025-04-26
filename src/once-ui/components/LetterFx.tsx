@@ -99,7 +99,7 @@ const LetterFx = forwardRef<HTMLSpanElement, LetterFxProps>(
     const [hasAnimated, setHasAnimated] = useState<boolean>(false);
     const originalText = useRef<string>(typeof children === "string" ? children : "");
 
-    const eventHandler = useCallback(
+    const eventHandler = useCallback( () =>
       createEventHandler(
         originalText.current,
         setText,

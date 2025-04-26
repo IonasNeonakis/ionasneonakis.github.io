@@ -6,14 +6,6 @@ export {
   display,
   baseURL,
 } from "@/app/resources/config";
-export {
-  person,
-  social,
-  home,
-  about,
-  blog,
-  work,
-} from "@/app/resources/content";
 
 export {
   createI18nContent

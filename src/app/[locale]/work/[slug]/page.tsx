@@ -3,14 +3,13 @@ import {CustomMDX} from "@/components/mdx";
 import {getPosts} from "@/app/utils/utils";
 import {AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text} from "@/once-ui/components";
 import {baseURL, createI18nContent} from "@/app/resources";
-import {person} from "@/app/resources/content";
 import {formatDate} from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
 import {Metadata} from "next";
 import {routing} from "@/i18n/routing";
 import {useTranslations} from "next-intl";
 import {use} from "react";
-import {setRequestLocale} from "next-intl/server";
+import {getTranslations, setRequestLocale} from "next-intl/server";
 
 interface WorkParams {
   params: Promise<{
@@ -34,6 +33,8 @@ export async function generateStaticParams(): Promise<{ slug: string, locale: st
 export async function generateMetadata({ params }: WorkParams): Promise<Metadata | undefined> {
   const { slug, locale } = await params;
 
+  const t = await getTranslations()
+  const { person } = createI18nContent(t)
 
   const post = getPosts(["src", "app", "[locale]", "work", "projects", locale]).find((post) => post.slug === slug);
 

@@ -45,14 +45,14 @@ const GlitchFx = forwardRef<HTMLDivElement, GlitchFxProps>(
       }
     };
 
-    const triggerGlitch = () => {
-      if (trigger === "custom") {
-        setIsGlitching(true);
-        setTimeout(() => setIsGlitching(false), 500);
-      }
-    };
 
     useEffect(() => {
+      const triggerGlitch = () => {
+        if (trigger === "custom") {
+          setIsGlitching(true);
+          setTimeout(() => setIsGlitching(false), 500);
+        }
+      };
       if (trigger === "custom") {
         const glitchInterval = setInterval(triggerGlitch, interval);
         return () => clearInterval(glitchInterval);
