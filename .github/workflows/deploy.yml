@@ -29,9 +29,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: todreove
-        run: echo "${{ github.event.repository.name }}"
-
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install pnpm
