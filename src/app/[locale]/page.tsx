@@ -111,7 +111,7 @@ export default function Home(
                 {about.avatar.display && (
                   <Avatar
                     style={{marginLeft: "-0.75rem", marginRight: "0.25rem"}}
-                    src={`${nextConfig.basePath}/${person.avatar}`}
+                    src={person.avatar}
                     size="m"
                   />
                 )}
