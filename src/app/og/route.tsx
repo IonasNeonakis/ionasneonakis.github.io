@@ -3,6 +3,7 @@ import {baseURL, createI18nContent} from "@/app/resources";
 import {getTranslations} from "next-intl/server";
 
 export const runtime = "edge";
+export const dynamic = "force-static"
 
 export async function GET(request: Request) {
   const url = new URL(request.url);

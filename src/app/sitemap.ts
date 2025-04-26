@@ -2,6 +2,8 @@ import { getPosts } from "@/app/utils/utils";
 import { baseURL, routes as routesConfig } from "@/app/resources";
 import {routing} from "@/i18n/routing";
 
+export const dynamic = "force-static"
+
 export default async function sitemap() {
   const locales = routing.locales;
 

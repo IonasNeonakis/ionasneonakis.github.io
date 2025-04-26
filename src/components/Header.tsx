@@ -5,7 +5,7 @@ import {useParams} from "next/navigation";
 import {Fade, Flex, IconButton, Line, ToggleButton} from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 
-import {routes, display, social, createI18nContent} from "@/app/resources";
+import {routes, createI18nContent} from "@/app/resources";
 import {useTransition} from "react";
 import {Locale, useRouter, usePathname, routing} from "@/i18n/routing";
 import {useTranslations} from "next-intl";
@@ -27,7 +27,7 @@ export const Header = () => {
   }
 
   const t = useTranslations();
-  const {person, home, about, blog, work} = createI18nContent(t);
+  const {person, about, blog, work, social} = createI18nContent(t);
   return (
     <>
       <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9}/>
