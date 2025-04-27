@@ -11,3 +11,4 @@
 - [x] homepage should redirect to French or english
 - [ ] metadata
 - [x] 404 error page
+- [ ] publish to github default profile url
