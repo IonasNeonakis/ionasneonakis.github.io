@@ -4,7 +4,7 @@
 - [ ] check links
 - [ ] baseUrl configuration
 - [x] remove middleware because it is a static site
-- [x]  Could not resolve `view project` in messages for locale `fr`.
+- [x] Could not resolve `view project` in messages for locale `fr`.
 - [ ] Page "/og" is using runtime = 'edge' which is currently incompatible with dynamic = 'force-static'. Please remove either "runtime" or "force-static" for correct behavior
 - [ ] Using edge runtime on a page currently disables static generation for that page
 - [x] English to French doesn't work
