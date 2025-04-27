@@ -1,4 +1,4 @@
-const baseURL = "https://ionasneonakis.github.io/portfolio-ionas/"; // Set to your domain name or IP address TODO change with env variable
+const baseURL = "https://ionasneonakis.github.io/"; // Set to your domain name or IP address TODO change with env variable
 
 const routes = {
   "/": true,
