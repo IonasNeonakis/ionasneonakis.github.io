@@ -4,7 +4,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { usePathname } from '@/i18n/routing';
 import { routes } from "@/app/resources";
 import { Flex, Spinner } from "@/once-ui/components";
-import NotFound from "@/app/[locale]/not-found";
+import NotFound from "@/app/not-found";
 
 interface RouteGuardProps {
 	children: ReactNode;

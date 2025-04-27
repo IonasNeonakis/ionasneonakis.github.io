@@ -9,4 +9,5 @@
 - [ ] Using edge runtime on a page currently disables static generation for that page
 - [ ] English to French doesn't work
 - [x] homepage should redirect to French or english
-- [ ] 404 error page
+- [ ] metadata
+- [x] 404 error page

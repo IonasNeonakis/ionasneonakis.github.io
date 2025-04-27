@@ -9,23 +9,20 @@ import {Raleway} from "next/font/google";
 import {Source_Code_Pro} from "next/font/google";
 
 import {Background, Column, Flex, ToastProvider} from "@/once-ui/components";
-import {routing} from "@/i18n/routing";
 import React from "react";
 
 
 export async function generateMetadata() {
-
-
   return {
-    metadataBase: new URL(`https://${baseURL}/${routing.defaultLocale}`),
-    title: "home.title",
-    description: "home.description",
+    metadataBase: new URL(`https://${baseURL}/en`),
+    title: "Ionas' Portfolio",
+    description: "Portfolio website showcasing my work as a software engineer.",
     openGraph: {
       title: `Ionas' Portfolio`,
       description: "Portfolio website showcasing my work.",
       url: baseURL,
       siteName: `Ionas' Portfolio`,
-      locale: "fr_FR",
+      locale: "en_US",
       type: "website",
     },
     robots: {
@@ -69,17 +66,13 @@ const code = Source_Code_Pro({
 
 interface RootLayoutProps {
   children: React.ReactNode;
-  params: { locale?: string }; // <- locale is optional here
 }
 
 
 export default function RootLayout({
                                      children,
-  params
                                    }: RootLayoutProps) {
 
-
-  console.log("mounted")
 
   return (
     <Flex

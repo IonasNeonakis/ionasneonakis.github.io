@@ -1,14 +1,8 @@
 import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
 
-
 import {Footer, Header, RouteGuard} from "@/components";
-import {baseURL, createI18nContent} from "@/app/resources";
-
-import {Raleway} from "next/font/google";
-import {Source_Code_Pro} from "next/font/google";
-
-import {getMessages, getTranslations, setRequestLocale} from "next-intl/server";
+import {getMessages, setRequestLocale} from "next-intl/server";
 import {routing} from "@/i18n/routing";
 import {NextIntlClientProvider, hasLocale} from "next-intl";
 import React from "react";
@@ -21,44 +15,9 @@ interface LayoutParams {
   }>;
 }
 
-export async function generateMetadata(
-  { params } : LayoutParams
-) {
-  const { locale } = await params;
-
-  const t = await getTranslations();
-  const {person, home} = createI18nContent(t);
-
-
-  return {
-    metadataBase: new URL(`https://${baseURL}/${locale}`),
-    title: home.title,
-    description: home.description,
-    openGraph: {
-      title: `${person.firstName}'s Portfolio`,
-      description: "Portfolio website showcasing my work.",
-      url: baseURL,
-      siteName: `${person.firstName}'s Portfolio`,
-      locale: "en_US",
-      type: "website",
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
-    },
-  };
-}
-
-interface RootLayoutProps {
+interface RootLayoutParams {
   children: React.ReactNode;
-  params: Promise<{ locale?: string }>;
+  params: Promise<{ locale: string }>;
 }
 
 export function generateStaticParams() {
@@ -66,17 +25,17 @@ export function generateStaticParams() {
 }
 
 export default async function RootLayout({
-                                           children,
-                                           params
-                                         }: RootLayoutProps) {
-  const { locale } = await params;
+  children,
+  params
+}: RootLayoutParams) {
+  const {locale} = await params;
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
   setRequestLocale(locale);
-  const messages = await getMessages(); // todo read documentation
+  const messages = await getMessages();
   return (
     <NextIntlClientProvider messages={messages}>
       <Flex fillWidth minHeight="16"></Flex>
