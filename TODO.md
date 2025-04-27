@@ -7,7 +7,7 @@
 - [x]  Could not resolve `view project` in messages for locale `fr`.
 - [ ] Page "/og" is using runtime = 'edge' which is currently incompatible with dynamic = 'force-static'. Please remove either "runtime" or "force-static" for correct behavior
 - [ ] Using edge runtime on a page currently disables static generation for that page
-- [ ] English to French doesn't work
+- [x] English to French doesn't work
 - [x] homepage should redirect to French or english
 - [ ] metadata
 - [x] 404 error page
