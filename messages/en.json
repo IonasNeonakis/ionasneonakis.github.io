@@ -1,73 +1,96 @@
 {
   "person": {
-    "role": "Design Engineer"
+    "role": "Fullstack Developer"
   },
   "home": {
     "label": "Home",
     "title": "{name}'s Portfolio",
     "description": "Portfolio website showcasing my work as a {role}",
-    "headline": "Design engineer and builder",
-    "subline": "I'm Selene, a design engineer at FLY, where I craft intuitive user experiences. After hours, I build my own projects.",
-    "blog header": "Latest from the blog"
+    "headline": "Fullstack Web Developer",
+    "subline": "I'm Ionas, a Fullstack Developer, expert in Spring Boot, Kotlin & React",
+    "blog header": "Latest blog posts"
   },
   "about": {
     "label": "About",
-    "title": "About me",
-    "description": "Meet {name}, {role} from {location}",
+    "title": "About Me",
+    "description": "Meet {name}, a {role} based in {location}",
     "intro": {
       "title": "Introduction",
-      "description": "Selene is a Jakarta-based design engineer with a passion for transforming complex challenges into simple, elegant design solutions. Her work spans digital interfaces, interactive experiences, and the convergence of design and technology."
+      "description": "I'm a fullstack developer based in Paris, specializing in building modern web applications, robust microservices, and high-performance software architectures. I'm passionate about technology and innovation and strive to stay updated with the latest software development trends. My expertise includes technologies like Spring Boot, Kotlin, Java, React, and more. I'm also a strong advocate for best development practices such as TDD, DDD, and Agile methodologies."
     },
     "work": {
       "title": "Work Experience",
       "experiences": {
-        "FLY": {
-          "timeframe": "2022 - Present",
-          "role": "Senior Design Engineer",
-          "achievements": "Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user engagement and 30% faster load times.;Spearheaded the integration of AI tools into design workflows, enabling designers to iterate 50% faster."
+        "LuxuryLeader": {
+          "companyName": "Luxure leader",
+          "companyAlt": "Luxure leadere logo",
+          "timeframe": "December 2022 - Present",
+          "role": "Fullstack Developer Spring Boot (Kotlin/Java) & React",
+          "achievements": "Developed web, mobile (PWA), and logistics microservices in React & Spring Boot.;Built internal tools (SDKs, libs, starters).;Production application support.;Technical lead for applications and microservices.;Tech migrations and quality practices (TDD, DDD, Pair/Mob Programming, etc.).;Onboarding of new developers.;Led bi-weekly technical meetings.;Provided technical advice on architectural decisions.;Managed 2 team members.;Internal speaker on Kotlin & reviewer for Hibernate training."
         },
-        "Creativ3": {
-          "timeframe": "2018 - 2022",
-          "role": "Lead Designer",
-          "achievements": "Developed a design system that unified the brand across multiple platforms, improving design consistency by 40%.;Led a cross-functional team to launch a new product line, contributing to a 15% increase in overall company revenue."
+        "TakimaRH": {
+          "companyName": "Takima (Hui RH)",
+          "companyAlt": "Takima logo",
+          "timeframe": "July 2022 - December 2022",
+          "role": "Fullstack Developer - HR Application",
+          "achievements": "Developed Hui application for HR event management.;Split Hui from the Itewa application.;Wrote SQL scripts for new data schema.;Developed SAP synchronization CRON jobs.;Integrated with Google Sheets via API.;Developed unit and integration tests."
+        },
+        "TakimaFormation": {
+          "companyName": "Takima (Internship)",
+          "companyAlt": "Takima logo",
+          "timeframe": "April 2022 - June 2022",
+          "role": "Fullstack Internship - Master 3",
+          "achievements": "10-week intensive internship covering 13 fullstack development chapters.;Topics included: Java, Kotlin, Spring, React, DevOps, TDD, CI/CD, GDPR, NoSQL, etc.;Built a fullstack marketplace.;Learned agile methodologies and best development practices."
+        },
+        "Atos": {
+          "companyName": "Atos",
+          "companyAlt": "Atos logo",
+          "timeframe": "May 2020 - August 2020",
+          "role": "Fullstack Developer Intern",
+          "achievements": "Built an internal PWA for mission tracking in Angular & Spring Boot.;Gathered user needs through interviews.;Handled complete design (mockups, data models, architecture).;Fullstack development and security with Spring Security.;Implemented backend tests and password encryption.;Worked autonomously through the entire project cycle: analysis, development, deployment."
         }
       }
     },
     "studies": {
       "title": "Studies",
       "institutions": {
-        "University of Jakarta": {
-          "description": "Studied software engineering."
+        "MastersUniversityOrleans": {
+          "name": "University of Orléans (Master's)",
+          "description": "Master's in Intelligent & Secure Mobile Computing (IMIS) 2020 - 2022, top of the class"
         },
-        "Build the Future": {
-          "description": "Studied online marketing and personal branding."
+        "LicenseUniversityOrleans": {
+          "name": "University of Orléans (Bachelor's)",
+          "description": "Bachelor's in Computer Science IMIS | 2017 - 2020"
         }
       }
     },
     "technical": {
-      "title": "Technical skills",
+      "title": "Technical Skills",
       "skills": {
-        "Figma": {
-          "description": "Able to prototype in Figma with Once UI with unnatural speed."
+        "SpringBoot": {
+          "description": "Building robust and high-performance REST APIs with Spring Boot."
         },
-        "Nextjs": {
-          "description": "Building next gen apps with Next.js + Once UI + Supabase."
+        "React": {
+          "description": "Developing responsive and optimized web interfaces with React and TypeScript."
+        },
+        "DevOps": {
+          "description": "Implementing CI/CD pipelines with GitLab, Docker, and Kubernetes."
         }
       }
     }
   },
   "blog": {
     "label": "Blog",
-    "title": "Writing about design and tech...",
+    "title": "Writing about tech...",
     "description": "Read what {name} has been up to recently"
   },
   "work": {
     "label": "Work",
-    "title": "My projects",
-    "description": "Design and dev projects by {name}"
+    "title": "My Projects",
+    "description": "Development projects by {name}"
   },
   "projectCard": {
     "label": "Read Case Study",
-    "view project": "View project"
+    "view project": "View Project"
   }
 }
