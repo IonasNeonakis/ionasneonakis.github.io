@@ -216,7 +216,6 @@ export default function About(
                     <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
                       <Flex vertical="center" gap="8">
                         <Image
-                          position="relative"
                           width={experience.company.image.width}
                           height={experience.company.image.height}
                           alt={experience.company.image.alt}
