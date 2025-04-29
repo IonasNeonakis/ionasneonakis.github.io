@@ -12,11 +12,12 @@ interface Style {
   neutral: "sand" | "gray" | "slate";
   brand: "blue" | "indigo" | "violet" | "magenta" | "pink" | "red" | "orange" | "yellow" | "moss" | "green" | "emerald" | "aqua" | "cyan";
   accent: "blue" | "indigo" | "violet" | "magenta" | "pink" | "red" | "orange" | "yellow" | "moss" | "green" | "emerald" | "aqua" | "cyan";
-  solid: "color" | "contrast";
+  solid: "color" | "inverse" | "contrast" ;
   solidStyle: "flat" | "plastic";
   border: "rounded" | "playful" | "conservative";
   surface: "filled" | "translucent";
-  transition: "all" | "micro" | "macro";
+  transition: "all" | "micro" | "macro" | "none";
+  scaling?: "90" | "95" | "100" | "105" | "110";
 }
 
 const style: Style = {

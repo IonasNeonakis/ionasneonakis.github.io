@@ -12,7 +12,7 @@ interface StylePanelProps extends React.ComponentProps<typeof Flex> {
   className?: string;
 }
 
-const shapes = ["conservative", "playful", "rounded"];
+const shapes = ["conservative", "playful", "rounded"] as const;
 
 const colorOptions = {
   brand: [
@@ -29,7 +29,7 @@ const colorOptions = {
     "green",
     "emerald",
     "aqua",
-  ],
+  ] as const,
   accent: [
     "cyan",
     "blue",
@@ -44,8 +44,8 @@ const colorOptions = {
     "green",
     "emerald",
     "aqua",
-  ],
-  neutral: ["sand", "gray", "slate"],
+  ] as const,
+  neutral: ["sand", "gray", "slate"] as const,
 };
 
 const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref) => {
@@ -70,7 +70,9 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
     root.setAttribute("data-solid-style", solidStyle);
     root.setAttribute("data-theme", theme);
     root.setAttribute("data-transition", transition);
-    root.setAttribute("data-scaling", scaling);
+    if (scaling){
+      root.setAttribute("data-scaling", scaling);
+    }
     root.setAttribute("data-surface", surface);
     root.setAttribute("data-transition", transition);
   }, [
