@@ -1,6 +1,6 @@
 {
   "person": {
-    "role": "Ingénieur en Design"
+    "role": "Développeur Fullstack"
   },
   "home": {
     "label": "Accueil",
@@ -13,10 +13,10 @@
   "about": {
     "label": "À propos",
     "title": "À propos de moi",
-    "description": "Rencontrez {name}, {role} de {location}",
+    "description": "Rencontrez {name}, {role} basé à {location}",
     "intro": {
       "title": "Introduction",
-      "description": "Ionas est un développeur fullstack basé en Île-de-France. Expert Spring Boot, Kotlin & React"
+      "description": "Ionas est un développeur fullstack basé en Île-de-France, spécialisé dans la création d'applications web modernes, de microservices robustes et d'architectures logicielles performantes. Il intervient dans des contextes exigeants tels que la logistique et le luxe."
     },
     "work": {
       "title": "Expérience Professionnelle",
@@ -26,15 +26,15 @@
           "role": "Développeur Fullstack",
           "achievements": "Développement d’applications web et mobiles (PWA) en React & Spring Boot dans le périmètre logistique.;Création d’outils internes (SDK, libs, starters).;Support d’applications en production.;Responsable technique de plusieurs services.;Conseil technique au client.;Promotion des bonnes pratiques : TDD, DDD, Pair/Mob Programming, GitOps."
         },
+        "Takima": {
+          "timeframe": "Juin - Août 2020",
+          "role": "Développeur Fullstack",
+          "achievements": "Formation intensive en développement fullstack & DevOps.;Développement d’un site web RH en React et Spring Boot."
+        },
         "Atos": {
           "timeframe": "Avril - Septembre 2022",
           "role": "Stagiaire Développeur Fullstack",
-          "achievements": "Recueil du besoin et développement fullstack d'une PWA avec Angular et Spring Boot pour le suivi des missions internes."
-        },
-        "Takima": {
-          "timeframe": "Juin - Août 2020",
-          "role": "Stagiaire Fullstack",
-          "achievements": "Formation intensive en développement fullstack & DevOps.;Développement d’un site web RH en React et Spring Boot."
+          "achievements": "Création d'une PWA interne pour le suivi de missions.;Développement du back-end en Spring Boot et du front-end en Angular."
         }
       }
     },
@@ -54,14 +54,14 @@
     "technical": {
       "title": "Compétences Techniques",
       "skills": {
-        "React": {
-          "description": "Développement d'interfaces web dynamiques avec React, en mettant l'accent sur l’UX et la performance."
+        "SpringBoot": {
+          "description": "Création d'APIs REST robustes et performantes avec Spring Boot."
         },
-        "Spring Boot": {
-          "description": "Construction d'APIs robustes et de microservices scalables avec Spring Boot."
+        "React": {
+          "description": "Développement d'interfaces web réactives et optimisées avec React et TypeScript."
         },
         "DevOps": {
-          "description": "Expérience avec Kubernetes, GitOps, CI/CD, et les pratiques DevOps modernes."
+          "description": "Mise en place de pipelines CI/CD avec GitLab, Docker et Kubernetes."
         }
       }
     }
