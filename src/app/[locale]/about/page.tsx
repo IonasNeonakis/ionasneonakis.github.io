@@ -10,12 +10,13 @@ import {
   Tag,
   Text,
 } from "@/once-ui/components";
-import { baseURL, createI18nContent } from "@/app/resources";
+import {baseURL, createI18nContent} from "@/app/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import {JSX, use} from "react";
+import {getTranslations, setRequestLocale} from 'next-intl/server';
+import React, {JSX, use} from "react";
 import {useTranslations} from "next-intl";
+import Image from "next/image";
 
 interface AboutParams {
   params: Promise<{
@@ -24,11 +25,11 @@ interface AboutParams {
 }
 
 export async function generateMetadata(
-  { params } : AboutParams
+  {params}: AboutParams
 ) {
-  const { locale } = await params;
+  const {locale} = await params;
   const t = await getTranslations();
-  const { about } = createI18nContent(t);
+  const {about} = createI18nContent(t);
 
   const title = about.title;
   const description = about.description;
@@ -59,14 +60,14 @@ export async function generateMetadata(
 }
 
 export default function About(
-  { params } : AboutParams
+  {params}: AboutParams
 ) {
   const {locale} = use(params);
   setRequestLocale(locale);
 
-  const t =  useTranslations();
+  const t = useTranslations();
 
-  const {person, about, social } = createI18nContent(t);
+  const {person, about, social} = createI18nContent(t);
 
   const structure = [
     {
@@ -77,7 +78,7 @@ export default function About(
     {
       title: about.work.title,
       display: about.work.display,
-      items: about.work.experiences.map((experience) => experience.company),
+      items: about.work.experiences.map((experience) => experience.company.name),
     },
     {
       title: about.studies.title,
@@ -114,45 +115,41 @@ export default function About(
           }),
         }}
       />
-      {about.tableOfContent.display && (
-        <Column
-          left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
-          position="fixed"
-          paddingLeft="24"
-          gap="32"
-          hide="s"
-        >
-          <TableOfContents structure={structure} about={about} />
-        </Column>
-      )}
+      <Column
+        left="0"
+        style={{top: "50%", transform: "translateY(-50%)"}}
+        position="fixed"
+        paddingLeft="24"
+        gap="32"
+        hide="s"
+      >
+        <TableOfContents structure={structure}/>
+      </Column>
       <Flex fillWidth mobileDirection="column" horizontal="center">
-        {about.avatar.display && (
-          <Column
-            className={styles.avatar}
-            minWidth="160"
-            paddingX="l"
-            paddingBottom="xl"
-            gap="m"
-            flex={3}
-            horizontal="center"
-          >
-            <Avatar src={person.avatar} size="xl" />
-            <Flex gap="8" vertical="center">
-              <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
+        <Column
+          className={styles.avatar}
+          minWidth="160"
+          paddingX="l"
+          paddingBottom="xl"
+          gap="m"
+          flex={3}
+          horizontal="center"
+        >
+          <Avatar src={person.avatar} size="xl"/>
+          <Flex gap="8" vertical="center">
+            <Icon onBackground="accent-weak" name="globe"/>
+            {person.location}
+          </Flex>
+          {person.languages.length > 0 && (
+            <Flex wrap gap="8">
+              {person.languages.map((language, index) => (
+                <Tag key={index} size="l">
+                  {language}
+                </Tag>
+              ))}
             </Flex>
-            {person.languages.length > 0 && (
-              <Flex wrap gap="8">
-                {person.languages.map((language, index) => (
-                  <Tag key={index} size="l">
-                    {language}
-                  </Tag>
-                ))}
-              </Flex>
-            )}
-          </Column>
-        )}
+          )}
+        </Column>
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column
             id={about.intro.title}
@@ -172,29 +169,30 @@ export default function About(
               {person.role}
             </Text>
             {social.length > 0 && (
-              <Flex className={styles.blockAlign} paddingTop="20" paddingBottom="8" gap="8" wrap horizontal="center" fitWidth>
+              <Flex className={styles.blockAlign} paddingTop="20" paddingBottom="8" gap="8" wrap horizontal="center"
+                    fitWidth>
                 {social.map(
                   (item) =>
                     item.link && (
-                        <div key={item.link}>
-                            <Button
-                                className="s-flex-hide"
-                                key={item.name}
-                                href={item.link}
-                                prefixIcon={item.icon}
-                                label={item.name}
-                                size="s"
-                                variant="secondary"
-                            />
-                            <IconButton
-                                className="s-flex-show"
-                                size="l"
-                                key={`${item.name}-icon`}
-                                href={item.link}
-                                icon={item.icon}
-                                variant="secondary"
-                            />
-                        </div>
+                      <div key={item.link}>
+                        <Button
+                          className="s-flex-hide"
+                          key={item.name}
+                          href={item.link}
+                          prefixIcon={item.icon}
+                          label={item.name}
+                          size="s"
+                          variant="secondary"
+                        />
+                        <IconButton
+                          className="s-flex-show"
+                          size="l"
+                          key={`${item.name}-icon`}
+                          href={item.link}
+                          icon={item.icon}
+                          variant="secondary"
+                        />
+                      </div>
                     ),
                 )}
               </Flex>
@@ -214,11 +212,21 @@ export default function About(
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+                  <Column key={`${experience.company.name}-${experience.role}-${index}`} fillWidth>
                     <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
-                      </Text>
+                      <Flex vertical="center" gap="8">
+                        <Image
+                          position="relative"
+                          width={experience.company.image.width}
+                          height={experience.company.image.height}
+                          alt={experience.company.image.alt}
+                          src={experience.company.image.src}
+                        />
+                        <Text variant="heading-strong-l">
+                          {experience.company.name}
+                        </Text>
+                      </Flex>
+
                       <Text variant="heading-default-xs" onBackground="neutral-weak">
                         {experience.timeframe}
                       </Text>
@@ -226,8 +234,8 @@ export default function About(
                     <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
                       {experience.role}
                     </Text>
-                    <Column as="ul" gap="16">
-                      {experience.achievements.map((achievement: JSX.Element, index: number) => (
+                    <Column as="ul">
+                      {experience.achievements.map((achievement, index: number) => (
                         <Text
                           as="li"
                           variant="body-default-m"
@@ -244,19 +252,14 @@ export default function About(
                             key={index}
                             border="neutral-medium"
                             radius="m"
-                            //@ts-ignore
                             minWidth={image.width}
-                            //@ts-ignore
                             height={image.height}
                           >
                             <SmartImage
                               enlarge
                               radius="m"
-                              //@ts-ignore
                               sizes={image.width.toString()}
-                              //@ts-ignore
                               alt={image.alt}
-                              //@ts-ignore
                               src={image.src}
                             />
                           </Flex>
@@ -313,19 +316,14 @@ export default function About(
                             key={index}
                             border="neutral-medium"
                             radius="m"
-                            //@ts-ignore
                             minWidth={image.width}
-                            //@ts-ignore
                             height={image.height}
                           >
                             <SmartImage
                               enlarge
                               radius="m"
-                              //@ts-ignore
                               sizes={image.width.toString()}
-                              //@ts-ignore
                               alt={image.alt}
-                              //@ts-ignore
                               src={image.src}
                             />
                           </Flex>

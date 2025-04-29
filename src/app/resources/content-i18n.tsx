@@ -25,8 +25,13 @@ interface Home {
     subline: JSX.Element;
 }
 
+interface Company {
+    name: string;
+    image: Image;
+}
+
 interface Experience {
-    company: string;
+    company: Company;
     timeframe: string;
     role: string;
     achievements: string[];
@@ -55,9 +60,6 @@ interface About {
     label: string;
     title: string;
     description: string;
-    tableOfContent: { display: boolean; subItems: boolean };
-    avatar: { display: boolean };
-    calendar: { display: boolean };
     intro: {
         display: boolean;
         title: string;
@@ -148,9 +150,6 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
             role: person.role,
             location: person.location,
         }),
-        tableOfContent: { display: true, subItems: true },
-        avatar: { display: true },
-        calendar: { display: false },
         intro: {
             display: true,
             title: t("about.intro.title"),
@@ -161,7 +160,15 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
             title: t("about.work.title"),
             experiences: [
                 {
-                    company: "Leader du Luxe",
+                    company: {
+                        name: "Leader du Luxe",
+                        image: {
+                            src: "/images/companies/diamond.png",
+                            alt: "Takima logo",
+                            height: 30,
+                            width: 30,
+                        }
+                    },
                     timeframe: t("about.work.experiences.LuxuryLeader.timeframe"),
                     role: t("about.work.experiences.LuxuryLeader.role"),
                     achievements: t("about.work.experiences.LuxuryLeader.achievements").split(";"),
@@ -175,21 +182,45 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
                     ],
                 },
                 {
-                    company: "Takima (Hui RH)",
+                    company: {
+                        name: "Takima (Hui RH)",
+                        image: {
+                            src: "/images/companies/takima.png",
+                            alt: "Takima logo",
+                            height: 30,
+                            width: 30,
+                        }
+                    },
                     timeframe: t("about.work.experiences.TakimaRH.timeframe"),
                     role: t("about.work.experiences.TakimaRH.role"),
                     achievements: t("about.work.experiences.TakimaRH.achievements").split(";"),
                     images: [],
                 },
                 {
-                    company: "Takima (Formation)",
+                    company: {
+                        name: "Takima (Formation)",
+                        image: {
+                            src: "/images/companies/takima.png",
+                            alt: "Takima logo",
+                            height: 30,
+                            width: 30,
+                        }
+                    },
                     timeframe: t("about.work.experiences.TakimaFormation.timeframe"),
                     role: t("about.work.experiences.TakimaFormation.role"),
                     achievements: t("about.work.experiences.TakimaFormation.achievements").split(";"),
                     images: [],
                 },
                 {
-                    company: "Atos",
+                    company: {
+                        name: "Atos",
+                        image: {
+                            src: "/images/companies/atos.png",
+                            alt: "atos logo",
+                            height: 15,
+                            width: 46,
+                        }
+                    },
                     timeframe: t("about.work.experiences.Atos.timeframe"),
                     role: t("about.work.experiences.Atos.role"),
                     achievements: t("about.work.experiences.Atos.achievements").split(";"),
