@@ -57,9 +57,9 @@ const createI18nContent = (t) => {
             experiences: [
                 {
                     company: "Leader du Luxe",
-                    timeframe: t("about.work.experiences.Leader du Luxe.timeframe"),
-                    role: t("about.work.experiences.Leader du Luxe.role"),
-                    achievements: t("about.work.experiences.Leader du Luxe.achievements").split(";"),
+                    timeframe: t("about.work.experiences.LuxuryLeader.timeframe"),
+                    role: t("about.work.experiences.LuxuryLeader.role"),
+                    achievements: t("about.work.experiences.LuxuryLeader.achievements").split(";"),
                     images: [
                         {
                             src: addBasePath("/images/projects/project-01/cover-01.jpg"),
@@ -91,11 +91,11 @@ const createI18nContent = (t) => {
             institutions: [
                 {
                     name: "Université d'Orléans",
-                    description: <>{t("about.studies.institutions.Université d'Orléans.description")}</>,
+                    description: <>{t("about.studies.institutions.MastersUniversityOrleans.description")}</>,
                 },
                 {
                     name: "Université d'Orléans (Licence)",
-                    description: <>{t("about.studies.institutions.Université d'Orléans (Licence).description")}</>,
+                    description: <>{t("about.studies.institutions.LicenseUniversityOrleans.description")}</>,
                 },
             ],
         },

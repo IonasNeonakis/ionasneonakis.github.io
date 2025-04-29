@@ -21,7 +21,7 @@
     "work": {
       "title": "Expérience Professionnelle",
       "experiences": {
-        "Leader du marché du luxe": {
+        "LuxuryLeader": {
           "timeframe": "Octobre 2022 - Aujourd’hui",
           "role": "Développeur Fullstack",
           "achievements": "Développement d’applications web et mobiles (PWA) en React & Spring Boot dans le périmètre logistique.;Création d’outils internes (SDK, libs, starters).;Support d’applications en production.;Responsable technique de plusieurs services.;Conseil technique au client.;Promotion des bonnes pratiques : TDD, DDD, Pair/Mob Programming, GitOps."
