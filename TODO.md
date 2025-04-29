@@ -11,4 +11,6 @@
 - [x] homepage should redirect to French or english
 - [ ] metadata
 - [x] 404 error page
-- [ ] publish to github default profile url
+- [x] publish to github default profile url
+- [ ] add icon to "major de la promotion"
+- [x] make config.ts typescript

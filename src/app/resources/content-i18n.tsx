@@ -1,7 +1,108 @@
 import { addBasePath } from "@/app/utils/imageUtils";
+import {JSX} from "react";
 
-const createI18nContent = (t) => {
-    const person = {
+interface Person {
+    firstName: string;
+    lastName: string;
+    name: string;
+    role: string;
+    avatar: string;
+    location: string;
+    languages: string[];
+}
+
+interface SocialLink {
+    name: string;
+    icon: string;
+    link: string;
+}
+
+interface Home {
+    label: string;
+    title: string;
+    description: string;
+    headline: JSX.Element;
+    subline: JSX.Element;
+}
+
+interface Experience {
+    company: string;
+    timeframe: string;
+    role: string;
+    achievements: string[];
+    images: Image[];
+}
+
+interface Image {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+}
+
+interface StudiesInstitution {
+    name: string;
+    description: JSX.Element;
+}
+
+interface Skill {
+    title: string;
+    description: JSX.Element;
+    images: Image[];
+}
+
+interface About {
+    label: string;
+    title: string;
+    description: string;
+    tableOfContent: { display: boolean; subItems: boolean };
+    avatar: { display: boolean };
+    calendar: { display: boolean };
+    intro: {
+        display: boolean;
+        title: string;
+        description: JSX.Element;
+    };
+    work: {
+        display: boolean;
+        title: string;
+        experiences: Experience[];
+    };
+    studies: {
+        display: boolean;
+        title: string;
+        institutions: StudiesInstitution[];
+    };
+    technical: {
+        display: boolean;
+        title: string;
+        skills: Skill[];
+    };
+}
+
+interface Blog {
+    label: string;
+    title: string;
+    description: string;
+}
+
+interface Work {
+    label: string;
+    title: string;
+    description: string;
+}
+
+interface I18nContent {
+    person: Person;
+    social: SocialLink[];
+    home: Home;
+    about: About;
+    blog: Blog;
+    work: Work;
+}
+
+const createI18nContent = (t: (key: string, options?: any) => string): I18nContent => {
+    const person: Person = {
         firstName: "Ionas",
         lastName: "NEONAKIS",
         get name() {
@@ -13,7 +114,7 @@ const createI18nContent = (t) => {
         languages: ["Français", "Anglais", "Grec"],
     };
 
-    const social = [
+    const social: SocialLink[] = [
         {
             name: "LinkedIn",
             icon: "linkedin",
@@ -31,7 +132,7 @@ const createI18nContent = (t) => {
         },
     ];
 
-    const home = {
+    const home: Home = {
         label: t("home.label"),
         title: t("home.title", { name: person.name }),
         description: t("home.description", { role: person.role }),
@@ -39,7 +140,7 @@ const createI18nContent = (t) => {
         subline: <>{t("home.subline")}</>,
     };
 
-    const about = {
+    const about: About = {
         label: t("about.label"),
         title: t("about.title"),
         description: t("about.description", { name: person.name, role: person.role, location: person.location }),
@@ -82,7 +183,7 @@ const createI18nContent = (t) => {
                     role: t("about.work.experiences.Atos.role"),
                     achievements: t("about.work.experiences.Atos.achievements").split(";"),
                     images: [],
-                }
+                },
             ],
         },
         studies: {
@@ -138,18 +239,18 @@ const createI18nContent = (t) => {
                             height: 9,
                         },
                     ],
-                }
+                },
             ],
         },
     };
 
-    const blog = {
+    const blog: Blog = {
         label: t("blog.label"),
         title: t("blog.title"),
         description: t("blog.description", { name: person.name }),
     };
 
-    const work = {
+    const work: Work = {
         label: t("work.label"),
         title: t("work.title"),
         description: t("work.description", { name: person.name }),
