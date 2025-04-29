@@ -14,3 +14,4 @@
 - [x] publish to github default profile url
 - [ ] add icon to "major de la promotion"
 - [x] make config.ts typescript
+- [ ] description content is too long
