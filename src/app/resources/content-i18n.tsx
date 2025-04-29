@@ -161,10 +161,10 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
             experiences: [
                 {
                     company: {
-                        name: "Leader du Luxe",
+                        name: t("about.work.experiences.LuxuryLeader.companyName"),
                         image: {
                             src: "/images/companies/diamond.png",
-                            alt: "Takima logo",
+                            alt: t("about.work.experiences.LuxuryLeader.companyAlt"),
                             height: 30,
                             width: 30,
                         }
@@ -183,10 +183,10 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
                 },
                 {
                     company: {
-                        name: "Takima (Hui RH)",
+                        name: t("about.work.experiences.TakimaRH.companyName"),
                         image: {
                             src: "/images/companies/takima.png",
-                            alt: "Takima logo",
+                            alt: t("about.work.experiences.TakimaRH.companyAlt"),
                             height: 30,
                             width: 30,
                         }
@@ -198,10 +198,10 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
                 },
                 {
                     company: {
-                        name: "Takima (Formation)",
+                        name: t("about.work.experiences.TakimaFormation.companyName"),
                         image: {
                             src: "/images/companies/takima.png",
-                            alt: "Takima logo",
+                            alt: t("about.work.experiences.TakimaFormation.companyAlt"),
                             height: 30,
                             width: 30,
                         }
@@ -213,10 +213,10 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
                 },
                 {
                     company: {
-                        name: "Atos",
+                        name: t("about.work.experiences.Atos.companyName"),
                         image: {
                             src: "/images/companies/atos.png",
-                            alt: "atos logo",
+                            alt: t("about.work.experiences.Atos.companyAlt"),
                             height: 15,
                             width: 46,
                         }
