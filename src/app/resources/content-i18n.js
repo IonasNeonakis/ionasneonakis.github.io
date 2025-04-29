@@ -93,13 +93,13 @@ const createI18nContent = (t) => {
             title: t("about.studies.title"),
             institutions: [
                 {
-                    name: 'University of Jakarta',
-                    description: <>{t(`about.studies.institutions.University of Jakarta.description`)}</>,
+                    name: t('about.studies.institutions.MastersUniversityOrleans.name'),
+                    description: <>{t(`about.studies.institutions.MastersUniversityOrleans.description`)}</>,
                 },
                 {
-                    name: 'Build the Future',
-                    description: <>{t("about.studies.institutions.Build the Future.description")}</>,
-                }
+                    name:  t('about.studies.institutions.LicenseUniversityOrleans.name'),
+                    description: <>{t(`about.studies.institutions.LicenseUniversityOrleans.description`)}</>,
+                },
             ]
         },
         technical: {
@@ -107,8 +107,8 @@ const createI18nContent = (t) => {
             title: t("about.technical.title"),
             skills: [
                 {
-                    title: 'Figma',
-                    description: <>{t("about.technical.skills.Figma.description")}</>,
+                    title: 'React',
+                    description: <>{t("about.technical.skills.React.description")}</>,
                     images: [
                         {
                             src: addBasePath('/images/projects/project-01/cover-02.jpg'),
@@ -125,8 +125,20 @@ const createI18nContent = (t) => {
                     ]
                 },
                 {
-                    title: 'Next.js',
-                    description: <>{t("about.technical.skills.Nextjs.description")}</>, // "." not accepted in next-intl namespace
+                    title: 'Spring Boot',
+                    description: <>{t("about.technical.skills.Spring Boot.description")}</>, // "." not accepted in next-intl namespace
+                    images: [
+                        {
+                            src: addBasePath('/images/projects/project-01/cover-04.jpg'),
+                            alt: 'Project image',
+                            width: 16,
+                            height: 9
+                        },
+                    ]
+                },
+                {
+                    title: 'DevOps',
+                    description: <>{t("about.technical.skills.DevOps.description")}</>,
                     images: [
                         {
                             src: addBasePath('/images/projects/project-01/cover-04.jpg'),
@@ -136,6 +148,7 @@ const createI18nContent = (t) => {
                         },
                     ]
                 }
+
             ]
         }
     }

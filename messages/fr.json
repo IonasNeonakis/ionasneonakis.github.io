@@ -2,17 +2,12 @@
   "person": {
     "role": "Ingénieur en Design"
   },
-  "newsletter": {
-    "title": "Abonnez-vous à la Newsletter de {firstName}",
-    "description": "J'écris occasionnellement sur le design, la technologie et partage mes réflexions sur l'intersection de la créativité et de l'ingénierie.",
-    "button": "S'inscrire"
-  },
   "home": {
     "label": "Accueil",
     "title": "Portfolio de {name}",
     "description": "Site portfolio présentant mon travail en tant que {role}",
-    "headline": "Ingénieur en design et constructeur",
-    "subline": "Je suis Selene, ingénieur en design chez FLY, où je crée des expériences utilisateur intuitives. Après les heures de travail, je construis mes propres projets.",
+    "headline": "Développeur Web fullstack",
+    "subline": "Je suis Ionas, développeur Fullstack, Expert Spring Boot, Kotlin & React",
     "blog header": "Derniers articles du blog"
   },
   "about": {
@@ -21,63 +16,68 @@
     "description": "Rencontrez {name}, {role} de {location}",
     "intro": {
       "title": "Introduction",
-      "description": "Selene est une ingénieure en design basée à Jakarta, passionnée par la transformation de défis complexes en solutions de design simples et élégantes. Son travail couvre les interfaces numériques, les expériences interactives et la convergence du design et de la technologie."
+      "description": "Ionas est un développeur fullstack basé en Île-de-France. Expert Spring Boot, Kotlin & React"
     },
     "work": {
       "title": "Expérience Professionnelle",
       "experiences": {
-        "FLY": {
-          "timeframe": "2022 - Présent",
-          "role": "Ingénieur en Design Senior",
-          "achievements": "Refonte de l'UI/UX de la plateforme FLY, entraînant une augmentation de 20% de l'engagement des utilisateurs et des temps de chargement 30% plus rapides.;A dirigé l'intégration d'outils d'IA dans les workflows de design, permettant aux designers d'itérer 50% plus rapidement."
+        "Leader du marché du luxe": {
+          "timeframe": "Octobre 2022 - Aujourd’hui",
+          "role": "Développeur Fullstack",
+          "achievements": "Développement d’applications web et mobiles (PWA) en React & Spring Boot dans le périmètre logistique.;Création d’outils internes (SDK, libs, starters).;Support d’applications en production.;Responsable technique de plusieurs services.;Conseil technique au client.;Promotion des bonnes pratiques : TDD, DDD, Pair/Mob Programming, GitOps."
         },
-        "Creativ3": {
-          "timeframe": "2018 - 2022",
-          "role": "Designer Principal",
-          "achievements": "Développement d'un système de design qui unifie la marque sur plusieurs plateformes, améliorant la cohérence du design de 40%.;A dirigé une équipe interfonctionnelle pour lancer une nouvelle ligne de produits, contribuant à une augmentation de 15% des revenus globaux de l'entreprise."
+        "Atos": {
+          "timeframe": "Avril - Septembre 2022",
+          "role": "Stagiaire Développeur Fullstack",
+          "achievements": "Recueil du besoin et développement fullstack d'une PWA avec Angular et Spring Boot pour le suivi des missions internes."
+        },
+        "Takima": {
+          "timeframe": "Juin - Août 2020",
+          "role": "Stagiaire Fullstack",
+          "achievements": "Formation intensive en développement fullstack & DevOps.;Développement d’un site web RH en React et Spring Boot."
         }
       }
     },
     "studies": {
       "title": "Études",
       "institutions": {
-        "University of Jakarta": {
-          "description": "Études en ingénierie logicielle."
+        "MastersUniversityOrleans": {
+          "name": "Université d'Orléans (Master)",
+          "description": "Master Informatique Mobile Intelligente & Sécurisée (IMIS) 2020 - 2022, Major de promotion"
         },
-        "Build the Future": {
-          "description": "Études en marketing en ligne et en personal branding."
+        "LicenseUniversityOrleans": {
+          "name": "Université d'Orléans (Licence)",
+          "description": "Licence Informatique IMIS | 2017 - 2020"
         }
       }
     },
     "technical": {
       "title": "Compétences Techniques",
       "skills": {
-        "Figma": {
-          "description": "Capable de prototyper dans Figma avec Once UI à une vitesse incroyable."
+        "React": {
+          "description": "Développement d'interfaces web dynamiques avec React, en mettant l'accent sur l’UX et la performance."
         },
-        "Nextjs": {
-          "description": "Création d'applications de nouvelle génération avec Next.js + Once UI + Supabase."
+        "Spring Boot": {
+          "description": "Construction d'APIs robustes et de microservices scalables avec Spring Boot."
+        },
+        "DevOps": {
+          "description": "Expérience avec Kubernetes, GitOps, CI/CD, et les pratiques DevOps modernes."
         }
       }
     }
   },
   "blog": {
     "label": "Blog",
-    "title": "Écriture sur le design et la technologie...",
+    "title": "Écriture sur la tech...",
     "description": "Lisez ce que {name} a fait récemment"
   },
   "work": {
     "label": "Travail",
     "title": "Mes projets",
-    "description": "Projets de design et de développement par {name}"
-  },
-  "gallery": {
-    "label": "Galerie",
-    "title": "Ma galerie photo",
-    "description": "Une collection de photos par {name}"
+    "description": "Projets de développement par {name}"
   },
   "projectCard": {
     "label": "Lire l'Étude de Cas",
-    "view project": "Voir le projet"
+    "view project": "Lien vers le projet"
   }
 }
