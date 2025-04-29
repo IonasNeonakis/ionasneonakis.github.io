@@ -16,25 +16,30 @@
     "description": "Rencontrez {name}, {role} basé à {location}",
     "intro": {
       "title": "Introduction",
-      "description": "Ionas est un développeur fullstack basé en Île-de-France, spécialisé dans la création d'applications web modernes, de microservices robustes et d'architectures logicielles performantes. Il intervient dans des contextes exigeants tels que la logistique et le luxe."
+      "description": "Je suis un développeur fullstack basé en Île-de-France, spécialisé dans la création d'applications web modernes, de microservices robustes et d'architectures logicielles performantes. Je suis passionné par la technologie et l'innovation, et je m'efforce de rester à jour avec les dernières tendances du développement logiciel. Mon expertise s'étend à des technologies telles que Spring Boot, Kotlin, Java, React et bien d'autres. Je suis également un fervent défenseur des bonnes pratiques de développement tels que le TDD, le DDD et l'agilité."
     },
     "work": {
       "title": "Expérience Professionnelle",
       "experiences": {
         "LuxuryLeader": {
-          "timeframe": "Octobre 2022 - Aujourd’hui",
-          "role": "Développeur Fullstack",
-          "achievements": "Développement d’applications web et mobiles (PWA) en React & Spring Boot dans le périmètre logistique.;Création d’outils internes (SDK, libs, starters).;Support d’applications en production.;Responsable technique de plusieurs services.;Conseil technique au client.;Promotion des bonnes pratiques : TDD, DDD, Pair/Mob Programming, GitOps."
+          "timeframe": "Décembre 2022 - Aujourd’hui",
+          "role": "Développeur Fullstack Spring Boot (Kotlin/Java) & React",
+          "achievements": "Développement d’applications web, mobiles (PWA) et microservices logistiques en React & Spring Boot.;Création d’outils internes (SDK, libs, starters).;Support d’applications en production.;Responsable technique d’applications et de microservices.;Migrations techniques et pratiques qualité (TDD, DDD, Pair/Mob Programming, etc.).;Onboarding de nouveaux développeurs.;Animation de réunions techniques bi-hebdomadaires.;Conseil technique sur les choix d’architecture.;Manager de 2 collaborateurs.;Conférencier interne Kotlin & relecteur de formation Hibernate."
         },
-        "Takima": {
-          "timeframe": "Juin - Août 2020",
-          "role": "Développeur Fullstack",
-          "achievements": "Formation intensive en développement fullstack & DevOps.;Développement d’un site web RH en React et Spring Boot."
+        "TakimaRH": {
+          "timeframe": "Juillet 2022 - Décembre 2022",
+          "role": "Développeur Fullstack - Application RH",
+          "achievements": "Développement de l'application Hui pour la gestion des événements RH.;Séparation de Hui de l'application Itewa.;Écriture de scripts SQL pour le nouveau schéma de données.;Développement de tâches CRON de synchronisation SAP.;Intégration avec Google Sheets via API.;Développement de tests unitaires et d’intégration."
+        },
+        "TakimaFormation": {
+          "timeframe": "Avril 2022 - Juin 2022",
+          "role": "Formation Fullstack Master 3",
+          "achievements": "Formation intensive sur 10 semaines couvrant 13 chapitres de développement fullstack.;Thèmes abordés : Java, Kotlin, Spring, React, DevOps, TDD, CI/CD, RGPD, NoSQL, etc.;Développement d'une marketplace fullstack.;Apprentissage de l'agilité et des bonnes pratiques de développement."
         },
         "Atos": {
-          "timeframe": "Avril - Septembre 2022",
+          "timeframe": "Mai 2020 - Août 2020",
           "role": "Stagiaire Développeur Fullstack",
-          "achievements": "Création d'une PWA interne pour le suivi de missions.;Développement du back-end en Spring Boot et du front-end en Angular."
+          "achievements": "Mise en place d’une PWA interne de suivi de missions en Angular & Spring Boot.;Recueil des besoins utilisateurs par interviews.;Conception complète (maquettes, MCD, architecture);Développement fullstack et sécurisation avec Spring Security.;Implémentation de tests backend et chiffrement des mots de passe.;Autonomie sur tout le cycle projet : analyse, développement, déploiement."
         }
       }
     },

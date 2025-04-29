@@ -1,5 +1,5 @@
 import { addBasePath } from "@/app/utils/imageUtils";
-import {JSX} from "react";
+import { JSX } from "react";
 
 interface Person {
     firstName: string;
@@ -143,7 +143,11 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
     const about: About = {
         label: t("about.label"),
         title: t("about.title"),
-        description: t("about.description", { name: person.name, role: person.role, location: person.location }),
+        description: t("about.description", {
+            name: person.name,
+            role: person.role,
+            location: person.location,
+        }),
         tableOfContent: { display: true, subItems: true },
         avatar: { display: true },
         calendar: { display: false },
@@ -171,10 +175,17 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
                     ],
                 },
                 {
-                    company: "Takima",
-                    timeframe: t("about.work.experiences.Takima.timeframe"),
-                    role: t("about.work.experiences.Takima.role"),
-                    achievements: t("about.work.experiences.Takima.achievements").split(";"),
+                    company: "Takima (Hui RH)",
+                    timeframe: t("about.work.experiences.TakimaRH.timeframe"),
+                    role: t("about.work.experiences.TakimaRH.role"),
+                    achievements: t("about.work.experiences.TakimaRH.achievements").split(";"),
+                    images: [],
+                },
+                {
+                    company: "Takima (Formation)",
+                    timeframe: t("about.work.experiences.TakimaFormation.timeframe"),
+                    role: t("about.work.experiences.TakimaFormation.role"),
+                    achievements: t("about.work.experiences.TakimaFormation.achievements").split(";"),
                     images: [],
                 },
                 {
@@ -191,11 +202,11 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
             title: t("about.studies.title"),
             institutions: [
                 {
-                    name: "Université d'Orléans",
+                    name: t("about.studies.institutions.MastersUniversityOrleans.name"),
                     description: <>{t("about.studies.institutions.MastersUniversityOrleans.description")}</>,
                 },
                 {
-                    name: "Université d'Orléans (Licence)",
+                    name: t("about.studies.institutions.LicenseUniversityOrleans.name"),
                     description: <>{t("about.studies.institutions.LicenseUniversityOrleans.description")}</>,
                 },
             ],
