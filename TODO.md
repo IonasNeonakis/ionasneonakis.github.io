@@ -15,3 +15,4 @@
 - [ ] add icon to "major de la promotion"
 - [x] make config.ts typescript
 - [ ] description content is too long
+- [ ] optimize images: https://nextjs.org/docs/pages/guides/static-exports
