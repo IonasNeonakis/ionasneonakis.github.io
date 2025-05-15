@@ -7,7 +7,6 @@ import styles from "./about.module.scss";
 interface TableOfContentsProps {
   structure: {
     title: string;
-    display: boolean;
     items: string[];
   }[];
 }
@@ -40,7 +39,6 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure }) => {
       hide="m"
     >
       {structure
-        .filter((section) => section.display)
         .map((section, sectionIndex) => (
           <Column key={sectionIndex} gap="12">
             <Flex

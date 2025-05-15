@@ -61,22 +61,18 @@ interface About {
     title: string;
     description: string;
     intro: {
-        display: boolean;
         title: string;
         description: JSX.Element;
     };
     work: {
-        display: boolean;
         title: string;
         experiences: Experience[];
     };
     studies: {
-        display: boolean;
         title: string;
         institutions: StudiesInstitution[];
     };
     technical: {
-        display: boolean;
         title: string;
         skills: Skill[];
     };
@@ -151,12 +147,10 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
             location: person.location,
         }),
         intro: {
-            display: true,
             title: t("about.intro.title"),
             description: <>{t("about.intro.description")}</>,
         },
         work: {
-            display: true,
             title: t("about.work.title"),
             experiences: [
                 {
@@ -229,7 +223,6 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
             ],
         },
         studies: {
-            display: true,
             title: t("about.studies.title"),
             institutions: [
                 {
@@ -243,7 +236,6 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
             ],
         },
         technical: {
-            display: true,
             title: t("about.technical.title"),
             skills: [
                 {

@@ -14,7 +14,7 @@ import {baseURL, createI18nContent} from "@/app/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import {getTranslations, setRequestLocale} from 'next-intl/server';
-import React, {JSX, use} from "react";
+import React, { use } from "react";
 import {useTranslations} from "next-intl";
 import Image from "next/image";
 
@@ -72,22 +72,18 @@ export default function About(
   const structure = [
     {
       title: about.intro.title,
-      display: about.intro.display,
       items: [],
     },
     {
       title: about.work.title,
-      display: about.work.display,
       items: about.work.experiences.map((experience) => experience.company.name),
     },
     {
       title: about.studies.title,
-      display: about.studies.display,
       items: about.studies.institutions.map((institution) => institution.name),
     },
     {
       title: about.technical.title,
-      display: about.technical.display,
       items: about.technical.skills.map((skill) => skill.title),
     },
   ];
@@ -199,13 +195,10 @@ export default function About(
             )}
           </Column>
 
-          {about.intro.display && (
             <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
               {about.intro.description}
             </Column>
-          )}
 
-          {about.work.display && (
             <>
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
@@ -221,7 +214,7 @@ export default function About(
                           alt={experience.company.image.alt}
                           src={experience.company.image.src}
                         />
-                        <Text variant="heading-strong-l">
+                        <Text variant="heading-strong-l" id={experience.company.name}>
                           {experience.company.name}
                         </Text>
                       </Flex>
@@ -269,9 +262,7 @@ export default function About(
                 ))}
               </Column>
             </>
-          )}
 
-          {about.studies.display && (
             <>
               <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
                 {about.studies.title}
@@ -289,9 +280,7 @@ export default function About(
                 ))}
               </Column>
             </>
-          )}
 
-          {about.technical.display && (
             <>
               <Heading
                 as="h2"
@@ -304,7 +293,7 @@ export default function About(
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill, index) => (
                   <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text variant="heading-strong-l">{skill.title}</Text>
+                    <Text id={skill.title} variant="heading-strong-l">{skill.title}</Text>
                     <Text variant="body-default-m" onBackground="neutral-weak">
                       {skill.description}
                     </Text>
@@ -333,7 +322,6 @@ export default function About(
                 ))}
               </Column>
             </>
-          )}
         </Column>
       </Flex>
     </Column>
