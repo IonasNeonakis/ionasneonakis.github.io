@@ -1,8 +1,8 @@
 
-- [ ] change favicon
+- [x] change favicon
 - [x] fix all image url
 - [ ] check links
-- [ ] baseUrl configuration
+- [x] baseUrl configuration
 - [x] remove middleware because it is a static site
 - [x] Could not resolve `view project` in messages for locale `fr`.
 - [ ] Page "/og" is using runtime = 'edge' which is currently incompatible with dynamic = 'force-static'. Please remove either "runtime" or "force-static" for correct behavior
@@ -16,4 +16,5 @@
 - [x] make config.ts typescript
 - [ ] description content is too long
 - [ ] optimize images: https://nextjs.org/docs/pages/guides/static-exports
-- [ ] links in work don't work
+- [x] links in work don't work
+- [ ] add certifications with icons and links
