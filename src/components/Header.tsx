@@ -6,9 +6,12 @@ import {Fade, Flex, IconButton, Line, ToggleButton} from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 
 import {routes, createI18nContent} from "@/app/resources";
+import {LanguageDropdown} from "@/components/LanguageDropdown";
+
 import {useTransition} from "react";
 import {Locale, useRouter, usePathname, routing} from "@/i18n/routing";
 import {useTranslations} from "next-intl";
+import classNames from "classnames";
 
 export const Header = () => {
   const router = useRouter();
@@ -120,27 +123,62 @@ export const Header = () => {
             textVariant="body-default-s"
             gap="20"
           >
-            {routing.locales.length > 1 && <Flex
-                background="surface"
-                border="neutral-medium"
-                borderStyle="solid"
-                radius="m-4"
-                shadow="l"
-                padding="4"
-                gap="2"
-                vertical="center">
+            <Flex
+              background="surface"
+              border="neutral-medium"
+              borderStyle="solid"
+              radius="m-4"
+              shadow="l"
+              padding="4"
+              className='s-flex-hide'
+              gap="2"
+              vertical="center">
               {routing.locales.map((buttonLocale, index) => (
-                <ToggleButton
-                  key={index}
-                  selected={locale == buttonLocale}
-                  onClick={() => handleLanguageChange(buttonLocale)}
-                  className={isPending && 'pointer-events-none opacity-60' || ''}
-                >
-                  {buttonLocale.toUpperCase()}
-                </ToggleButton>
+                  <ToggleButton
+                    key={buttonLocale}
+                    selected={locale == buttonLocale}
+                    onClick={() => handleLanguageChange(buttonLocale)}
+                    className={isPending && 'pointer-events-none opacity-60' || ''}
+                  >
+                    {buttonLocale.toUpperCase()}
+                  </ToggleButton>
               ))}
             </Flex>
-            }
+
+            <Flex
+              background="surface"
+              border="neutral-medium"
+              borderStyle="solid"
+              radius="m-4"
+              shadow="l"
+              padding="4"
+              className='s-flex-show'
+              vertical="center">
+              {routing.locales.map((buttonLocale, index) => (
+                  <ToggleButton
+                    key={`${buttonLocale}-s`}
+                    size="s"
+                    variant={"ghost"}
+                    selected={locale == buttonLocale}
+                    onClick={() => handleLanguageChange(buttonLocale)}
+                    className={isPending && 'pointer-events-none opacity-60' || ''}
+                  >
+                    {buttonLocale}
+                  </ToggleButton>
+              ))}
+            </Flex>
+
+
+
+
+
+
+
+
+
+
+
+
             <Flex hide="s" gap="16">
               {social.map(
                 (item) =>

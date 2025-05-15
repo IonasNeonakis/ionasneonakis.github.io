@@ -18,3 +18,4 @@
 - [ ] optimize images: https://nextjs.org/docs/pages/guides/static-exports
 - [x] links in work don't work
 - [ ] add certifications with icons and links
+- [ ] ⚠ The config property `experimental.turbo` is deprecated. Move this setting to `config.turbopack` as Turbopack is now stable.
