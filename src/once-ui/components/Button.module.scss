@@ -87,6 +87,13 @@
     }
 }
 
+.xs {
+    padding: var(--static-space-8) var(--static-space-1);
+    min-height: var(--static-space-16);
+    height: var(--static-space-32);
+    gap: var(--static-space-2);
+}
+
 .s {
     padding: var(--static-space-4) var(--static-space-8);
     min-height: var(--static-space-32);

@@ -11,13 +11,17 @@ import {LanguageDropdown} from "@/components/LanguageDropdown";
 import {useTransition} from "react";
 import {Locale, useRouter, usePathname, routing} from "@/i18n/routing";
 import {useTranslations} from "next-intl";
-import classNames from "classnames";
+import {Params} from "next/dist/server/request/params";
+
+interface MyParams  extends Params{
+  locale: 'fr' | 'en';
+}
 
 export const Header = () => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname() ?? '';
-  const {locale} = useParams();
+  const {locale} = useParams<MyParams>();
 
   function handleLanguageChange(newLocale: string) {
     const nextLocale = newLocale as Locale;
@@ -112,6 +116,9 @@ export const Header = () => {
                   />
                 </>
               )}
+              <Flex className="s-flex-show">
+              <LanguageDropdown handleLanguageChange={handleLanguageChange} currentLocale={locale} isLoading={isPending} />
+              </Flex>
             </Flex>
           </Flex>
         </Flex>
@@ -123,61 +130,10 @@ export const Header = () => {
             textVariant="body-default-s"
             gap="20"
           >
-            <Flex
-              background="surface"
-              border="neutral-medium"
-              borderStyle="solid"
-              radius="m-4"
-              shadow="l"
-              padding="4"
-              className='s-flex-hide'
-              gap="2"
-              vertical="center">
-              {routing.locales.map((buttonLocale, index) => (
-                  <ToggleButton
-                    key={buttonLocale}
-                    selected={locale == buttonLocale}
-                    onClick={() => handleLanguageChange(buttonLocale)}
-                    className={isPending && 'pointer-events-none opacity-60' || ''}
-                  >
-                    {buttonLocale.toUpperCase()}
-                  </ToggleButton>
-              ))}
-            </Flex>
 
-            <Flex
-              background="surface"
-              border="neutral-medium"
-              borderStyle="solid"
-              radius="m-4"
-              shadow="l"
-              padding="4"
-              className='s-flex-show'
-              vertical="center">
-              {routing.locales.map((buttonLocale, index) => (
-                  <ToggleButton
-                    key={`${buttonLocale}-s`}
-                    size="s"
-                    variant={"ghost"}
-                    selected={locale == buttonLocale}
-                    onClick={() => handleLanguageChange(buttonLocale)}
-                    className={isPending && 'pointer-events-none opacity-60' || ''}
-                  >
-                    {buttonLocale}
-                  </ToggleButton>
-              ))}
-            </Flex>
-
-
-
-
-
-
-
-
-
-
-
+            <Flex className="s-flex-hide">
+              <LanguageDropdown handleLanguageChange={handleLanguageChange} currentLocale={locale} isLoading={isPending} />
+</Flex>
 
             <Flex hide="s" gap="16">
               {social.map(

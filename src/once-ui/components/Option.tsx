@@ -3,6 +3,7 @@ import { Flex, Text } from ".";
 import styles from "./Option.module.scss";
 import { ElementType } from "./ElementType";
 import React, { forwardRef } from "react";
+import { SpacingToken } from "@/once-ui/types";
 
 export interface OptionProps {
   label: React.ReactNode;
@@ -11,6 +12,8 @@ export interface OptionProps {
   hasPrefix?: React.ReactNode;
   hasSuffix?: React.ReactNode;
   description?: React.ReactNode;
+  paddingX?: SpacingToken;
+  paddingY?: SpacingToken;
   danger?: boolean;
   selected?: boolean;
   highlighted?: boolean;
@@ -27,6 +30,8 @@ const Option = forwardRef<HTMLDivElement, OptionProps>(
       hasPrefix,
       hasSuffix,
       description,
+      paddingX,
+      paddingY,
       danger,
       selected,
       highlighted,
@@ -52,8 +57,8 @@ const Option = forwardRef<HTMLDivElement, OptionProps>(
           {...props}
           fillWidth
           vertical="center"
-          paddingX="12"
-          paddingY="8"
+          paddingX={paddingX ?? "12"}
+          paddingY={paddingY ?? "8"}
           gap="12"
           radius="m"
           role="option"
