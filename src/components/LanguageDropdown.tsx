@@ -18,7 +18,7 @@ export function LanguageDropdown({handleLanguageChange, currentLocale, isLoading
 
   const options = routing.locales.map((locale) => {
     return {
-      label: <LanguageImage locale={locale} size={20} />,
+      label: <LanguageImage locale={locale} size={20} isLoading={isLoading} />,
       value: locale,
     };
   })
