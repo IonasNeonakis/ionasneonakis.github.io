@@ -2,7 +2,6 @@ import {
   Button,
   Option, DropdownWrapper, Flex, Row,
 } from "@/once-ui/components";
-import { useState } from "react";
 import { routing } from "@/i18n/routing";
 import { LanguageImage } from "./LanguageImage";
 
@@ -12,10 +11,7 @@ interface LanguageDropdownProps {
   isLoading: boolean
 }
 
-
 export function LanguageDropdown({handleLanguageChange, currentLocale, isLoading} : LanguageDropdownProps){
-  const [isOpen, setIsOpen] = useState(false);
-
   const options = routing.locales.map((locale) => {
     return {
       label: <LanguageImage locale={locale} size={20} isLoading={isLoading} />,
@@ -25,13 +21,10 @@ export function LanguageDropdown({handleLanguageChange, currentLocale, isLoading
 
   const handleSelect = (value: 'fr' | 'en') => {
     handleLanguageChange(value);
-    setIsOpen(false);
   };
 
   return (
     <DropdownWrapper
-      isOpen={isOpen}
-      onOpenChange={() => {!isLoading && setIsOpen(!isOpen)}}
       trigger={
         <Button
           size="xs"

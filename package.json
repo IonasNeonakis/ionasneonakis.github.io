@@ -10,13 +10,13 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
     "@mdx-js/loader": "^3.1.0",
-    "@next/mdx": "^15.3.1",
+    "@next/mdx": "^15.3.2",
     "classnames": "^2.5.1",
-    "eslint": "^9.25.1",
-    "eslint-config-next": "^15.3.1",
+    "eslint": "^9.27.0",
+    "eslint-config-next": "^15.3.2",
     "gray-matter": "^4.0.3",
-    "next": "^15.3.1",
-    "next-intl": "^4.0.3",
+    "next": "^15.3.2",
+    "next-intl": "^4.1.0",
     "next-mdx-remote": "^5.0.0",
     "postcss": "^8.5.3",
     "postcss-preset-env": "^10.1.6",
@@ -24,13 +24,13 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
-    "sass": "^1.86.3"
+    "sass": "^1.89.0"
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.0.0",
-    "@types/node": "^20",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
+    "@types/node": "^22.15.18",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
     "postcss-custom-media": "^11.0.5",
     "postcss-flexbugs-fixes": "^5.0.2",
     "typescript": "^5.8.3"

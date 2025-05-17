@@ -13,7 +13,7 @@ import {Locale, useRouter, usePathname, routing} from "@/i18n/routing";
 import {useTranslations} from "next-intl";
 import {Params} from "next/dist/server/request/params";
 
-interface MyParams  extends Params{
+interface MyParams extends Params {
   locale: 'fr' | 'en';
 }
 
