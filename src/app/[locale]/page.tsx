@@ -1,12 +1,12 @@
-import React, {use} from "react";
+import React, { use } from "react";
 
-import {Heading, Flex, Text, Button, Avatar, RevealFx, Column} from "@/once-ui/components";
-import {Projects} from "@/components/work/Projects";
+import { Projects } from "@/components/work/Projects";
+import { Avatar, Button, Column, Flex, Heading, RevealFx, Text } from "@/once-ui/components";
 
-import {baseURL, createI18nContent, routes} from "@/app/resources";
-import {Posts} from "@/components/blog/Posts";
-import {getTranslations, setRequestLocale} from "next-intl/server";
-import {useTranslations} from "next-intl";
+import { baseURL, createI18nContent, routes } from "@/app/resources";
+import { Posts } from "@/components/blog/Posts";
+import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 interface HomeParams {
   params: Promise<{
@@ -14,14 +14,11 @@ interface HomeParams {
   }>;
 }
 
-export async function generateMetadata(
-  {params}: HomeParams
-) {
-  const {locale} = await params;
+export async function generateMetadata({ params }: HomeParams) {
+  const { locale } = await params;
 
   const t = await getTranslations();
-  const {home} = createI18nContent(t);
-
+  const { home } = createI18nContent(t);
 
   const title = home.title;
   const description = home.description;
@@ -51,16 +48,14 @@ export async function generateMetadata(
   };
 }
 
-export default function Home(
-  {params} : HomeParams
-) {
-  const {locale} = use(params);
+export default function Home({ params }: HomeParams) {
+  const { locale } = use(params);
 
   setRequestLocale(locale);
 
   const t = useTranslations();
 
-  const {home, about, person} = createI18nContent(t);
+  const { home, about, person } = createI18nContent(t);
 
   return (
     <Column maxWidth="m" gap="xl" horizontal="center">
@@ -108,11 +103,11 @@ export default function Home(
               arrowIcon
             >
               <Flex gap="8" vertical="center">
-                  <Avatar
-                    style={{marginLeft: "-0.75rem", marginRight: "0.25rem"}}
-                    src={person.avatar}
-                    size="m"
-                  />
+                <Avatar
+                  style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
+                  src={person.avatar}
+                  size="m"
+                />
                 {about.title}
               </Flex>
             </Button>
@@ -120,7 +115,7 @@ export default function Home(
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} locale={locale}/>
+        <Projects range={[1, 1]} locale={locale} />
       </RevealFx>
       {routes["/blog"] && (
         <Flex fillWidth gap="24" mobileDirection="column">
@@ -130,11 +125,11 @@ export default function Home(
             </Heading>
           </Flex>
           <Flex flex={3} paddingX="20">
-            <Posts range={[1, 2]} columns="2" locale={locale}/>
+            <Posts range={[1, 2]} columns="2" locale={locale} />
           </Flex>
         </Flex>
       )}
-      <Projects range={[2]} locale={locale}/>
+      <Projects range={[2]} locale={locale} />
     </Column>
   );
 }

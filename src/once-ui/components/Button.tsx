@@ -1,10 +1,11 @@
 "use client";
 
-import React, { ReactNode, forwardRef } from "react";
-import { ElementType } from "./ElementType";
 import classNames from "classnames";
+import type React from "react";
+import { type ReactNode, forwardRef } from "react";
+import { ElementType } from "./ElementType";
 
-import { Spinner, Icon, Arrow, Flex } from ".";
+import { Arrow, Flex, Icon, Spinner } from ".";
 import styles from "./Button.module.scss";
 
 interface CommonProps {
@@ -62,7 +63,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(
     ref,
   ) => {
     const iconSize = size === "l" ? "s" : size === "m" ? "s" : "xs";
-    const radiusSize = size === "xs" ||  size === "s" || size === "m" ? "m" : "l";
+    const radiusSize = size === "xs" || size === "s" || size === "m" ? "m" : "l";
 
     return (
       <ElementType
@@ -82,9 +83,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(
           "button",
           "cursor-interactive",
           {
-            ["fill-width"]: fillWidth,
-            ["fit-width"]: !fillWidth,
-            ["justify-" + justifyContent]: justifyContent,
+            "fill-width": fillWidth,
+            "fit-width": !fillWidth,
+            [`justify-${justifyContent}`]: justifyContent,
           },
           className,
         )}
@@ -109,7 +110,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(
             style={{
               marginLeft: "calc(-1 * var(--static-space-4))",
             }}
-            trigger={"#" + id}
+            trigger={`#${id}`}
             scale={size === "s" ? 0.8 : size === "m" ? 0.9 : 1}
             color={variant === "primary" ? "onSolid" : "onBackground"}
           />

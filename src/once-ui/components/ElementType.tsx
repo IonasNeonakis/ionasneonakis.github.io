@@ -1,11 +1,13 @@
 import Link from "next/link";
-import React, { ReactNode, forwardRef } from "react";
+import type React from "react";
+import { type ReactNode, forwardRef } from "react";
 
 interface ElementTypeProps {
   href?: string;
   children: ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  // biome-ignore lint/suspicious/noExplicitAny: this is a generic component
   [key: string]: any;
 }
 

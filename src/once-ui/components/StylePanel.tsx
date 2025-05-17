@@ -1,11 +1,12 @@
 "use client";
 
-import { forwardRef, useState, useEffect } from "react";
-import { Flex, Text, SegmentedControl, IconButton, Scroller, Column } from ".";
+import type React from "react";
+import { forwardRef, useEffect, useState } from "react";
+import { Column, Flex, IconButton, Scroller, SegmentedControl, Text } from ".";
 
-import styles from "./StylePanel.module.scss";
-import classNames from "classnames";
 import { style } from "@/app/resources";
+import classNames from "classnames";
+import styles from "./StylePanel.module.scss";
 
 interface StylePanelProps extends React.ComponentProps<typeof Flex> {
   style?: React.CSSProperties;
@@ -70,7 +71,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
     root.setAttribute("data-solid-style", solidStyle);
     root.setAttribute("data-theme", theme);
     root.setAttribute("data-transition", transition);
-    if (scaling){
+    if (scaling) {
       root.setAttribute("data-scaling", scaling);
     }
     root.setAttribute("data-surface", surface);
@@ -136,7 +137,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                 }}
               >
                 <IconButton variant="ghost" size="m">
-                  <div className={classNames(styles.neutral, styles.swatch)}></div>
+                  <div className={classNames(styles.neutral, styles.swatch)} />
                 </IconButton>
               </Flex>
             ))}
@@ -176,7 +177,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                 }}
               >
                 <IconButton variant="ghost" size="m">
-                  <div className={`${styles[color]} ${styles.swatch}`}></div>
+                  <div className={`${styles[color]} ${styles.swatch}`} />
                 </IconButton>
               </Flex>
             ))}
@@ -208,7 +209,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                 }}
               >
                 <IconButton variant="ghost" size="m">
-                  <div className={`${styles[color]} ${styles.swatch}`}></div>
+                  <div className={`${styles[color]} ${styles.swatch}`} />
                 </IconButton>
               </Flex>
             ))}
@@ -239,7 +240,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                 }}
               >
                 <IconButton variant="ghost" size="m">
-                  <div className={`${styles[color]} ${styles.swatch}`}></div>
+                  <div className={`${styles[color]} ${styles.swatch}`} />
                 </IconButton>
               </Flex>
             ))}
@@ -280,7 +281,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                       width="24"
                       height="24"
                       radius="s"
-                    ></Flex>
+                    />
                     Color
                   </Flex>
                 ),
@@ -298,7 +299,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                       width="24"
                       height="24"
                       radius="s"
-                    ></Flex>
+                    />
                     Inverse
                   </Flex>
                 ),
@@ -316,7 +317,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                       width="24"
                       height="24"
                       radius="s"
-                    ></Flex>
+                    />
                     Contrast
                   </Flex>
                 ),
@@ -351,7 +352,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                       width="24"
                       height="24"
                       radius="s"
-                    ></Flex>
+                    />
                     Flat
                   </Flex>
                 ),
@@ -372,7 +373,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                       width="24"
                       height="24"
                       radius="s"
-                    ></Flex>
+                    />
                     Plastic
                   </Flex>
                 ),

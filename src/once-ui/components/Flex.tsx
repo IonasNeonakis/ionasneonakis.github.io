@@ -1,9 +1,9 @@
 "use client";
 
 import classNames from "classnames";
-import { CSSProperties, forwardRef } from "react";
+import { type CSSProperties, forwardRef } from "react";
 
-import {
+import type {
   CommonProps,
   ConditionalProps,
   DisplayProps,
@@ -12,7 +12,7 @@ import {
   SpacingProps,
   StyleProps,
 } from "../interfaces";
-import { ColorScheme, ColorWeight, SpacingToken, TextVariant } from "../types";
+import type { ColorScheme, ColorWeight, SpacingToken, TextVariant } from "../types";
 
 interface ComponentProps
   extends FlexProps,
@@ -147,7 +147,7 @@ const Flex = forwardRef<HTMLDivElement, ComponentProps>(
       if (!value) return undefined;
 
       if (value === "transparent") {
-        return `transparent-border`;
+        return "transparent-border";
       }
 
       if (["surface", "page", "overlay"].includes(value)) {

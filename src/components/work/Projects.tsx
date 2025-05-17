@@ -1,7 +1,7 @@
-import {getPosts} from "@/app/utils/utils";
-import { Column } from "@/once-ui/components";
+import { addBasePath } from "@/app/utils/imageUtils";
+import { getPosts } from "@/app/utils/utils";
 import { ProjectCard } from "@/components";
-import {addBasePath} from "@/app/utils/imageUtils";
+import { Column } from "@/once-ui/components";
 
 interface ProjectsProps {
   range?: [number, number?];
@@ -9,7 +9,7 @@ interface ProjectsProps {
 }
 
 export function Projects({ range, locale }: ProjectsProps) {
-  const allProjects = getPosts(['src', 'app', '[locale]', 'work', 'projects', locale]);
+  const allProjects = getPosts(["src", "app", "[locale]", "work", "projects", locale]);
 
   const sortedProjects = allProjects.toSorted((a, b) => {
     return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();

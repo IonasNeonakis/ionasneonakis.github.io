@@ -1,11 +1,10 @@
+import { baseURL, createI18nContent } from "@/app/resources";
 import { getPosts } from "@/app/utils/utils";
-import { Column } from "@/once-ui/components";
 import { Projects } from "@/components/work/Projects";
-import {baseURL, createI18nContent} from "@/app/resources";
-import {getTranslations, setRequestLocale} from "next-intl/server";
-import {useTranslations} from "next-intl";
-import {use} from "react";
-
+import { Column } from "@/once-ui/components";
+import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { use } from "react";
 
 interface WorkParams {
   params: Promise<{
@@ -13,12 +12,8 @@ interface WorkParams {
   }>;
 }
 
-
-export async function generateMetadata(
-  {params}: WorkParams
-) {
-  const {locale} = await params;
-
+export async function generateMetadata({ params }: WorkParams) {
+  const { locale } = await params;
 
   const t = await getTranslations();
   const { work } = createI18nContent(t);
@@ -51,17 +46,14 @@ export async function generateMetadata(
   };
 }
 
-export default function Work(
-  {params}: WorkParams
-) {
-  const {locale} = use(params);
+export default function Work({ params }: WorkParams) {
+  const { locale } = use(params);
 
   setRequestLocale(locale);
   const t = useTranslations();
 
-  const allProjects = getPosts(['src', 'app', '[locale]', 'work', 'projects', locale]);
+  const allProjects = getPosts(["src", "app", "[locale]", "work", "projects", locale]);
   const { person, work } = createI18nContent(t);
-
 
   return (
     <Column maxWidth="m">
@@ -80,7 +72,7 @@ export default function Work(
               "@type": "Person",
               name: person.name,
             },
-            hasPart: allProjects.map((project) => ({ // todo check url
+            hasPart: allProjects.map((project) => ({
               "@type": "CreativeWork",
               headline: project.metadata.title,
               description: project.metadata.summary,
@@ -90,7 +82,7 @@ export default function Work(
           }),
         }}
       />
-      <Projects locale={locale}/>
+      <Projects locale={locale} />
     </Column>
   );
 }

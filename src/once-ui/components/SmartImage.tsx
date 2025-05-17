@@ -1,7 +1,8 @@
 "use client";
 
-import React, { CSSProperties, useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import type React from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 
 import { Flex, Skeleton } from "@/once-ui/components";
 
@@ -138,14 +139,15 @@ const SmartImage: React.FC<SmartImageProps> = ({
         )}
         {!isLoading && isYouTube && (
           <iframe
+            title="YouTube video player"
             width="100%"
             height="100%"
             src={getYouTubeEmbedUrl(src)}
-            frameBorder="0"
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             style={{
               objectFit: objectFit,
+              border: "none",
             }}
           />
         )}

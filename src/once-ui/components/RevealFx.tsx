@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useEffect, forwardRef } from "react";
-import { SpacingToken } from "../types";
-import styles from "./RevealFx.module.scss";
+import type React from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { Flex } from ".";
+import type { SpacingToken } from "../types";
+import styles from "./RevealFx.module.scss";
 
 interface RevealFxProps extends React.ComponentProps<typeof Flex> {
   children: React.ReactNode;
@@ -63,7 +64,9 @@ const RevealFx = forwardRef<HTMLDivElement, RevealFxProps>(
     const getTranslateYValue = () => {
       if (typeof translateY === "number") {
         return `${translateY}rem`;
-      } else if (typeof translateY === "string") {
+      }
+
+      if (typeof translateY === "string") {
         return `var(--static-space-${translateY})`;
       }
       return undefined;

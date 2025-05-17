@@ -5,7 +5,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "biome-check": "biome check ./src",
+    "biome-write": "biome check --write ./src"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
@@ -27,6 +29,7 @@
     "sass": "^1.89.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@csstools/postcss-global-data": "^3.0.0",
     "@types/node": "^22.15.18",
     "@types/react": "^19.1.4",

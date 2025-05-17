@@ -1,12 +1,13 @@
-import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
-import React, { ReactNode } from "react";
+import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
+import type React from "react";
+import type { ReactNode } from "react";
 
+import { HeadingLink } from "@/components";
 import { SmartImage, SmartLink, Text } from "@/once-ui/components";
 import { CodeBlock } from "@/once-ui/modules";
-import { HeadingLink } from "@/components";
 
-import { TextProps } from "@/once-ui/interfaces";
-import { SmartImageProps } from "@/once-ui/components/SmartImage";
+import type { SmartImageProps } from "@/once-ui/components/SmartImage";
+import type { TextProps } from "@/once-ui/interfaces";
 
 type TableProps = {
   data: {
@@ -16,10 +17,13 @@ type TableProps = {
 };
 
 function Table({ data }: TableProps) {
-  const headers = data.headers.map((header, index) => <th key={index}>{header}</th>);
+  // biome-ignore lint/suspicious/noArrayIndexKey: it's safe to use index here
+  const headers = data.headers.map((header, index) => <th key={header + index}>{header}</th>);
   const rows = data.rows.map((row, index) => (
+    // biome-ignore lint/suspicious/noArrayIndexKey: it's safe to use index here
     <tr key={index}>
       {row.map((cell, cellIndex) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey: it's safe to use index here
         <td key={cellIndex}>{cell}</td>
       ))}
     </tr>
@@ -129,15 +133,15 @@ function createParagraph({ children }: TextProps) {
 }
 
 const components = {
-  p: createParagraph as any,
-  h1: createHeading(1) as any,
-  h2: createHeading(2) as any,
-  h3: createHeading(3) as any,
-  h4: createHeading(4) as any,
-  h5: createHeading(5) as any,
-  h6: createHeading(6) as any,
-  img: createImage as any,
-  a: CustomLink as any,
+  p: createParagraph,
+  h1: createHeading(1),
+  h2: createHeading(2),
+  h3: createHeading(3),
+  h4: createHeading(4),
+  h5: createHeading(5),
+  h6: createHeading(6),
+  img: createImage,
+  a: CustomLink,
   Table,
   CodeBlock,
 };

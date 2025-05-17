@@ -1,8 +1,8 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
+import { addBasePath } from "@/app/utils/imageUtils";
 import matter from "gray-matter";
-import {notFound} from 'next/navigation';
-import {addBasePath} from "@/app/utils/imageUtils";
+import { notFound } from "next/navigation";
 
 type Team = {
   name: string;
@@ -17,10 +17,16 @@ type Metadata = {
   summary: string;
   image?: string;
   images: string[];
-  tag?: string;
+  tag: string;
   team: Team[];
   link?: string;
 };
+
+export interface PostData {
+  metadata: Metadata;
+  slug: string;
+  content: string;
+}
 
 function getMDXFiles(dir: string) {
   if (!fs.existsSync(dir)) {
@@ -31,9 +37,9 @@ function getMDXFiles(dir: string) {
 }
 
 function readMDXFile(filePath: string) {
-    if (!fs.existsSync(filePath)) {
-        notFound();
-    }
+  if (!fs.existsSync(filePath)) {
+    notFound();
+  }
 
   const rawContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(rawContent);
@@ -52,7 +58,7 @@ function readMDXFile(filePath: string) {
   return { metadata, content };
 }
 
-function getMDXData(dir: string) {
+function getMDXData(dir: string): PostData[] {
   const mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
     const { metadata, content } = readMDXFile(path.join(dir, file));

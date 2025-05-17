@@ -1,18 +1,18 @@
 "use client";
 
-import React, { CSSProperties, forwardRef } from "react";
 import classNames from "classnames";
+import React, { type CSSProperties, forwardRef } from "react";
 
-import {
-  GridProps,
-  SpacingProps,
-  SizeProps,
-  StyleProps,
+import type {
   CommonProps,
-  DisplayProps,
   ConditionalProps,
+  DisplayProps,
+  GridProps,
+  SizeProps,
+  SpacingProps,
+  StyleProps,
 } from "../interfaces";
-import { SpacingToken, ColorScheme, ColorWeight } from "../types";
+import type { ColorScheme, ColorWeight, SpacingToken } from "../types";
 
 interface ComponentProps
   extends GridProps,
@@ -189,7 +189,7 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
       (border || borderTop || borderRight || borderBottom || borderLeft) &&
         !borderStyle &&
         "border-solid",
-      border && !borderWidth && `border-1`,
+      border && !borderWidth && "border-1",
       (borderTop || borderRight || borderBottom || borderLeft) && "border-reset",
       borderTop && "border-top-1",
       borderRight && "border-right-1",

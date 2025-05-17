@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useRef, ReactNode } from "react";
+import React, { useState, useEffect, useRef, type ReactNode } from "react";
 
 import "./CodeHighlight.css";
 import styles from "./CodeBlock.module.scss";
 
-import { Flex, Button, IconButton, Scroller, Row, StyleOverlay } from "@/once-ui/components";
+import { Button, Flex, IconButton, Row, Scroller, StyleOverlay } from "@/once-ui/components";
 
 import Prism from "prismjs";
 import "prismjs/plugins/line-highlight/prism-line-highlight";
@@ -13,8 +13,8 @@ import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-css";
 import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-tsx";
+import type { SpacingToken } from "@/once-ui/types";
 import classNames from "classnames";
-import { SpacingToken } from "@/once-ui/types";
 
 type CodeInstance = {
   code: string | { content: string; error: string | null };
@@ -61,7 +61,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   const [selectedInstance, setSelectedInstance] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const { code, language, label } = codeInstances[selectedInstance] || {
+  const { code, language } = codeInstances[selectedInstance] || {
     code: "",
     language: "",
     label: "Select code",
@@ -71,7 +71,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
     if (codeRef.current && codeInstances.length > 0) {
       Prism.highlightAll();
     }
-  }, [code, codeInstances.length]);
+  }, [codeInstances.length]);
 
   useEffect(() => {
     if (isFullscreen) {
@@ -147,7 +147,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
           {codeInstances.length > 1 ? (
             <Scroller paddingX="4">
               {codeInstances.map((instance, index) => (
-                <Row paddingY="4" paddingRight="2" key={index}>
+                <Row paddingY="4" paddingRight="2" key={`${instance.label}${index}`}>
                   <Button
                     className="mr-2"
                     weight="default"
@@ -227,7 +227,8 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
           overflowY="auto"
         >
           {Array.isArray(codePreview)
-            ? codePreview.map((item, index) => <React.Fragment key={index}>{item}</React.Fragment>)
+            ? // biome-ignore lint/suspicious/noArrayIndexKey: it's safe to use index as key here
+              codePreview.map((item, index) => <React.Fragment key={index}>{item}</React.Fragment>)
             : codePreview}
         </Flex>
       )}

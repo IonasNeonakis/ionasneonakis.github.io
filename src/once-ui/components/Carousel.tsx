@@ -1,7 +1,7 @@
 "use client";
 
 import { Flex, RevealFx, Scroller, SmartImage } from "@/once-ui/components";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Image {
   src: string;
@@ -102,57 +102,54 @@ const Carousel: React.FC<CarouselProps> = ({
           }}
         />
       </RevealFx>
-      {images.length > 1 && (
-        <>
-          {indicator === "line" ? (
-            <Flex gap="4" paddingX="s" fillWidth horizontal="center">
-              {images.map((_, index) => (
-                <Flex
-                  key={index}
-                  onClick={() => handleControlClick(index)}
-                  style={{
-                    background:
-                      activeIndex === index
-                        ? "var(--neutral-on-background-strong)"
-                        : "var(--neutral-alpha-medium)",
-                    transition: "background 0.3s ease",
-                  }}
+      {images.length > 1 &&
+        (indicator === "line" ? (
+          <Flex gap="4" paddingX="s" fillWidth horizontal="center">
+            {images.map((image, index) => (
+              <Flex
+                key={image.src}
+                onClick={() => handleControlClick(index)}
+                style={{
+                  background:
+                    activeIndex === index
+                      ? "var(--neutral-on-background-strong)"
+                      : "var(--neutral-alpha-medium)",
+                  transition: "background 0.3s ease",
+                }}
+                cursor="interactive"
+                fillWidth
+                height="2"
+              />
+            ))}
+          </Flex>
+        ) : (
+          <Scroller fillWidth gap="4" onItemClick={handleControlClick}>
+            {images.map((image, index) => (
+              <Flex
+                key={image.src}
+                style={{
+                  border: activeIndex === index ? "2px solid var(--brand-solid-strong)" : "none",
+                  borderRadius: "var(--radius-m-nest-4)",
+                  transition: "border 0.3s ease",
+                }}
+                cursor="interactive"
+                padding="4"
+                width="80"
+                height="80"
+              >
+                <SmartImage
+                  alt={image.alt}
+                  aspectRatio="1 / 1"
+                  sizes="120px"
+                  src={image.src}
                   cursor="interactive"
-                  fillWidth
-                  height="2"
-                ></Flex>
-              ))}
-            </Flex>
-          ) : (
-            <Scroller fillWidth gap="4" onItemClick={handleControlClick}>
-              {images.map((image, index) => (
-                <Flex
-                  key={index}
-                  style={{
-                    border: activeIndex === index ? "2px solid var(--brand-solid-strong)" : "none",
-                    borderRadius: "var(--radius-m-nest-4)",
-                    transition: "border 0.3s ease",
-                  }}
-                  cursor="interactive"
-                  padding="4"
-                  width="80"
-                  height="80"
-                >
-                  <SmartImage
-                    alt={image.alt}
-                    aspectRatio="1 / 1"
-                    sizes="120px"
-                    src={image.src}
-                    cursor="interactive"
-                    radius="m"
-                    transition="macro-medium"
-                  />
-                </Flex>
-              ))}
-            </Scroller>
-          )}
-        </>
-      )}
+                  radius="m"
+                  transition="macro-medium"
+                />
+              </Flex>
+            ))}
+          </Scroller>
+        ))}
     </Flex>
   );
 };

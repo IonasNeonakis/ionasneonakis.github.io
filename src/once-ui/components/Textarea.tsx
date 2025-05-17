@@ -1,17 +1,17 @@
 "use client";
 
+import classNames from "classnames";
 import React, {
   useState,
   useEffect,
   forwardRef,
-  TextareaHTMLAttributes,
+  type TextareaHTMLAttributes,
   useCallback,
-  ReactNode,
+  type ReactNode,
 } from "react";
-import classNames from "classnames";
 import { Flex, Text } from ".";
-import styles from "./Input.module.scss";
 import useDebounce from "../hooks/useDebounce";
+import styles from "./Input.module.scss";
 
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   id: string;
@@ -70,12 +70,12 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     const textareaRef = React.useRef<HTMLTextAreaElement>(null);
     const debouncedValue = useDebounce(props.value, 1000);
 
-    const adjustHeight = () => {
+    const adjustHeight = useCallback(() => {
       if (textareaRef.current) {
         textareaRef.current.style.height = "auto";
         textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`; // Set to scroll height
       }
-    };
+    }, []);
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       if (lines === "auto") {
@@ -115,13 +115,13 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
     useEffect(() => {
       validateInput();
-    }, [debouncedValue, validateInput]);
+    }, [validateInput]);
 
     useEffect(() => {
       if (lines === "auto") {
         adjustHeight();
       }
-    }, [props.value, lines]);
+    }, [lines, adjustHeight]);
 
     const displayError = validationError || errorMessage;
 

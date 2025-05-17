@@ -31,7 +31,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   avatars,
   link,
 }) => {
-
   const t = useTranslations();
 
   return (

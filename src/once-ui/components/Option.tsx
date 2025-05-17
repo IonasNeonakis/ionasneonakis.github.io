@@ -1,9 +1,10 @@
+import type { SpacingToken } from "@/once-ui/types";
 import classNames from "classnames";
+import type React from "react";
+import { forwardRef } from "react";
 import { Flex, Text } from ".";
-import styles from "./Option.module.scss";
 import { ElementType } from "./ElementType";
-import React, { forwardRef } from "react";
-import { SpacingToken } from "@/once-ui/types";
+import styles from "./Option.module.scss";
 
 export interface OptionProps {
   label: React.ReactNode;

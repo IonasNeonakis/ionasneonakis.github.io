@@ -15,7 +15,10 @@ const nextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   images: {
     unoptimized: true
-  }
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default withNextIntl(withMDX(nextConfig));

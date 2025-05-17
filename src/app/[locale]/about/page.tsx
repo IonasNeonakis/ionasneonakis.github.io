@@ -1,3 +1,9 @@
+import { CurrentLocation } from "@/app/[locale]/about/CurrentLocation";
+import { SpokenLanguages } from "@/app/[locale]/about/SpokenLanguages";
+import { baseURL, createI18nContent } from "@/app/resources";
+import { Person } from "@/app/resources/content-i18n";
+import TableOfContents from "@/components/about/TableOfContents";
+import styles from "@/components/about/about.module.scss";
 import {
   Avatar,
   Button,
@@ -8,16 +14,10 @@ import {
   SmartImage,
   Text,
 } from "@/once-ui/components";
-import { baseURL, createI18nContent } from "@/app/resources";
-import TableOfContents from "@/components/about/TableOfContents";
-import styles from "@/components/about/about.module.scss";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import React, { use } from "react";
 import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
-import { SpokenLanguages } from "@/app/[locale]/about/SpokenLanguages";
-import { Person } from "@/app/resources/content-i18n";
-import { CurrentLocation } from "@/app/[locale]/about/CurrentLocation";
+import React, { use } from "react";
 
 interface AboutParams {
   params: Promise<{
@@ -230,7 +230,7 @@ export default function About({ params }: AboutParams) {
                     <Flex fillWidth paddingTop="m" paddingLeft="40" wrap>
                       {experience.images.map((image, index) => (
                         <Flex
-                          key={index}
+                          key={`${image.alt}${index}`}
                           border="neutral-medium"
                           radius="m"
                           minWidth={image.width}
@@ -281,7 +281,7 @@ export default function About({ params }: AboutParams) {
             </Heading>
             <Column fillWidth gap="l">
               {about.technical.skills.map((skill, index) => (
-                <Column key={`${skill}-${index}`} fillWidth gap="4">
+                <Column key={`${skill.title}-${index}`} fillWidth gap="4">
                   <Text id={skill.title} variant="heading-strong-l">
                     {skill.title}
                   </Text>
@@ -292,7 +292,7 @@ export default function About({ params }: AboutParams) {
                     <Flex fillWidth paddingTop="m" gap="12" wrap>
                       {skill.images.map((image, index) => (
                         <Flex
-                          key={index}
+                          key={`${image.alt}${index}`}
                           border="neutral-medium"
                           radius="m"
                           minWidth={image.width}

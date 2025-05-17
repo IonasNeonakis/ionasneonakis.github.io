@@ -3,14 +3,13 @@ import "@/once-ui/tokens/index.scss";
 
 import classNames from "classnames";
 
-import {baseURL, effects, style} from "@/app/resources";
+import { baseURL, effects, style } from "@/app/resources";
 
-import {Raleway} from "next/font/google";
-import {Source_Code_Pro} from "next/font/google";
+import { Raleway } from "next/font/google";
+import { Source_Code_Pro } from "next/font/google";
 
-import {Background, Column, Flex, ToastProvider} from "@/once-ui/components";
-import React from "react";
-
+import { Background, Column, Flex, ToastProvider } from "@/once-ui/components";
+import type React from "react";
 
 export async function generateMetadata() {
   return {
@@ -68,12 +67,7 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-
-export default function RootLayout({
-                                     children,
-                                   }: RootLayoutProps) {
-
-
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <Flex
       as="html"
@@ -96,7 +90,7 @@ export default function RootLayout({
       )}
     >
       <ToastProvider>
-        <Column style={{minHeight: "100vh"}} as="body" fillWidth margin="0" padding="0">
+        <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
           <Background
             mask={{
               cursor: effects.mask.cursor,
@@ -129,17 +123,17 @@ export default function RootLayout({
             dots={{
               display: effects.dots.display,
               color: effects.dots.color,
-              size: effects.dots.size as any,
-              opacity: effects.dots.opacity as any,
+              size: effects.dots.size,
+              opacity: effects.dots.opacity,
             }}
             grid={{
               display: effects.grid.display,
               color: effects.grid.color,
-              opacity: effects.grid.opacity as any,
+              opacity: effects.grid.opacity,
             }}
             lines={{
               display: effects.lines.display,
-              opacity: effects.lines.opacity as any,
+              opacity: effects.lines.opacity,
             }}
           />
           {children}

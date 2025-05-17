@@ -1,25 +1,27 @@
-import {
-  Button,
-  Option, DropdownWrapper, Flex, Row,
-} from "@/once-ui/components";
-import {Locale, routing} from "@/i18n/routing";
+import { type Locale, routing } from "@/i18n/routing";
+import { Button, DropdownWrapper, Flex, Option, Row } from "@/once-ui/components";
+import type { Placement } from "@floating-ui/react-dom";
 import { LanguageImage } from "./LanguageImage";
-import { Placement } from "@floating-ui/react-dom";
 
 interface LanguageDropdownProps {
   handleLanguageChange: (string: Locale) => void;
   currentLocale: Locale;
-  isLoading: boolean
-  floatingPlacement?: Placement
+  isLoading: boolean;
+  floatingPlacement?: Placement;
 }
 
-export function LanguageDropdown({handleLanguageChange, currentLocale, isLoading, floatingPlacement} : LanguageDropdownProps){
+export function LanguageDropdown({
+  handleLanguageChange,
+  currentLocale,
+  isLoading,
+  floatingPlacement,
+}: LanguageDropdownProps) {
   const options = routing.locales.map((locale) => {
     return {
       label: <LanguageImage locale={locale} size={20} isLoading={isLoading} />,
       value: locale,
     };
-  })
+  });
 
   const handleSelect = (value: Locale) => {
     handleLanguageChange(value);
@@ -29,16 +31,12 @@ export function LanguageDropdown({handleLanguageChange, currentLocale, isLoading
     <DropdownWrapper
       floatingPlacement={floatingPlacement}
       trigger={
-        <Button
-          size="xs"
-          disabled={isLoading}
-          variant="secondary"
-        >
+        <Button size="xs" disabled={isLoading} variant="secondary">
           <LanguageImage locale={currentLocale} size={20} isLoading={isLoading} />
         </Button>
       }
       dropdown={
-          <Flex direction="column" gap="1" >
+        <Flex direction="column" gap="1">
           {options.map((option) => (
             <Option
               paddingY="4"
@@ -50,7 +48,7 @@ export function LanguageDropdown({handleLanguageChange, currentLocale, isLoading
               onClick={handleSelect}
             />
           ))}
-          </Flex>
+        </Flex>
       }
     />
   );

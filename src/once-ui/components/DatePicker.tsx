@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, forwardRef, useEffect } from "react";
 import classNames from "classnames";
-import { Flex, Text, Button, Grid, SegmentedControl, IconButton, RevealFx, NumberInput } from ".";
+import type React from "react";
+import { forwardRef, useEffect, useState } from "react";
+import { Button, Flex, Grid, IconButton, NumberInput, RevealFx, SegmentedControl, Text } from ".";
 import styles from "./DatePicker.module.scss";
 
 export interface DatePickerProps extends Omit<React.ComponentProps<typeof Flex>, "onChange"> {
@@ -319,7 +320,7 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
                   variant="tertiary"
                   size={size === "l" ? "l" : "m"}
                   icon="chevronLeft"
-                  onClick={(event: any) => {
+                  onClick={(event: { preventDefault: () => void; stopPropagation: () => void }) => {
                     event.preventDefault();
                     event.stopPropagation();
                     handleMonthChange(-1);
@@ -341,7 +342,7 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
                   variant="tertiary"
                   size={size === "l" ? "l" : "m"}
                   icon="chevronRight"
-                  onClick={(event: any) => {
+                  onClick={(event: { preventDefault: () => void; stopPropagation: () => void }) => {
                     event.preventDefault();
                     event.stopPropagation();
                     handleMonthChange(1);

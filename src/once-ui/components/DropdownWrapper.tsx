@@ -1,24 +1,25 @@
 "use client";
 
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  ReactNode,
-  forwardRef,
-  useImperativeHandle,
-  useCallback,
-} from "react";
 import {
-  useFloating,
-  shift,
-  offset,
-  flip,
-  size,
+  type Placement,
   autoUpdate,
-  Placement,
+  flip,
+  offset,
+  shift,
+  size,
+  useFloating,
 } from "@floating-ui/react-dom";
-import { Flex, Dropdown } from ".";
+import type React from "react";
+import {
+  type ReactNode,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
+import { Button, Dropdown, Flex } from ".";
 import styles from "./DropdownWrapper.module.scss";
 
 export interface DropdownWrapperProps {
@@ -104,7 +105,7 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
       if (wrapperRef.current) {
         refs.setReference(wrapperRef.current);
       }
-    }, [refs, mounted]);
+    }, [refs]);
 
     useEffect(() => {
       if (!mounted) {
@@ -129,7 +130,7 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
           handleOpenChange(false);
         }
       },
-      [handleOpenChange, wrapperRef],
+      [handleOpenChange],
     );
 
     const handleFocusOut = useCallback(
@@ -138,7 +139,7 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
           handleOpenChange(false);
         }
       },
-      [handleOpenChange, wrapperRef],
+      [handleOpenChange],
     );
 
     useEffect(() => {
@@ -161,8 +162,8 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
         style={{
           ...(minHeight && isOpen
             ? {
-              marginBottom: `${minHeight + 8}px`,
-            }
+                marginBottom: `${minHeight + 8}px`,
+              }
             : {}),
           ...style,
         }}

@@ -1,10 +1,11 @@
 "use client";
 
-import React, { forwardRef, ReactNode } from "react";
+import type React from "react";
+import { type ReactNode, forwardRef } from "react";
 import styles from "./Fade.module.scss";
 
 import { Flex } from ".";
-import { ColorScheme, ColorWeight, SpacingToken } from "../types";
+import type { ColorScheme, ColorWeight, SpacingToken } from "../types";
 
 type BaseColor =
   | `${ColorScheme}-${ColorWeight}`
@@ -69,7 +70,8 @@ const Fade = forwardRef<HTMLDivElement, FadeProps>(
                     ? "180deg"
                     : "270deg",
             ...(pattern.display && {
-              backgroundImage: `linear-gradient(var(--gradient-direction), var(--base-color), transparent), radial-gradient(transparent 1px, var(--base-color) 1px)`,
+              backgroundImage:
+                "linear-gradient(var(--gradient-direction), var(--base-color), transparent), radial-gradient(transparent 1px, var(--base-color) 1px)",
               backgroundSize: `100% 100%, var(--static-space-${pattern.size}) var(--static-space-${pattern.size})`,
               backdropFilter: `blur(${blur}rem)`,
             }),

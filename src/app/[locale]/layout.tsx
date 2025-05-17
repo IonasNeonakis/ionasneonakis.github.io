@@ -1,13 +1,13 @@
 import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
 
-import {Footer, Header, RouteGuard} from "@/components";
-import {getMessages, setRequestLocale} from "next-intl/server";
-import {routing} from "@/i18n/routing";
-import {NextIntlClientProvider, hasLocale} from "next-intl";
-import React from "react";
-import {notFound} from "next/navigation";
-import {Flex} from "@/once-ui/components";
+import { Footer, Header, RouteGuard } from "@/components";
+import { routing } from "@/i18n/routing";
+import { Flex } from "@/once-ui/components";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import type React from "react";
 
 interface LayoutParams {
   params: Promise<{
@@ -21,14 +21,11 @@ interface RootLayoutParams {
 }
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({locale}));
+  return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function RootLayout({
-  children,
-  params
-}: RootLayoutParams) {
-  const {locale} = await params;
+export default async function RootLayout({ children, params }: RootLayoutParams) {
+  const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -38,8 +35,8 @@ export default async function RootLayout({
   const messages = await getMessages();
   return (
     <NextIntlClientProvider messages={messages}>
-      <Flex fillWidth minHeight="16"></Flex>
-      <Header/>
+      <Flex fillWidth minHeight="16" />
+      <Header />
       <Flex
         position="relative"
         zIndex={0}
@@ -53,7 +50,7 @@ export default async function RootLayout({
           <RouteGuard>{children}</RouteGuard>
         </Flex>
       </Flex>
-      <Footer/>
+      <Footer />
     </NextIntlClientProvider>
   );
 }

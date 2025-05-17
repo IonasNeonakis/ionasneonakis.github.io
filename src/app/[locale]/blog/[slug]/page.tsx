@@ -1,15 +1,15 @@
-import {notFound} from "next/navigation";
-import {CustomMDX} from "@/components/mdx";
-import {getPosts} from "@/app/utils/utils";
-import {AvatarGroup, Button, Column, Heading, Row, Text} from "@/once-ui/components";
-import {baseURL, createI18nContent} from "@/app/resources";
-import {formatDate} from "@/app/utils/formatDate";
+import { baseURL, createI18nContent } from "@/app/resources";
+import { formatDate } from "@/app/utils/formatDate";
+import { getPosts } from "@/app/utils/utils";
 import ScrollToHash from "@/components/ScrollToHash";
-import {Metadata} from "next";
-import {routing} from "@/i18n/routing";
-import {setRequestLocale} from "next-intl/server";
-import {useTranslations} from "next-intl";
-import {use} from "react";
+import { CustomMDX } from "@/components/mdx";
+import { routing } from "@/i18n/routing";
+import { AvatarGroup, Button, Column, Heading, Row, Text } from "@/once-ui/components";
+import type { Metadata } from "next";
+import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { use } from "react";
 
 interface BlogParams {
   params: Promise<{
@@ -18,36 +18,35 @@ interface BlogParams {
   }>;
 }
 
-export async function generateStaticParams(): Promise<{
-  slug: string;
-  locale: string;
-}[]> {
+export async function generateStaticParams(): Promise<
+  {
+    slug: string;
+    locale: string;
+  }[]
+> {
   const locales = routing.locales;
 
-  return locales.flatMap(locale => {
-    const posts = getPosts(['src', 'app', '[locale]', 'blog', 'posts', locale]);
-    return posts.map(post => ({
+  return locales.flatMap((locale) => {
+    const posts = getPosts(["src", "app", "[locale]", "blog", "posts", locale]);
+    return posts.map((post) => ({
       slug: post.slug,
       locale: locale,
     }));
   });
 }
 
-export async function generateMetadata( { params } : BlogParams) : Promise<Metadata | undefined> {
+export async function generateMetadata({ params }: BlogParams): Promise<Metadata | undefined> {
   const { slug, locale } = await params;
 
-  const post = getPosts(["src", "app", "[locale]", "blog", "posts", locale]).find((post) => post.slug === slug);
+  const post = getPosts(["src", "app", "[locale]", "blog", "posts", locale]).find(
+    (post) => post.slug === slug,
+  );
 
   if (!post) {
     return;
   }
 
-  const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = post.metadata;
+  const { title, publishedAt: publishedTime, summary: description, image } = post.metadata;
   const ogImage = image ? `https://${baseURL}${image}` : `https://${baseURL}/og?title=${title}`;
 
   return {
@@ -74,13 +73,15 @@ export async function generateMetadata( { params } : BlogParams) : Promise<Metad
   };
 }
 
-export default function Blog({params}: BlogParams) {
-  const { slug, locale } = use(params) ;
+export default function Blog({ params }: BlogParams) {
+  const { slug, locale } = use(params);
   setRequestLocale(locale);
 
   const t = useTranslations();
 
-  const post = getPosts(["src", "app", "[locale]", "blog", "posts", locale]).find((post) => post.slug === slug);
+  const post = getPosts(["src", "app", "[locale]", "blog", "posts", locale]).find(
+    (post) => post.slug === slug,
+  );
 
   if (!post) {
     notFound();
@@ -117,7 +118,13 @@ export default function Blog({params}: BlogParams) {
           }),
         }}
       />
-      <Button href={`/${locale}/blog`} weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
+      <Button
+        href={`/${locale}/blog`}
+        weight="default"
+        variant="tertiary"
+        size="s"
+        prefixIcon="chevronLeft"
+      >
         Posts
       </Button>
       <Heading variant="display-strong-s">{post.metadata.title}</Heading>

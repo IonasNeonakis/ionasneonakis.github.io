@@ -22,3 +22,5 @@
 - [x] 2 clicks needed to cancel a language change
 - [x] i18n for language tags
 - [ ] move technical skills to the top, under language tags
+- [x] configure biome.js
+- [ ] add husky

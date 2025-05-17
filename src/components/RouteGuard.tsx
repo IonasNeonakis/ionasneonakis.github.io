@@ -1,16 +1,16 @@
 "use client";
 
-import { ReactNode, useEffect, useState } from "react";
-import { usePathname } from '@/i18n/routing';
-import { routes } from "@/app/resources";
-import { Flex, Spinner } from "@/once-ui/components";
 import NotFound from "@/app/not-found";
+import { routes } from "@/app/resources";
+import { usePathname } from "@/i18n/routing";
+import { Flex, Spinner } from "@/once-ui/components";
+import { type ReactNode, useEffect, useState } from "react";
 
 interface RouteGuardProps {
-	children: ReactNode;
+  children: ReactNode;
 }
 
-export function RouteGuard ({ children }: RouteGuardProps)  {
+export function RouteGuard({ children }: RouteGuardProps) {
   const pathname = usePathname();
   const [isRouteEnabled, setIsRouteEnabled] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -46,7 +46,6 @@ export function RouteGuard ({ children }: RouteGuardProps)  {
     performChecks();
   }, [pathname]);
 
-
   if (loading) {
     return (
       <Flex fillWidth paddingY="128" horizontal="center">
@@ -56,8 +55,8 @@ export function RouteGuard ({ children }: RouteGuardProps)  {
   }
 
   if (!isRouteEnabled) {
-		return <NotFound />;
-	}
+    return <NotFound />;
+  }
 
   return <>{children}</>;
 }

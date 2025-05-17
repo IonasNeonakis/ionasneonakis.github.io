@@ -13,7 +13,6 @@ export * from "./Chip";
 export * from "./ColorInput";
 export * from "./DatePicker";
 export * from "./DateRangePicker";
-export * from "./Dialog";
 export * from "./Dropdown";
 export * from "./DropdownWrapper";
 export * from "./Fade";

@@ -2,13 +2,13 @@
 
 import React, {
   useState,
-  KeyboardEventHandler,
-  ChangeEventHandler,
-  FocusEventHandler,
+  type KeyboardEventHandler,
+  type ChangeEventHandler,
+  type FocusEventHandler,
   forwardRef,
 } from "react";
 
-import { Flex, Chip, Input, InputProps } from ".";
+import { Chip, Flex, Input, type InputProps } from ".";
 
 interface TagInputProps extends Omit<InputProps, "onChange" | "value"> {
   value: string[];
@@ -75,7 +75,8 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
           >
             {value.map((tag, index) => (
               <Chip
-                key={index}
+                // biome-ignore lint/suspicious/noArrayIndexKey: index is the correct key here
+                key={`${tag}-${index}`}
                 label={tag}
                 onRemove={() => handleRemoveTag(index)}
                 aria-label={`Remove tag ${tag}`}

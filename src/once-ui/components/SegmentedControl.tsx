@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { ToggleButton, Scroller, Flex } from ".";
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
+import { Flex, Scroller, ToggleButton } from ".";
 import type { ToggleButtonProps } from "./ToggleButton";
 
 interface ButtonOption extends Omit<ToggleButtonProps, "selected"> {
@@ -57,7 +58,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 
     switch (event.key) {
       case "ArrowLeft":
-      case "ArrowUp":
+      case "ArrowUp": {
         event.preventDefault();
         const prevIndex =
           focusedIndex === -1
@@ -67,8 +68,9 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
               : buttons.length - 1;
         buttonRefs.current[prevIndex]?.focus();
         break;
+      }
       case "ArrowRight":
-      case "ArrowDown":
+      case "ArrowDown": {
         event.preventDefault();
         const nextIndex =
           focusedIndex === -1
@@ -78,6 +80,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
               : 0;
         buttonRefs.current[nextIndex]?.focus();
         break;
+      }
       case "Enter":
       case " ": // Space key
         event.preventDefault();

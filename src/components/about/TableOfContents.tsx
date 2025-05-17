@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
 import { Column, Flex, Text } from "@/once-ui/components";
+import type React from "react";
 import styles from "./about.module.scss";
 
 interface TableOfContentsProps {
@@ -38,38 +38,35 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure }) => {
       gap="32"
       hide="m"
     >
-      {structure
-        .map((section, sectionIndex) => (
-          <Column key={sectionIndex} gap="12">
+      {structure.map((section, sectionIndex) => (
+        <Column key={`${section.title}${sectionIndex}`} gap="12">
+          <Flex
+            cursor="interactive"
+            className={styles.hover}
+            gap="8"
+            vertical="center"
+            onClick={() => scrollTo(section.title, 80)}
+          >
+            <Flex height="1" minWidth="16" background="neutral-strong" />
+            <Text>{section.title}</Text>
+          </Flex>
+          {section.items.map((item) => (
             <Flex
-              cursor="interactive"
+              hide="l"
+              key={`${item}`}
+              style={{ cursor: "pointer" }}
               className={styles.hover}
-              gap="8"
+              gap="12"
+              paddingLeft="24"
               vertical="center"
-              onClick={() => scrollTo(section.title, 80)}
+              onClick={() => scrollTo(item, 80)}
             >
-              <Flex height="1" minWidth="16" background="neutral-strong"></Flex>
-              <Text>{section.title}</Text>
+              <Flex height="1" minWidth="8" background="neutral-strong" />
+              <Text>{item}</Text>
             </Flex>
-              <>
-                {section.items.map((item, itemIndex) => (
-                  <Flex
-                    hide="l"
-                    key={itemIndex}
-                    style={{ cursor: "pointer" }}
-                    className={styles.hover}
-                    gap="12"
-                    paddingLeft="24"
-                    vertical="center"
-                    onClick={() => scrollTo(item, 80)}
-                  >
-                    <Flex height="1" minWidth="8" background="neutral-strong"></Flex>
-                    <Text>{item}</Text>
-                  </Flex>
-                ))}
-              </>
-          </Column>
-        ))}
+          ))}
+        </Column>
+      ))}
     </Column>
   );
 };

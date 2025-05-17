@@ -1,9 +1,10 @@
 "use client";
 
-import React, { forwardRef, ReactNode } from "react";
 import classNames from "classnames";
-import { ElementType } from "./ElementType";
+import type React from "react";
+import { type ReactNode, forwardRef } from "react";
 import { Flex, Icon } from ".";
+import { ElementType } from "./ElementType";
 import styles from "./ToggleButton.module.scss";
 
 interface CommonProps {
@@ -75,9 +76,9 @@ const ToggleButton = forwardRef<HTMLElement, ToggleButtonProps>(
           "button",
           "cursor-interactive",
           {
-            ["fill-width"]: fillWidth,
-            ["fit-width"]: !fillWidth,
-            ["justify-" + justifyContent]: justifyContent,
+            "fill-width": fillWidth,
+            "fit-width": !fillWidth,
+            [`justify-${justifyContent}`]: justifyContent,
           },
           className,
         )}

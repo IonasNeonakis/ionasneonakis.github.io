@@ -1,17 +1,17 @@
 "use client";
 
-import {useParams} from "next/navigation";
+import { useParams } from "next/navigation";
 
-import {Fade, Flex, IconButton, Line, ToggleButton} from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
+import { Fade, Flex, IconButton, Line, ToggleButton } from "@/once-ui/components";
 
-import {routes, createI18nContent} from "@/app/resources";
-import {LanguageDropdown} from "@/components/LanguageDropdown";
+import { createI18nContent, routes } from "@/app/resources";
+import { LanguageDropdown } from "@/components/LanguageDropdown";
 
-import {useTransition} from "react";
-import {Locale, useRouter, usePathname, routing} from "@/i18n/routing";
-import {useTranslations} from "next-intl";
-import {Params} from "next/dist/server/request/params";
+import { type Locale, routing, usePathname, useRouter } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
+import type { Params } from "next/dist/server/request/params";
+import { useTransition } from "react";
 
 interface MyParams extends Params {
   locale: Locale;
@@ -20,25 +20,22 @@ interface MyParams extends Params {
 export const Header = () => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
-  const pathname = usePathname() ?? '';
-  const {locale} = useParams<MyParams>();
+  const pathname = usePathname() ?? "";
+  const { locale } = useParams<MyParams>();
 
   function handleLanguageChange(newLocale: string) {
     const nextLocale = newLocale as Locale;
     startTransition(() => {
-      router.replace(
-        pathname,
-        {locale: nextLocale}
-      )
-    })
+      router.replace(pathname, { locale: nextLocale });
+    });
   }
 
   const t = useTranslations();
-  const {person, about, blog, work, social} = createI18nContent(t);
+  const { person, about, blog, work, social } = createI18nContent(t);
   return (
     <>
-      <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9}/>
-      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9}/>
+      <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
+      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
       <Flex
         fitHeight
         className={styles.position}
@@ -62,9 +59,9 @@ export const Header = () => {
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s">
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href={`/${locale}`} selected={pathname === "/"}/>
+                <ToggleButton prefixIcon="home" href={`/${locale}`} selected={pathname === "/"} />
               )}
-              <Line vert maxHeight="24"/>
+              <Line vert maxHeight="24" />
               {routes["/about"] && (
                 <>
                   <ToggleButton
@@ -117,7 +114,12 @@ export const Header = () => {
                 </>
               )}
               <Flex className="s-flex-show">
-              <LanguageDropdown handleLanguageChange={handleLanguageChange} currentLocale={locale} isLoading={isPending} floatingPlacement="top-start"  />
+                <LanguageDropdown
+                  handleLanguageChange={handleLanguageChange}
+                  currentLocale={locale}
+                  isLoading={isPending}
+                  floatingPlacement="top-start"
+                />
               </Flex>
             </Flex>
           </Flex>
@@ -130,10 +132,13 @@ export const Header = () => {
             textVariant="body-default-s"
             gap="20"
           >
-
             <Flex className="s-flex-hide">
-              <LanguageDropdown handleLanguageChange={handleLanguageChange} currentLocale={locale} isLoading={isPending} />
-</Flex>
+              <LanguageDropdown
+                handleLanguageChange={handleLanguageChange}
+                currentLocale={locale}
+                isLoading={isPending}
+              />
+            </Flex>
 
             <Flex hide="s" gap="16">
               {social.map(

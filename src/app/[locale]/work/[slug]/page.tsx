@@ -1,15 +1,15 @@
-import {notFound} from "next/navigation";
-import {CustomMDX} from "@/components/mdx";
-import {getPosts} from "@/app/utils/utils";
-import {AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text} from "@/once-ui/components";
-import {baseURL, createI18nContent} from "@/app/resources";
-import {formatDate} from "@/app/utils/formatDate";
+import { baseURL, createI18nContent } from "@/app/resources";
+import { formatDate } from "@/app/utils/formatDate";
+import { getPosts } from "@/app/utils/utils";
 import ScrollToHash from "@/components/ScrollToHash";
-import {Metadata} from "next";
-import {routing} from "@/i18n/routing";
-import {useTranslations} from "next-intl";
-import {use} from "react";
-import {getTranslations, setRequestLocale} from "next-intl/server";
+import { CustomMDX } from "@/components/mdx";
+import { routing } from "@/i18n/routing";
+import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text } from "@/once-ui/components";
+import type { Metadata } from "next";
+import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { use } from "react";
 
 interface WorkParams {
   params: Promise<{
@@ -18,12 +18,12 @@ interface WorkParams {
   }>;
 }
 
-export async function generateStaticParams(): Promise<{ slug: string, locale: string }[]> {
+export async function generateStaticParams(): Promise<{ slug: string; locale: string }[]> {
   const { locales } = routing;
 
-  return locales.flatMap(locale => {
-    const posts = getPosts(['src', 'app', '[locale]', 'work', 'projects', locale]);
-    return posts.map(post => ({
+  return locales.flatMap((locale) => {
+    const posts = getPosts(["src", "app", "[locale]", "work", "projects", locale]);
+    return posts.map((post) => ({
       slug: post.slug,
       locale: locale,
     }));
@@ -33,10 +33,12 @@ export async function generateStaticParams(): Promise<{ slug: string, locale: st
 export async function generateMetadata({ params }: WorkParams): Promise<Metadata | undefined> {
   const { slug, locale } = await params;
 
-  const t = await getTranslations()
-  const { person } = createI18nContent(t)
+  const t = await getTranslations();
+  const { person } = createI18nContent(t);
 
-  const post = getPosts(["src", "app", "[locale]", "work", "projects", locale]).find((post) => post.slug === slug);
+  const post = getPosts(["src", "app", "[locale]", "work", "projects", locale]).find(
+    (post) => post.slug === slug,
+  );
 
   if (!post) {
     return;
@@ -56,12 +58,12 @@ export async function generateMetadata({ params }: WorkParams): Promise<Metadata
     title,
     description,
     creator: person.name,
-    icons : images.map((image) => ({
+    icons: images.map((image) => ({
       url: image,
       type: "image/png",
       sizes: "any",
     })),
-    authors: team.map((person) => ( { name: person.name, url: person.linkedIn })),
+    authors: team.map((person) => ({ name: person.name, url: person.linkedIn })),
     openGraph: {
       title,
       description,
@@ -83,11 +85,13 @@ export async function generateMetadata({ params }: WorkParams): Promise<Metadata
   } satisfies Metadata;
 }
 
-export default function Project( { params }: WorkParams) {
+export default function Project({ params }: WorkParams) {
   const { slug, locale } = use(params);
-  setRequestLocale(locale)
+  setRequestLocale(locale);
 
-  const post = getPosts(['src', 'app', '[locale]', 'work', 'projects', locale]).find((post) => post.slug === slug)
+  const post = getPosts(["src", "app", "[locale]", "work", "projects", locale]).find(
+    (post) => post.slug === slug,
+  );
 
   const t = useTranslations();
   const { person } = createI18nContent(t);
@@ -126,7 +130,13 @@ export default function Project( { params }: WorkParams) {
         }}
       />
       <Column maxWidth="xs" gap="16">
-        <Button href={`/${locale}/work`} variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
+        <Button
+          href={`/${locale}/work`}
+          variant="tertiary"
+          weight="default"
+          size="s"
+          prefixIcon="chevronLeft"
+        >
           Projects
         </Button>
         <Heading variant="display-strong-s">{post.metadata.title}</Heading>

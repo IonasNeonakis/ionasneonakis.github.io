@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
+import React, { useEffect, useRef, useState } from "react";
 import { Flex, IconButton } from ".";
-import styles from "./Scroller.module.scss";
 import { Fade } from "./Fade";
+import styles from "./Scroller.module.scss";
 
 interface ScrollerProps extends React.ComponentProps<typeof Flex> {
   children?: React.ReactNode;
@@ -92,6 +92,7 @@ const Scroller: React.FC<ScrollerProps> = ({
         onKeyDown: (e: React.KeyboardEvent) => {
           childOnKeyDown?.(e);
           if (e.key === "Enter" || e.key === " ") {
+            // biome-ignore lint/suspicious/noExplicitAny: any is used here to avoid type issues
             childOnClick?.(e as any);
             onItemClick?.(index);
           }

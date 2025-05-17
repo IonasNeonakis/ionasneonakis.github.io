@@ -1,3 +1,5 @@
+import type { SpacingToken } from "@/once-ui/types";
+
 const baseURL: string = "https://ionasneonakis.github.io/"; // Set to your domain name or IP address TODO change with env variable
 
 const routes: Record<string, boolean> = {
@@ -10,9 +12,35 @@ const routes: Record<string, boolean> = {
 interface Style {
   theme: "dark" | "light";
   neutral: "sand" | "gray" | "slate";
-  brand: "blue" | "indigo" | "violet" | "magenta" | "pink" | "red" | "orange" | "yellow" | "moss" | "green" | "emerald" | "aqua" | "cyan";
-  accent: "blue" | "indigo" | "violet" | "magenta" | "pink" | "red" | "orange" | "yellow" | "moss" | "green" | "emerald" | "aqua" | "cyan";
-  solid: "color" | "inverse" | "contrast" ;
+  brand:
+    | "blue"
+    | "indigo"
+    | "violet"
+    | "magenta"
+    | "pink"
+    | "red"
+    | "orange"
+    | "yellow"
+    | "moss"
+    | "green"
+    | "emerald"
+    | "aqua"
+    | "cyan";
+  accent:
+    | "blue"
+    | "indigo"
+    | "violet"
+    | "magenta"
+    | "pink"
+    | "red"
+    | "orange"
+    | "yellow"
+    | "moss"
+    | "green"
+    | "emerald"
+    | "aqua"
+    | "cyan";
+  solid: "color" | "inverse" | "contrast";
   solidStyle: "flat" | "plastic";
   border: "rounded" | "playful" | "conservative";
   surface: "filled" | "translucent";
@@ -52,19 +80,19 @@ interface Effects {
   };
   dots: {
     display: boolean;
-    size: number;
+    size: SpacingToken;
     color: string;
-    opacity: number;
+    opacity: 0 | 50 | 100 | 20 | 10 | 30 | 40 | 60 | 70 | 80 | 90;
   };
   lines: {
     display: boolean;
     color: string;
-    opacity: number;
+    opacity: 0 | 50 | 100 | 20 | 10 | 30 | 40 | 60 | 70 | 80 | 90;
   };
   grid: {
     display: boolean;
     color: string;
-    opacity: number;
+    opacity: 0 | 50 | 100 | 20 | 10 | 30 | 40 | 60 | 70 | 80 | 90;
   };
 }
 const effects: Effects = {
@@ -87,7 +115,7 @@ const effects: Effects = {
   },
   dots: {
     display: true,
-    size: 2,
+    size: "2",
     color: "brand-on-background-weak",
     opacity: 20,
   },

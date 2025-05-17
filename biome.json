@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": []
+    "ignore": ["**/prismjs.d.ts"]
   },
   "formatter": {
     "enabled": true,
@@ -20,7 +20,17 @@
   },
   "linter": {
     "enabled": true,
-    "rules": { "recommended": true }
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "useSemanticElements": "off",
+        "useKeyWithClickEvents": "off",
+        "useKeyWithMouseEvents": "off"
+      } ,
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      }
+    }
   },
   "javascript": {
     "formatter": {

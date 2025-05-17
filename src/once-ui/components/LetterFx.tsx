@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useCallback, useEffect, forwardRef, ReactNode } from "react";
 import classNames from "classnames";
+import type React from "react";
+import { type ReactNode, forwardRef, useCallback, useEffect, useRef, useState } from "react";
 
 const defaultCharset = ["X", "$", "@", "a", "H", "z", "o", "0", "y", "#", "?", "*", "0", "1", "+"];
 
@@ -99,16 +100,17 @@ const LetterFx = forwardRef<HTMLSpanElement, LetterFxProps>(
     const [hasAnimated, setHasAnimated] = useState<boolean>(false);
     const originalText = useRef<string>(typeof children === "string" ? children : "");
 
-    const eventHandler = useCallback( () =>
-      createEventHandler(
-        originalText.current,
-        setText,
-        inProgress,
-        setInProgress,
-        speed,
-        charset,
-        trigger === "instant" ? setHasAnimated : undefined,
-      ),
+    const eventHandler = useCallback(
+      () =>
+        createEventHandler(
+          originalText.current,
+          setText,
+          inProgress,
+          setInProgress,
+          speed,
+          charset,
+          trigger === "instant" ? setHasAnimated : undefined,
+        ),
       [inProgress, trigger, speed, charset],
     );
 
