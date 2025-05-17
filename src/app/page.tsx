@@ -1,7 +1,7 @@
 "use client";
 
 import { routing } from "@/i18n/routing";
-import { Spinner } from "@/once-ui/components";
+import { Flex, Spinner } from "@/once-ui/components";
 import { hasLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -14,7 +14,11 @@ export default function Redirect() {
 
     router.replace(`/${locale}`);
   }, [router]);
-  return <Spinner />;
+  return (
+    <Flex fillHeight horizontal="center">
+      <Spinner size="xxl" />
+    </Flex>
+  );
 }
 
 function extractSupportedLocaleFromNavigatorLanguages() {

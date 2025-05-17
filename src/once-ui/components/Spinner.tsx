@@ -5,7 +5,7 @@ import { Flex } from "./Flex";
 import styles from "./Spinner.module.scss";
 
 interface SpinnerProps extends React.ComponentProps<typeof Flex> {
-  size?: "xs" | "s" | "m" | "l" | "xl";
+  size?: "xs" | "s" | "m" | "l" | "xl" | "xxl";
   ariaLabel?: string;
   className?: string;
   style?: React.CSSProperties;

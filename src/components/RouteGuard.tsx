@@ -49,7 +49,7 @@ export function RouteGuard({ children }: RouteGuardProps) {
   if (loading) {
     return (
       <Flex fillWidth paddingY="128" horizontal="center">
-        <Spinner />
+        <Spinner size="xxl" />
       </Flex>
     );
   }
