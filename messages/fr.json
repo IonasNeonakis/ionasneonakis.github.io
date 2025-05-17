@@ -11,6 +11,9 @@
     "blog header": "Derniers articles du blog"
   },
   "about": {
+    "french": "Français",
+    "english": "Anglais",
+    "greek": "Grec",
     "label": "À propos",
     "title": "À propos de moi",
     "description": "Rencontrez {name}, {role} basé à {location}",

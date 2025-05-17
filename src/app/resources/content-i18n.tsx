@@ -109,7 +109,7 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
         role: t("person.role"),
         avatar: addBasePath("/images/avatar.jpg"),
         location: "Europe/Paris",
-        languages: ["Français", "Anglais", "Grec"],
+        languages: [t('about.french'), t('about.english'), t('about.greek')],
     };
 
     const social: SocialLink[] = [

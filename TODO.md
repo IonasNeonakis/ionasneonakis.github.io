@@ -18,5 +18,7 @@
 - [ ] optimize images: https://nextjs.org/docs/pages/guides/static-exports
 - [x] links in work don't work
 - [ ] add certifications with icons and links
-- [ ] ⚠ The config property `experimental.turbo` is deprecated. Move this setting to `config.turbopack` as Turbopack is now stable.
-- [ ] 2 clicks needed to cancel a language change
+- [x] ⚠ The config property `experimental.turbo` is deprecated. Move this setting to `config.turbopack` as Turbopack is now stable.
+- [x] 2 clicks needed to cancel a language change
+- [x] i18n for language tags
+- [ ] move technical skills to the top, under language tags
