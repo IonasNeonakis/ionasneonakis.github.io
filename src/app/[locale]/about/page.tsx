@@ -10,19 +10,71 @@ import {
   Column,
   Flex,
   Heading,
+  Icon,
   IconButton,
   SmartImage,
+  Tag,
   Text,
 } from "@/once-ui/components";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import React, { use } from "react";
+import { GiSkills } from "react-icons/gi";
 
 interface AboutParams {
   params: Promise<{
     locale: string;
   }>;
+}
+
+interface SkillSectionProps{
+  title: string;
+  skills: string[];
+}
+
+export function SkillSection({title, skills}: SkillSectionProps){
+  return (
+    <Flex gap="2">
+      {title}
+      <Flex wrap gap="2">
+        {skills.map((skill) => (
+          <Tag size="l" key={skill}>{skill}</Tag>
+          )
+          )}
+      </Flex>
+    </Flex>
+  )
+}
+
+export function TechnicalSkills() {
+  const backendSkills = [
+    "Java",
+    "Kotlin",
+    "Spring Boot",
+    "Spring",
+    "Hibernate",
+    "PostgreSQL",
+    "MySQL",
+    "Sql Server",
+    "Flyway",
+    "JUnit 5",
+    "Mockito",
+    "Mockk",
+    "Strikt",
+    "Testcontainers",
+  ];
+
+  return (
+    <Flex gap="8" direction="column" fillWidth>
+      <SkillSection title={"Backend"} skills={backendSkills} />
+
+      <Flex gap="2">Fronted</Flex>
+      <Flex gap="2">Devops</Flex>
+      <Flex gap="2">Others</Flex>
+      <Flex gap="2">SoftSkills</Flex>
+    </Flex>
+  );
 }
 
 export async function generateMetadata({ params }: AboutParams) {
@@ -127,6 +179,7 @@ export default function About({ params }: AboutParams) {
           <Avatar src={person.avatar} size="xl" />
           <CurrentLocation person={person} />
           <SpokenLanguages languages={person.languages} />
+          <TechnicalSkills />
         </Column>
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column

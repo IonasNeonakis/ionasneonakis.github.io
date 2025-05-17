@@ -24,5 +24,6 @@
 - [ ] move technical skills to the top, under language tags
 - [x] configure biome.js
 - [ ] add husky
+- [x] Ionas NEONAKIS should redirect to home page
 - [x] center loading spinner
 - [x] SEO : https://search.google.com/search-console
