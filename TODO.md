@@ -24,3 +24,4 @@
 - [ ] move technical skills to the top, under language tags
 - [x] configure biome.js
 - [ ] add husky
+- [ ] center loading spinner

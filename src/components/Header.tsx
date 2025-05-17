@@ -8,7 +8,7 @@ import { Fade, Flex, IconButton, Line, ToggleButton } from "@/once-ui/components
 import { createI18nContent, routes } from "@/app/resources";
 import { LanguageDropdown } from "@/components/LanguageDropdown";
 
-import { type Locale, routing, usePathname, useRouter } from "@/i18n/routing";
+import { Link, type Locale, routing, usePathname, useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import type { Params } from "next/dist/server/request/params";
 import { useTransition } from "react";
@@ -46,7 +46,9 @@ export const Header = () => {
         horizontal="center"
       >
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="display-strong-xs">
-          <Flex hide="s">{person.name}</Flex>
+          <Flex hide="s">
+            <Link className={styles.homeLink} href={"/"}>{person.name}</Link>
+          </Flex>
         </Flex>
         <Flex fillWidth horizontal="center">
           <Flex

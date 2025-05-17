@@ -3,6 +3,23 @@
     top: 0;
 }
 
+.homeLink {
+    text-decoration: none !important;
+    color: inherit !important;
+
+    &:hover {
+        text-decoration: none !important;
+    }
+
+    &:focus {
+        outline: none !important;
+    }
+
+    &:focus-visible {
+        outline: none !important;
+    }
+}
+
 .mask {
     pointer-events: none;
     backdrop-filter: blur(0.5rem);
