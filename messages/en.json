@@ -66,20 +66,6 @@
           "description": "Bachelor's in Computer Science IMIS | 2017 - 2020"
         }
       }
-    },
-    "technical": {
-      "title": "Technical Skills",
-      "skills": {
-        "SpringBoot": {
-          "description": "Building robust and high-performance REST APIs with Spring Boot."
-        },
-        "React": {
-          "description": "Developing responsive and optimized web interfaces with React and TypeScript."
-        },
-        "DevOps": {
-          "description": "Implementing CI/CD pipelines with GitLab, Docker, and Kubernetes."
-        }
-      }
     }
   },
   "blog": {

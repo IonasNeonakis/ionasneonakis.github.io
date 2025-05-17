@@ -51,12 +51,6 @@ interface StudiesInstitution {
   description: JSX.Element;
 }
 
-interface Skill {
-  title: string;
-  description: JSX.Element;
-  images: Image[];
-}
-
 interface About {
   label: string;
   title: string;
@@ -72,10 +66,6 @@ interface About {
   studies: {
     title: string;
     institutions: StudiesInstitution[];
-  };
-  technical: {
-    title: string;
-    skills: Skill[];
   };
 }
 
@@ -242,47 +232,6 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
         {
           name: t("about.studies.institutions.LicenseUniversityOrleans.name"),
           description: <>{t("about.studies.institutions.LicenseUniversityOrleans.description")}</>,
-        },
-      ],
-    },
-    technical: {
-      title: t("about.technical.title"),
-      skills: [
-        {
-          title: "SpringBoot",
-          description: <>{t("about.technical.skills.SpringBoot.description")}</>,
-          images: [
-            {
-              src: addBasePath("/images/projects/project-01/cover-02.jpg"),
-              alt: "Spring Boot",
-              width: 16,
-              height: 9,
-            },
-          ],
-        },
-        {
-          title: "React",
-          description: <>{t("about.technical.skills.React.description")}</>,
-          images: [
-            {
-              src: addBasePath("/images/projects/project-01/cover-03.jpg"),
-              alt: "React",
-              width: 16,
-              height: 9,
-            },
-          ],
-        },
-        {
-          title: "DevOps",
-          description: <>{t("about.technical.skills.DevOps.description")}</>,
-          images: [
-            {
-              src: addBasePath("/images/projects/project-01/cover-04.jpg"),
-              alt: "DevOps",
-              width: 16,
-              height: 9,
-            },
-          ],
         },
       ],
     },

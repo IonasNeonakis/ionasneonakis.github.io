@@ -66,20 +66,6 @@
           "description": "Licence Informatique IMIS | 2017 - 2020"
         }
       }
-    },
-    "technical": {
-      "title": "Compétences Techniques",
-      "skills": {
-        "SpringBoot": {
-          "description": "Création d'APIs REST robustes et performantes avec Spring Boot."
-        },
-        "React": {
-          "description": "Développement d'interfaces web réactives et optimisées avec React et TypeScript."
-        },
-        "DevOps": {
-          "description": "Mise en place de pipelines CI/CD avec GitLab, Docker et Kubernetes."
-        }
-      }
     }
   },
   "blog": {
