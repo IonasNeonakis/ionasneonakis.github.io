@@ -1,13 +1,14 @@
 import { addBasePath } from "@/app/utils/imageUtils";
 import { JSX } from "react";
 
-interface Person {
+export interface Person {
     firstName: string;
     lastName: string;
     name: string;
     role: string;
     avatar: string;
     location: string;
+    currentCompany: Company;
     languages: string[];
 }
 
@@ -108,6 +109,15 @@ const createI18nContent = (t: (key: string, options?: any) => string): I18nConte
         },
         role: t("person.role"),
         avatar: addBasePath("/images/avatar.jpg"),
+        currentCompany: {
+            name: "Takima",
+            image: {
+                src: addBasePath("/images/companies/takima.png"),
+                alt: "Takima Logo",
+                height: 30,
+                width: 30,
+            },
+        },
         location: "Europe/Paris",
         languages: [t('about.french'), t('about.english'), t('about.greek')],
     };

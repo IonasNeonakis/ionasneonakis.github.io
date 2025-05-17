@@ -1,13 +1,13 @@
 {
   "person": {
-    "role": "Développeur Fullstack"
+    "role": "Lead Dev & Développeur Fullstack"
   },
   "home": {
     "label": "Accueil",
     "title": "Portfolio de {name}",
     "description": "Site portfolio présentant mon travail en tant que {role}",
-    "headline": "Développeur Web fullstack",
-    "subline": "Je suis Ionas, développeur Fullstack, Expert Spring Boot, Kotlin & React",
+    "headline": "Lead Dev & Développeur Web fullstack",
+    "subline": "Je suis Ionas, lead dev & développeur Fullstack, Expert Spring Boot, Kotlin & React",
     "blog header": "Derniers articles du blog"
   },
   "about": {
@@ -28,7 +28,7 @@
           "companyName": "Leader du Luxe",
           "companyAlt": "Leader du Luxe logo",
           "timeframe": "Décembre 2022 - Aujourd’hui",
-          "role": "Développeur Fullstack Spring Boot (Kotlin/Java) & React",
+          "role": "Lead Dev & Développeur Fullstack Spring Boot (Kotlin/Java) & React",
           "achievements": "Développement d’applications web, mobiles (PWA) et microservices logistiques en React & Spring Boot.;Création d’outils internes (SDK, libs, starters).;Support d’applications en production.;Responsable technique d’applications et de microservices.;Migrations techniques et pratiques qualité (TDD, DDD, Pair/Mob Programming, etc.).;Onboarding de nouveaux développeurs.;Animation de réunions techniques bi-hebdomadaires.;Conseil technique sur les choix d’architecture.;Manager de 2 collaborateurs.;Conférencier interne Kotlin & relecteur de formation Hibernate."
         },
         "TakimaRH": {

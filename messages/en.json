@@ -6,8 +6,8 @@
     "label": "Home",
     "title": "{name}'s Portfolio",
     "description": "Portfolio website showcasing my work as a {role}",
-    "headline": "Fullstack Web Developer",
-    "subline": "I'm Ionas, a Fullstack Developer, expert in Spring Boot, Kotlin & React",
+    "headline": "Lead Dev & Fullstack Web Developer",
+    "subline": "I'm Ionas, a lead dev & fullstack developer, expert in Spring Boot, Kotlin & React",
     "blog header": "Latest blog posts"
   },
   "about": {
@@ -28,7 +28,7 @@
           "companyName": "Luxure leader",
           "companyAlt": "Luxure leadere logo",
           "timeframe": "December 2022 - Present",
-          "role": "Fullstack Developer Spring Boot (Kotlin/Java) & React",
+          "role": "Lead Dev & Fullstack Developer Spring Boot (Kotlin/Java) & React",
           "achievements": "Developed web, mobile (PWA), and logistics microservices in React & Spring Boot.;Built internal tools (SDKs, libs, starters).;Production application support.;Technical lead for applications and microservices.;Tech migrations and quality practices (TDD, DDD, Pair/Mob Programming, etc.).;Onboarding of new developers.;Led bi-weekly technical meetings.;Provided technical advice on architectural decisions.;Managed 2 team members.;Internal speaker on Kotlin & reviewer for Hibernate training."
         },
         "TakimaRH": {
