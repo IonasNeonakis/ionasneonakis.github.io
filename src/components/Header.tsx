@@ -117,7 +117,7 @@ export const Header = () => {
                 </>
               )}
               <Flex className="s-flex-show">
-              <LanguageDropdown handleLanguageChange={handleLanguageChange} currentLocale={locale} isLoading={isPending} />
+              <LanguageDropdown handleLanguageChange={handleLanguageChange} currentLocale={locale} isLoading={isPending} floatingPlacement="top-start"  />
               </Flex>
             </Flex>
           </Flex>
