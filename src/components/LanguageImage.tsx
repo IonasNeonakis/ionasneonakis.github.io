@@ -1,8 +1,9 @@
 import Image from "next/image";
 import {Spinner} from "@/once-ui/components";
+import {Locale} from "@/i18n/routing";
 
 interface LanguageImageProps {
-  locale: 'fr' | 'en';
+  locale: Locale;
   size: number;
   isLoading: boolean;
 }

@@ -14,7 +14,7 @@ import {useTranslations} from "next-intl";
 import {Params} from "next/dist/server/request/params";
 
 interface MyParams extends Params {
-  locale: 'fr' | 'en';
+  locale: Locale;
 }
 
 export const Header = () => {

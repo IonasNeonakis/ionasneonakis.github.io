@@ -2,12 +2,12 @@ import {
   Button,
   Option, DropdownWrapper, Flex, Row,
 } from "@/once-ui/components";
-import { routing } from "@/i18n/routing";
+import {Locale, routing} from "@/i18n/routing";
 import { LanguageImage } from "./LanguageImage";
 
 interface LanguageDropdownProps {
-  handleLanguageChange: (string: 'fr' | 'en') => void;
-  currentLocale: 'fr' | 'en';
+  handleLanguageChange: (string: Locale) => void;
+  currentLocale: Locale;
   isLoading: boolean
 }
 
@@ -19,7 +19,7 @@ export function LanguageDropdown({handleLanguageChange, currentLocale, isLoading
     };
   })
 
-  const handleSelect = (value: 'fr' | 'en') => {
+  const handleSelect = (value: Locale) => {
     handleLanguageChange(value);
   };
 
