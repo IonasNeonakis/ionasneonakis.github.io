@@ -4,6 +4,7 @@ import { baseURL, createI18nContent } from "@/app/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import { Skills } from "@/components/about/skillSection/Skills";
+import type { LocaleParams } from "@/i18n/routing";
 import {
   Avatar,
   Button,
@@ -20,9 +21,7 @@ import Image from "next/image";
 import React, { use } from "react";
 
 interface AboutParams {
-  params: Promise<{
-    locale: string;
-  }>;
+  params: Promise<LocaleParams>;
 }
 
 export async function generateMetadata({ params }: AboutParams) {

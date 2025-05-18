@@ -1,11 +1,12 @@
 import { addBasePath } from "@/app/utils/imageUtils";
 import { getPosts } from "@/app/utils/utils";
 import { ProjectCard } from "@/components";
+import type { Locale } from "@/i18n/routing";
 import { Column } from "@/once-ui/components";
 
 interface ProjectsProps {
   range?: [number, number?];
-  locale: string;
+  locale: Locale;
 }
 
 export function Projects({ range, locale }: ProjectsProps) {
@@ -25,7 +26,7 @@ export function Projects({ range, locale }: ProjectsProps) {
         <ProjectCard
           priority={index < 2}
           key={`${post.slug}-${index}`}
-          href={`work/${post.slug}`}
+          href={`${locale}/work/${post.slug}`}
           images={post.metadata.images}
           title={post.metadata.title}
           description={post.metadata.summary}

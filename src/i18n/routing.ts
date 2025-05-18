@@ -1,5 +1,6 @@
 import { createNavigation } from "next-intl/navigation";
 import { defineRouting } from "next-intl/routing";
+import type { Params } from "next/dist/server/request/params";
 
 export const routing = defineRouting({
   locales: ["fr", "en"],
@@ -7,6 +8,10 @@ export const routing = defineRouting({
 });
 
 export type Locale = (typeof routing.locales)[number];
+
+export interface LocaleParams extends Params {
+  locale: Locale;
+}
 
 // Lightweight wrappers around Next.js' navigation APIs
 // that will consider the routing configuration

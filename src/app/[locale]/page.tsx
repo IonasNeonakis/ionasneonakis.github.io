@@ -1,17 +1,16 @@
 import React, { use } from "react";
 
-import { Projects } from "@/components/work/Projects";
 import { Avatar, Button, Column, Flex, Heading, RevealFx, Text } from "@/once-ui/components";
 
 import { baseURL, createI18nContent, routes } from "@/app/resources";
 import { Posts } from "@/components/blog/Posts";
+import { Projects } from "@/components/work/Projects";
+import type { LocaleParams } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 interface HomeParams {
-  params: Promise<{
-    locale: string;
-  }>;
+  params: Promise<LocaleParams>;
 }
 
 export async function generateMetadata({ params }: HomeParams) {
@@ -129,7 +128,6 @@ export default function Home({ params }: HomeParams) {
           </Flex>
         </Flex>
       )}
-      <Projects range={[2]} locale={locale} />
     </Column>
   );
 }

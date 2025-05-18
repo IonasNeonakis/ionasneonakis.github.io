@@ -3,7 +3,7 @@ import { formatDate } from "@/app/utils/formatDate";
 import { getPosts } from "@/app/utils/utils";
 import ScrollToHash from "@/components/ScrollToHash";
 import { CustomMDX } from "@/components/mdx";
-import { routing } from "@/i18n/routing";
+import { type LocaleParams, routing } from "@/i18n/routing";
 import { AvatarGroup, Button, Column, Heading, Row, Text } from "@/once-ui/components";
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
@@ -12,17 +12,17 @@ import { notFound } from "next/navigation";
 import { use } from "react";
 
 interface BlogParams {
-  params: Promise<{
-    slug: string;
-    locale: string;
-  }>;
+  params: Promise<
+    LocaleParams & {
+      slug: string;
+    }
+  >;
 }
 
 export async function generateStaticParams(): Promise<
-  {
+  (LocaleParams & {
     slug: string;
-    locale: string;
-  }[]
+  })[]
 > {
   const locales = routing.locales;
 

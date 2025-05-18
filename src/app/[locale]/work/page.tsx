@@ -1,15 +1,14 @@
 import { baseURL, createI18nContent } from "@/app/resources";
 import { getPosts } from "@/app/utils/utils";
 import { Projects } from "@/components/work/Projects";
+import type { LocaleParams } from "@/i18n/routing";
 import { Column } from "@/once-ui/components";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
 
 interface WorkParams {
-  params: Promise<{
-    locale: string;
-  }>;
+  params: Promise<LocaleParams>;
 }
 
 export async function generateMetadata({ params }: WorkParams) {

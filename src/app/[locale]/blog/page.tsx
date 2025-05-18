@@ -1,14 +1,13 @@
 import { baseURL, createI18nContent } from "@/app/resources";
 import { Posts } from "@/components/blog/Posts";
+import type { LocaleParams } from "@/i18n/routing";
 import { Column, Heading } from "@/once-ui/components";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
 
 interface PageParams {
-  params: Promise<{
-    locale: string;
-  }>;
+  params: Promise<LocaleParams>;
 }
 
 export async function generateMetadata({ params }: PageParams) {

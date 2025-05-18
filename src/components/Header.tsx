@@ -23,8 +23,8 @@ export const Header = () => {
   const pathname = usePathname() ?? "";
   const { locale } = useParams<MyParams>();
 
-  function handleLanguageChange(newLocale: string) {
-    const nextLocale = newLocale as Locale;
+  function handleLanguageChange(newLocale: Locale) {
+    const nextLocale = newLocale;
     startTransition(() => {
       router.replace(pathname, { locale: nextLocale });
     });

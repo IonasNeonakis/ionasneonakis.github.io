@@ -2,15 +2,17 @@
 
 import { formatDate } from "@/app/utils/formatDate";
 import type { PostData } from "@/app/utils/utils";
+import type { Locale } from "@/i18n/routing";
 import { Column, Flex, Heading, SmartImage, SmartLink, Tag, Text } from "@/once-ui/components";
 import styles from "./Posts.module.scss";
 
 interface PostProps {
   post: PostData;
   thumbnail: boolean;
+  locale: Locale;
 }
 
-export default function Post({ post, thumbnail }: PostProps) {
+export default function Post({ post, thumbnail, locale }: PostProps) {
   const tags = post.metadata.tag.split(",").map((tag: string) => tag.trim());
   return (
     <SmartLink
@@ -18,7 +20,7 @@ export default function Post({ post, thumbnail }: PostProps) {
       className={styles.hover}
       unstyled
       key={post.slug}
-      href={`blog/${post.slug}`}
+      href={`/${locale}/blog/${post.slug}`}
     >
       <Flex
         position="relative"
