@@ -1,5 +1,6 @@
 import { Tag } from "@/once-ui/components";
 import React from "react";
+import type { Skill } from "./Skills"
 
 interface SkillTag {
   skill: Skill;
