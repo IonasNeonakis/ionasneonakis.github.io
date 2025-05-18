@@ -47,7 +47,9 @@ export const Header = () => {
       >
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="display-strong-xs">
           <Flex hide="s">
-            <Link className={styles.homeLink} href={"/"}>{person.name}</Link>
+            <Link className={styles.homeLink} href={"/"}>
+              {person.name}
+            </Link>
           </Flex>
         </Flex>
         <Flex fillWidth horizontal="center">

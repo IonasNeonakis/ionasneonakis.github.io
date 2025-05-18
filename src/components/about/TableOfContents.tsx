@@ -34,9 +34,9 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure }) => {
         whiteSpace: "nowrap",
       }}
       position="fixed"
-      paddingLeft="24"
+      paddingLeft="12"
       gap="32"
-      hide="m"
+      hide="l"
     >
       {structure.map((section, sectionIndex) => (
         <Column key={`${section.title}${sectionIndex}`} gap="12">
@@ -62,7 +62,15 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure }) => {
               onClick={() => scrollTo(item, 80)}
             >
               <Flex height="1" minWidth="8" background="neutral-strong" />
-              <Text>{item}</Text>
+              <Column fillWidth wrap textVariant="body-default-l" maxWidth={12}>
+                <Text
+                  style={{
+                    whiteSpace: "pre-wrap",
+                  }}
+                >
+                  {item}
+                </Text>
+              </Column>
             </Flex>
           ))}
         </Column>

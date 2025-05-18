@@ -27,3 +27,5 @@
 - [x] Ionas NEONAKIS should redirect to home page
 - [x] center loading spinner
 - [x] SEO : https://search.google.com/search-console
+- [x] improve skill section for mobile
+- [ ] add icons for skills section

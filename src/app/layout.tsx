@@ -107,7 +107,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               tilt: effects.gradient.tilt,
               colorStart: effects.gradient.colorStart,
               colorEnd: effects.gradient.colorEnd,
-              opacity: effects.gradient.opacity
+              opacity: effects.gradient.opacity,
             }}
             dots={{
               display: effects.dots.display,

@@ -109,7 +109,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
       },
     },
     location: "Europe/Paris",
-    languages: [t("about.french"), t("about.english"), t("about.greek")],
+    languages: [t("about.french"), t("about.english")],
   };
 
   const social: SocialLink[] = [

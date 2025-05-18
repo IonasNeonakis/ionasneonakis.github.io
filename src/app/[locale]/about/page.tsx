@@ -1,80 +1,28 @@
 import { CurrentLocation } from "@/app/[locale]/about/CurrentLocation";
 import { SpokenLanguages } from "@/app/[locale]/about/SpokenLanguages";
 import { baseURL, createI18nContent } from "@/app/resources";
-import { Person } from "@/app/resources/content-i18n";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
+import { Skills } from "@/components/about/skillSection/Skills";
 import {
   Avatar,
   Button,
   Column,
   Flex,
   Heading,
-  Icon,
   IconButton,
   SmartImage,
-  Tag,
   Text,
 } from "@/once-ui/components";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import React, { use } from "react";
-import { GiSkills } from "react-icons/gi";
 
 interface AboutParams {
   params: Promise<{
     locale: string;
   }>;
-}
-
-interface SkillSectionProps{
-  title: string;
-  skills: string[];
-}
-
-export function SkillSection({title, skills}: SkillSectionProps){
-  return (
-    <Flex gap="2">
-      {title}
-      <Flex wrap gap="2">
-        {skills.map((skill) => (
-          <Tag size="l" key={skill}>{skill}</Tag>
-          )
-          )}
-      </Flex>
-    </Flex>
-  )
-}
-
-export function TechnicalSkills() {
-  const backendSkills = [
-    "Java",
-    "Kotlin",
-    "Spring Boot",
-    "Spring",
-    "Hibernate",
-    "PostgreSQL",
-    "MySQL",
-    "Sql Server",
-    "Flyway",
-    "JUnit 5",
-    "Mockito",
-    "Mockk",
-    "Strikt",
-    "Testcontainers",
-  ];
-
-  return (
-    <Flex gap="8" direction="column" fillWidth>
-      <SkillSection title={"Backend"} skills={backendSkills} />
-
-      <Flex gap="2">Fronted</Flex>
-      <Flex gap="2">Devops</Flex>
-      <Flex gap="2">Others</Flex>
-      <Flex gap="2">SoftSkills</Flex>
-    </Flex>
-  );
 }
 
 export async function generateMetadata({ params }: AboutParams) {
@@ -167,19 +115,22 @@ export default function About({ params }: AboutParams) {
         <TableOfContents structure={structure} />
       </Column>
       <Flex fillWidth mobileDirection="column" horizontal="center">
-        <Column
-          className={styles.avatar}
-          minWidth="160"
-          paddingX="l"
-          paddingBottom="xl"
-          gap="m"
-          flex={3}
-          horizontal="center"
-        >
-          <Avatar src={person.avatar} size="xl" />
-          <CurrentLocation person={person} />
-          <SpokenLanguages languages={person.languages} />
-          <TechnicalSkills />
+        <Column className={styles.avatar} minWidth="160" paddingX="l" gap="m" flex={3}>
+          <Column
+            style={{
+              maxHeight: "260px",
+            }}
+            gap="s"
+            paddingBottom="xl"
+            horizontal="center"
+          >
+            <Avatar src={person.avatar} size="xl" />
+            <CurrentLocation person={person} />
+            <SpokenLanguages languages={person.languages} />
+          </Column>
+          <Column gap="8" overflow="auto" horizontal="center" className={styles.skills}>
+            <Skills />
+          </Column>
         </Column>
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column
@@ -199,42 +150,40 @@ export default function About({ params }: AboutParams) {
             >
               {person.role}
             </Text>
-            {social.length > 0 && (
-              <Flex
-                className={styles.blockAlign}
-                paddingTop="20"
-                paddingBottom="8"
-                gap="8"
-                wrap
-                horizontal="center"
-                fitWidth
-              >
-                {social.map(
-                  (item) =>
-                    item.link && (
-                      <div key={item.link}>
-                        <Button
-                          className="s-flex-hide"
-                          key={item.name}
-                          href={item.link}
-                          prefixIcon={item.icon}
-                          label={item.name}
-                          size="s"
-                          variant="secondary"
-                        />
-                        <IconButton
-                          className="s-flex-show"
-                          size="l"
-                          key={`${item.name}-icon`}
-                          href={item.link}
-                          icon={item.icon}
-                          variant="secondary"
-                        />
-                      </div>
-                    ),
-                )}
-              </Flex>
-            )}
+            <Flex
+              className={styles.blockAlign}
+              paddingTop="20"
+              paddingBottom="8"
+              gap="8"
+              wrap
+              horizontal="center"
+              fitWidth
+            >
+              {social.map(
+                (item) =>
+                  item.link && (
+                    <div key={item.link}>
+                      <Button
+                        className="s-flex-hide"
+                        key={item.name}
+                        href={item.link}
+                        prefixIcon={item.icon}
+                        label={item.name}
+                        size="s"
+                        variant="secondary"
+                      />
+                      <IconButton
+                        className="s-flex-show"
+                        size="l"
+                        key={`${item.name}-icon`}
+                        href={item.link}
+                        icon={item.icon}
+                        variant="secondary"
+                      />
+                    </div>
+                  ),
+              )}
+            </Flex>
           </Column>
 
           <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">

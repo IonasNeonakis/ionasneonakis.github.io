@@ -13,7 +13,6 @@
   "about": {
     "french": "French",
     "english": "English",
-    "greek": "Greek",
     "label": "About",
     "title": "About Me",
     "description": "Meet {name}, a {role} based in {location}",

@@ -48,7 +48,7 @@ interface Style {
   scaling?: "90" | "95" | "100" | "105" | "110";
 }
 
-type Opacity = 0 | 50 | 100 | 20 | 10 | 30 | 40 | 60 | 70 | 80 | 90
+type Opacity = 0 | 50 | 100 | 20 | 10 | 30 | 40 | 60 | 70 | 80 | 90;
 
 const style: Style = {
   theme: "dark",
@@ -78,7 +78,7 @@ interface Effects {
     tilt: number;
     colorStart: string;
     colorEnd: string;
-    opacity:  Opacity;
+    opacity: Opacity;
   };
   dots: {
     display: boolean;

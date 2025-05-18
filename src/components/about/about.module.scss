@@ -12,6 +12,11 @@
     top: var(--static-space-64);
 }
 
+.skills {
+    max-height: calc(100dvh - 260px - 40px - 100px);
+}
+
+
 @media (--s) {
     .avatar {
         top: auto;
@@ -23,5 +28,9 @@
 
     .blockAlign {
         align-self: center;
+    }
+
+    .skills {
+        max-height: none;
     }
 }
