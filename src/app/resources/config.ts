@@ -5,8 +5,8 @@ const baseURL: string = "https://ionasneonakis.github.io"; // Set to your domain
 const routes: Record<string, boolean> = {
   "/": true,
   "/about": true,
-  "/work": false,
-  "/blog": false,
+  "/work": true,
+  "/blog": true,
 };
 
 interface Style {
