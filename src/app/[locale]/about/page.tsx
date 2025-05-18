@@ -128,7 +128,7 @@ export default function About({ params }: AboutParams) {
             <CurrentLocation person={person} />
             <SpokenLanguages languages={person.languages} />
           </Column>
-          <Column gap="8" overflow="auto" horizontal="center" className={styles.skills}>
+          <Column hide="s" gap="8" overflow="auto" horizontal="center" className={styles.skills}>
             <Skills />
           </Column>
         </Column>
@@ -138,7 +138,7 @@ export default function About({ params }: AboutParams) {
             fillWidth
             minHeight="160"
             vertical="center"
-            marginBottom="32"
+            marginBottom="16"
           >
             <Heading className={styles.textAlign} variant="display-strong-xl">
               {person.name}
@@ -150,6 +150,17 @@ export default function About({ params }: AboutParams) {
             >
               {person.role}
             </Text>
+
+            <Column
+              show="s"
+              paddingTop="l"
+              overflow="auto"
+              horizontal="center"
+              className={styles.skills}
+            >
+              <Skills />
+            </Column>
+
             <Flex
               className={styles.blockAlign}
               paddingTop="20"
@@ -186,7 +197,7 @@ export default function About({ params }: AboutParams) {
             </Flex>
           </Column>
 
-          <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
+          <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="l">
             {about.intro.description}
           </Column>
 

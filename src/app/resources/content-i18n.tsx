@@ -166,14 +166,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           timeframe: t("about.work.experiences.LuxuryLeader.timeframe"),
           role: t("about.work.experiences.LuxuryLeader.role"),
           achievements: t("about.work.experiences.LuxuryLeader.achievements").split(";"),
-          images: [
-            {
-              src: addBasePath("/images/projects/project-01/cover-01.jpg"),
-              alt: "Projet Leader du Luxe",
-              width: 16,
-              height: 9,
-            },
-          ],
+          images: [],
         },
         {
           company: {
