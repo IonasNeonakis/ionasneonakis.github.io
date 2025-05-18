@@ -25,4 +25,4 @@
 - [x] configure biome.js
 - [ ] add husky
 - [x] center loading spinner
-- [ ] SEO : https://search.google.com/search-console
+- [x] SEO : https://search.google.com/search-console
