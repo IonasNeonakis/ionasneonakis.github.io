@@ -5,6 +5,7 @@ import { Column, Heading } from "@/once-ui/components";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
+import {addBasePath} from "@/app/utils/imageUtils";
 
 interface PageParams {
   params: Promise<LocaleParams>;
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: PageParams) {
 
   const title = blog.title;
   const description = blog.description;
-  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
+  const ogImage = addBasePath("/images/avatar.jpg");
 
   return {
     title,

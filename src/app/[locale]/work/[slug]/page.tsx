@@ -10,6 +10,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { use } from "react";
+import {addBasePath} from "@/app/utils/imageUtils";
 
 interface WorkParams {
   params: Promise<
@@ -50,10 +51,9 @@ export async function generateMetadata({ params }: WorkParams): Promise<Metadata
     publishedAt: publishedTime,
     summary: description,
     images,
-    image,
     team,
   } = post.metadata;
-  const ogImage = image ? `https://${baseURL}${image}` : `https://${baseURL}/og?title=${title}`;
+  const ogImage = addBasePath("/images/avatar.jpg");
 
   return {
     title,
@@ -74,6 +74,7 @@ export async function generateMetadata({ params }: WorkParams): Promise<Metadata
       images: [
         {
           url: ogImage,
+          alt: title,
         },
       ],
     },

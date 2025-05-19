@@ -19,6 +19,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import React, { use } from "react";
+import { addBasePath } from "@/app/utils/imageUtils";
 
 interface AboutParams {
   params: Promise<LocaleParams>;
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: AboutParams) {
 
   const title = about.title;
   const description = about.description;
-  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
+  const ogImage = addBasePath("/images/avatar.jpg");
 
   return {
     title,

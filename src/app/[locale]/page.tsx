@@ -8,6 +8,7 @@ import { Projects } from "@/components/work/Projects";
 import type { LocaleParams } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import {addBasePath} from "@/app/utils/imageUtils";
 
 interface HomeParams {
   params: Promise<LocaleParams>;
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: HomeParams) {
 
   const title = home.title;
   const description = home.description;
-  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
+  const ogImage = addBasePath("/images/avatar.jpg");
 
   return {
     title,
