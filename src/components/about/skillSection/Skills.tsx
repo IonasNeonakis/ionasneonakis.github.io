@@ -1,5 +1,6 @@
 import { SkillSection } from "@/components/about/skillSection/SkillSection";
 import { Column } from "@/once-ui/components";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 export interface Skill {
@@ -27,27 +28,26 @@ const backendSkills: Skill[] = [
 
 const frontendSkills: Skill[] = [
   { name: "React", important: true },
-  { name: "TanstackQuery" },
   { name: "TypeScript", important: true },
   { name: "JavaScript" },
   { name: "vite" },
+  { name: "TanStack Query" },
   { name: "NPM" },
   { name: "Jest" },
   { name: "zod" },
   { name: "Tailwind" },
   { name: "Ant Design" },
   { name: "Sass" },
-  { name: "CSS" },
-  { name: "HTML" },
 ];
 
 const devopsSkills: Skill[] = [
+  { name: "Kubernetes", important: true },
   { name: "Argo CD" },
-  { name: "Kubernetes" },
   { name: "Helm" },
   { name: "Docker" },
   { name: "Keycloak" },
-  { name: "DataDog" },
+  { name: "Okta" },
+  { name: "Datadog" },
   { name: "Gitlab CI/CD" },
   { name: "Maven" },
   { name: "Gradle" },
@@ -63,12 +63,14 @@ const otherSkills: Skill[] = [
 ];
 
 export function Skills() {
+  const t = useTranslations();
+
   return (
     <Column horizontal="center" vertical="center">
       <SkillSection title="Backend" skills={backendSkills} />
       <SkillSection title="Frontend" skills={frontendSkills} />
       <SkillSection title="Devops" skills={devopsSkills} />
-      <SkillSection title="Others" skills={otherSkills} />
+      <SkillSection title={t("about.skills.others")} skills={otherSkills} />
     </Column>
   );
 }

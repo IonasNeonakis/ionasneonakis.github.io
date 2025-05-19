@@ -8,6 +8,14 @@
         color: var(--brand-on-background-medium);
     }
 
+    &.important {
+        border-color: var(--neutral-on-solid-strong);
+        border-width: 2px;
+        background-color: var(--surface-background);
+        color: var(--neutral-on-background-medium);
+    }
+
+
     &.accent {
         border-color: var(--accent-border-strong);
         background-color: var(--accent-background-strong);
@@ -50,6 +58,7 @@
         color: var(--brand-on-background-medium);
         background-clip: padding-box;
     }
+
 }
 
 .s {

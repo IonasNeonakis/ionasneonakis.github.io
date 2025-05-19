@@ -20,6 +20,9 @@
       "title": "Introduction",
       "description": "I'm a fullstack developer based in Paris, specialized in building modern web applications, robust microservices, and high-performance software architectures. I'm passionate about technology and innovation and strive to stay updated with the latest software development trends. My expertise includes technologies like Spring Boot, Kotlin, Java, React, and more. I'm also a strong advocate for best development practices such as TDD, DDD, and Agile methodologies."
     },
+    "skills": {
+      "others": "Others"
+    },
     "work": {
       "title": "Work Experiences",
       "experiences": {

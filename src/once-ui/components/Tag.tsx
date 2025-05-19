@@ -8,7 +8,16 @@ import { Flex, Icon, Text } from ".";
 import styles from "./Tag.module.scss";
 
 interface TagProps extends React.ComponentProps<typeof Flex> {
-  variant?: "brand" | "accent" | "warning" | "success" | "danger" | "neutral" | "info" | "gradient";
+  variant?:
+    | "brand"
+    | "accent"
+    | "warning"
+    | "success"
+    | "danger"
+    | "neutral"
+    | "info"
+    | "gradient"
+    | "important";
   size?: "s" | "m" | "l";
   label?: string;
   prefixIcon?: string;

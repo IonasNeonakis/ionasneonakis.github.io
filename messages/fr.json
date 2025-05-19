@@ -20,6 +20,9 @@
       "title": "Introduction",
       "description": "Je suis un développeur fullstack basé en Île-de-France, spécialisé dans la création d'applications web modernes, de microservices robustes et d'architectures logicielles performantes. Je suis passionné par la technologie et l'innovation, et je m'efforce de rester à jour avec les dernières tendances du développement logiciel. Mon expertise s'étend à des technologies telles que Spring Boot, Kotlin, Java, React et bien d'autres. Je suis également un fervent défenseur des bonnes pratiques de développement tels que le TDD, le DDD et l'agilité."
     },
+    "skills": {
+      "others": "Autres"
+    },
     "work": {
       "title": "Expériences Professionnelles",
       "experiences": {

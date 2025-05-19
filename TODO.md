@@ -28,3 +28,4 @@
 - [x] center loading spinner
 - [x] SEO : https://search.google.com/search-console
 - [x] improve skill section for mobile
+- [ ] i18n "Others"
