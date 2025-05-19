@@ -10,6 +10,7 @@ import {
   Text,
 } from "@/once-ui/components";
 import { useTranslations } from "next-intl";
+import type React from "react";
 
 interface ProjectCardProps {
   href: string;

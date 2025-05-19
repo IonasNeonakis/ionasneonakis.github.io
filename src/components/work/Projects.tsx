@@ -26,7 +26,7 @@ export function Projects({ range, locale }: ProjectsProps) {
         <ProjectCard
           priority={index < 2}
           key={`${post.slug}-${index}`}
-          href={`${locale}/work/${post.slug}`}
+          href={`/${locale}/work/${post.slug}`}
           images={post.metadata.images}
           title={post.metadata.title}
           description={post.metadata.summary}
