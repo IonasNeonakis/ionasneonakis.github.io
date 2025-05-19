@@ -1,11 +1,11 @@
 import { baseURL, createI18nContent } from "@/app/resources";
+import { addBasePath } from "@/app/utils/imageUtils";
 import { Posts } from "@/components/blog/Posts";
 import type { LocaleParams } from "@/i18n/routing";
 import { Column, Heading } from "@/once-ui/components";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
-import {addBasePath} from "@/app/utils/imageUtils";
 
 interface PageParams {
   params: Promise<LocaleParams>;

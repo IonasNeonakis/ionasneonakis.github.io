@@ -3,12 +3,12 @@ import React, { use } from "react";
 import { Avatar, Button, Column, Flex, Heading, RevealFx, Text } from "@/once-ui/components";
 
 import { baseURL, createI18nContent, routes } from "@/app/resources";
+import { addBasePath } from "@/app/utils/imageUtils";
 import { Posts } from "@/components/blog/Posts";
 import { Projects } from "@/components/work/Projects";
 import type { LocaleParams } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import {addBasePath} from "@/app/utils/imageUtils";
 
 interface HomeParams {
   params: Promise<LocaleParams>;

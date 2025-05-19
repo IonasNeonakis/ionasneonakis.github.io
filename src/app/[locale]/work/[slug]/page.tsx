@@ -1,5 +1,6 @@
 import { baseURL, createI18nContent } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
+import { addBasePath } from "@/app/utils/imageUtils";
 import { getPosts } from "@/app/utils/utils";
 import ScrollToHash from "@/components/ScrollToHash";
 import { CustomMDX } from "@/components/mdx";
@@ -10,7 +11,6 @@ import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { use } from "react";
-import {addBasePath} from "@/app/utils/imageUtils";
 
 interface WorkParams {
   params: Promise<
@@ -46,13 +46,7 @@ export async function generateMetadata({ params }: WorkParams): Promise<Metadata
     return;
   }
 
-  const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    images,
-    team,
-  } = post.metadata;
+  const { title, publishedAt: publishedTime, summary: description, images, team } = post.metadata;
   const ogImage = addBasePath("/images/avatar.jpg");
 
   return {

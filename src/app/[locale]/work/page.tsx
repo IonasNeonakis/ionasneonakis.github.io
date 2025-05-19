@@ -1,4 +1,5 @@
 import { baseURL, createI18nContent } from "@/app/resources";
+import { addBasePath } from "@/app/utils/imageUtils";
 import { getPosts } from "@/app/utils/utils";
 import { Projects } from "@/components/work/Projects";
 import type { LocaleParams } from "@/i18n/routing";
@@ -6,7 +7,6 @@ import { Column } from "@/once-ui/components";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
-import {addBasePath} from "@/app/utils/imageUtils";
 
 interface WorkParams {
   params: Promise<LocaleParams>;

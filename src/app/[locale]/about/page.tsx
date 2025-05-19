@@ -1,6 +1,7 @@
 import { CurrentLocation } from "@/app/[locale]/about/CurrentLocation";
 import { SpokenLanguages } from "@/app/[locale]/about/SpokenLanguages";
 import { baseURL, createI18nContent } from "@/app/resources";
+import { addBasePath } from "@/app/utils/imageUtils";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import { Skills } from "@/components/about/skillSection/Skills";
@@ -19,7 +20,6 @@ import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import React, { use } from "react";
-import { addBasePath } from "@/app/utils/imageUtils";
 
 interface AboutParams {
   params: Promise<LocaleParams>;
