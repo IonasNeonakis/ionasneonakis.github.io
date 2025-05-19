@@ -1,32 +1,21 @@
-"use client";
+import { Redirect } from "@/app/Redirect";
+import { baseURL } from "@/app/resources";
 
-import { routing } from "@/i18n/routing";
-import { Flex, Spinner } from "@/once-ui/components";
-import { hasLocale } from "next-intl";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-
-export default function Redirect() {
-  const router = useRouter();
-
-  useEffect(() => {
-    const locale = extractSupportedLocaleFromNavigatorLanguages() || routing.defaultLocale;
-
-    router.replace(`/${locale}`);
-  }, [router]);
-  return (
-    <Flex fillHeight horizontal="center">
-      <Spinner size="xxl" />
-    </Flex>
-  );
+export async function generateMetadata() {
+  return {
+    title: "Ionas' Portfolio",
+    description: "Portfolio website showcasing my work as a software engineer.",
+    openGraph: {
+      title: `Ionas' Portfolio`,
+      description: "Portfolio website showcasing my work.",
+      url: `https://${baseURL}`,
+      siteName: `Ionas' Portfolio`,
+      locale: "en_US",
+      type: "website",
+    },
+  };
 }
 
-function extractSupportedLocaleFromNavigatorLanguages() {
-  if (typeof navigator === "undefined" || navigator.languages === undefined) {
-    return null;
-  }
-
-  return navigator.languages
-    .map((language) => language.split("-")[0])
-    .find((language) => hasLocale(routing.locales, language));
+export default function Page() {
+  return <Redirect />;
 }

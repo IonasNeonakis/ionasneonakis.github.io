@@ -14,16 +14,6 @@ import type React from "react";
 export async function generateMetadata() {
   return {
     metadataBase: new URL(`https://${baseURL}`),
-    title: "Ionas' Portfolio",
-    description: "Portfolio website showcasing my work as a software engineer.",
-    openGraph: {
-      title: `Ionas' Portfolio`,
-      description: "Portfolio website showcasing my work.",
-      url: baseURL,
-      siteName: `Ionas' Portfolio`,
-      locale: "en_US",
-      type: "website",
-    },
     robots: {
       index: true,
       follow: true,
