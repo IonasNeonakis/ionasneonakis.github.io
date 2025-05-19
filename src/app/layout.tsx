@@ -13,7 +13,7 @@ import type React from "react";
 
 export async function generateMetadata() {
   return {
-    metadataBase: new URL(`https://${baseURL}/en`),
+    metadataBase: new URL(`https://${baseURL}`),
     title: "Ionas' Portfolio",
     description: "Portfolio website showcasing my work as a software engineer.",
     openGraph: {
