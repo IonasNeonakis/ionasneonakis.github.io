@@ -4,9 +4,7 @@ import { getPosts } from "@/app/utils/utils";
 import { Projects } from "@/components/work/Projects";
 import type { LocaleParams } from "@/i18n/routing";
 import { Column } from "@/once-ui/components";
-import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { use } from "react";
 
 interface WorkParams {
   params: Promise<LocaleParams>;
@@ -46,11 +44,11 @@ export async function generateMetadata({ params }: WorkParams) {
   };
 }
 
-export default function Work({ params }: WorkParams) {
-  const { locale } = use(params);
+export default async function Work({ params }: WorkParams) {
+  const { locale } = await params;
 
   setRequestLocale(locale);
-  const t = useTranslations();
+  const t = await getTranslations();
 
   const allProjects = getPosts(["src", "app", "[locale]", "work", "projects", locale]);
   const { person, work } = createI18nContent(t);

@@ -7,8 +7,7 @@ import { CustomMDX } from "@/components/mdx";
 import { type LocaleParams, routing } from "@/i18n/routing";
 import { AvatarGroup, Button, Column, Heading, Row, Text } from "@/once-ui/components";
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { use } from "react";
 
@@ -74,11 +73,11 @@ export async function generateMetadata({ params }: BlogParams): Promise<Metadata
   };
 }
 
-export default function Blog({ params }: BlogParams) {
-  const { slug, locale } = use(params);
+export default async function Blog({ params }: BlogParams) {
+  const { slug, locale } = await params;
   setRequestLocale(locale);
 
-  const t = useTranslations();
+  const t = await getTranslations();
 
   const post = getPosts(["src", "app", "[locale]", "blog", "posts", locale]).find(
     (post) => post.slug === slug,

@@ -28,4 +28,5 @@
 - [x] SEO : https://search.google.com/search-console
 - [x] improve skill section for mobile
 - [x] i18n "Others"
+- [ ] og metadata don't seem to work when await is called
 - [ ] lighthouse score

@@ -3,7 +3,6 @@ import { addBasePath } from "@/app/utils/imageUtils";
 import { Posts } from "@/components/blog/Posts";
 import type { LocaleParams } from "@/i18n/routing";
 import { Column, Heading } from "@/once-ui/components";
-import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
 
@@ -45,11 +44,11 @@ export async function generateMetadata({ params }: PageParams) {
   };
 }
 
-export default function Blog({ params }: PageParams) {
-  const { locale } = use(params);
+export default async function Blog({ params }: PageParams) {
+  const { locale } = await params;
   setRequestLocale(locale);
 
-  const t = useTranslations();
+  const t = await getTranslations();
   const { person, blog } = createI18nContent(t);
 
   return (

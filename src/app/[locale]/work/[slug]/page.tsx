@@ -7,7 +7,6 @@ import { CustomMDX } from "@/components/mdx";
 import { type LocaleParams, routing } from "@/i18n/routing";
 import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text } from "@/once-ui/components";
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { use } from "react";
@@ -81,15 +80,15 @@ export async function generateMetadata({ params }: WorkParams): Promise<Metadata
   } satisfies Metadata;
 }
 
-export default function Project({ params }: WorkParams) {
-  const { slug, locale } = use(params);
+export default async function Project({ params }: WorkParams) {
+  const { slug, locale } = await params;
   setRequestLocale(locale);
 
   const post = getPosts(["src", "app", "[locale]", "work", "projects", locale]).find(
     (post) => post.slug === slug,
   );
 
-  const t = useTranslations();
+  const t = await getTranslations();
   const { person } = createI18nContent(t);
 
   if (!post) {

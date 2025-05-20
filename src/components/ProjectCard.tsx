@@ -1,5 +1,3 @@
-"use client";
-
 import {
   AvatarGroup,
   Carousel,
@@ -10,6 +8,7 @@ import {
   Text,
 } from "@/once-ui/components";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import type React from "react";
 
 interface ProjectCardProps {
@@ -23,7 +22,7 @@ interface ProjectCardProps {
   link: string;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({
+export function ProjectCard({
   href,
   images = [],
   title,
@@ -31,7 +30,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   avatars,
   link,
-}) => {
+}: ProjectCardProps) {
   const t = useTranslations();
 
   return (
@@ -91,4 +90,4 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       </Flex>
     </Column>
   );
-};
+}

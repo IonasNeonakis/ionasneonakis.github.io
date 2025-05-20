@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 
 import { Avatar, Button, Column, Flex, Heading, RevealFx, Text } from "@/once-ui/components";
 
@@ -7,7 +7,6 @@ import { addBasePath } from "@/app/utils/imageUtils";
 import { Posts } from "@/components/blog/Posts";
 import { Projects } from "@/components/work/Projects";
 import type { LocaleParams } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 interface HomeParams {
@@ -48,12 +47,12 @@ export async function generateMetadata({ params }: HomeParams) {
   };
 }
 
-export default function Home({ params }: HomeParams) {
-  const { locale } = use(params);
+export default async function Home({ params }: HomeParams) {
+  const { locale } = await params;
 
   setRequestLocale(locale);
 
-  const t = useTranslations();
+  const t = await getTranslations();
 
   const { home, about, person } = createI18nContent(t);
 

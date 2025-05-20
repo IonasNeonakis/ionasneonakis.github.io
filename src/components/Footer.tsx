@@ -1,9 +1,10 @@
 import { createI18nContent } from "@/app/resources";
 import { Flex, IconButton, SmartLink, Text } from "@/once-ui/components";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import styles from "./Footer.module.scss";
 
-export const Footer = () => {
+export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const t = useTranslations();
@@ -51,4 +52,4 @@ export const Footer = () => {
       <Flex height="80" show="s" />
     </Flex>
   );
-};
+}

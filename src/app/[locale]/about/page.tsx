@@ -16,7 +16,6 @@ import {
   SmartImage,
   Text,
 } from "@/once-ui/components";
-import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import React, { use } from "react";
@@ -58,11 +57,11 @@ export async function generateMetadata({ params }: AboutParams) {
   };
 }
 
-export default function About({ params }: AboutParams) {
-  const { locale } = use(params);
+export default async function About({ params }: AboutParams) {
+  const { locale } = await params;
   setRequestLocale(locale);
 
-  const t = useTranslations();
+  const t = await getTranslations();
 
   const { person, about, social } = createI18nContent(t);
 

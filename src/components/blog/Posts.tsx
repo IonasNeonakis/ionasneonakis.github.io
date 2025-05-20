@@ -13,8 +13,6 @@ interface PostsProps {
 export function Posts({ range, columns = "1", thumbnail = false, locale }: PostsProps) {
   const allBlogs = getPosts(["src", "app", "[locale]", "blog", "posts", locale]);
 
-  console.log(locale);
-
   const sortedBlogs = allBlogs.toSorted((a, b) => {
     return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
   });
