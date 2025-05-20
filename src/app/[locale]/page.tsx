@@ -7,13 +7,14 @@ import { addBasePath } from "@/app/utils/imageUtils";
 import { Posts } from "@/components/blog/Posts";
 import { Projects } from "@/components/work/Projects";
 import type { LocaleParams } from "@/i18n/routing";
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 interface HomeParams {
   params: Promise<LocaleParams>;
 }
 
-export async function generateMetadata({ params }: HomeParams) {
+export async function generateMetadata({ params }: HomeParams): Promise<Metadata> {
   const { locale } = await params;
 
   const t = await getTranslations();

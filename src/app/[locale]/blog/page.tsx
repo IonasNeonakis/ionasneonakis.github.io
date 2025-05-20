@@ -3,6 +3,7 @@ import { addBasePath } from "@/app/utils/imageUtils";
 import { Posts } from "@/components/blog/Posts";
 import type { LocaleParams } from "@/i18n/routing";
 import { Column, Heading } from "@/once-ui/components";
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
 
@@ -10,7 +11,7 @@ interface PageParams {
   params: Promise<LocaleParams>;
 }
 
-export async function generateMetadata({ params }: PageParams) {
+export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
   const { locale } = await params;
 
   const t = await getTranslations();

@@ -4,13 +4,14 @@ import { getPosts } from "@/app/utils/utils";
 import { Projects } from "@/components/work/Projects";
 import type { LocaleParams } from "@/i18n/routing";
 import { Column } from "@/once-ui/components";
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 interface WorkParams {
   params: Promise<LocaleParams>;
 }
 
-export async function generateMetadata({ params }: WorkParams) {
+export async function generateMetadata({ params }: WorkParams): Promise<Metadata> {
   const { locale } = await params;
 
   const t = await getTranslations();

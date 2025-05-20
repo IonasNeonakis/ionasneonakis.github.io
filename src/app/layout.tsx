@@ -9,9 +9,10 @@ import { Raleway } from "next/font/google";
 import { Source_Code_Pro } from "next/font/google";
 
 import { Background, Column, Flex, ToastProvider } from "@/once-ui/components";
+import type { Metadata } from "next";
 import type React from "react";
 
-export async function generateMetadata() {
+export function generateMetadata(): Metadata {
   return {
     metadataBase: new URL(`https://${baseURL}`),
     robots: {

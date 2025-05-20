@@ -16,6 +16,7 @@ import {
   SmartImage,
   Text,
 } from "@/once-ui/components";
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import React, { use } from "react";
@@ -24,7 +25,7 @@ interface AboutParams {
   params: Promise<LocaleParams>;
 }
 
-export async function generateMetadata({ params }: AboutParams) {
+export async function generateMetadata({ params }: AboutParams): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations();
   const { about } = createI18nContent(t);

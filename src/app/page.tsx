@@ -1,8 +1,9 @@
 import { Redirect } from "@/app/Redirect";
 import { baseURL } from "@/app/resources";
 import { addBasePath } from "@/app/utils/imageUtils";
+import type { Metadata } from "next";
 
-export async function generateMetadata() {
+export function generateMetadata(): Metadata {
   const ogImage = addBasePath("/images/avatar-og.webp");
 
   return {
