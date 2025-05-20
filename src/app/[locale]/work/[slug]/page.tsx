@@ -4,7 +4,7 @@ import { addBasePath } from "@/app/utils/imageUtils";
 import { getPosts } from "@/app/utils/utils";
 import ScrollToHash from "@/components/ScrollToHash";
 import { CustomMDX } from "@/components/mdx";
-import { type LocaleParams, routing } from "@/i18n/routing";
+import { type Locale, type LocaleParams, routing } from "@/i18n/routing";
 import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text } from "@/once-ui/components";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -19,7 +19,7 @@ interface WorkParams {
   >;
 }
 
-export async function generateStaticParams(): Promise<{ slug: string; locale: string }[]> {
+export async function generateStaticParams(): Promise<{ slug: string; locale: Locale }[]> {
   const { locales } = routing;
 
   return locales.flatMap((locale) => {
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: WorkParams): Promise<Metadata
   }
 
   const { title, publishedAt: publishedTime, summary: description, images, team } = post.metadata;
-  const ogImage = addBasePath("/images/avatar.jpg");
+  const ogImage = addBasePath("/images/avatar-og.webp");
 
   return {
     title,

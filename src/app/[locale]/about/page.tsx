@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: AboutParams) {
 
   const title = about.title;
   const description = about.description;
-  const ogImage = addBasePath("/images/avatar.jpg");
+  const ogImage = addBasePath("/images/avatar-og.webp");
 
   return {
     title,

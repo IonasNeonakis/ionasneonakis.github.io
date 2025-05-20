@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: WorkParams) {
 
   const title = work.title;
   const description = work.description;
-  const ogImage = addBasePath("/images/avatar.jpg");
+  const ogImage = addBasePath("/images/avatar-og.webp");
 
   return {
     title,

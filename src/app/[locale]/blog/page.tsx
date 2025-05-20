@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageParams) {
 
   const title = blog.title;
   const description = blog.description;
-  const ogImage = addBasePath("/images/avatar.jpg");
+  const ogImage = addBasePath("/images/avatar-og.webp");
 
   return {
     title,

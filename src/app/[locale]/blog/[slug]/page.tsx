@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: BlogParams): Promise<Metadata
   }
 
   const { title, publishedAt: publishedTime, summary: description, image } = post.metadata;
-  const ogImage = addBasePath("/images/avatar.jpg");
+  const ogImage = addBasePath("/images/avatar-og.webp");
 
   return {
     title,

@@ -3,7 +3,7 @@ import { baseURL } from "@/app/resources";
 import { addBasePath } from "@/app/utils/imageUtils";
 
 export async function generateMetadata() {
-  const ogImage = addBasePath("/images/avatar.jpg");
+  const ogImage = addBasePath("/images/avatar-og.webp");
 
   return {
     title: "Ionas' Portfolio",
