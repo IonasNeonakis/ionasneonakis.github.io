@@ -62,14 +62,14 @@ export default async function Blog({ params }: PageParams) {
             "@type": "Blog",
             headline: blog.title,
             description: blog.description,
-            url: `https://${baseURL}/blog`,
-            image: `${baseURL}/og?title=${encodeURIComponent(blog.title)}`,
+            url: `https://${baseURL}/${locale}/blog`,
+            image: addBasePath("/images/avatar.jpg"),
             author: {
               "@type": "Person",
               name: person.name,
               image: {
                 "@type": "ImageObject",
-                url: `${baseURL}${person.avatar}`,
+                url: `https://${baseURL}/${person.avatar}`,
               },
             },
           }),
