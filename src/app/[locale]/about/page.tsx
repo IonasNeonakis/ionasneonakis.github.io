@@ -1,34 +1,26 @@
-import { CurrentLocation } from "@/app/[locale]/about/CurrentLocation";
-import { SpokenLanguages } from "@/app/[locale]/about/SpokenLanguages";
-import { baseURL, createI18nContent } from "@/app/resources";
-import { addBasePath } from "@/app/utils/imageUtils";
+import {CurrentLocation} from "@/app/[locale]/about/CurrentLocation";
+import {SpokenLanguages} from "@/app/[locale]/about/SpokenLanguages";
+import {baseURL, createI18nContent} from "@/app/resources";
+import {addBasePath} from "@/app/utils/imageUtils";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
-import { Skills } from "@/components/about/skillSection/Skills";
-import type { LocaleParams } from "@/i18n/routing";
-import {
-  Avatar,
-  Button,
-  Column,
-  Flex,
-  Heading,
-  IconButton,
-  SmartImage,
-  Text,
-} from "@/once-ui/components";
-import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import {Skills} from "@/components/about/skillSection/Skills";
+import type {LocaleParams} from "@/i18n/routing";
+import {Avatar, Button, Column, Flex, Heading, IconButton, SmartImage, Text,} from "@/once-ui/components";
+import type {Metadata} from "next";
+import {getTranslations, setRequestLocale} from "next-intl/server";
 import Image from "next/image";
-import React, { use } from "react";
+import React from "react";
+import {Certifications} from "@/components/about/certifications/Certifications";
 
 interface AboutParams {
   params: Promise<LocaleParams>;
 }
 
-export async function generateMetadata({ params }: AboutParams): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({params}: AboutParams): Promise<Metadata> {
+  const {locale} = await params;
   const t = await getTranslations();
-  const { about } = createI18nContent(t);
+  const {about} = createI18nContent(t);
 
   const title = about.title;
   const description = about.description;
@@ -58,13 +50,13 @@ export async function generateMetadata({ params }: AboutParams): Promise<Metadat
   };
 }
 
-export default async function About({ params }: AboutParams) {
-  const { locale } = await params;
+export default async function About({params}: AboutParams) {
+  const {locale} = await params;
   setRequestLocale(locale);
 
   const t = await getTranslations();
 
-  const { person, about, social } = createI18nContent(t);
+  const {person, about, social} = createI18nContent(t);
 
   const structure = [
     {
@@ -106,13 +98,13 @@ export default async function About({ params }: AboutParams) {
       />
       <Column
         left="0"
-        style={{ top: "50%", transform: "translateY(-50%)" }}
+        style={{top: "50%", transform: "translateY(-50%)"}}
         position="fixed"
         paddingLeft="24"
         gap="32"
         hide="s"
       >
-        <TableOfContents structure={structure} />
+        <TableOfContents structure={structure}/>
       </Column>
       <Flex fillWidth mobileDirection="column" horizontal="center">
         <Column className={styles.avatar} minWidth="160" paddingX="l" gap="m" flex={3}>
@@ -124,12 +116,12 @@ export default async function About({ params }: AboutParams) {
             paddingBottom="xl"
             horizontal="center"
           >
-            <Avatar src={person.avatar} size="xl" />
-            <CurrentLocation person={person} />
-            <SpokenLanguages languages={person.languages} />
+            <Avatar src={person.avatar} size="xl"/>
+            <CurrentLocation person={person}/>
+            <SpokenLanguages languages={person.languages}/>
           </Column>
           <Column hide="s" gap="8" overflow="auto" horizontal="center" className={styles.skills}>
-            <Skills />
+            <Skills/>
           </Column>
         </Column>
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
@@ -158,7 +150,7 @@ export default async function About({ params }: AboutParams) {
               horizontal="center"
               className={styles.skills}
             >
-              <Skills />
+              <Skills/>
             </Column>
 
             <Flex
@@ -278,8 +270,12 @@ export default async function About({ params }: AboutParams) {
               ))}
             </Column>
           </>
+
+          <Certifications title={about.certifications.title} certifications={about.certifications.certifications}/>
         </Column>
       </Flex>
     </Column>
-  );
+  )
+    ;
 }
+

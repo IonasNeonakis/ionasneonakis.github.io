@@ -51,6 +51,16 @@ interface StudiesInstitution {
   description: JSX.Element;
 }
 
+export interface Certification {
+  name: string;
+  certificationId: string;
+  organization: string;
+  image?: Image;
+  link?: string;
+  skills: string[];
+  date: Date;
+}
+
 interface About {
   label: string;
   title: string;
@@ -66,6 +76,10 @@ interface About {
   studies: {
     title: string;
     institutions: StudiesInstitution[];
+  };
+  certifications: {
+    title: string;
+    certifications: Certification[];
   };
 }
 
@@ -228,6 +242,54 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
         },
       ],
     },
+    certifications: {
+      title: t("about.certifications.title"),
+      certifications: [
+        {
+          name: "Oracle Certified Professional (OCP) : Java SE 17 Developer",
+          link:  "https://www.oracle.com/learning/certification/certified-professional-java-se-17-developer.html",
+          certificationId: "17820121OCPJSE17",
+          organization: "Oracle",
+          skills: ["Java"],
+          date: new Date("2023-07-01"),
+          image: {
+            src: addBasePath("/images/certifications/OCP17.webp"),
+            alt: "Oracle Certified Professional Java SE 17 Developer",
+            width: 200,
+            height: 200,
+          }
+        },
+        {
+          name: "Diplôme du Baccalauréat Général Série Scientifique Section Européenne Anglais, Mention BIEN",
+          organization: "Lycée Benjamin Franklin",
+          certificationId: "170322572441",
+          skills: [],
+          date: new Date("2017-10-01"),
+          image: {
+            src: addBasePath("/images/certifications/bac.webp"),
+            alt: "Baccalauréat Général Série Scientifique Section Européenne Anglais",
+            width: 200,
+            height: 200,
+          }
+        },
+        {
+          name: "Master 3 - Professional Java & Web Full Stack Developer",
+          link: "https://takicert.takima.io/certificates/e1e4a4e5-e6c5-4934-a437-f61b0dc95d4a",
+          organization: "Takima",
+          date: new Date("2022-09-01"),
+          skills: ["Java", "Spring Boot", "Hibernate", "React"],
+          certificationId: "e1e4a4e5-e6c5-4934-a437-f61b0dc95d4a",
+        },
+        {
+          name: "Kubernetes & DevOps",
+          link: "https://takicert.takima.io/certificates/e1e4a4e5-e6c5-4934-a437-f61b0dc95d4a",
+          organization: "Takima",
+          date: new Date("2024-09-01"),
+          skills: ["Kubernetes", "Docker", "DevOps", "ArgoCD", "Helm" ,"GitOps"],
+          certificationId: "e1e4a4e5-e6c5-4934-a437-f61b0dc95d4a",
+        }
+      ]
+    }
   };
 
   const blog: Blog = {
