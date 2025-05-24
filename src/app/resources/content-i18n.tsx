@@ -8,7 +8,7 @@ export interface Person {
   role: string;
   avatar: string;
   location: string;
-  currentCompany: Company;
+  currentCompany: Organization;
   languages: string[];
 }
 
@@ -26,13 +26,13 @@ interface Home {
   subline: JSX.Element;
 }
 
-interface Company {
+interface Organization {
   name: string;
   image: Image;
 }
 
 interface Experience {
-  company: Company;
+  company: Organization;
   timeframe: string;
   role: string;
   achievements: string[];
@@ -54,8 +54,7 @@ interface StudiesInstitution {
 export interface Certification {
   name: string;
   certificationId: string;
-  organization: string;
-  image?: Image;
+  organization: Organization;
   link?: string;
   skills: string[];
   date: Date;
@@ -247,49 +246,69 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
       certifications: [
         {
           name: "Oracle Certified Professional (OCP) : Java SE 17 Developer",
-          link:  "https://www.oracle.com/learning/certification/certified-professional-java-se-17-developer.html",
           certificationId: "17820121OCPJSE17",
-          organization: "Oracle",
+          link: addBasePath("/images/certifications/OCP17.pdf"),
+          organization: {
+            name: "Oracle",
+            image: {
+              src: addBasePath("/images/companies/oracle.png"),
+              alt: "Oracle Logo",
+              height: 30,
+              width: 54,
+            },
+          },
           skills: ["Java"],
           date: new Date("2023-07-01"),
-          image: {
-            src: addBasePath("/images/certifications/OCP17.webp"),
-            alt: "Oracle Certified Professional Java SE 17 Developer",
-            width: 200,
-            height: 200,
-          }
         },
         {
-          name: "Diplôme du Baccalauréat Général Série Scientifique Section Européenne Anglais, Mention BIEN",
-          organization: "Lycée Benjamin Franklin",
+          name: "Baccalauréat Scientifique Section Européenne Anglais, Mention BIEN",
+          organization: {
+            name: "Lycée Benjamin Franklin",
+            image: {
+              src: addBasePath("/images/companies/benjam.png"),
+              alt: "Benjamin Franklin Logo",
+              height: 30,
+              width: 54,
+            },
+          },
           certificationId: "170322572441",
           skills: [],
           date: new Date("2017-10-01"),
-          image: {
-            src: addBasePath("/images/certifications/bac.webp"),
-            alt: "Baccalauréat Général Série Scientifique Section Européenne Anglais",
-            width: 200,
-            height: 200,
-          }
         },
         {
           name: "Master 3 - Professional Java & Web Full Stack Developer",
           link: "https://takicert.takima.io/certificates/e1e4a4e5-e6c5-4934-a437-f61b0dc95d4a",
-          organization: "Takima",
+          organization: {
+            name: "Takima",
+            image: {
+              src: addBasePath("/images/companies/takima.png"),
+              alt: "Takima Logo",
+              height: 30,
+              width: 30,
+            },
+          },
           date: new Date("2022-09-01"),
           skills: ["Java", "Spring Boot", "Hibernate", "React"],
           certificationId: "e1e4a4e5-e6c5-4934-a437-f61b0dc95d4a",
         },
         {
           name: "Kubernetes & DevOps",
-          link: "https://takicert.takima.io/certificates/e1e4a4e5-e6c5-4934-a437-f61b0dc95d4a",
-          organization: "Takima",
+          link: "https://takicert.takima.io/certificates/18121901-5f5a-43a8-8132-924dfb0a0b81",
+          organization: {
+            name: "Takima",
+            image: {
+              src: addBasePath("/images/companies/takima.png"),
+              alt: "Takima Logo",
+              height: 30,
+              width: 30,
+            },
+          },
           date: new Date("2024-09-01"),
-          skills: ["Kubernetes", "Docker", "DevOps", "ArgoCD", "Helm" ,"GitOps"],
-          certificationId: "e1e4a4e5-e6c5-4934-a437-f61b0dc95d4a",
-        }
-      ]
-    }
+          skills: ["Kubernetes", "Docker", "DevOps", "ArgoCD", "Helm", "GitOps"],
+          certificationId: "18121901-5f5a-43a8-8132-924dfb0a0b81",
+        },
+      ],
+    },
   };
 
   const blog: Blog = {

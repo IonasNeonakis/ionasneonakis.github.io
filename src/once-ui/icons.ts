@@ -42,6 +42,7 @@ export const iconLibrary: Record<string, IconType> = {
   chevronLeft: HiChevronLeft,
   refresh: HiOutlineArrowPath,
   arrowUpRight: HiArrowUpRight,
+  arrowTopRightOnSquare: HiArrowTopRightOnSquare,
   check: HiCheck,
   arrowRight: HiArrowRight,
   helpCircle: HiMiniQuestionMarkCircle,

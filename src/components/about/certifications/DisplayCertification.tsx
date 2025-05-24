@@ -1,49 +1,65 @@
-import {Column, Tag, Text} from "@/once-ui/components";
-import React from "react";
-import {Certification} from "@/app/resources/content-i18n";
+import type { Certification } from "@/app/resources/content-i18n";
+import type { Locale } from "@/i18n/routing";
+import { Button, Column, Row, Tag, Text } from "@/once-ui/components";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
+import React from "react";
 
 interface CertificationProps {
-  certification: Certification
+  certification: Certification;
+  locale: Locale;
 }
 
-export function DisplayCertification({ certification}: CertificationProps) {
+export function DisplayCertification({ certification, locale }: CertificationProps) {
+  const t = useTranslations();
 
-  const {name, certificationId, skills, date, organization, image, link} = certification
+  const { name, certificationId, skills, date, organization, link } = certification;
 
   return (
     <Column key={`${name}`} fillWidth gap="4">
-      <Text id={name} variant="heading-strong-l">
-        {name}
-      </Text>
-      <Text variant="heading-default-xs" onBackground="neutral-weak">
-        {organization}
-      </Text>
-      <Text variant="heading-default-xs" onBackground="neutral-weak">
-        {date.toLocaleDateString("fr-FR", {
+      <Row vertical="center" gap="8">
+        <Image
+          alt={organization.image.alt}
+          src={organization.image.src}
+          width={organization.image.width}
+          height={organization.image.height}
+        />
+        <Text id={name} variant="heading-strong-l">
+          {name}
+        </Text>
+      </Row>
+
+      <Text variant="body-default-s" onBackground="brand-weak">
+        {organization.name} -{" "}
+        {date.toLocaleDateString(locale, {
           year: "numeric",
-          month: "long"
         })}
-
       </Text>
 
-      <Text variant="heading-default-xs" onBackground="neutral-weak">
-        {certificationId}
-      </Text>
-
-      <Text variant="heading-default-xs" onBackground="neutral-weak">
-        {link}
-      </Text>
-
-      {skills.map((skill) => (
-        <Tag key={skill} variant="neutral" size="s" onBackground="brand-weak">
-          {skill}
-        </Tag>
-      ))}
-
-      {image && (
-        <Image alt={image.alt} src={image.src} width={image.width} height={image.height}/>
+      <Row horizontal="space-between" vertical="center">
+        <Text variant="heading-default-xs" onBackground="neutral-weak">
+          {t("about.certifications.id")}
+          {certificationId}
+        </Text>
+        <Button
+          size="s"
+          variant="secondary"
+          target="_blank"
+          href={link}
+          suffixIcon="arrowTopRightOnSquare"
+        >
+          {t("about.certifications.showCertificate")}
+        </Button>
+      </Row>
+      {skills.length > 0 && (
+        <Row gap="4" marginBottom="8">
+          {skills.map((skill) => (
+            <Tag key={skill} variant="neutral" size="s" onBackground="brand-weak">
+              {skill}
+            </Tag>
+          ))}
+        </Row>
       )}
     </Column>
-  )
+  );
 }

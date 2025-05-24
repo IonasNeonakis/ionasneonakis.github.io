@@ -9,7 +9,6 @@ import { AvatarGroup, Button, Column, Heading, Row, Text } from "@/once-ui/compo
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { use } from "react";
 
 interface BlogParams {
   params: Promise<

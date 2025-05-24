@@ -68,6 +68,11 @@
           "description": "Bachelor's in Computer Science IMIS | 2017 - 2020"
         }
       }
+    },
+    "certifications" : {
+      "title": "Degrees & Certifications",
+      "id": "ID: ",
+      "showCertificate": "Show Certificate"
     }
   },
   "blog": {

@@ -17,16 +17,20 @@
 - [ ] description content is too long
 - [ ] optimize images: https://nextjs.org/docs/pages/guides/static-exports
 - [x] links in work don't work
-- [ ] add certifications with icons and links
+- [x] add certifications with icons and links
 - [x] ⚠ The config property `experimental.turbo` is deprecated. Move this setting to `config.turbopack` as Turbopack is now stable.
 - [x] 2 clicks needed to cancel a language change
 - [x] i18n for language tags
 - [x] move technical skills to the top, under language tags
 - [x] configure biome.js
 - [x] Ionas NEONAKIS should redirect to home page
-- [x] center loading spinner
+- [x] center loading spinner 
 - [x] SEO : https://search.google.com/search-console
 - [x] improve skill section for mobile
 - [x] i18n "Others"
 - [ ] og metadata don't seem to work when await is called
 - [ ] lighthouse score
+- [ ] Order certifications
+- [ ] add master + bachelors degree
+- [ ] convert png to webp or 
+- [ ] add links to certifications

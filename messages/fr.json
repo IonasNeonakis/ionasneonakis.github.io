@@ -68,6 +68,11 @@
           "description": "Licence Informatique IMIS | 2017 - 2020"
         }
       }
+    },
+    "certifications" : {
+      "title": "Diplômes & Certifications",
+      "id": "Identifiant: ",
+      "showCertificate": "Afficher le certificat"
     }
   },
   "blog": {
