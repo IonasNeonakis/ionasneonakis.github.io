@@ -108,7 +108,7 @@ export default async function Blog({ params }: BlogParams) {
             description: post.metadata.summary,
             image: post.metadata.image
               ? `https://${baseURL}${post.metadata.image}`
-              : addBasePath("/images/avatar.jpg"),
+              : addBasePath("/images/avatar.webp"),
             url: `https://${baseURL}/${locale}/blog/${post.slug}`,
             author: {
               "@type": "Person",

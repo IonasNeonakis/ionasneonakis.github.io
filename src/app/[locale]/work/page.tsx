@@ -66,7 +66,7 @@ export default async function Work({ params }: WorkParams) {
             headline: work.title,
             description: work.description,
             url: `https://${baseURL}/${locale}/projects`,
-            image: addBasePath("/images/avatar.jpg"),
+            image: addBasePath("/images/avatar.webp"),
             author: {
               "@type": "Person",
               name: person.name,

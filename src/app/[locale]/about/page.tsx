@@ -98,7 +98,7 @@ export default async function About({ params }: AboutParams) {
             jobTitle: person.role,
             description: about.intro.description,
             url: `https://${baseURL}/${locale}/about`,
-            image: addBasePath("/images/avatar.jpg"),
+            image: addBasePath("/images/avatar.webp"),
             sameAs: social
               .filter((item) => item.link && !item.link.startsWith("mailto:")) // Filter out empty links and email links
               .map((item) => item.link),

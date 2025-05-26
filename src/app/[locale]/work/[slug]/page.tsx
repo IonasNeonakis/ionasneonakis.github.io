@@ -115,7 +115,7 @@ export default async function Project({ params }: WorkParams) {
             description: post.metadata.summary,
             image: post.metadata.image
               ? `https://${baseURL}${post.metadata.image}`
-              : addBasePath("/images/avatar.jpg"),
+              : addBasePath("/images/avatar.webp"),
             url: `https://${baseURL}/${locale}/work/${post.slug}`,
             author: {
               "@type": "Person",

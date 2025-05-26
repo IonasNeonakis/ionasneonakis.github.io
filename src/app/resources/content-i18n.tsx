@@ -111,7 +111,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
       return `${this.firstName} ${this.lastName}`;
     },
     role: t("person.role"),
-    avatar: addBasePath("/images/avatar.jpg"),
+    avatar: addBasePath("/images/avatar.webp"),
     currentCompany: {
       name: "Takima",
       image: {

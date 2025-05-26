@@ -64,7 +64,7 @@ export default async function Blog({ params }: PageParams) {
             headline: blog.title,
             description: blog.description,
             url: `https://${baseURL}/${locale}/blog`,
-            image: addBasePath("/images/avatar.jpg"),
+            image: addBasePath("/images/avatar.webp"),
             author: {
               "@type": "Person",
               name: person.name,

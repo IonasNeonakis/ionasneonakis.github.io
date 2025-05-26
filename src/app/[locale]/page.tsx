@@ -69,7 +69,7 @@ export default async function Home({ params }: HomeParams) {
             name: home.title,
             description: home.description,
             url: `https://${baseURL}/${locale}`,
-            image: addBasePath("/images/avatar.jpg"),
+            image: addBasePath("/images/avatar.webp"),
             publisher: {
               "@type": "Person",
               name: person.name,
