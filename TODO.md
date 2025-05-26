@@ -32,5 +32,6 @@
 - [ ] lighthouse score
 - [ ] Order certifications
 - [ ] add master + bachelors degree
-- [ ] convert png to webp or 
-- [ ] add links to certifications
+- [ ] convert png to webp
+- [x] add links to certifications
+- [ ] i18n for certifications

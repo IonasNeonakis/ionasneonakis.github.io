@@ -55,7 +55,7 @@ export interface Certification {
   name: string;
   certificationId: string;
   organization: Organization;
-  link?: string;
+  link: string;
   skills: string[];
   date: Date;
 }
@@ -245,6 +245,22 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
       title: t("about.certifications.title"),
       certifications: [
         {
+          name: "Kubernetes & DevOps",
+          link: "https://takicert.takima.io/certificates/18121901-5f5a-43a8-8132-924dfb0a0b81",
+          organization: {
+            name: "Takima",
+            image: {
+              src: addBasePath("/images/companies/takima.png"),
+              alt: "Takima Logo",
+              height: 30,
+              width: 30,
+            },
+          },
+          date: new Date("2024-09-01"),
+          skills: ["Kubernetes", "Docker", "DevOps", "ArgoCD", "Helm", "GitOps"],
+          certificationId: "18121901-5f5a-43a8-8132-924dfb0a0b81",
+        },
+        {
           name: "Oracle Certified Professional (OCP) : Java SE 17 Developer",
           certificationId: "17820121OCPJSE17",
           link: addBasePath("/images/certifications/OCP17.pdf"),
@@ -259,21 +275,6 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           },
           skills: ["Java"],
           date: new Date("2023-07-01"),
-        },
-        {
-          name: "Baccalauréat Scientifique Section Européenne Anglais, Mention BIEN",
-          organization: {
-            name: "Lycée Benjamin Franklin",
-            image: {
-              src: addBasePath("/images/companies/benjam.png"),
-              alt: "Benjamin Franklin Logo",
-              height: 30,
-              width: 54,
-            },
-          },
-          certificationId: "170322572441",
-          skills: [],
-          date: new Date("2017-10-01"),
         },
         {
           name: "Master 3 - Professional Java & Web Full Stack Developer",
@@ -292,20 +293,20 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           certificationId: "e1e4a4e5-e6c5-4934-a437-f61b0dc95d4a",
         },
         {
-          name: "Kubernetes & DevOps",
-          link: "https://takicert.takima.io/certificates/18121901-5f5a-43a8-8132-924dfb0a0b81",
+          name: "Baccalauréat Scientifique Section Européenne Anglais, Mention BIEN",
+          link: addBasePath("/images/certifications/bac.pdf"),
           organization: {
-            name: "Takima",
+            name: "Lycée Benjamin Franklin",
             image: {
-              src: addBasePath("/images/companies/takima.png"),
-              alt: "Takima Logo",
+              src: addBasePath("/images/companies/benjam.png"),
+              alt: "Benjamin Franklin Logo",
               height: 30,
-              width: 30,
+              width: 54,
             },
           },
-          date: new Date("2024-09-01"),
-          skills: ["Kubernetes", "Docker", "DevOps", "ArgoCD", "Helm", "GitOps"],
-          certificationId: "18121901-5f5a-43a8-8132-924dfb0a0b81",
+          certificationId: "170322572441",
+          skills: [],
+          date: new Date("2017-10-01"),
         },
       ],
     },
