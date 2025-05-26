@@ -115,7 +115,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
     currentCompany: {
       name: "Takima",
       image: {
-        src: addBasePath("/images/companies/takima.png"),
+        src: addBasePath("/images/companies/takima.webp"),
         alt: "Takima Logo",
         height: 30,
         width: 30,
@@ -170,7 +170,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           company: {
             name: t("about.work.experiences.LuxuryLeader.companyName"),
             image: {
-              src: "/images/companies/diamond.png",
+              src: "/images/companies/diamond.webp",
               alt: t("about.work.experiences.LuxuryLeader.companyAlt"),
               height: 30,
               width: 30,
@@ -185,7 +185,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           company: {
             name: t("about.work.experiences.TakimaRH.companyName"),
             image: {
-              src: "/images/companies/takima.png",
+              src: "/images/companies/takima.webp",
               alt: t("about.work.experiences.TakimaRH.companyAlt"),
               height: 30,
               width: 30,
@@ -200,7 +200,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           company: {
             name: t("about.work.experiences.TakimaFormation.companyName"),
             image: {
-              src: "/images/companies/takima.png",
+              src: "/images/companies/takima.webp",
               alt: t("about.work.experiences.TakimaFormation.companyAlt"),
               height: 30,
               width: 30,
@@ -215,7 +215,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           company: {
             name: t("about.work.experiences.Atos.companyName"),
             image: {
-              src: "/images/companies/atos.png",
+              src: "/images/companies/atos.webp",
               alt: t("about.work.experiences.Atos.companyAlt"),
               height: 15,
               width: 46,
@@ -250,7 +250,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           organization: {
             name: "Takima",
             image: {
-              src: addBasePath("/images/companies/takima.png"),
+              src: addBasePath("/images/companies/takima.webp"),
               alt: "Takima Logo",
               height: 30,
               width: 30,
@@ -267,7 +267,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           organization: {
             name: "Oracle",
             image: {
-              src: addBasePath("/images/companies/oracle.png"),
+              src: addBasePath("/images/companies/oracle.webp"),
               alt: "Oracle Logo",
               height: 30,
               width: 54,
@@ -282,7 +282,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           organization: {
             name: "Takima",
             image: {
-              src: addBasePath("/images/companies/takima.png"),
+              src: addBasePath("/images/companies/takima.webp"),
               alt: "Takima Logo",
               height: 30,
               width: 30,
@@ -293,12 +293,28 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           certificationId: "e1e4a4e5-e6c5-4934-a437-f61b0dc95d4a",
         },
         {
+          name: "Master - Informatique Mobile Intelligente et Securisée",
+          link: addBasePath("/images/certifications/MASTER.pdf"),
+          organization: {
+            name: "Université d'Orléans",
+            image: {
+              src: addBasePath("/images/companies/univ-orleans.webp"),
+              alt: "Université d'Orléans Logo",
+              height: 30,
+              width: 42,
+            },
+          },
+          certificationId: "16646728",
+          skills: [],
+          date: new Date("2017-10-01"),
+        },
+        {
           name: "Baccalauréat Scientifique Section Européenne Anglais, Mention BIEN",
-          link: addBasePath("/images/certifications/bac.pdf"),
+          link: addBasePath("/images/certifications/BAC.pdf"),
           organization: {
             name: "Lycée Benjamin Franklin",
             image: {
-              src: addBasePath("/images/companies/benjam.png"),
+              src: addBasePath("/images/companies/benjam.webp"),
               alt: "Benjamin Franklin Logo",
               height: 30,
               width: 54,
