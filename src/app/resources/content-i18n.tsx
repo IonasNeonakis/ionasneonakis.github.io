@@ -306,7 +306,23 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           },
           certificationId: "16646728",
           skills: [],
-          date: new Date("2017-10-01"),
+          date: new Date("2022-09-01"),
+        },
+        {
+          name: "License - Mathématiques & Informatique",
+          link: addBasePath("/images/certifications/MASTER.pdf"),
+          organization: {
+            name: "Université d'Orléans",
+            image: {
+              src: addBasePath("/images/companies/univ-orleans.webp"),
+              alt: "Université d'Orléans Logo",
+              height: 30,
+              width: 42,
+            },
+          },
+          certificationId: "TODO",
+          skills: [],
+          date: new Date("2020-09-01"),
         },
         {
           name: "Baccalauréat Scientifique Section Européenne Anglais, Mention BIEN",

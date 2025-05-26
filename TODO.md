@@ -30,8 +30,9 @@
 - [x] i18n "Others"
 - [ ] og metadata don't seem to work when await is called
 - [ ] lighthouse score
-- [ ] Order certifications
-- [ ] add master + bachelors degree
+- [x] Order certifications
+- [x] add master + bachelors degree
 - [x] convert png to webp
 - [x] add links to certifications
 - [ ] i18n for certifications
+- [ ] add skills for certifications
