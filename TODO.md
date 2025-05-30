@@ -38,4 +38,5 @@
 - [x] remove skills for certifications
 - [ ] clean landing page
 - [ ] work section
-- [ ] hide blog section
+- [x] hide blog section
+- [ ] add contact form on landing page
