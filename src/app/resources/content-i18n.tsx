@@ -304,7 +304,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           date: new Date("2022-09-01"),
         },
         {
-          name: t("about.certifications.license"),
+          name: t("about.certifications.bachelor"),
           link: addBasePath("/images/certifications/LICENSE.pdf"),
           organization: {
             name: t("about.certifications.university"),
