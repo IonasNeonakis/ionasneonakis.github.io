@@ -56,7 +56,6 @@ export interface Certification {
   certificationId: string;
   organization: Organization;
   link: string;
-  skills: string[];
   date: Date;
 }
 
@@ -257,7 +256,6 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
             },
           },
           date: new Date("2024-09-01"),
-          skills: ["Kubernetes", "Docker", "DevOps", "ArgoCD", "Helm", "GitOps"],
           certificationId: "18121901-5f5a-43a8-8132-924dfb0a0b81",
         },
         {
@@ -273,7 +271,6 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
               width: 54,
             },
           },
-          skills: ["Java"],
           date: new Date("2023-07-01"),
         },
         {
@@ -289,7 +286,6 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
             },
           },
           date: new Date("2022-09-01"),
-          skills: ["Java", "Spring Boot", "Hibernate", "React"],
           certificationId: "e1e4a4e5-e6c5-4934-a437-f61b0dc95d4a",
         },
         {
@@ -305,7 +301,6 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
             },
           },
           certificationId: "16646728",
-          skills: [],
           date: new Date("2022-09-01"),
         },
         {
@@ -321,7 +316,6 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
             },
           },
           certificationId: "14318674",
-          skills: [],
           date: new Date("2020-09-01"),
         },
         {
@@ -337,7 +331,6 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
             },
           },
           certificationId: "170322572441",
-          skills: [],
           date: new Date("2017-10-01"),
         },
       ],

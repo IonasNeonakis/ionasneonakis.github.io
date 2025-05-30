@@ -13,7 +13,7 @@ interface CertificationProps {
 export function DisplayCertification({ certification, locale }: CertificationProps) {
   const t = useTranslations();
 
-  const { name, certificationId, skills, date, organization, link } = certification;
+  const { name, certificationId, date, organization, link } = certification;
 
   return (
     <Column key={`${name}`} fillWidth gap="4">
@@ -51,15 +51,6 @@ export function DisplayCertification({ certification, locale }: CertificationPro
           {t("about.certifications.showCertificate")}
         </Button>
       </Row>
-      {skills.length > 0 && (
-        <Row gap="4" marginBottom="8">
-          {skills.map((skill) => (
-            <Tag key={skill} variant="neutral" size="s" onBackground="brand-weak">
-              {skill}
-            </Tag>
-          ))}
-        </Row>
-      )}
     </Column>
   );
 }

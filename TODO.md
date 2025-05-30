@@ -35,4 +35,4 @@
 - [x] convert png to webp
 - [x] add links to certifications
 - [ ] i18n for certifications
-- [ ] add skills for certifications
+- [x] remove skills for certifications
