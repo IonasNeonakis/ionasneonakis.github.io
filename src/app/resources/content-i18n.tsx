@@ -289,13 +289,13 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           certificationId: "e1e4a4e5-e6c5-4934-a437-f61b0dc95d4a",
         },
         {
-          name: "Master - Informatique Mobile Intelligente et Securisée",
+          name: t("about.certifications.master"),
           link: addBasePath("/images/certifications/MASTER.pdf"),
           organization: {
-            name: "Université d'Orléans",
+            name: t("about.certifications.university"),
             image: {
               src: addBasePath("/images/companies/univ-orleans.webp"),
-              alt: "Université d'Orléans Logo",
+              alt: "University of Orléans Logo",
               height: 30,
               width: 42,
             },
@@ -304,13 +304,13 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           date: new Date("2022-09-01"),
         },
         {
-          name: "License - Mathématiques & Informatique",
+          name: t("about.certifications.license"),
           link: addBasePath("/images/certifications/LICENSE.pdf"),
           organization: {
-            name: "Université d'Orléans",
+            name: t("about.certifications.university"),
             image: {
               src: addBasePath("/images/companies/univ-orleans.webp"),
-              alt: "Université d'Orléans Logo",
+              alt: "University of Orléans Logo",
               height: 30,
               width: 42,
             },
@@ -319,13 +319,13 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           date: new Date("2020-09-01"),
         },
         {
-          name: "Baccalauréat Scientifique Section Européenne Anglais, Mention BIEN",
+          name: t("about.certifications.bac"),
           link: addBasePath("/images/certifications/BAC.pdf"),
           organization: {
-            name: "Lycée Benjamin Franklin",
+            name: t("about.certifications.highschool"),
             image: {
               src: addBasePath("/images/companies/benjam.webp"),
-              alt: "Benjamin Franklin Logo",
+              alt: "Benjamin Franklin high school Logo",
               height: 30,
               width: 54,
             },

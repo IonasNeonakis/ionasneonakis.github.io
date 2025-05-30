@@ -72,7 +72,12 @@
     "certifications" : {
       "title": "Diplômes & Certifications",
       "id": "Identifiant: ",
-      "showCertificate": "Afficher le certificat"
+      "showCertificate": "Afficher le certificat",
+      "master": "Master Informatique Mobile Intelligente & Sécurisée (IMIS)",
+      "university": "Université d'Orléans",
+      "bachelor": "Licence Informatique IMIS",
+      "bac": "Baccalauréat Scientifique, section européenne anglais",
+      "highschool": "Lycée Benjamin Franklin, Orléans"
     }
   },
   "blog": {

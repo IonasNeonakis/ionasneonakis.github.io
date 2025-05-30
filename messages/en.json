@@ -72,7 +72,12 @@
     "certifications" : {
       "title": "Degrees & Certifications",
       "id": "ID: ",
-      "showCertificate": "Show Certificate"
+      "showCertificate": "Show Certificate",
+      "master": "Master's in Intelligent & Secure Mobile Computing (IMIS)",
+      "university": "University of Orléans",
+      "bachelor": "Bachelor's in Computer Science IMIS",
+      "bac": "Scientific Baccalaureate, european section english",
+      "highschool": "Benjamin Franklin High School, Orléans"
     }
   },
   "blog": {
