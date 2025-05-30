@@ -6,7 +6,7 @@ const routes: Record<string, boolean> = {
   "/": true,
   "/about": true,
   "/work": true,
-  "/blog": true,
+  "/blog": false,
 };
 
 interface Style {

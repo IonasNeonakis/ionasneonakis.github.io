@@ -1,7 +1,7 @@
 
 - [x] change favicon
 - [x] fix all image url
-- [ ] check links
+- [x] check links
 - [x] baseUrl configuration
 - [x] remove middleware because it is a static site
 - [x] Could not resolve `view project` in messages for locale `fr`.
@@ -9,7 +9,7 @@
 - [x] Using edge runtime on a page currently disables static generation for that page
 - [x] English to French doesn't work
 - [x] homepage should redirect to French or english
-- [ ] metadata
+- [x] metadata
 - [x] 404 error page
 - [x] publish to github default profile url
 - [ ] add icon to "major de la promotion"
@@ -36,3 +36,6 @@
 - [x] add links to certifications
 - [x] i18n for certifications
 - [x] remove skills for certifications
+- [ ] clean landing page
+- [ ] work section
+- [ ] hide blog section
