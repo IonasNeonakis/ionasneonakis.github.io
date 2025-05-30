@@ -310,7 +310,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
         },
         {
           name: "License - Mathématiques & Informatique",
-          link: addBasePath("/images/certifications/MASTER.pdf"),
+          link: addBasePath("/images/certifications/LICENSE.pdf"),
           organization: {
             name: "Université d'Orléans",
             image: {
@@ -320,7 +320,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
               width: 42,
             },
           },
-          certificationId: "TODO",
+          certificationId: "14318674",
           skills: [],
           date: new Date("2020-09-01"),
         },
