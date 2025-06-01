@@ -2,6 +2,7 @@
 
 import { mailchimp } from "@/app/resources";
 import { Background, Button, Column, Flex, Heading, Input, Text } from "@/once-ui/components";
+import type React from "react";
 import { useState } from "react";
 
 //todo rewrite this
@@ -16,7 +17,6 @@ function debounce<T extends (...args: unknown[]) => void>(func: T, delay: number
 export function ContactMe() {
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
-  const [touched, setTouched] = useState<boolean>(false);
 
   const validateEmail = (email: string): boolean => {
     if (email === "") {
@@ -41,7 +41,6 @@ export function ContactMe() {
   const debouncedHandleChange = debounce(handleChange, 2000);
 
   const handleBlur = () => {
-    setTouched(true);
     if (!validateEmail(email)) {
       setError("Please enter a valid email address.");
     }
@@ -121,6 +120,7 @@ export function ContactMe() {
       >
         <Flex id="mc_embed_signup_scroll" fillWidth maxWidth={24} mobileDirection="column" gap="8">
           <Input
+            id={"mce-EMAIL"}
             formNoValidate
             labelAsPlaceholder
             name="EMAIL"
