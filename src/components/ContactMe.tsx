@@ -159,7 +159,7 @@ export function ContactMe() {
         <input type="text" name="_honey" style={{ display: "none" }} />{" "}
         <input type="hidden" name="_subject" value="Demande de contact" />
         <input type="hidden" name="_autoresponse" value="Message bien envoyé !" />
-        <input type="hidden" name="_next" value={baseURL} />
+        <input type="hidden" name="_next" value={`https://${baseURL}`} />
         <input type="hidden" name="_template" value="box" />
       </form>
     </Column>
