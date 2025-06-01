@@ -36,10 +36,12 @@
 - [x] add links to certifications
 - [x] i18n for certifications
 - [x] remove skills for certifications
-- [ ] clean landing page
+- [x] clean landing page
 - [ ] work section
 - [x] hide blog section
 - [x] add contact form on landing page
-- [ ] use Ajax to contact me
+- [ ] use Ajax to contact me ?
 - [ ] i18n to contact me
-- [ ] 
+- [ ] add image next to my name ?
+- [ ] add icon to "contact me"
+- [ ] add emoji to "contact me" description
