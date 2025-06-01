@@ -39,4 +39,7 @@
 - [ ] clean landing page
 - [ ] work section
 - [x] hide blog section
-- [ ] add contact form on landing page
+- [x] add contact form on landing page
+- [ ] use Ajax to contact me
+- [ ] i18n to contact me
+- [ ] 

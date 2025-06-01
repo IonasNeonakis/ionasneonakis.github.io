@@ -1,4 +1,4 @@
-# **Ionas' portfolio build with ONCE UI and Next.js **
+# **Ionas' portfolio build with ONCE UI and Next.js**
 
 # **Getting started**
 
@@ -15,3 +15,6 @@ pnpm run dev
 
 # **Things to do**
 Everything that has to be done can be found in the TODO.md file.
+
+# **Contact me**
+The contact me page uses [formSumbit](https://formsubmit.co/)

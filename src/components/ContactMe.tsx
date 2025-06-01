@@ -1,11 +1,19 @@
 "use client";
 
-import { mailchimp } from "@/app/resources";
-import { Background, Button, Column, Flex, Heading, Input, Text } from "@/once-ui/components";
+import { baseURL, mailchimp } from "@/app/resources";
+import {
+  Background,
+  Button,
+  Column,
+  Flex,
+  Heading,
+  Input,
+  Text,
+  Textarea,
+} from "@/once-ui/components";
 import type React from "react";
 import { useState } from "react";
 
-//todo rewrite this
 function debounce<T extends (...args: unknown[]) => void>(func: T, delay: number): T {
   let timeout: ReturnType<typeof setTimeout>;
   return ((...args: Parameters<T>) => {
@@ -50,7 +58,7 @@ export function ContactMe() {
     <Column
       overflow="hidden"
       fillWidth
-      padding="xl"
+      padding="64"
       radius="l"
       marginBottom="m"
       horizontal="center"
@@ -107,7 +115,8 @@ export function ContactMe() {
         marginBottom="l"
         onBackground="neutral-medium"
       >
-        DESCIRPTION OF THE FORM, WHAT IT IS FOR, ETC.
+        Vous avez une question à me poser, un super projet à me présenter ou simplement envie de
+        faire coucou ? C'est par ici
       </Text>
       <form
         style={{
@@ -118,56 +127,44 @@ export function ContactMe() {
         action={mailchimp.action}
         method="post"
       >
-        <Flex id="mc_embed_signup_scroll" fillWidth maxWidth={24} mobileDirection="column" gap="8">
-          <Input
-            id={"mce-EMAIL"}
-            formNoValidate
-            labelAsPlaceholder
-            name="EMAIL"
-            type="email"
-            label="Email"
-            required
-            onChange={(e) => {
-              if (error) {
-                handleChange(e);
-              } else {
-                debouncedHandleChange(e);
-              }
-            }}
-            onBlur={handleBlur}
-            errorMessage={error}
-          />
-          <div style={{ display: "none" }}>
-            <input
-              type="checkbox"
-              readOnly
-              name="group[3492][1]"
-              id="mce-group[3492]-3492-0"
-              value=""
-              checked
+        <Flex fillWidth maxWidth={30} mobileDirection="column" gap="8">
+          <Column fillWidth gap="12">
+            <Input
+              id="email-input"
+              formNoValidate
+              labelAsPlaceholder
+              name="email"
+              type="email"
+              label="Email"
+              placeholder="Entrez votre email"
+              required
+              onChange={(e) => {
+                if (error) {
+                  handleChange(e);
+                } else {
+                  debouncedHandleChange(e);
+                }
+              }}
+              onBlur={handleBlur}
+              errorMessage={error}
             />
-          </div>
-          <div id="mce-responses" className="clearfalse">
-            <div className="response" id="mce-error-response" style={{ display: "none" }} />
-            <div className="response" id="mce-success-response" style={{ display: "none" }} />
-          </div>
-          <div aria-hidden="true" style={{ position: "absolute", left: "-5000px" }}>
-            <input
-              type="text"
-              readOnly
-              name="b_c1a5a210340eb6c7bff33b2ba_0462d244aa"
-              tabIndex={-1}
-              value=""
+            <Textarea
+              required
+              formNoValidate
+              id="textAria"
+              name="content"
+              label="Votre message ici"
             />
-          </div>
-          <div className="clear">
-            <Flex height="48" vertical="center">
-              <Button id="mc-embedded-subscribe" value="Subscribe" size="m" fillWidth>
-                Subscribe
-              </Button>
-            </Flex>
-          </div>
+            <Button type="submit" size="m" fillWidth>
+              Me contacter
+            </Button>
+          </Column>
         </Flex>
+        <input type="text" name="_honey" style={{ display: "none" }} />{" "}
+        <input type="hidden" name="_subject" value="Demande de contact" />
+        <input type="hidden" name="_autoresponse" value="Message bien envoyé !" />
+        <input type="hidden" name="_next" value={baseURL} />
+        <input type="hidden" name="_template" value="box" />
       </form>
     </Column>
   );

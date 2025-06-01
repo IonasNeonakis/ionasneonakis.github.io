@@ -59,7 +59,7 @@ export default async function Home({ params }: HomeParams) {
   const { home, about, person } = createI18nContent(t);
 
   return (
-    <Column maxWidth="m" gap="xl" horizontal="center">
+    <Column maxWidth="m" horizontal="center">
       <script
         type="application/ld+json"
         suppressHydrationWarning
