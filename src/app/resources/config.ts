@@ -92,7 +92,6 @@ interface Effects {
     opacity: Opacity;
     thickness?: number;
     angle?: number;
-    color?: string;
   };
   grid: {
     display: boolean;
@@ -150,7 +149,7 @@ const mailchimp: Mailchimp = {
       cursor: true,
       x: 50,
       y: 0,
-      radius: 100,
+      radius: 75,
     },
     gradient: {
       display: true,
