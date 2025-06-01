@@ -90,11 +90,16 @@ interface Effects {
     display: boolean;
     color: string;
     opacity: Opacity;
+    thickness?: number;
+    angle?: number;
+    color?: string;
   };
   grid: {
     display: boolean;
     color: string;
     opacity: Opacity;
+    width?: SpacingToken;
+    height?: SpacingToken;
   };
 }
 const effects: Effects = {
@@ -133,6 +138,55 @@ const effects: Effects = {
   },
 };
 
+interface Mailchimp {
+  action: string;
+  effects: Effects;
+}
+
+const mailchimp: Mailchimp = {
+  action: "https://url/subscribe/post?parameters",
+  effects: {
+    mask: {
+      cursor: true,
+      x: 50,
+      y: 0,
+      radius: 100,
+    },
+    gradient: {
+      display: true,
+      opacity: 90,
+      x: 50,
+      y: 0,
+      width: 50,
+      height: 50,
+      tilt: 0,
+      colorStart: "accent-background-strong",
+      colorEnd: "static-transparent",
+    },
+    dots: {
+      display: true,
+      opacity: 20,
+      size: "2",
+      color: "brand-on-background-weak",
+    },
+    grid: {
+      display: false,
+      opacity: 100,
+      color: "neutral-alpha-medium",
+      width: "0.25rem",
+      height: "0.25rem",
+    },
+    lines: {
+      display: false,
+      opacity: 100,
+      color: "neutral-alpha-medium",
+      size: "16",
+      thickness: 1,
+      angle: 90,
+    },
+  },
+};
+
 interface Display {
   location: boolean;
   time: boolean;
@@ -143,4 +197,4 @@ const display: Display = {
   time: false,
 };
 
-export { routes, effects, style, display, baseURL };
+export { routes, effects, style, display, baseURL, mailchimp };

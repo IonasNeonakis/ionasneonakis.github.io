@@ -4,6 +4,7 @@ import { Avatar, Button, Column, Flex, Heading, RevealFx, Text } from "@/once-ui
 
 import { baseURL, createI18nContent, routes } from "@/app/resources";
 import { addBasePath } from "@/app/utils/imageUtils";
+import { ContactMe } from "@/components/ContactMe";
 import { Posts } from "@/components/blog/Posts";
 import { Projects } from "@/components/work/Projects";
 import type { LocaleParams } from "@/i18n/routing";
@@ -115,20 +116,8 @@ export default async function Home({ params }: HomeParams) {
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} locale={locale} />
+        <ContactMe />
       </RevealFx>
-      {routes["/blog"] && (
-        <Flex fillWidth gap="24" mobileDirection="column">
-          <Flex flex={1} paddingLeft="l">
-            <Heading as="h2" variant="display-strong-xs" wrap="balance">
-              {t("home.blog header")}
-            </Heading>
-          </Flex>
-          <Flex flex={3} paddingX="20">
-            <Posts range={[1, 2]} columns="2" locale={locale} />
-          </Flex>
-        </Flex>
-      )}
     </Column>
   );
 }
