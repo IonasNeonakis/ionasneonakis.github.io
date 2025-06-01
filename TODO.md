@@ -46,3 +46,5 @@
 - [ ] add icon to "contact me"
 - [ ] add emoji to "contact me" description
 - [ ] add confirmation after sending an email (replace contact me with "A message has been sent")
+- [ ] obfuscate email address
+- [ ] mailtoencoder
