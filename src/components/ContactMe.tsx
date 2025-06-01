@@ -131,12 +131,9 @@ export function ContactMe() {
           <Column fillWidth gap="12">
             <Input
               id="email-input"
-              formNoValidate
-              labelAsPlaceholder
               name="email"
               type="email"
-              label="Email"
-              placeholder="Entrez votre email"
+              label="Entrez votre email"
               required
               onChange={(e) => {
                 if (error) {
@@ -150,7 +147,6 @@ export function ContactMe() {
             />
             <Textarea
               required
-              formNoValidate
               id="textAria"
               name="content"
               label="Votre message ici"
