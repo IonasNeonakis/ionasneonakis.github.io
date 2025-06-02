@@ -141,7 +141,7 @@ export function ContactMe({ locale }: ContactMeProps) {
               id="email-input"
               name="email"
               type="email"
-              label="Entrez votre email"
+              label={t("home.contact.enterEmail")}
               required
               onChange={(e) => {
                 if (error) {
@@ -153,7 +153,7 @@ export function ContactMe({ locale }: ContactMeProps) {
               onBlur={handleBlur}
               errorMessage={error}
             />
-            <Textarea required id="textAria" name="content" label="Votre message ici" />
+            <Textarea required id="textAria" name="content" label={t("home.contact.textArea")} />
             <Button type="submit" size="m" fillWidth>
               {t("home.contact.button")}
             </Button>

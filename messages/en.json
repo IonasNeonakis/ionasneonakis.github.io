@@ -12,6 +12,8 @@
     "contact": {
       "header": "Contact Me",
       "description": "Have a question, a great project to discuss, or just want to say hi? Reach out here",
+        "enterEmail": "Enter your email address",
+        "textArea": "Your message",
       "button": "Send",
       "mail": {
         "subject": "Contact from {name}'s portfolio",
