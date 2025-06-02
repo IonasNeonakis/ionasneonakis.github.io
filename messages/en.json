@@ -4,7 +4,7 @@
   },
   "home": {
     "label": "Home",
-    "title": "{name}'s Portfolio",
+    "title": "{name}' Portfolio",
     "description": "Portfolio website showcasing my work as a {role}",
     "headline": "Lead Dev & Fullstack Web Developer",
     "subline": "I'm Ionas, a lead dev & fullstack developer, expert in Spring Boot, Kotlin & React",
@@ -16,7 +16,7 @@
       "textArea": "Your message",
       "button": "Send",
       "mail": {
-        "subject": "Contact from {name}'s portfolio",
+        "subject": "Contact from {name}' portfolio",
         "autoresponse": "Your message has been sent successfully!"
       },
       "success": {
