@@ -1,6 +1,7 @@
 "use client";
 
 import { baseURL, createI18nContent, mailchimp } from "@/app/resources";
+import { EMAIL_SENT_SEARCH_PARAM } from "@/components/ClientHomeWrapper";
 import type { Locale } from "@/i18n/routing";
 import { Button, Column, Flex, Heading, Input, Text, Textarea } from "@/once-ui/components";
 import { useTranslations } from "next-intl";
@@ -15,11 +16,11 @@ function debounce<T extends (...args: unknown[]) => void>(func: T, delay: number
   }) as T;
 }
 
-interface SendContentProps {
+interface ContactFormProps {
   locale: Locale;
 }
 
-export function SendContent({ locale }: SendContentProps) {
+export function ContactForm({ locale }: ContactFormProps) {
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
 
@@ -98,7 +99,7 @@ export function SendContent({ locale }: SendContentProps) {
               errorMessage={error}
             />
             <Textarea required id="textAria" name="content" label={t("home.contact.textArea")} />
-            <Button type="submit" size="m" fillWidth>
+            <Button type="submit" size="m" fillWidth suffixIcon="paperAirplane">
               {t("home.contact.button")}
             </Button>
           </Column>
@@ -114,7 +115,11 @@ export function SendContent({ locale }: SendContentProps) {
           name="_autoresponse"
           value={t("home.contact.mail.autoresponse", { name: person.name })}
         />
-        <input type="hidden" name="_next" value={`https://${baseURL}/${locale}?email_sent=true`} />
+        <input
+          type="hidden"
+          name="_next"
+          value={`https://${baseURL}/${locale}?${EMAIL_SENT_SEARCH_PARAM}`}
+        />
         <input type="hidden" name="_template" value="box" />
       </form>
     </>

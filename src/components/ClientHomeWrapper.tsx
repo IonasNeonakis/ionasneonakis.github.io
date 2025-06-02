@@ -8,6 +8,8 @@ import { createContext, use, useEffect, useState } from "react";
 const EmailSentContext = createContext<boolean>(false);
 export const useEmailSentStatus = () => use(EmailSentContext);
 
+export const EMAIL_SENT_SEARCH_PARAM = "email_sent";
+
 interface ClientHomeWrapperProps {
   children: React.ReactNode;
 }
@@ -18,16 +20,12 @@ export function ClientHomeWrapper({ children }: ClientHomeWrapperProps) {
   const [isEmailSent, setIsEmailSent] = useState(false);
 
   useEffect(() => {
-    const emailSentParam = searchParams.get("email_sent");
-    if (emailSentParam === "true") {
+    if (searchParams.has(EMAIL_SENT_SEARCH_PARAM)) {
       setIsEmailSent(true);
 
       router.replace("/");
     }
   }, [searchParams, router]);
 
-  return (
-    // Provide the isEmailSent status to all children
-    <EmailSentContext value={isEmailSent}>{children}</EmailSentContext>
-  );
+  return <EmailSentContext value={isEmailSent}>{children}</EmailSentContext>;
 }

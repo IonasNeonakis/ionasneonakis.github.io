@@ -25,6 +25,8 @@ import {
   HiOutlineLink,
 } from "react-icons/hi2";
 
+import { BsSend } from "react-icons/bs";
+
 import {
   PiBookBookmarkDuotone,
   PiGridFourDuotone,
@@ -43,6 +45,7 @@ export const iconLibrary: Record<string, IconType> = {
   refresh: HiOutlineArrowPath,
   arrowUpRight: HiArrowUpRight,
   arrowTopRightOnSquare: HiArrowTopRightOnSquare,
+  send: BsSend,
   check: HiCheck,
   arrowRight: HiArrowRight,
   helpCircle: HiMiniQuestionMarkCircle,

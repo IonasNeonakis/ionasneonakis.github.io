@@ -12,12 +12,16 @@
     "contact" : {
       "header": "Contactez-moi",
       "description": "Vous avez une question à me poser, un super projet à me présenter ou simplement envie de faire coucou ? C'est par ici",
-      "enterEmail": "Entrez votre adresse e-mail",
+      "enterEmail": "E-mail",
       "textArea": "Votre message",
       "button": "Envoyer",
       "mail" : {
         "subject": "Contact depuis le portfolio de {name}",
         "autoresponse": "Votre message a bien été envoyé !"
+      },
+      "success": {
+        "title": "Message envoyé !",
+        "description": "Merci pour votre message, je vous répondrai dès que possible."
       }
     }
   },

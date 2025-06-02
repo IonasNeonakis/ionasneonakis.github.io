@@ -2,10 +2,10 @@
 
 import { mailchimp } from "@/app/resources";
 import { useEmailSentStatus } from "@/components/ClientHomeWrapper";
-import { SendContent } from "@/components/SendContent";
+import { ContactForm } from "@/components/ContactForm";
+import { MessageSentContent } from "@/components/MessageSentContent";
 import type { Locale } from "@/i18n/routing";
-import { Background, Column, Heading, Text } from "@/once-ui/components";
-import { useTranslations } from "next-intl";
+import { Background, Column } from "@/once-ui/components";
 import React from "react";
 
 interface ContactMeProps {
@@ -64,19 +64,7 @@ export function ContactMe({ locale }: ContactMeProps) {
           opacity: mailchimp.effects.lines.opacity,
         }}
       />
-      {isSent ? <MessageSentContent locale={locale} /> : <SendContent locale={locale} />}
-    </Column>
-  );
-}
-
-function MessageSentContent({ locale }: { locale: Locale }) {
-  const t = useTranslations();
-  return (
-    <Column fillWidth horizontal="center" align="center" gap="8">
-      <Heading variant="display-strong-xs">Message Envoyé :D</Heading>
-      <Text wrap="balance" onBackground="neutral-medium">
-        Et voilà :D
-      </Text>
+      {isSent ? <MessageSentContent /> : <ContactForm locale={locale} />}
     </Column>
   );
 }
