@@ -19,7 +19,6 @@ export function ClientHomeWrapper({ children }: ClientHomeWrapperProps) {
 
   useEffect(() => {
     const emailSentParam = searchParams.get("email_sent");
-    console.log(`Email sent parameter: ${emailSentParam}`);
     if (emailSentParam === "true") {
       setIsEmailSent(true);
 

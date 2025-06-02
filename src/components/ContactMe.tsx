@@ -15,8 +15,6 @@ interface ContactMeProps {
 export function ContactMe({ locale }: ContactMeProps) {
   const isSent = useEmailSentStatus();
 
-  console.log("is sent", isSent);
-
   return (
     <Column
       overflow="hidden"
