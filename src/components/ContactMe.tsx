@@ -1,6 +1,7 @@
 "use client";
 
-import { baseURL, mailchimp } from "@/app/resources";
+import { baseURL, createI18nContent, mailchimp } from "@/app/resources";
+import type { Locale } from "@/i18n/routing";
 import {
   Background,
   Button,
@@ -11,6 +12,7 @@ import {
   Text,
   Textarea,
 } from "@/once-ui/components";
+import { useTranslations } from "next-intl";
 import type React from "react";
 import { useState } from "react";
 
@@ -22,9 +24,16 @@ function debounce<T extends (...args: unknown[]) => void>(func: T, delay: number
   }) as T;
 }
 
-export function ContactMe() {
+interface ContactMeProps {
+  locale: Locale;
+}
+
+export function ContactMe({ locale }: ContactMeProps) {
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
+
+  const t = useTranslations();
+  const { person } = createI18nContent(t);
 
   const validateEmail = (email: string): boolean => {
     if (email === "") {
@@ -104,7 +113,7 @@ export function ContactMe() {
         }}
       />
       <Heading style={{ position: "relative" }} marginBottom="s" variant="display-strong-xs">
-        Me contacter
+        {t("home.contact.header")}
       </Heading>
       <Text
         style={{
@@ -115,8 +124,7 @@ export function ContactMe() {
         marginBottom="l"
         onBackground="neutral-medium"
       >
-        Vous avez une question à me poser, un super projet à me présenter ou simplement envie de
-        faire coucou ? C'est par ici
+        {t("home.contact.description")}
       </Text>
       <form
         style={{
@@ -145,21 +153,20 @@ export function ContactMe() {
               onBlur={handleBlur}
               errorMessage={error}
             />
-            <Textarea
-              required
-              id="textAria"
-              name="content"
-              label="Votre message ici"
-            />
+            <Textarea required id="textAria" name="content" label="Votre message ici" />
             <Button type="submit" size="m" fillWidth>
-              Me contacter
+              {t("home.contact.button")}
             </Button>
           </Column>
         </Flex>
         <input type="text" name="_honey" style={{ display: "none" }} />{" "}
-        <input type="hidden" name="_subject" value="Demande de contact" />
-        <input type="hidden" name="_autoresponse" value="Message bien envoyé !" />
-        <input type="hidden" name="_next" value={`https://${baseURL}`} />
+        <input type="hidden" name="_subject" value={t("home.contact.mail.subject")} />
+        <input
+          type="hidden"
+          name="_autoresponse"
+          value={t("home.contact.mail.autoresponse", { name: person.name })}
+        />
+        <input type="hidden" name="_next" value={`https://${baseURL}/${locale}`} />
         <input type="hidden" name="_template" value="box" />
       </form>
     </Column>

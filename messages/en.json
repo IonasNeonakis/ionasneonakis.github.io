@@ -8,7 +8,17 @@
     "description": "Portfolio website showcasing my work as a {role}",
     "headline": "Lead Dev & Fullstack Web Developer",
     "subline": "I'm Ionas, a lead dev & fullstack developer, expert in Spring Boot, Kotlin & React",
-    "blog header": "Latest blog posts"
+    "blog header": "Latest blog posts",
+    "contact": {
+      "header": "Contact Me",
+      "description": "Have a question, a great project to discuss, or just want to say hi? Reach out here",
+      "button": "Send",
+      "mail": {
+        "subject": "Contact from {name}'s portfolio",
+        "autoresponse": "Your message has been sent successfully!"
+      }
+    }
+
   },
   "about": {
     "french": "French",

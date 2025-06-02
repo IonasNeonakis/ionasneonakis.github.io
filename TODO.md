@@ -41,10 +41,11 @@
 - [x] hide blog section
 - [x] add contact form on landing page
 - [ ] use Ajax to contact me ?
-- [ ] i18n to contact me
+- [x] i18n to contact me
 - [ ] add image next to my name ?
 - [ ] add icon to "contact me"
 - [ ] add emoji to "contact me" description
 - [ ] add confirmation after sending an email (replace contact me with "A message has been sent")
+- [ ] handle error when sending an email
 - [ ] obfuscate email address
 - [ ] mailtoencoder

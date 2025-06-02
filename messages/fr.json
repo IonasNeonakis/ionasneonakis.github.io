@@ -8,7 +8,16 @@
     "description": "Site portfolio présentant mon travail en tant que {role}",
     "headline": "Lead Dev & Développeur Web fullstack",
     "subline": "Je suis Ionas, lead dev & développeur Fullstack, Expert Spring Boot, Kotlin & React",
-    "blog header": "Derniers articles du blog"
+    "blog header": "Derniers articles du blog",
+    "contact" : {
+      "header": "Contactez-moi",
+      "description": "Vous avez une question à me poser, un super projet à me présenter ou simplement envie de faire coucou ? C'est par ici",
+      "button": "Envoyer",
+      "mail" : {
+        "subject": "Contact depuis le portfolio de {name}",
+        "autoresponse": "Votre message a bien été envoyé !"
+      }
+    }
   },
   "about": {
     "french": "Français",

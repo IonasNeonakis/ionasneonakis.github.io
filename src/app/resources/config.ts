@@ -143,7 +143,7 @@ interface Mailchimp {
 }
 
 const mailchimp: Mailchimp = {
-  action: "https://formsubmit.co/ee4ec3a521c1bccf4855768076984cc9", // random-like string linked to my email address ionas.neonakis@gmail.com
+  action: "https://formsubmit.co/ee4ec3a521c1bccf4855768076984cc9", // random-like string linked to my email address ionas.neonakis+portfolio@gmail.com
   effects: {
     mask: {
       cursor: true,
