@@ -9,6 +9,7 @@ import { createI18nContent, routes } from "@/app/resources";
 import { LanguageDropdown } from "@/components/LanguageDropdown";
 
 import { Link, type Locale, usePathname, useRouter } from "@/i18n/routing";
+import { emailMailToRedirect } from "@/utils/obfuscateEmailUtils";
 import { useTranslations } from "next-intl";
 import type { Params } from "next/dist/server/request/params";
 import { useTransition } from "react";
@@ -158,6 +159,13 @@ export const Header = () => {
                     />
                   ),
               )}
+              <IconButton
+                onClick={emailMailToRedirect}
+                icon="email"
+                tooltip="Email"
+                size="s"
+                variant="ghost"
+              />
             </Flex>
           </Flex>
         </Flex>

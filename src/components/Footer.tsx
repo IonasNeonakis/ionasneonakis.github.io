@@ -1,7 +1,7 @@
 import { createI18nContent } from "@/app/resources";
-import { Flex, IconButton, SmartLink, Text } from "@/once-ui/components";
+import { ObfuscatedEmailButton } from "@/components/ObfuscatedEmailButton";
+import { Flex, IconButton, Text } from "@/once-ui/components";
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
 import styles from "./Footer.module.scss";
 
 export function Footer() {
@@ -47,6 +47,7 @@ export function Footer() {
                 />
               ),
           )}
+          <ObfuscatedEmailButton />
         </Flex>
       </Flex>
       <Flex height="80" show="s" />

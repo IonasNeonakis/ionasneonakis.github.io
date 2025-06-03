@@ -135,11 +135,6 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
       icon: "github",
       link: "https://github.com/IonasNeonakis",
     },
-    {
-      name: "Email",
-      icon: "email",
-      link: "mailto:ionas.neonakis@gmail.com",
-    },
   ];
 
   const home: Home = {

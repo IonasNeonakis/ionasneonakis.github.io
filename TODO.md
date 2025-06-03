@@ -47,5 +47,4 @@
 - [ ] add emoji to "contact me" description
 - [x] add confirmation after sending an email (replace contact me with "A message has been sent")
 - [ ] handle error when sending an email
-- [ ] obfuscate email address
-- [ ] mailtoencoder
+- [x] obfuscate email address

@@ -1,3 +1,4 @@
+import { AboutObfuscatedEmailButton } from "@/app/[locale]/about/AboutObfuscatedEmailButton";
 import { CurrentLocation } from "@/app/[locale]/about/CurrentLocation";
 import { SpokenLanguages } from "@/app/[locale]/about/SpokenLanguages";
 import { baseURL, createI18nContent } from "@/app/resources";
@@ -17,6 +18,7 @@ import {
   SmartImage,
   Text,
 } from "@/once-ui/components";
+import { emailMailToRedirect } from "@/utils/obfuscateEmailUtils";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
@@ -175,30 +177,28 @@ export default async function About({ params }: AboutParams) {
               horizontal="center"
               fitWidth
             >
-              {social.map(
-                (item) =>
-                  item.link && (
-                    <div key={item.link}>
-                      <Button
-                        className="s-flex-hide"
-                        key={item.name}
-                        href={item.link}
-                        prefixIcon={item.icon}
-                        label={item.name}
-                        size="s"
-                        variant="secondary"
-                      />
-                      <IconButton
-                        className="s-flex-show"
-                        size="l"
-                        key={`${item.name}-icon`}
-                        href={item.link}
-                        icon={item.icon}
-                        variant="secondary"
-                      />
-                    </div>
-                  ),
-              )}
+              {social.map((item) => (
+                <div key={item.link}>
+                  <Button
+                    className="s-flex-hide"
+                    key={item.name}
+                    href={item.link}
+                    prefixIcon={item.icon}
+                    label={item.name}
+                    size="s"
+                    variant="secondary"
+                  />
+                  <IconButton
+                    className="s-flex-show"
+                    size="l"
+                    key={`${item.name}-icon`}
+                    href={item.link}
+                    icon={item.icon}
+                    variant="secondary"
+                  />
+                </div>
+              ))}
+              <AboutObfuscatedEmailButton />
             </Flex>
           </Column>
 

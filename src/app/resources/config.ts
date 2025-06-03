@@ -5,7 +5,7 @@ const baseURL: string = "ionasneonakis.github.io";
 const routes: Record<string, boolean> = {
   "/": true,
   "/about": true,
-  "/work": true,
+  "/work": false,
   "/blog": false,
 };
 
