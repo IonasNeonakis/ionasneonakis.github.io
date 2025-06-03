@@ -99,7 +99,7 @@ export function ContactForm({ locale }: ContactFormProps) {
               errorMessage={error}
             />
             <Textarea required id="textAria" name="content" label={t("home.contact.textArea")} />
-            <Button type="submit" size="m" fillWidth suffixIcon="paperAirplane">
+            <Button type="submit" size="m" fillWidth suffixIcon="send">
               {t("home.contact.button")}
             </Button>
           </Column>
