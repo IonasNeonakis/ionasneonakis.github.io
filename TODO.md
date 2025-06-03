@@ -12,7 +12,6 @@
 - [x] metadata
 - [x] 404 error page
 - [x] publish to github default profile url
-- [ ] add icon to "major de la promotion"
 - [x] make config.ts typescript
 - [ ] description content is too long
 - [ ] optimize images: https://nextjs.org/docs/pages/guides/static-exports
@@ -48,3 +47,4 @@
 - [x] add confirmation after sending an email (replace contact me with "A message has been sent")
 - [ ] handle error when sending an email
 - [x] obfuscate email address
+- [ ] about section content
