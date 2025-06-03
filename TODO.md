@@ -43,7 +43,7 @@
 - [x] i18n to contact me
 - [ ] add image next to my name ?
 - [x] add icon to "contact me"
-- [ ] add emoji to "contact me" description
+- [x] add emoji to "contact me" description
 - [x] add confirmation after sending an email (replace contact me with "A message has been sent")
 - [ ] handle error when sending an email
 - [x] obfuscate email address
