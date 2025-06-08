@@ -7,46 +7,12 @@ import { addBasePath } from "@/app/utils/imageUtils";
 import { ClientHomeWrapper } from "@/components/ClientHomeWrapper";
 import { ContactMe } from "@/components/ContactMe";
 import type { LocaleParams } from "@/i18n/routing";
-import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-interface HomeParams {
+export interface HomeParams {
   params: Promise<LocaleParams>;
 }
 
-export async function generateMetadata({ params }: HomeParams): Promise<Metadata> {
-  const { locale } = await params;
-
-  const t = await getTranslations();
-  const { home } = createI18nContent(t);
-
-  const title = home.title;
-  const description = home.description;
-  const ogImage = addBasePath("/images/avatar-og.webp");
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      url: `https://${baseURL}/${locale}`,
-      images: [
-        {
-          url: ogImage,
-          alt: title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
-}
 
 export default async function Home({ params }: HomeParams) {
   const { locale } = await params;
