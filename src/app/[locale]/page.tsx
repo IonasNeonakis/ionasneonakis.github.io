@@ -14,7 +14,6 @@ interface HomeParams {
   params: Promise<LocaleParams>;
 }
 
-/*
 export async function generateMetadata({ params }: HomeParams): Promise<Metadata> {
   const { locale } = await params;
 
@@ -45,32 +44,6 @@ export async function generateMetadata({ params }: HomeParams): Promise<Metadata
       title,
       description,
       images: [ogImage],
-    },
-  };
-}
-
- */
-
-
-export function generateMetadata(): Metadata {
-  const ogImage = addBasePath("/images/avatar-og.webp");
-
-  return {
-    title: "Ionas' Portfolio",
-    description: "Portfolio website showcasing my work as a software engineer.",
-    openGraph: {
-      title: `Ionas' Portfolio`,
-      description: "Portfolio website showcasing my work.",
-      url: `https://${baseURL}`,
-      siteName: `Ionas' Portfolio`,
-      locale: "en_US",
-      images: [
-        {
-          url: ogImage,
-          alt: "Ionas NEONAKIS",
-        },
-      ],
-      type: "website",
     },
   };
 }
