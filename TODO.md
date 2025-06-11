@@ -47,5 +47,5 @@
 - [x] add confirmation after sending an email (replace contact me with "A message has been sent")
 - [ ] handle error when sending an email
 - [x] obfuscate email address
-- [ ] about section content
+- [x] about section content
 - [x] studies section content
