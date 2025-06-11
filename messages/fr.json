@@ -9,13 +9,13 @@
     "headline": "Lead Dev & Développeur Web fullstack",
     "subline": "Je suis Ionas, lead dev & développeur Fullstack, Expert Spring Boot, Kotlin & React",
     "blog header": "Derniers articles du blog",
-    "contact" : {
+    "contact": {
       "header": "Contactez-moi",
       "description": "Vous avez une question à me poser, un super projet à me présenter ou simplement envie de faire coucou ? C'est par ici \uD83D\uDC4B",
       "enterEmail": "E-mail",
       "textArea": "Votre message",
       "button": "Envoyer",
-      "mail" : {
+      "mail": {
         "subject": "Contact depuis le portfolio de {name}",
         "autoresponse": "Votre message a bien été envoyé !"
       },
@@ -76,19 +76,23 @@
       "institutions": {
         "MastersUniversityOrleans": {
           "name": "Université d'Orléans (Master)",
-          "description": "Master Informatique Mobile Intelligente & Sécurisée (IMIS) 2020 - 2022, Major de promotion"
+          "description": "Master Informatique Mobile Intelligente & Sécurisée (IMIS)",
+          "studiedFields": "Développement front-End;Développement back-end;Programmation haute performance;Cryptographie et sécurité;Développement multiplateforme;Développement android;Intelligence artificielle;Programmation graphique;Programmation concurrente;Système d'exploitation;Théorie des graphes;Théorie des langages;Analyse statique et dynamique;Programmation par contrainte;Réseaux et sécurité",
+          "timeframe": "2020 - 2022"
         },
         "LicenseUniversityOrleans": {
-          "name": "Université d'Orléans (Licence)",
-          "description": "Licence Informatique IMIS | 2017 - 2020"
+          "name": "Université d'Orléans (License)",
+          "description": "Licence Informatique IMIS",
+          "studiedFields": "Programmation Orientée Objet;Technologies web;Bases de données;Architecture des ordinateurs;Outils du développeur;Programmation fonctionnelle;Modélisation objet;Programmation impérative;Réseaux;Langages et automates;Logique;Programmation N-tiers;Langages algébriques;Programmation logique",
+          "timeframe": "2017 - 2020"
         }
       }
     },
-    "certifications" : {
+    "certifications": {
       "title": "Diplômes & Certifications",
       "id": "Identifiant: ",
       "showCertificate": "Afficher le certificat",
-      "master": "Master Informatique Mobile Intelligente & Sécurisée (IMIS)",
+      "master": "Master Informatique Mobile Intelligente & Sécurisée (IMIS) - Major de promotion",
       "university": "Université d'Orléans",
       "bachelor": "Licence Informatique IMIS",
       "bac": "Baccalauréat Scientifique, section européenne anglais",

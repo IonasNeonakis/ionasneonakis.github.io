@@ -48,3 +48,4 @@
 - [ ] handle error when sending an email
 - [x] obfuscate email address
 - [ ] about section content
+- [x] studies section content

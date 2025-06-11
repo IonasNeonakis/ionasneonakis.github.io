@@ -36,7 +36,6 @@ interface Experience {
   timeframe: string;
   role: string;
   achievements: string[];
-  images: Image[];
 }
 
 interface Image {
@@ -47,8 +46,10 @@ interface Image {
 }
 
 interface StudiesInstitution {
-  name: string;
-  description: JSX.Element;
+  organization: Organization;
+  timeframe: string;
+  role: string;
+  studiedFields: string[];
 }
 
 export interface Certification {
@@ -173,7 +174,6 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           timeframe: t("about.work.experiences.LuxuryLeader.timeframe"),
           role: t("about.work.experiences.LuxuryLeader.role"),
           achievements: t("about.work.experiences.LuxuryLeader.achievements").split(";"),
-          images: [],
         },
         {
           company: {
@@ -188,7 +188,6 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           timeframe: t("about.work.experiences.TakimaRH.timeframe"),
           role: t("about.work.experiences.TakimaRH.role"),
           achievements: t("about.work.experiences.TakimaRH.achievements").split(";"),
-          images: [],
         },
         {
           company: {
@@ -203,7 +202,6 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           timeframe: t("about.work.experiences.TakimaFormation.timeframe"),
           role: t("about.work.experiences.TakimaFormation.role"),
           achievements: t("about.work.experiences.TakimaFormation.achievements").split(";"),
-          images: [],
         },
         {
           company: {
@@ -218,7 +216,6 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
           timeframe: t("about.work.experiences.Atos.timeframe"),
           role: t("about.work.experiences.Atos.role"),
           achievements: t("about.work.experiences.Atos.achievements").split(";"),
-          images: [],
         },
       ],
     },
@@ -226,12 +223,36 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
       title: t("about.studies.title"),
       institutions: [
         {
-          name: t("about.studies.institutions.MastersUniversityOrleans.name"),
-          description: <>{t("about.studies.institutions.MastersUniversityOrleans.description")}</>,
+          organization: {
+            name: t("about.studies.institutions.MastersUniversityOrleans.name"),
+            image: {
+              src: addBasePath("/images/companies/univ-orleans.webp"),
+              alt: "University of Orléans Logo",
+              height: 30,
+              width: 42,
+            },
+          },
+          role: t("about.studies.institutions.MastersUniversityOrleans.description"),
+          studiedFields: t(
+            "about.studies.institutions.MastersUniversityOrleans.studiedFields",
+          ).split(";"),
+          timeframe: t("about.studies.institutions.MastersUniversityOrleans.timeframe"),
         },
         {
-          name: t("about.studies.institutions.LicenseUniversityOrleans.name"),
-          description: <>{t("about.studies.institutions.LicenseUniversityOrleans.description")}</>,
+          organization: {
+            name: t("about.studies.institutions.LicenseUniversityOrleans.name"),
+            image: {
+              src: addBasePath("/images/companies/univ-orleans.webp"),
+              alt: "University of Orléans Logo",
+              height: 30,
+              width: 42,
+            },
+          },
+          role: t("about.studies.institutions.LicenseUniversityOrleans.description"),
+          studiedFields: t(
+            "about.studies.institutions.LicenseUniversityOrleans.studiedFields",
+          ).split(";"),
+          timeframe: t("about.studies.institutions.LicenseUniversityOrleans.timeframe"),
         },
       ],
     },

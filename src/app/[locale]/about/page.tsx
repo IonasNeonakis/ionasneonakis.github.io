@@ -79,12 +79,12 @@ export default async function About({ params }: AboutParams) {
       items: about.work.experiences.map((experience) => experience.company.name),
     },
     {
-      title: about.studies.title,
-      items: about.studies.institutions.map((institution) => institution.name),
-    },
-    {
       title: about.certifications.title,
       items: [],
+    },
+    {
+      title: about.studies.title,
+      items: about.studies.institutions.map((institution) => institution.organization.name),
     },
   ];
   return (
@@ -240,45 +240,6 @@ export default async function About({ params }: AboutParams) {
                       </Text>
                     ))}
                   </Column>
-                  {experience.images.length > 0 && (
-                    <Flex fillWidth paddingTop="m" paddingLeft="40" wrap>
-                      {experience.images.map((image, index) => (
-                        <Flex
-                          key={`${image.alt}${index}`}
-                          border="neutral-medium"
-                          radius="m"
-                          minWidth={image.width}
-                          height={image.height}
-                        >
-                          <SmartImage
-                            enlarge
-                            radius="m"
-                            sizes={image.width.toString()}
-                            alt={image.alt}
-                            src={image.src}
-                          />
-                        </Flex>
-                      ))}
-                    </Flex>
-                  )}
-                </Column>
-              ))}
-            </Column>
-          </>
-
-          <>
-            <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
-              {about.studies.title}
-            </Heading>
-            <Column fillWidth gap="l" marginBottom="40">
-              {about.studies.institutions.map((institution, index) => (
-                <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-                  <Text id={institution.name} variant="heading-strong-l">
-                    {institution.name}
-                  </Text>
-                  <Text variant="heading-default-xs" onBackground="neutral-weak">
-                    {institution.description}
-                  </Text>
                 </Column>
               ))}
             </Column>
@@ -289,6 +250,48 @@ export default async function About({ params }: AboutParams) {
             certifications={about.certifications.certifications}
             locale={locale}
           />
+
+          <>
+            <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
+              {about.studies.title}
+            </Heading>
+            <Column fillWidth gap="l" marginBottom="40">
+              {about.studies.institutions.map((institution, index) => (
+                <Column
+                  key={`${institution.organization.name}-${institution.role}-${index}`}
+                  fillWidth
+                >
+                  <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
+                    <Flex vertical="center" gap="8">
+                      <Image
+                        width={institution.organization.image.width}
+                        height={institution.organization.image.height}
+                        alt={institution.organization.image.alt}
+                        src={institution.organization.image.src}
+                      />
+                      <Text variant="heading-strong-l" id={institution.organization.name}>
+                        {institution.organization.name}
+                      </Text>
+                    </Flex>
+
+                    <Text variant="heading-default-xs" onBackground="neutral-weak">
+                      {institution.timeframe}
+                    </Text>
+                  </Flex>
+                  <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                    {institution.role}
+                  </Text>
+                  <Column as="ul">
+                    {institution.studiedFields.map((studiedField) => (
+                      <Text marginBottom="8" as="li" variant="label-default-m" key={studiedField}>
+                        {studiedField}
+                      </Text>
+                    ))}
+                  </Column>
+                </Column>
+              ))}
+            </Column>
+          </>
         </Column>
       </Flex>
     </Column>

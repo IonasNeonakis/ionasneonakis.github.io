@@ -11,7 +11,7 @@
     "blog header": "Latest blog posts",
     "contact": {
       "header": "Contact Me",
-      "description": "Have a question, a great project to discuss, or just want to say hi? Reach out here \uD83D\uDC4B",
+      "description": "Have a question, a great project to discuss, or just want to say hi? Reach out here 👋",
       "enterEmail": "Email",
       "textArea": "Your message",
       "button": "Send",
@@ -75,12 +75,16 @@
       "title": "Studies",
       "institutions": {
         "MastersUniversityOrleans": {
-          "name": "University of Orléans (Master's)",
-          "description": "Master's in Intelligent & Secure Mobile Computing (IMIS) 2020 - 2022, top of the class"
+          "name": "University of Orléans (Master's degree)",
+          "description": "Master's degree in Intelligent & Secure Mobile Computing (IMIS)",
+          "studiedFields": "Front-end development;Back-end development;High-performance programming;Cryptography and security;Cross-platform development;Android development;Artificial intelligence;Graphics programming;Concurrent programming;Operating systems;Graph theory;Language theory;Static and dynamic analysis;Constraint programming;Networks and security",
+          "timeframe": "2020 - 2022"
         },
         "LicenseUniversityOrleans": {
-          "name": "University of Orléans (Bachelor's)",
-          "description": "Bachelor's in Computer Science IMIS | 2017 - 2020"
+          "name": "University of Orléans (Bachelor's degree)",
+          "description": "Bachelor's degree in Computer Science IMIS",
+          "studiedFields": "Object-Oriented Programming;Web technologies;Databases;Computer architecture;Developer tools;Functional programming;Object modeling;Imperative programming;Networks;Languages and automata;Logic;N-tier programming;Algebraic languages;Logic programming",
+          "timeframe": "2017 - 2020"
         }
       }
     },
@@ -88,10 +92,10 @@
       "title": "Degrees & Certifications",
       "id": "ID: ",
       "showCertificate": "Show Certificate",
-      "master": "Master's in Intelligent & Secure Mobile Computing (IMIS)",
+      "master": "Master's in Intelligent & Secure Mobile Computing (IMIS) - Valedictorian",
       "university": "University of Orléans",
       "bachelor": "Bachelor's in Computer Science IMIS",
-      "bac": "Scientific Baccalaureate, english european section",
+      "bac": "Scientific Baccalaureate, English European section",
       "highschool": "Benjamin Franklin High School, Orléans"
     }
   },
