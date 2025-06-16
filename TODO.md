@@ -49,6 +49,6 @@
 - [x] obfuscate email address
 - [x] about section content
 - [x] studies section content
-- [ ] update content for "about me"
+- [x] update content for "about me"
 - [ ] make "about me" button more visible
-- [ ] remove fullstack developer from "about me"
+- [x] remove fullstack developer from "about me"
