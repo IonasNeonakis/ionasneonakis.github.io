@@ -5,7 +5,7 @@ import { getPosts } from "@/app/utils/utils";
 import ScrollToHash from "@/components/ScrollToHash";
 import { CustomMDX } from "@/components/mdx";
 import { type LocaleParams, routing } from "@/i18n/routing";
-import { AvatarGroup, Button, Column, Heading, Row, Text } from "@/once-ui/components";
+import { AvatarGroup, Button, Column, Heading, Row, Text } from "@once-ui-system/core";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: BlogParams): Promise<Metadata
     return;
   }
 
-  const { title, publishedAt: publishedTime, summary: description, image } = post.metadata;
+  const { title, publishedAt: publishedTime, summary: description } = post.metadata;
   const ogImage = addBasePath("/images/avatar-og.webp");
 
   return {

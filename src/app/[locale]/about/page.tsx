@@ -8,17 +8,7 @@ import styles from "@/components/about/about.module.scss";
 import { Certifications } from "@/components/about/certifications/Certifications";
 import { Skills } from "@/components/about/skillSection/Skills";
 import type { LocaleParams } from "@/i18n/routing";
-import {
-  Avatar,
-  Button,
-  Column,
-  Flex,
-  Heading,
-  IconButton,
-  SmartImage,
-  Text,
-} from "@/once-ui/components";
-import { emailMailToRedirect } from "@/utils/obfuscateEmailUtils";
+import { Avatar, Button, Column, Flex, Heading, IconButton, Text } from "@once-ui-system/core";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";

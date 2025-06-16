@@ -1,9 +1,6 @@
-import "@/once-ui/styles/index.scss";
-import "@/once-ui/tokens/index.scss";
-
 import { Footer, Header, RouteGuard } from "@/components";
 import { type LocaleParams, routing } from "@/i18n/routing";
-import { Flex } from "@/once-ui/components";
+import { Flex } from "@once-ui-system/core";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";

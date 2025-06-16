@@ -3,7 +3,7 @@
 import NotFound from "@/app/not-found";
 import { routes } from "@/app/resources";
 import { usePathname } from "@/i18n/routing";
-import { Flex, Spinner } from "@/once-ui/components";
+import { Flex, Spinner } from "@once-ui-system/core";
 import { type ReactNode, useEffect, useState } from "react";
 
 interface RouteGuardProps {

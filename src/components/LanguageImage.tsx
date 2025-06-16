@@ -1,5 +1,5 @@
 import type { Locale } from "@/i18n/routing";
-import { Spinner } from "@/once-ui/components";
+import { Spinner } from "@once-ui-system/core";
 import Image from "next/image";
 
 interface LanguageImageProps {

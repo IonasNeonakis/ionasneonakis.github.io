@@ -1,5 +1,5 @@
 import { SkillSection } from "@/components/about/skillSection/SkillSection";
-import { Column } from "@/once-ui/components";
+import { Column } from "@once-ui-system/core";
 import { useTranslations } from "next-intl";
 import React from "react";
 

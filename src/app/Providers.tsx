@@ -1,0 +1,38 @@
+"use client"
+
+import { style } from "@/resources/config";
+import {
+  BorderStyle, DataThemeProvider, IconProvider,
+  NeutralColor, ScalingSize,
+  Schemes,
+  SolidStyle,
+  SolidType,
+  SurfaceStyle, ThemeProvider, ToastProvider,
+  TransitionStyle
+} from "@once-ui-system/core";
+import {iconLibrary} from "@/resources/icons";
+import type React from "react";
+
+
+export function Providers({children}: { children: React.ReactNode }) {
+  return (<ThemeProvider
+      brand={style.brand as Schemes}
+      accent={style.accent as Schemes}
+      neutral={style.neutral as NeutralColor}
+      solid={style.solid as SolidType}
+      solidStyle={style.solidStyle as SolidStyle}
+      border={style.border as BorderStyle}
+      surface={style.surface as SurfaceStyle}
+      transition={style.transition as TransitionStyle}
+      scaling={style.scaling as ScalingSize}>
+      <DataThemeProvider>
+        <IconProvider icons={iconLibrary}>
+          <ToastProvider>
+              {children}
+          </ToastProvider>
+        </IconProvider>
+      </DataThemeProvider>
+    </ThemeProvider>
+  )
+    ;
+}

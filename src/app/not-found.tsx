@@ -1,4 +1,4 @@
-import { Button, Column, Heading, Text } from "@/once-ui/components";
+import { Button, Column, Heading, Text } from "@once-ui-system/core";
 
 export default function NotFound() {
   return (

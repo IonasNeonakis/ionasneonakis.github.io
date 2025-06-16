@@ -1,4 +1,4 @@
-import { Column, Heading, Icon, Text } from "@/once-ui/components";
+import { Column, Heading, Icon, Text } from "@once-ui-system/core";
 import { useTranslations } from "next-intl";
 import React from "react";
 

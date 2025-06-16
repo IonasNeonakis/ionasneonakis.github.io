@@ -1,4 +1,4 @@
-import { Tag } from "@/once-ui/components";
+import { Tag } from "@once-ui-system/core";
 import React from "react";
 import type { Skill } from "./Skills";
 

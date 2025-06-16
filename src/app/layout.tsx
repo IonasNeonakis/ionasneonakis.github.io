@@ -1,16 +1,19 @@
-import "@/once-ui/styles/index.scss";
-import "@/once-ui/tokens/index.scss";
+import '@once-ui-system/core/css/styles.css';
+import '@once-ui-system/core/css/tokens.css';
 
 import classNames from "classnames";
 
-import { baseURL, effects, style } from "@/app/resources";
+import {baseURL, effects, style,} from "@/app/resources";
 
-import { Raleway } from "next/font/google";
-import { Source_Code_Pro } from "next/font/google";
 
-import { Background, Column, Flex, ToastProvider } from "@/once-ui/components";
-import type { Metadata } from "next";
+import {
+  Background,
+  Column, Flex,
+} from "@once-ui-system/core";
+import type {Metadata} from "next";
 import type React from "react";
+import {fonts} from "@/resources/once-ui.config";
+import {Providers} from "@/app/Providers";
 
 export function generateMetadata(): Metadata {
   return {
@@ -29,60 +32,88 @@ export function generateMetadata(): Metadata {
   };
 }
 
-const primary = Raleway({
-  variable: "--font-primary",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-type FontConfig = {
-  variable: string;
-};
-
-/*
-	Replace with code for secondary and tertiary fonts
-	from https://once-ui.com/customize
-*/
-const secondary: FontConfig | undefined = undefined;
-const tertiary: FontConfig | undefined = undefined;
-/*
- */
-
-const code = Source_Code_Pro({
-  variable: "--font-code",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({children}: RootLayoutProps) {
   return (
     <Flex
+      suppressHydrationWarning
       as="html"
       lang="en"
-      background="page"
-      data-neutral={style.neutral}
-      data-brand={style.brand}
-      data-accent={style.accent}
-      data-solid={style.solid}
-      data-solid-style={style.solidStyle}
-      data-theme={style.theme}
-      data-border={style.border}
-      data-surface={style.surface}
-      data-transition={style.transition}
+      fillWidth
       className={classNames(
-        primary.variable,
-        secondary ? secondary.variable : "",
-        tertiary ? tertiary.variable : "",
-        code.variable,
+        fonts.heading.variable,
+        fonts.body.variable,
+        fonts.label.variable,
+        fonts.code.variable,
       )}
     >
-      <ToastProvider>
-        <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
+      <head>
+        <script
+          id="theme-init"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const root = document.documentElement;
+                  const defaultTheme = 'system';
+                  
+                  // Set defaults from config
+                  const config = ${JSON.stringify({
+              brand: style.brand,
+              accent: style.accent,
+              neutral: style.neutral,
+              solid: style.solid,
+              'solid-style': style.solidStyle,
+              border: style.border,
+              surface: style.surface,
+              transition: style.transition,
+              scaling: style.scaling,
+            })};
+                  
+                  // Apply default values
+                  Object.entries(config).forEach(([key, value]) => {
+                    root.setAttribute('data-' + key, value);
+                  });
+                  
+                  // Resolve theme
+                  const resolveTheme = (themeValue) => {
+                    if (!themeValue || themeValue === 'system') {
+                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                    }
+                    return themeValue;
+                  };
+                  
+                  // Apply saved theme
+                  const savedTheme = localStorage.getItem('data-theme');
+                  const resolvedTheme = resolveTheme(savedTheme);
+                  root.setAttribute('data-theme', resolvedTheme);
+                  
+                  // Apply any saved style overrides
+                  const styleKeys = Object.keys(config);
+                  styleKeys.forEach(key => {
+                    const value = localStorage.getItem('data-' + key);
+                    if (value) {
+                      root.setAttribute('data-' + key, value);
+                    }
+                  });
+                } catch (e) {
+                  console.error('Failed to initialize theme:', e);
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
+      <Providers>
+
+        <Column as="body" background="page" fillWidth style={{minHeight: "100vh"}} margin="0" padding="0" horizontal="center">
           <Background
+            position="fixed"
             mask={{
               cursor: effects.mask.cursor,
               x: effects.mask.x,
@@ -118,7 +149,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           />
           {children}
         </Column>
-      </ToastProvider>
+      </Providers>
+
     </Flex>
   );
 }

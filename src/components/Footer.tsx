@@ -1,6 +1,6 @@
 import { createI18nContent } from "@/app/resources";
 import { ObfuscatedEmailButton } from "@/components/ObfuscatedEmailButton";
-import { Flex, IconButton, Text } from "@/once-ui/components";
+import { Flex, IconButton, Text } from "@once-ui-system/core";
 import { useTranslations } from "next-intl";
 import styles from "./Footer.module.scss";
 

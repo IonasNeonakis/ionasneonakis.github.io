@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, IconButton } from "@/once-ui/components";
 import { emailMailToRedirect } from "@/utils/obfuscateEmailUtils";
+import { Button, IconButton } from "@once-ui-system/core";
 import React from "react";
 
 export function AboutObfuscatedEmailButton() {

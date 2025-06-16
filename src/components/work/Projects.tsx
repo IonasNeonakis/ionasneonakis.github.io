@@ -2,7 +2,7 @@ import { addBasePath } from "@/app/utils/imageUtils";
 import { getPosts } from "@/app/utils/utils";
 import { ProjectCard } from "@/components";
 import type { Locale } from "@/i18n/routing";
-import { Column } from "@/once-ui/components";
+import { Column } from "@once-ui-system/core";
 
 interface ProjectsProps {
   range?: [number, number?];

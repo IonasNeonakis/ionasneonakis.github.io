@@ -5,7 +5,7 @@ import { useEmailSentStatus } from "@/components/ClientHomeWrapper";
 import { ContactForm } from "@/components/ContactForm";
 import { MessageSentContent } from "@/components/MessageSentContent";
 import type { Locale } from "@/i18n/routing";
-import { Background, Column } from "@/once-ui/components";
+import { Background, Column } from "@once-ui-system/core";
 import React from "react";
 
 interface ContactMeProps {

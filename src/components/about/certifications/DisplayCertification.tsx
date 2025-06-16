@@ -1,6 +1,6 @@
 import type { Certification } from "@/app/resources/content-i18n";
 import type { Locale } from "@/i18n/routing";
-import { Button, Column, Row, Tag, Text } from "@/once-ui/components";
+import { Button, Column, Row, Tag, Text } from "@once-ui-system/core";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";

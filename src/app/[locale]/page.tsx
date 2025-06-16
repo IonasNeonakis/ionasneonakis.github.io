@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Avatar, Badge, Column, Flex, Heading, RevealFx, Text } from "@/once-ui/components";
+import { Avatar, Badge, Column, Flex, Heading, RevealFx, Text } from "@once-ui-system/core";
 
 import { baseURL, createI18nContent } from "@/app/resources";
 import { addBasePath } from "@/app/utils/imageUtils";

@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 
 import styles from "@/components/Header.module.scss";
-import { Fade, Flex, IconButton, Line, ToggleButton } from "@/once-ui/components";
+import { Fade, Flex, IconButton, Line, ToggleButton } from "@once-ui-system/core";
 
 import { createI18nContent, routes } from "@/app/resources";
 import { LanguageDropdown } from "@/components/LanguageDropdown";

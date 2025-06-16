@@ -1,4 +1,4 @@
-import type { SpacingToken } from "@/once-ui/types";
+import type { SpacingToken } from "@once-ui-system/core";
 
 const baseURL: string = "ionasneonakis.github.io";
 

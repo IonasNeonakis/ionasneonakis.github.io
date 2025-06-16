@@ -1,6 +1,6 @@
 import { type Locale, routing } from "@/i18n/routing";
-import { Button, DropdownWrapper, Flex, Option, Row } from "@/once-ui/components";
 import type { Placement } from "@floating-ui/react-dom";
+import { Button, DropdownWrapper, Flex, Option, Row } from "@once-ui-system/core";
 import { LanguageImage } from "./LanguageImage";
 
 interface LanguageDropdownProps {

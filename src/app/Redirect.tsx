@@ -1,7 +1,7 @@
 "use client";
 
 import { routing } from "@/i18n/routing";
-import { Flex, Spinner } from "@/once-ui/components";
+import { Flex, Spinner } from "@once-ui-system/core";
 import { hasLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -16,7 +16,7 @@ export function Redirect() {
   }, [router]);
   return (
     <Flex fillHeight horizontal="center">
-      <Spinner size="xxl" />
+      <Spinner size="xl" />
     </Flex>
   );
 }

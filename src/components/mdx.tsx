@@ -3,11 +3,11 @@ import type React from "react";
 import type { ReactNode } from "react";
 
 import { HeadingLink } from "@/components";
-import { SmartImage, SmartLink, Text } from "@/once-ui/components";
 import { CodeBlock } from "@/once-ui/modules";
+import { SmartImage, SmartLink, Text } from "@once-ui-system/core";
 
-import type { SmartImageProps } from "@/once-ui/components/SmartImage";
 import type { TextProps } from "@/once-ui/interfaces";
+import type { SmartImageProps } from "@once-ui-system/core/SmartImage";
 
 type TableProps = {
   data: {

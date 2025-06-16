@@ -3,7 +3,7 @@
 import { baseURL, createI18nContent, mailchimp } from "@/app/resources";
 import { EMAIL_SENT_SEARCH_PARAM } from "@/components/ClientHomeWrapper";
 import type { Locale } from "@/i18n/routing";
-import { Button, Column, Flex, Heading, Input, Text, Textarea } from "@/once-ui/components";
+import { Button, Column, Flex, Heading, Input, Text, Textarea } from "@once-ui-system/core";
 import { useTranslations } from "next-intl";
 import type React from "react";
 import { useState } from "react";
