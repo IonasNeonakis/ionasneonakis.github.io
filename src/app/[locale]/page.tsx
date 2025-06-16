@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Avatar, Button, Column, Flex, Heading, RevealFx, Text } from "@/once-ui/components";
+import { Avatar, Badge, Column, Flex, Heading, RevealFx, Text } from "@/once-ui/components";
 
 import { baseURL, createI18nContent } from "@/app/resources";
 import { addBasePath } from "@/app/utils/imageUtils";
@@ -95,23 +95,18 @@ export default async function Home({ params }: HomeParams) {
               </Text>
             </RevealFx>
             <RevealFx translateY="12" delay={0.4} horizontal="start">
-              <Button
-                id="about"
-                data-border="rounded"
-                href={`/${locale}/about`}
-                variant="secondary"
-                size="m"
-                arrowIcon
-              >
-                <Flex gap="8" vertical="center">
+              <Badge href={`/${locale}/about`}>
+                <Flex gap="4" vertical="center">
                   <Avatar
                     style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
                     src={person.avatar}
                     size="m"
                   />
-                  {about.title}
+                  <Text variant="label-strong-l" onBackground="brand-strong">
+                    {about.title}
+                  </Text>
                 </Flex>
-              </Button>
+              </Badge>
             </RevealFx>
           </Column>
         </Column>

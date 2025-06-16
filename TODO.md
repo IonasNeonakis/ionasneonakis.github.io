@@ -50,5 +50,6 @@
 - [x] about section content
 - [x] studies section content
 - [x] update content for "about me"
-- [ ] make "about me" button more visible
+- [x] make "about me" button more visible
 - [x] remove fullstack developer from "about me"
+- [ ] migrate to https://www.npmjs.com/package/@once-ui-system/core
