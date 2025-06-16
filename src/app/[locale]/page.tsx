@@ -83,7 +83,7 @@ export default async function Home({ params }: HomeParams) {
           }}
         />
         <Column fillWidth paddingY="l" gap="m">
-          <Column maxWidth="s">
+          <Column>
             <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="m">
               <Heading wrap="balance" variant="display-strong-l">
                 {home.headline}
