@@ -1,13 +1,13 @@
 {
   "person": {
-    "role": "Fullstack Developer"
+    "role": "Lead Fullstack Developer"
   },
   "home": {
     "label": "Home",
     "title": "{name}' Portfolio",
     "description": "Portfolio website showcasing my work as a {role}",
-    "headline": "Lead Dev & Fullstack Web Developer",
-    "subline": "I'm Ionas, a lead dev & fullstack developer, expert in Spring Boot, Kotlin & React",
+    "headline": "Lead Fullstack Developer",
+    "subline": "I'm Ionas, a Fullstack Lead Dev, expert in Spring Boot, Kotlin & React",
     "blog header": "Latest blog posts",
     "contact": {
       "header": "Contact Me",
@@ -33,7 +33,7 @@
     "description": "Meet {name}, a {role} based in {location}",
     "intro": {
       "title": "Introduction",
-      "description": "I'm a fullstack developer based in Paris, specialized in building modern web applications, robust microservices, and high-performance software architectures. I'm passionate about technology and innovation and strive to stay updated with the latest software development trends. My expertise includes technologies like Spring Boot, Kotlin, Java, React, and more. I'm also a strong advocate for best development practices such as TDD, DDD, and Agile methodologies."
+      "description": "I'm a Fullstack Lead Developer based in Paris, specialized in building modern web applications, robust microservices, and high-performance software architectures. I'm passionate about technology and innovation and strive to stay updated with the latest software development trends. My expertise includes technologies like Spring Boot, Kotlin, Java, React, and more. I'm also a strong advocate for best development practices such as TDD, DDD, and Agile methodologies."
     },
     "skills": {
       "others": "Others"
@@ -45,7 +45,7 @@
           "companyName": "Luxure leader",
           "companyAlt": "Luxure leadere logo",
           "timeframe": "December 2022 - Present",
-          "role": "Lead Dev & Fullstack Developer Spring Boot (Kotlin/Java) & React",
+          "role": "Fullstack Lead Dev, Spring Boot (Kotlin/Java) & React",
           "achievements": "Developed web, mobile (PWA), and logistics microservices in React & Spring Boot.;Built internal tools (SDKs, libs, starters).;Production application support.;Technical lead for applications and microservices.;Tech migrations and quality practices (TDD, DDD, Pair/Mob Programming, etc.).;Onboarding of new developers.;Led bi-weekly technical meetings.;Provided technical advice on architectural decisions."
         },
         "TakimaRH": {
