@@ -52,4 +52,4 @@
 - [x] update content for "about me"
 - [x] make "about me" button more visible
 - [x] remove fullstack developer from "about me"
-- [ ] migrate to https://www.npmjs.com/package/@once-ui-system/core
+- [ ] migrate to https://www.npmjs.com/package/@once-ui-system/core => fix bold text, techinical skills should be centered and gapped, icon sizes are not correct, language select is broken, buttons are transparent => should be black, contact me form is broken, site load in white sometimes ???, 
