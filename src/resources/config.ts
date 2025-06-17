@@ -1,5 +1,5 @@
 import type { SpacingToken } from "@once-ui-system/core";
-import {Raleway, Source_Code_Pro} from "next/font/google";
+import { Raleway, Source_Code_Pro } from "next/font/google";
 
 const baseURL: string = "ionasneonakis.github.io";
 
@@ -194,8 +194,6 @@ const display: Display = {
   time: false,
 };
 
-
-
 const heading = Raleway({
   variable: "--font-heading",
   subsets: ["latin"],
@@ -220,13 +218,11 @@ const code = Source_Code_Pro({
   display: "swap",
 });
 
-
 const primary = Raleway({
   variable: "--font-primary",
   subsets: ["latin"],
   display: "swap",
 });
-
 
 const fonts = {
   primary: primary,

@@ -57,6 +57,6 @@
   - [ ] techinical skills should be centered and gapped,
   - [ ] icon sizes are not correct,
   - [ ] language select is broken,
-  - [ ] buttons are transparent => should be black,
+  - [x] buttons are transparent => should be black,
   - [x] contact me form is broken,
-  - [ ] site loader is too small, 
+  - [x] site loader is too small, 

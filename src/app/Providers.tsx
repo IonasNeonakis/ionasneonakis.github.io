@@ -1,21 +1,26 @@
-"use client"
+"use client";
 
 import { style } from "@/resources/config";
+import { iconLibrary } from "@/resources/icons";
 import {
-  BorderStyle, DataThemeProvider, IconProvider,
-  NeutralColor, ScalingSize,
-  Schemes,
-  SolidStyle,
-  SolidType,
-  SurfaceStyle, ThemeProvider, ToastProvider,
-  TransitionStyle
+  type BorderStyle,
+  DataThemeProvider,
+  IconProvider,
+  type NeutralColor,
+  type ScalingSize,
+  type Schemes,
+  type SolidStyle,
+  type SolidType,
+  type SurfaceStyle,
+  ThemeProvider,
+  ToastProvider,
+  type TransitionStyle,
 } from "@once-ui-system/core";
-import {iconLibrary} from "@/resources/icons";
 import type React from "react";
 
-
-export function Providers({children}: { children: React.ReactNode }) {
-  return (<ThemeProvider
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <ThemeProvider
       brand={style.brand as Schemes}
       accent={style.accent as Schemes}
       neutral={style.neutral as NeutralColor}
@@ -24,15 +29,13 @@ export function Providers({children}: { children: React.ReactNode }) {
       border={style.border as BorderStyle}
       surface={style.surface as SurfaceStyle}
       transition={style.transition as TransitionStyle}
-      scaling={style.scaling as ScalingSize}>
+      scaling={style.scaling as ScalingSize}
+    >
       <DataThemeProvider>
         <IconProvider icons={iconLibrary}>
-          <ToastProvider>
-              {children}
-          </ToastProvider>
+          <ToastProvider>{children}</ToastProvider>
         </IconProvider>
       </DataThemeProvider>
     </ThemeProvider>
-  )
-    ;
+  );
 }

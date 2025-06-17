@@ -1,20 +1,16 @@
-import '@once-ui-system/core/css/styles.css';
-import '@once-ui-system/core/css/tokens.css';
-import '@/resources/custom.css'
+import "@once-ui-system/core/css/styles.css";
+import "@once-ui-system/core/css/tokens.css";
+import "@/resources/custom.css";
 
 import classNames from "classnames";
 
-import {baseURL, effects, style,} from "@/app/resources";
+import { baseURL, effects, style } from "@/app/resources";
 
-
-import {
-  Background,
-  Column, Flex,
-} from "@once-ui-system/core";
-import type {Metadata} from "next";
+import { Providers } from "@/app/Providers";
+import { fonts } from "@/resources/config";
+import { Background, Column, Flex } from "@once-ui-system/core";
+import type { Metadata } from "next";
 import type React from "react";
-import {Providers} from "@/app/Providers";
-import {fonts} from "@/resources/config";
 
 export function generateMetadata(): Metadata {
   return {
@@ -33,12 +29,11 @@ export function generateMetadata(): Metadata {
   };
 }
 
-
 interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export default function RootLayout({children}: RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <Flex
       suppressHydrationWarning
@@ -64,16 +59,16 @@ export default function RootLayout({children}: RootLayoutProps) {
                   
                   // Set defaults from config
                   const config = ${JSON.stringify({
-              brand: style.brand,
-              accent: style.accent,
-              neutral: style.neutral,
-              solid: style.solid,
-              'solid-style': style.solidStyle,
-              border: style.border,
-              surface: style.surface,
-              transition: style.transition,
-              scaling: style.scaling,
-            })};
+                    brand: style.brand,
+                    accent: style.accent,
+                    neutral: style.neutral,
+                    solid: style.solid,
+                    "solid-style": style.solidStyle,
+                    border: style.border,
+                    surface: style.surface,
+                    transition: style.transition,
+                    scaling: style.scaling,
+                  })};
                   
                   // Apply default values
                   Object.entries(config).forEach(([key, value]) => {
@@ -111,8 +106,15 @@ export default function RootLayout({children}: RootLayoutProps) {
         />
       </head>
       <Providers>
-
-        <Column as="body" background="page" fillWidth style={{minHeight: "100vh"}} margin="0" padding="0" horizontal="center">
+        <Column
+          as="body"
+          background="page"
+          fillWidth
+          style={{ minHeight: "100vh" }}
+          margin="0"
+          padding="0"
+          horizontal="center"
+        >
           <Background
             position="fixed"
             mask={{
@@ -151,7 +153,6 @@ export default function RootLayout({children}: RootLayoutProps) {
           {children}
         </Column>
       </Providers>
-
     </Flex>
   );
 }

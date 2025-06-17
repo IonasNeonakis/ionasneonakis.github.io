@@ -1,9 +1,10 @@
 import React from "react";
 
-import { Avatar, Badge, Column, Flex, Heading, RevealFx, Text } from "@once-ui-system/core";
+import { Column, Heading, RevealFx, Text } from "@once-ui-system/core";
 
 import { baseURL, createI18nContent } from "@/app/resources";
 import { addBasePath } from "@/app/utils/imageUtils";
+import { AboutMeBadge } from "@/components/AboutMeBadge";
 import { ClientHomeWrapper } from "@/components/ClientHomeWrapper";
 import { ContactMe } from "@/components/ContactMe";
 import type { LocaleParams } from "@/i18n/routing";
@@ -55,7 +56,7 @@ export default async function Home({ params }: HomeParams) {
 
   const t = await getTranslations();
 
-  const { home, about, person } = createI18nContent(t);
+  const { home, person } = createI18nContent(t);
 
   return (
     <ClientHomeWrapper>
@@ -95,18 +96,7 @@ export default async function Home({ params }: HomeParams) {
               </Text>
             </RevealFx>
             <RevealFx translateY="12" delay={0.4} horizontal="start">
-              <Badge href={`/${locale}/about`}>
-                <Flex gap="4" vertical="center">
-                  <Avatar
-                    style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                  <Text variant="label-strong-l" onBackground="brand-strong">
-                    {about.title}
-                  </Text>
-                </Flex>
-              </Badge>
+              <AboutMeBadge locale={locale} />
             </RevealFx>
           </Column>
         </Column>

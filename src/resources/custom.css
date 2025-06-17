@@ -1,15 +1,15 @@
 :root {
-    --font-weight-display-strong: var(--font-weight-extraBold);
+  --font-weight-display-strong: var(--font-weight-extraBold);
 
-    --brand-on-background-weak: var(--function-brand-600)
-
-
+  --brand-on-background-weak: var(--function-brand-600);
 }
 
-.font-display.font-xl, .font-display > .font-xl {
-    letter-spacing: 0;
+.font-display.font-xl,
+.font-display > .font-xl {
+  letter-spacing: 0;
 }
 
-.font-display.font-l, .font-display > .font-l {
-    letter-spacing: 0;
+.font-display.font-l,
+.font-display > .font-l {
+  letter-spacing: 0;
 }
