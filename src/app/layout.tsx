@@ -1,5 +1,6 @@
 import '@once-ui-system/core/css/styles.css';
 import '@once-ui-system/core/css/tokens.css';
+import '@/resources/custom.css'
 
 import classNames from "classnames";
 
@@ -12,8 +13,8 @@ import {
 } from "@once-ui-system/core";
 import type {Metadata} from "next";
 import type React from "react";
-import {fonts} from "@/resources/once-ui.config";
 import {Providers} from "@/app/Providers";
+import {fonts} from "@/resources/config";
 
 export function generateMetadata(): Metadata {
   return {
