@@ -8,7 +8,6 @@ import {
   Text,
 } from "@once-ui-system/core";
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
 import type React from "react";
 
 interface ProjectCardProps {
@@ -37,8 +36,8 @@ export function ProjectCard({
     <Column fillWidth gap="m">
       <Carousel
         sizes="(max-width: 960px) 100vw, 960px"
-        images={images.map((image) => ({
-          src: image,
+        items={images.map((image) => ({
+          slide: image,
           alt: title,
         }))}
       />
