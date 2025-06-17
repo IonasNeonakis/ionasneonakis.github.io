@@ -69,7 +69,7 @@ export function Skills() {
     <Column horizontal="center" vertical="center">
       <SkillSection title="Backend" skills={backendSkills} />
       <SkillSection title="Frontend" skills={frontendSkills} />
-      <SkillSection title="Devops" skills={devopsSkills} />
+      <SkillSection title="DevOps" skills={devopsSkills} />
       <SkillSection title={t("about.skills.others")} skills={otherSkills} />
     </Column>
   );

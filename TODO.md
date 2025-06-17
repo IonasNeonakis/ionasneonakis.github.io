@@ -54,10 +54,12 @@
 - [x] remove fullstack developer from "about me"
 - [ ] migrate to https://www.npmjs.com/package/@once-ui-system/core =>
   - [x] fix bold text,
-  - [ ] techinical skills should be centered and gapped,
+  - [ ] remove top page padding,
+  - [ ] techinical skills should be centered,
+  - [x] fix skill tags,
   - [ ] icon sizes are not correct,
   - [ ] language select is broken,
-  - [x] buttons are transparent => should be black,
+  - [ ] buttons are transparent => should be black,
   - [x] contact me form is broken
   - [x] site loader is too small 
   - [x] media queries are broken
