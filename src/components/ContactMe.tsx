@@ -21,13 +21,13 @@ export function ContactMe({ locale }: ContactMeProps) {
       fillWidth
       padding="64"
       radius="l"
-      marginBottom="m"
       horizontal="center"
       align="center"
       background="surface"
       border="neutral-alpha-weak"
     >
       <Background
+        top="0"
         position="absolute"
         mask={{
           x: mailchimp.effects.mask.x,

@@ -58,5 +58,5 @@
   - [ ] icon sizes are not correct,
   - [ ] language select is broken,
   - [ ] buttons are transparent => should be black,
-  - [ ] contact me form is broken,
+  - [x] contact me form is broken,
   - [ ] site loader is too small, 
