@@ -55,7 +55,7 @@
 - [ ] add CV link
 - [x] make photo and skills sticky
 - [x] https://reactbits.dev/text-animations/fuzzy-text
-- [ ] firefox bug with text animation
+- [x] firefox bug with text animation
 - [x] migrate to https://www.npmjs.com/package/@once-ui-system/core =>
   - [x] fix bold text,
   - [x] remove top page padding,
