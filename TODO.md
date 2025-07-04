@@ -54,6 +54,7 @@
 - [x] remove fullstack developer from "about me"
 - [ ] i18n contact me form
 - [ ] add CV link
+- [x] make photo and skills sticky
 - [ ] https://reactbits.dev/text-animations/fuzzy-text
 - [x] migrate to https://www.npmjs.com/package/@once-ui-system/core =>
   - [x] fix bold text,

@@ -10,7 +10,7 @@
 }
 
 .avatar {
-    position: sticky;
+    position: sticky !important;
     height: fit-content;
     top: var(--static-space-64);
 }
