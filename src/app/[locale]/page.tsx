@@ -100,7 +100,7 @@ export default async function Home({ params }: HomeParams) {
             </RevealFx>
           </Column>
         </Column>
-        <RevealFx translateY="16" delay={0.6}>
+        <RevealFx translateY="16" delay={0.6} horizontal="start">
           <ContactMe locale={locale} />
         </RevealFx>
       </Column>
