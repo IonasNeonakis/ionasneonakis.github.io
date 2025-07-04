@@ -138,12 +138,12 @@ const effects: Effects = {
   },
 };
 
-interface Mailchimp {
+interface ContactMeForm {
   action: string;
   effects: Effects;
 }
 
-const mailchimp: Mailchimp = {
+const contactMeForm: ContactMeForm = {
   action: "https://formsubmit.co/ee4ec3a521c1bccf4855768076984cc9", // random-like string linked to my email address ionas.neonakis+portfolio@gmail.com
   effects: {
     mask: {
@@ -232,4 +232,4 @@ const fonts = {
   code: code,
 };
 
-export { routes, effects, style, display, baseURL, mailchimp, fonts };
+export { routes, effects, style, display, baseURL, contactMeForm, fonts };

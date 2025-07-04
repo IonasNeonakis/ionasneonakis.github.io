@@ -4,7 +4,7 @@ export {
   style,
   display,
   baseURL,
-  mailchimp,
+  contactMeForm,
 } from "@/resources/config";
 
 export { createI18nContent } from "@/app/resources/content-i18n";

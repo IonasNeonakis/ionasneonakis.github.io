@@ -1,6 +1,6 @@
 "use client";
 
-import { baseURL, createI18nContent, mailchimp } from "@/app/resources";
+import { baseURL, contactMeForm, createI18nContent } from "@/app/resources";
 import { EMAIL_SENT_SEARCH_PARAM } from "@/components/ClientHomeWrapper";
 import type { Locale } from "@/i18n/routing";
 import { Button, Column, Flex, Heading, Input, Text, Textarea } from "@once-ui-system/core";
@@ -77,7 +77,7 @@ export function ContactForm({ locale }: ContactFormProps) {
           display: "flex",
           justifyContent: "center",
         }}
-        action={mailchimp.action}
+        action={contactMeForm.action}
         method="post"
       >
         <Flex fillWidth maxWidth={30} mobileDirection="column" gap="8">
@@ -121,6 +121,7 @@ export function ContactForm({ locale }: ContactFormProps) {
           value={`https://${baseURL}/${locale}?${EMAIL_SENT_SEARCH_PARAM}`}
         />
         <input type="hidden" name="_template" value="box" />
+        <input type="hidden" name="_captcha" value="false" />
       </form>
     </>
   );
