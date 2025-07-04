@@ -52,14 +52,17 @@
 - [x] update content for "about me"
 - [x] make "about me" button more visible
 - [x] remove fullstack developer from "about me"
-- [ ] migrate to https://www.npmjs.com/package/@once-ui-system/core =>
+- [ ] i18n contact me form
+- [ ] add CV link
+- [ ] https://reactbits.dev/text-animations/fuzzy-text
+- [x] migrate to https://www.npmjs.com/package/@once-ui-system/core =>
   - [x] fix bold text,
-  - [ ] remove top page padding,
-  - [ ] techinical skills should be centered,
+  - [x] remove top page padding,
+  - [x] techinical skills should be centered,
   - [x] fix skill tags,
-  - [ ] icon sizes are not correct,
-  - [ ] language select is broken,
-  - [ ] buttons are transparent => should be black,
+  - [x] icon sizes are not correct,
+  - [x] language select is broken,
+  - [x] buttons are transparent => should be black,
   - [x] contact me form is broken
   - [x] site loader is too small 
   - [x] media queries are broken

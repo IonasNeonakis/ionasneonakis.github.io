@@ -64,7 +64,12 @@ export const Header = () => {
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s">
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href={`/${locale}`} selected={pathname === "/"} />
+                <ToggleButton
+                  size="l"
+                  prefixIcon="home"
+                  href={`/${locale}`}
+                  selected={pathname === "/"}
+                />
               )}
               <Line vert maxHeight="24" />
               {routes["/about"] && (
@@ -72,6 +77,7 @@ export const Header = () => {
                   <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="person"
+                    size="l"
                     href={`/${locale}/about`}
                     label={about.label}
                     selected={pathname === "/about"}
@@ -79,6 +85,7 @@ export const Header = () => {
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="person"
+                    size="l"
                     href={`/${locale}/about`}
                     selected={pathname === "/about"}
                   />
@@ -89,6 +96,7 @@ export const Header = () => {
                   <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="grid"
+                    size="l"
                     href={`/${locale}/work`}
                     label={work.label}
                     selected={pathname.startsWith("/work")}
@@ -96,6 +104,7 @@ export const Header = () => {
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="grid"
+                    size="l"
                     href={`/${locale}/work`}
                     selected={pathname.startsWith("/work")}
                   />
@@ -106,6 +115,7 @@ export const Header = () => {
                   <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="book"
+                    size="l"
                     href={`/${locale}/blog`}
                     label={blog.label}
                     selected={pathname.startsWith("/blog")}
@@ -113,6 +123,7 @@ export const Header = () => {
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="book"
+                    size="l"
                     href={`/${locale}/blog`}
                     selected={pathname.startsWith("/blog")}
                   />
@@ -123,7 +134,7 @@ export const Header = () => {
                   handleLanguageChange={handleLanguageChange}
                   currentLocale={locale}
                   isLoading={isPending}
-                  floatingPlacement="top-start"
+                  placement="top-start"
                 />
               </Flex>
             </Flex>

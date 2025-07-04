@@ -1,24 +1,30 @@
 import { type Locale, routing } from "@/i18n/routing";
-import type { Placement } from "@floating-ui/react-dom";
-import { Button, DropdownWrapper, Flex, Option, Row } from "@once-ui-system/core";
+import {
+  Button,
+  Column,
+  DropdownWrapper,
+  type DropdownWrapperProps,
+  Flex,
+  Option,
+  Row,
+} from "@once-ui-system/core";
 import { LanguageImage } from "./LanguageImage";
 
-interface LanguageDropdownProps {
+interface LanguageDropdownProps extends Pick<DropdownWrapperProps, "placement"> {
   handleLanguageChange: (string: Locale) => void;
   currentLocale: Locale;
   isLoading: boolean;
-  floatingPlacement?: Placement;
 }
 
 export function LanguageDropdown({
   handleLanguageChange,
   currentLocale,
   isLoading,
-  floatingPlacement,
+  placement,
 }: LanguageDropdownProps) {
   const options = routing.locales.map((locale) => {
     return {
-      label: <LanguageImage locale={locale} size={20} isLoading={isLoading} />,
+      label: <LanguageImage locale={locale} size={20} isLoading={false} />,
       value: locale,
     };
   });
@@ -29,26 +35,34 @@ export function LanguageDropdown({
 
   return (
     <DropdownWrapper
-      floatingPlacement={floatingPlacement}
+      placement={placement}
+      closeAfterClick
       trigger={
-        <Button size="xs" disabled={isLoading} variant="secondary">
+        <Button
+          style={{ width: "32px", height: "32px", minHeight: "0" }}
+          disabled={isLoading}
+          variant="secondary"
+        >
           <LanguageImage locale={currentLocale} size={20} isLoading={isLoading} />
         </Button>
       }
       dropdown={
-        <Flex direction="column" gap="1">
+        <Column gap="1" center>
           {options.map((option) => (
             <Option
-              paddingY="4"
-              paddingX="4"
               key={option.value}
-              label={<Row> {option.label}</Row>}
+              label={
+                <Row style={{ width: "2px", height: "12px" }} center>
+                  {" "}
+                  {option.label}
+                </Row>
+              }
               value={option.value}
               selected={option.value === currentLocale}
               onClick={handleSelect}
             />
           ))}
-        </Flex>
+        </Column>
       }
     />
   );
