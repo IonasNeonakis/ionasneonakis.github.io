@@ -51,7 +51,7 @@
 - [x] update content for "about me"
 - [x] make "about me" button more visible
 - [x] remove fullstack developer from "about me"
-- [ ] i18n contact me form
+- [x] i18n contact me form
 - [ ] add CV link
 - [x] make photo and skills sticky
 - [x] https://reactbits.dev/text-animations/fuzzy-text

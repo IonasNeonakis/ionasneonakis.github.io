@@ -41,7 +41,7 @@ export function ContactForm({ locale }: ContactFormProps) {
     setEmail(value);
 
     if (!validateEmail(value)) {
-      setError("Please enter a valid email address.");
+      setError(t("home.contact.enterValidEmail"));
     } else {
       setError("");
     }
@@ -51,7 +51,7 @@ export function ContactForm({ locale }: ContactFormProps) {
 
   const handleBlur = () => {
     if (!validateEmail(email)) {
-      setError("Please enter a valid email address.");
+      setError(t("home.contact.enterValidEmail"));
     }
   };
 

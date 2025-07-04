@@ -15,6 +15,7 @@
       "enterEmail": "Email",
       "textArea": "Your message",
       "button": "Send",
+      "enterValidEmail": "Please enter a valid email address",
       "mail": {
         "subject": "Contact from {name}' portfolio",
         "autoresponse": "Your message has been sent successfully!"
