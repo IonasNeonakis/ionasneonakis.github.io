@@ -1,10 +1,10 @@
+import { Flex } from "@once-ui-system/core";
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import type React from "react";
 import { Footer, Header, RouteGuard } from "@/components";
 import { type LocaleParams, routing } from "@/i18n/routing";
-import { Flex } from "@once-ui-system/core";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
-import type React from "react";
 
 interface RootLayoutParams {
   children: React.ReactNode;

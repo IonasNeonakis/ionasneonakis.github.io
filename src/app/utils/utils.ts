@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
-import { addBasePath } from "@/app/utils/imageUtils";
 import matter from "gray-matter";
 import { notFound } from "next/navigation";
+import { addBasePath } from "@/app/utils/imageUtils";
 
 type Team = {
   name: string;

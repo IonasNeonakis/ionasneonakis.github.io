@@ -1,6 +1,6 @@
+import type { Params } from "next/dist/server/request/params";
 import { createNavigation } from "next-intl/navigation";
 import { defineRouting } from "next-intl/routing";
-import type { Params } from "next/dist/server/request/params";
 
 export const routing = defineRouting({
   locales: ["fr", "en"],

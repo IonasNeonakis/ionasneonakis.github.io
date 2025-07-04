@@ -1,9 +1,8 @@
+import { Button, Column, Row, Text } from "@once-ui-system/core";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 import type { Certification } from "@/app/resources/content-i18n";
 import type { Locale } from "@/i18n/routing";
-import { Button, Column, Row, Tag, Text } from "@once-ui-system/core";
-import { useTranslations } from "next-intl";
-import Image from "next/image";
-import React from "react";
 
 interface CertificationProps {
   certification: Certification;

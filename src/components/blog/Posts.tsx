@@ -1,6 +1,6 @@
+import { Grid } from "@once-ui-system/core";
 import { getPosts } from "@/app/utils/utils";
 import type { Locale } from "@/i18n/routing";
-import { Grid } from "@once-ui-system/core";
 import Post from "./Post";
 
 interface PostsProps {

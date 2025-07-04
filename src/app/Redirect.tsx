@@ -1,10 +1,10 @@
 "use client";
 
-import { routing } from "@/i18n/routing";
 import { Flex, Spinner } from "@once-ui-system/core";
-import { hasLocale } from "next-intl";
 import { useRouter } from "next/navigation";
+import { hasLocale } from "next-intl";
 import { useEffect } from "react";
+import { routing } from "@/i18n/routing";
 
 export function Redirect() {
   const router = useRouter();

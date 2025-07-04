@@ -2,15 +2,13 @@ import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
 
-import classNames from "classnames";
-
-import { baseURL, effects, style } from "@/app/resources";
-
-import { Providers } from "@/app/Providers";
-import { fonts } from "@/resources/config";
 import { Background, Column, Flex } from "@once-ui-system/core";
+import classNames from "classnames";
 import type { Metadata } from "next";
 import type React from "react";
+import { Providers } from "@/app/Providers";
+import { baseURL, effects, style } from "@/app/resources";
+import { fonts } from "@/resources/config";
 
 export function generateMetadata(): Metadata {
   return {

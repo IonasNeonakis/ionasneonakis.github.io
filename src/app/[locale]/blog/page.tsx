@@ -1,10 +1,10 @@
+import { Column, Heading } from "@once-ui-system/core";
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { baseURL, createI18nContent } from "@/app/resources";
 import { addBasePath } from "@/app/utils/imageUtils";
 import { Posts } from "@/components/blog/Posts";
 import type { LocaleParams } from "@/i18n/routing";
-import { Column, Heading } from "@once-ui-system/core";
-import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
 
 interface PageParams {
   params: Promise<LocaleParams>;

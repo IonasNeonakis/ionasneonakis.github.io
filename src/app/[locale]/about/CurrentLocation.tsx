@@ -1,7 +1,6 @@
-import type { Person } from "@/app/resources/content-i18n";
 import { Flex, Icon } from "@once-ui-system/core";
 import Image from "next/image";
-import React from "react";
+import type { Person } from "@/app/resources/content-i18n";
 
 interface CurrentLocationProps {
   person: Person;

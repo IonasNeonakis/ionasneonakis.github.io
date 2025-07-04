@@ -1,6 +1,6 @@
-import type { Locale } from "@/i18n/routing";
 import { Spinner } from "@once-ui-system/core";
 import Image from "next/image";
+import type { Locale } from "@/i18n/routing";
 
 interface LanguageImageProps {
   locale: Locale;

@@ -1,5 +1,4 @@
 import { Flex, Tag } from "@once-ui-system/core";
-import React from "react";
 
 interface SpokenLanguagesProps {
   languages: string[];

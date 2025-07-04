@@ -1,5 +1,5 @@
-export { Header } from "@/components/Header";
 export { Footer } from "@/components/Footer";
-export { ProjectCard } from "@/components/ProjectCard";
+export { Header } from "@/components/Header";
 export { HeadingLink } from "@/components/HeadingLink";
+export { ProjectCard } from "@/components/ProjectCard";
 export { RouteGuard } from "@/components/RouteGuard";

@@ -1,5 +1,6 @@
 import type { IconType } from "react-icons";
-
+import { BsSend } from "react-icons/bs";
+import { FaDiscord, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import {
   HiArrowRight,
   HiArrowTopRightOnSquare,
@@ -24,9 +25,6 @@ import {
   HiOutlineEyeSlash,
   HiOutlineLink,
 } from "react-icons/hi2";
-
-import { BsSend } from "react-icons/bs";
-
 import {
   PiBookBookmarkDuotone,
   PiGridFourDuotone,
@@ -34,8 +32,6 @@ import {
   PiImageDuotone,
   PiUserCircleDuotone,
 } from "react-icons/pi";
-
-import { FaDiscord, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
   chevronUp: HiChevronUp,

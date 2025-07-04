@@ -1,7 +1,5 @@
 "use client";
 
-import { style } from "@/resources/config";
-import { iconLibrary } from "@/resources/icons";
 import {
   type BorderStyle,
   DataThemeProvider,
@@ -17,6 +15,8 @@ import {
   type TransitionStyle,
 } from "@once-ui-system/core";
 import type React from "react";
+import { style } from "@/resources/config";
+import { iconLibrary } from "@/resources/icons";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (

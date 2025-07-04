@@ -1,14 +1,14 @@
+import { AvatarGroup, Button, Column, Heading, Row, Text } from "@once-ui-system/core";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { baseURL, createI18nContent } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import { addBasePath } from "@/app/utils/imageUtils";
 import { getPosts } from "@/app/utils/utils";
-import ScrollToHash from "@/components/ScrollToHash";
 import { CustomMDX } from "@/components/mdx";
+import ScrollToHash from "@/components/ScrollToHash";
 import { type LocaleParams, routing } from "@/i18n/routing";
-import { AvatarGroup, Button, Column, Heading, Row, Text } from "@once-ui-system/core";
-import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
 
 interface BlogParams {
   params: Promise<

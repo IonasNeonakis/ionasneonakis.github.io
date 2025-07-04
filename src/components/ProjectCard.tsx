@@ -8,7 +8,6 @@ import {
   Text,
 } from "@once-ui-system/core";
 import { useTranslations } from "next-intl";
-import type React from "react";
 
 interface ProjectCardProps {
   href: string;

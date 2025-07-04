@@ -1,5 +1,5 @@
-import { addBasePath } from "@/app/utils/imageUtils";
 import type { JSX } from "react";
+import { addBasePath } from "@/app/utils/imageUtils";
 
 export interface Person {
   firstName: string;

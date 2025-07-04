@@ -1,8 +1,7 @@
+import { Column, Heading } from "@once-ui-system/core";
 import type { Certification } from "@/app/resources/content-i18n";
 import { DisplayCertification } from "@/components/about/certifications/DisplayCertification";
 import type { Locale } from "@/i18n/routing";
-import { Column, Heading, Text } from "@once-ui-system/core";
-import React from "react";
 
 interface CertificationsProps {
   title: string;

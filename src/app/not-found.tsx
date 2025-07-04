@@ -1,5 +1,5 @@
-import FuzzyText from "@/components/FuzzyText/FuzzyText";
 import { Button, Column, Heading, Text } from "@once-ui-system/core";
+import FuzzyText from "@/components/FuzzyText/FuzzyText";
 
 export default function NotFound() {
   return (

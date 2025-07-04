@@ -1,18 +1,15 @@
 "use client";
 
-import { useParams } from "next/navigation";
-
-import styles from "@/components/Header.module.scss";
 import { Fade, Flex, IconButton, Line, ToggleButton } from "@once-ui-system/core";
-
+import type { Params } from "next/dist/server/request/params";
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { useTransition } from "react";
 import { createI18nContent, routes } from "@/app/resources";
+import styles from "@/components/Header.module.scss";
 import { LanguageDropdown } from "@/components/LanguageDropdown";
-
 import { Link, type Locale, usePathname, useRouter } from "@/i18n/routing";
 import { emailMailToRedirect } from "@/utils/obfuscateEmailUtils";
-import { useTranslations } from "next-intl";
-import type { Params } from "next/dist/server/request/params";
-import { useTransition } from "react";
 
 interface MyParams extends Params {
   locale: Locale;

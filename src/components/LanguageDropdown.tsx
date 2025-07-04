@@ -1,13 +1,12 @@
-import { type Locale, routing } from "@/i18n/routing";
 import {
   Button,
   Column,
   DropdownWrapper,
   type DropdownWrapperProps,
-  Flex,
   Option,
   Row,
 } from "@once-ui-system/core";
+import { type Locale, routing } from "@/i18n/routing";
 import { LanguageImage } from "./LanguageImage";
 
 interface LanguageDropdownProps extends Pick<DropdownWrapperProps, "placement"> {

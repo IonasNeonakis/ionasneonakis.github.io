@@ -1,6 +1,5 @@
-import { SkillTag } from "@/components/about/skillSection/SkillTag";
 import { Accordion, Flex } from "@once-ui-system/core";
-import React from "react";
+import { SkillTag } from "@/components/about/skillSection/SkillTag";
 import type { Skill } from "./Skills";
 
 export interface SkillSectionProps {

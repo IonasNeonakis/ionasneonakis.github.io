@@ -1,7 +1,6 @@
-import { SkillSection } from "@/components/about/skillSection/SkillSection";
 import { Column } from "@once-ui-system/core";
 import { useTranslations } from "next-intl";
-import React from "react";
+import { SkillSection } from "@/components/about/skillSection/SkillSection";
 
 export interface Skill {
   name: string;

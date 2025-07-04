@@ -1,18 +1,17 @@
+import { Avatar, Button, Column, Flex, Heading, IconButton, Text } from "@once-ui-system/core";
+import type { Metadata } from "next";
+import Image from "next/image";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AboutObfuscatedEmailButton } from "@/app/[locale]/about/AboutObfuscatedEmailButton";
 import { CurrentLocation } from "@/app/[locale]/about/CurrentLocation";
 import { SpokenLanguages } from "@/app/[locale]/about/SpokenLanguages";
 import { baseURL, createI18nContent } from "@/app/resources";
 import { addBasePath } from "@/app/utils/imageUtils";
-import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import { Certifications } from "@/components/about/certifications/Certifications";
 import { Skills } from "@/components/about/skillSection/Skills";
+import TableOfContents from "@/components/about/TableOfContents";
 import type { LocaleParams } from "@/i18n/routing";
-import { Avatar, Button, Column, Flex, Heading, IconButton, Text } from "@once-ui-system/core";
-import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import Image from "next/image";
-import React from "react";
 
 interface AboutParams {
   params: Promise<LocaleParams>;
@@ -196,44 +195,42 @@ export default async function About({ params }: AboutParams) {
             {about.intro.description}
           </Column>
 
-          <>
-            <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
-              {about.work.title}
-            </Heading>
-            <Column fillWidth gap="l" marginBottom="40">
-              {about.work.experiences.map((experience, index) => (
-                <Column key={`${experience.company.name}-${experience.role}-${index}`} fillWidth>
-                  <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
-                    <Flex vertical="center" gap="8">
-                      <Image
-                        width={experience.company.image.width}
-                        height={experience.company.image.height}
-                        alt={experience.company.image.alt}
-                        src={experience.company.image.src}
-                      />
-                      <Text variant="heading-strong-l" id={experience.company.name}>
-                        {experience.company.name}
-                      </Text>
-                    </Flex>
-
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {experience.timeframe}
+          <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+            {about.work.title}
+          </Heading>
+          <Column fillWidth gap="l" marginBottom="40">
+            {about.work.experiences.map((experience, index) => (
+              <Column key={`${experience.company.name}-${experience.role}-${index}`} fillWidth>
+                <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
+                  <Flex vertical="center" gap="8">
+                    <Image
+                      width={experience.company.image.width}
+                      height={experience.company.image.height}
+                      alt={experience.company.image.alt}
+                      src={experience.company.image.src}
+                    />
+                    <Text variant="heading-strong-l" id={experience.company.name}>
+                      {experience.company.name}
                     </Text>
                   </Flex>
-                  <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                    {experience.role}
+
+                  <Text variant="heading-default-xs" onBackground="neutral-weak">
+                    {experience.timeframe}
                   </Text>
-                  <Column as="ul">
-                    {experience.achievements.map((achievement, index: number) => (
-                      <Text as="li" variant="body-default-m" key={`${experience.company}-${index}`}>
-                        {achievement}
-                      </Text>
-                    ))}
-                  </Column>
+                </Flex>
+                <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                  {experience.role}
+                </Text>
+                <Column as="ul">
+                  {experience.achievements.map((achievement, index: number) => (
+                    <Text as="li" variant="body-default-m" key={`${experience.company}-${index}`}>
+                      {achievement}
+                    </Text>
+                  ))}
                 </Column>
-              ))}
-            </Column>
-          </>
+              </Column>
+            ))}
+          </Column>
 
           <Certifications
             title={about.certifications.title}
@@ -241,47 +238,45 @@ export default async function About({ params }: AboutParams) {
             locale={locale}
           />
 
-          <>
-            <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
-              {about.studies.title}
-            </Heading>
-            <Column fillWidth gap="l" marginBottom="40">
-              {about.studies.institutions.map((institution, index) => (
-                <Column
-                  key={`${institution.organization.name}-${institution.role}-${index}`}
-                  fillWidth
-                >
-                  <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
-                    <Flex vertical="center" gap="8">
-                      <Image
-                        width={institution.organization.image.width}
-                        height={institution.organization.image.height}
-                        alt={institution.organization.image.alt}
-                        src={institution.organization.image.src}
-                      />
-                      <Text variant="heading-strong-l" id={institution.organization.name}>
-                        {institution.organization.name}
-                      </Text>
-                    </Flex>
-
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {institution.timeframe}
+          <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
+            {about.studies.title}
+          </Heading>
+          <Column fillWidth gap="l" marginBottom="40">
+            {about.studies.institutions.map((institution, index) => (
+              <Column
+                key={`${institution.organization.name}-${institution.role}-${index}`}
+                fillWidth
+              >
+                <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
+                  <Flex vertical="center" gap="8">
+                    <Image
+                      width={institution.organization.image.width}
+                      height={institution.organization.image.height}
+                      alt={institution.organization.image.alt}
+                      src={institution.organization.image.src}
+                    />
+                    <Text variant="heading-strong-l" id={institution.organization.name}>
+                      {institution.organization.name}
                     </Text>
                   </Flex>
-                  <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                    {institution.role}
+
+                  <Text variant="heading-default-xs" onBackground="neutral-weak">
+                    {institution.timeframe}
                   </Text>
-                  <Column as="ul">
-                    {institution.studiedFields.map((studiedField) => (
-                      <Text marginBottom="8" as="li" variant="label-default-m" key={studiedField}>
-                        {studiedField}
-                      </Text>
-                    ))}
-                  </Column>
+                </Flex>
+                <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                  {institution.role}
+                </Text>
+                <Column as="ul">
+                  {institution.studiedFields.map((studiedField) => (
+                    <Text marginBottom="8" as="li" variant="label-default-m" key={studiedField}>
+                      {studiedField}
+                    </Text>
+                  ))}
                 </Column>
-              ))}
-            </Column>
-          </>
+              </Column>
+            ))}
+          </Column>
         </Column>
       </Flex>
     </Column>

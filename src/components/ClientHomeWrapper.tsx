@@ -1,9 +1,9 @@
 "use client";
 
-import { useRouter } from "@/i18n/routing";
 import { useSearchParams } from "next/navigation";
 import type React from "react";
 import { createContext, use, useEffect, useState } from "react";
+import { useRouter } from "@/i18n/routing";
 
 const EmailSentContext = createContext<boolean>(false);
 export const useEmailSentStatus = () => use(EmailSentContext);

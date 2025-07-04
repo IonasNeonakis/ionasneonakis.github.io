@@ -1,8 +1,7 @@
-import { createI18nContent } from "@/app/resources";
-import type { Locale } from "@/i18n/routing";
 import { Avatar, Badge, Flex, Text } from "@once-ui-system/core";
 import { getTranslations } from "next-intl/server";
-import React from "react";
+import { createI18nContent } from "@/app/resources";
+import type { Locale } from "@/i18n/routing";
 import styles from "./AboutMeBadge.module.scss";
 
 interface AboutMeBadgeProps {

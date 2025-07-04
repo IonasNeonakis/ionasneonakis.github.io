@@ -1,10 +1,9 @@
+export { createI18nContent } from "@/app/resources/content-i18n";
 export {
-  routes,
-  effects,
-  style,
-  display,
   baseURL,
   contactMeForm,
+  display,
+  effects,
+  routes,
+  style,
 } from "@/resources/config";
-
-export { createI18nContent } from "@/app/resources/content-i18n";
