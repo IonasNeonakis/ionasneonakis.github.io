@@ -3,7 +3,7 @@
 import { formatDate } from "@/app/utils/formatDate";
 import type { PostData } from "@/app/utils/utils";
 import type { Locale } from "@/i18n/routing";
-import { Column, Flex, Heading, SmartImage, SmartLink, Tag, Text } from "@once-ui-system/core";
+import { Column, Flex, Heading, Media, SmartLink, Tag, Text } from "@once-ui-system/core";
 import styles from "./Posts.module.scss";
 
 interface PostProps {
@@ -31,7 +31,7 @@ export default function Post({ post, thumbnail, locale }: PostProps) {
         gap="32"
       >
         {post.metadata.image && thumbnail && (
-          <SmartImage
+          <Media
             priority
             maxWidth={20}
             className={styles.image}

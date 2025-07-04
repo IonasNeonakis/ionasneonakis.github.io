@@ -3,11 +3,14 @@ import type React from "react";
 import type { ReactNode } from "react";
 
 import { HeadingLink } from "@/components";
-import { CodeBlock } from "@/once-ui/modules";
-import { SmartImage, SmartLink, Text } from "@once-ui-system/core";
-
-import type { TextProps } from "@/once-ui/interfaces";
-import type { SmartImageProps } from "@once-ui-system/core/SmartImage";
+import {
+  CodeBlock,
+  Media,
+  type MediaProps,
+  SmartLink,
+  Text,
+  type TextProps,
+} from "@once-ui-system/core";
 
 type TableProps = {
   data: {
@@ -68,14 +71,14 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
   );
 }
 
-function createImage({ alt, src, ...props }: SmartImageProps & { src: string }) {
+function createImage({ alt, src, ...props }: MediaProps & { src: string }) {
   if (!src) {
-    console.error("SmartImage requires a valid 'src' property.");
+    console.error("Media requires a valid 'src' property.");
     return null;
   }
 
   return (
-    <SmartImage
+    <Media
       className="my-20"
       enlarge
       radius="m"
