@@ -1,6 +1,6 @@
 @use "./breakpoints.scss" as breakpoints;
 
-.position {
+.headerPosition {
     position: sticky;
     top: 0;
 }
@@ -14,7 +14,7 @@
 }
 
 @media (max-width: breakpoints.$s) {
-    .position {
+    .headerPosition {
         top: auto;
         position: fixed;
         bottom: var(--static-space-24);
