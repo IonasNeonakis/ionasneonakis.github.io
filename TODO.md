@@ -39,7 +39,6 @@
 - [ ] work section
 - [x] hide blog section
 - [x] add contact form on landing page
-- [ ] use Ajax to contact me ?
 - [x] i18n to contact me
 - [ ] add image next to my name ?
 - [x] add icon to "contact me"
@@ -55,7 +54,7 @@
 - [ ] i18n contact me form
 - [ ] add CV link
 - [x] make photo and skills sticky
-- [ ] https://reactbits.dev/text-animations/fuzzy-text
+- [x] https://reactbits.dev/text-animations/fuzzy-text
 - [ ] firefox bug with text animation
 - [x] migrate to https://www.npmjs.com/package/@once-ui-system/core =>
   - [x] fix bold text,
