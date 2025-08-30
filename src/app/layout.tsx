@@ -53,10 +53,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
               (function() {
                 try {
                   const root = document.documentElement;
-                  const defaultTheme = 'system';
                   
                   // Set defaults from config
                   const config = ${JSON.stringify({
+                    theme: style.theme,
                     brand: style.brand,
                     accent: style.accent,
                     neutral: style.neutral,
@@ -72,19 +72,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   Object.entries(config).forEach(([key, value]) => {
                     root.setAttribute('data-' + key, value);
                   });
-                  
-                  // Resolve theme
-                  const resolveTheme = (themeValue) => {
-                    if (!themeValue || themeValue === 'system') {
-                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                    }
-                    return themeValue;
-                  };
-                  
-                  // Apply saved theme
-                  const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(savedTheme);
-                  root.setAttribute('data-theme', resolvedTheme);
                   
                   // Apply any saved style overrides
                   const styleKeys = Object.keys(config);
