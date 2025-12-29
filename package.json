@@ -16,7 +16,7 @@
     "classnames": "^2.5.1",
     "eslint-config-next": "^15.3.5",
     "gray-matter": "^4.0.3",
-    "next": "^15.3.5",
+    "next": "15.3.8",
     "next-intl": "^4.3.4",
     "next-mdx-remote": "^5.0.0",
     "path": "^0.12.7",
