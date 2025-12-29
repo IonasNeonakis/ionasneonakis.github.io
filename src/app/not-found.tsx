@@ -11,7 +11,7 @@ export default function NotFound() {
         Page Not Found
       </Heading>
       <Text marginBottom="s" onBackground="neutral-weak">
-        The page you are looking for does not exist.
+        The page you are looking for does not exist !
       </Text>
       <Button href="/" size="l">
         Back to Home
