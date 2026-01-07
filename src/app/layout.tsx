@@ -9,6 +9,9 @@ import type React from "react";
 import { Providers } from "@/app/Providers";
 import { baseURL, effects, style } from "@/app/resources";
 import { fonts } from "@/resources/config";
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 
 export function generateMetadata(): Metadata {
   return {
@@ -136,6 +139,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
             }}
           />
           {children}
+          <Analytics />
+          <SpeedInsights />
         </Column>
       </Providers>
     </Flex>
