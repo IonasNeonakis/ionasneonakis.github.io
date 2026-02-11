@@ -43,8 +43,8 @@
       "title": "Work Experiences",
       "experiences": {
         "LuxuryLeader": {
-          "companyName": "Luxure leader",
-          "companyAlt": "Luxure leadere logo",
+          "companyName": "Luxury leader",
+          "companyAlt": "Luxury leade logo",
           "timeframe": "December 2022 - Present",
           "role": "Fullstack Lead Dev, Spring Boot (Kotlin/Java) & React",
           "achievements": "Technical leadership of a squad of 5 developers;Cross-team technical guidance (choices, trade-offs, best practices);Organization and animation of technology watch across squads;Onboarding of new developers;Implementation and enforcement of best practices (clean code, reviews, methodologies);Technical documentation and diagramming (architecture, flows, components);Development of web, mobile (PWA), and logistics microservices in React & Spring Boot;Creation of internal tools (SDKs, libraries, starters);Production support for applications;Technical ownership of critical applications and microservices"
