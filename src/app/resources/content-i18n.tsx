@@ -163,6 +163,20 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
       experiences: [
         {
           company: {
+            name: t("about.work.experiences.BenefitsLeader.companyName"),
+            image: {
+              src: "/images/companies/giftcard.webp",
+              alt: t("about.work.experiences.BenefitsLeader.companyAlt"),
+              height: 30,
+              width: 30,
+            },
+          },
+          timeframe: t("about.work.experiences.BenefitsLeader.timeframe"),
+          role: t("about.work.experiences.BenefitsLeader.role"),
+          achievements: t("about.work.experiences.BenefitsLeader.achievements").split(";"),
+        },
+        {
+          company: {
             name: t("about.work.experiences.LuxuryLeader.companyName"),
             image: {
               src: "/images/companies/diamond.webp",

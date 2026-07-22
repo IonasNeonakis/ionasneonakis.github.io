@@ -42,10 +42,17 @@
     "work": {
       "title": "Expériences Professionnelles",
       "experiences": {
+        "BenefitsLeader": {
+          "companyName": "Leader des avantages salariés & Titres-restaurant",
+          "companyAlt": "Leader des avantages salariés & Titres-restaurant logo",
+          "timeframe": "Mai 2026 - Aujourd'hui",
+          "role": "Développeur Fullstack - Spring Boot (Java) Kafka & React",
+          "achievements": "Mise en place du monitoring avec Datadog sur différentes applications;Développement frontend en respectant les maquettes pixel perfect.;Rework de composants du design system;Développement backend en Spring Boot Java avec Kafka;Développement de microservices et d'API REST;Support des applications en production;Rédaction de documentation technique et diagrammes d'architecture"
+        },
         "LuxuryLeader": {
           "companyName": "Leader du Luxe",
           "companyAlt": "Leader du Luxe logo",
-          "timeframe": "Décembre 2022 - Aujourd’hui",
+          "timeframe": "Décembre 2022 - Avril 2026",
           "role": "Lead Dev Fullstack Spring Boot (Kotlin/Java) & React",
           "achievements": "Encadrement technique d’une squad de 5 développeurs;Conseil technique transversal auprès de l’équipe (choix, arbitrages, bonnes pratiques);Organisation et animation de la veille technologique inter-squads;Onboarding de nouveaux développeurs;Mise en place et suivi des bonnes pratiques (clean code, reviews, méthodologies);Rédaction de documentation et de diagrammes techniques (architecture, flux, composants);Développement d’applications web, mobiles (PWA) et microservices logistiques en React & Spring Boot;Création d’outils internes (SDK, bibliothèques, starters);Support des applications en production;Responsabilité technique sur des applications et microservices critiques"
         },
@@ -53,7 +60,7 @@
           "companyName": "Takima (Hui RH)",
           "companyAlt": "Takima logo",
           "timeframe": "Juillet 2022 - Décembre 2022",
-          "role": "Développeur Fullstack - Application RH",
+          "role": "Développeur Fullstack - Spring Boot (Kotlin) & React",
           "achievements": "Développement de l'application Hui pour la gestion des événements RH.;Séparation de Hui de l'application Itewa.;Écriture de scripts SQL pour le nouveau schéma de données.;Développement de tâches CRON de synchronisation SAP.;Intégration avec Google Sheets via API.;Développement de tests unitaires et d’intégration."
         },
         "TakimaFormation": {
