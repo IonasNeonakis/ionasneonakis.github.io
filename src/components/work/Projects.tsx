@@ -25,7 +25,7 @@ export function Projects({ range, locale }: ProjectsProps) {
       {displayedProjects.map((post, index) => (
         <ProjectCard
           priority={index < 2}
-          key={`${post.slug}-${index}`}
+          key={post.slug}
           href={`/${locale}/work/${post.slug}`}
           images={post.metadata.images}
           title={post.metadata.title}

@@ -4,6 +4,7 @@ import {
   type BorderStyle,
   DataThemeProvider,
   IconProvider,
+  LayoutProvider,
   type NeutralColor,
   type ScalingSize,
   type Schemes,
@@ -33,11 +34,13 @@ export function Providers({ children }: { children: React.ReactNode }) {
       transition={style.transition as TransitionStyle}
       scaling={style.scaling as ScalingSize}
     >
-      <DataThemeProvider>
-        <IconProvider icons={iconLibrary}>
-          <ToastProvider>{children}</ToastProvider>
-        </IconProvider>
-      </DataThemeProvider>
+      <LayoutProvider>
+        <DataThemeProvider>
+          <IconProvider icons={iconLibrary}>
+            <ToastProvider>{children}</ToastProvider>
+          </IconProvider>
+        </DataThemeProvider>
+      </LayoutProvider>
     </ThemeProvider>
   );
 }

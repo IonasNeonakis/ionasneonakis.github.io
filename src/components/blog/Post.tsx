@@ -24,7 +24,7 @@ export default function Post({ post, thumbnail, locale }: PostProps) {
     >
       <Flex
         position="relative"
-        mobileDirection="column"
+        s={{ direction: "column" }}
         fillWidth
         paddingY="12"
         paddingX="16"

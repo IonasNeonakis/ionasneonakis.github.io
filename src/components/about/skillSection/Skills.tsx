@@ -14,7 +14,7 @@ const backendSkills: Skill[] = [
   { name: "Spring Boot", important: true },
   { name: "Spring", important: true },
   { name: "Hibernate", important: true },
-  { name: "Kafka"},
+  { name: "Kafka" },
   { name: "PostgreSQL" },
   { name: "MySQL" },
   { name: "Sql Server" },

@@ -32,8 +32,17 @@ export const Header = () => {
   const { person, about, blog, work, social } = createI18nContent(t);
   return (
     <>
-      <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
+      <Fade s={{ hide: true }} fillWidth position="fixed" height="80" zIndex={9} />
+      <Fade
+        hide
+        s={{ hide: false }}
+        fillWidth
+        position="fixed"
+        bottom="0"
+        to="top"
+        height="80"
+        zIndex={9}
+      />
       <Flex
         fitHeight
         className={styles.headerPosition}
@@ -44,7 +53,7 @@ export const Header = () => {
         horizontal="center"
       >
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="display-strong-xs">
-          <Flex hide="s">
+          <Flex s={{ hide: true }}>
             <Link className={styles.homeLink} href={"/"}>
               {person.name}
             </Link>
@@ -71,62 +80,68 @@ export const Header = () => {
               <Line vert maxHeight="24" />
               {routes["/about"] && (
                 <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="person"
-                    size="l"
-                    href={`/${locale}/about`}
-                    label={about.label}
-                    selected={pathname === "/about"}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="person"
-                    size="l"
-                    href={`/${locale}/about`}
-                    selected={pathname === "/about"}
-                  />
+                  <Flex s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="person"
+                      size="l"
+                      href={`/${locale}/about`}
+                      label={about.label}
+                      selected={pathname === "/about"}
+                    />
+                  </Flex>
+                  <Flex hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="person"
+                      size="l"
+                      href={`/${locale}/about`}
+                      selected={pathname === "/about"}
+                    />
+                  </Flex>
                 </>
               )}
               {routes["/work"] && (
                 <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="grid"
-                    size="l"
-                    href={`/${locale}/work`}
-                    label={work.label}
-                    selected={pathname.startsWith("/work")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="grid"
-                    size="l"
-                    href={`/${locale}/work`}
-                    selected={pathname.startsWith("/work")}
-                  />
+                  <Flex s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="grid"
+                      size="l"
+                      href={`/${locale}/work`}
+                      label={work.label}
+                      selected={pathname.startsWith("/work")}
+                    />
+                  </Flex>
+                  <Flex hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="grid"
+                      size="l"
+                      href={`/${locale}/work`}
+                      selected={pathname.startsWith("/work")}
+                    />
+                  </Flex>
                 </>
               )}
               {routes["/blog"] && (
                 <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="book"
-                    size="l"
-                    href={`/${locale}/blog`}
-                    label={blog.label}
-                    selected={pathname.startsWith("/blog")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="book"
-                    size="l"
-                    href={`/${locale}/blog`}
-                    selected={pathname.startsWith("/blog")}
-                  />
+                  <Flex s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="book"
+                      size="l"
+                      href={`/${locale}/blog`}
+                      label={blog.label}
+                      selected={pathname.startsWith("/blog")}
+                    />
+                  </Flex>
+                  <Flex hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="book"
+                      size="l"
+                      href={`/${locale}/blog`}
+                      selected={pathname.startsWith("/blog")}
+                    />
+                  </Flex>
                 </>
               )}
-              <Flex className="s-flex-show">
+              <Flex hide s={{ hide: false }}>
                 <LanguageDropdown
                   handleLanguageChange={handleLanguageChange}
                   currentLocale={locale}
@@ -145,7 +160,7 @@ export const Header = () => {
             textVariant="body-default-s"
             gap="20"
           >
-            <Flex className="s-flex-hide">
+            <Flex s={{ hide: true }}>
               <LanguageDropdown
                 handleLanguageChange={handleLanguageChange}
                 currentLocale={locale}
@@ -153,7 +168,7 @@ export const Header = () => {
               />
             </Flex>
 
-            <Flex hide="s" gap="16">
+            <Flex s={{ hide: true }} gap="16">
               {social.map(
                 (item) =>
                   item.link && (

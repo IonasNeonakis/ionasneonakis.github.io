@@ -5,6 +5,7 @@ import {
   HiArrowRight,
   HiArrowTopRightOnSquare,
   HiArrowUpRight,
+  HiBriefcase,
   HiCalendarDays,
   HiCheck,
   HiCheckCircle,
@@ -24,7 +25,6 @@ import {
   HiOutlineEye,
   HiOutlineEyeSlash,
   HiOutlineLink,
-  HiBriefcase
 } from "react-icons/hi2";
 import {
   PiBookBookmarkDuotone,

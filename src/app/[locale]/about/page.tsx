@@ -106,11 +106,11 @@ export default async function About({ params }: AboutParams) {
         position="fixed"
         paddingLeft="24"
         gap="32"
-        hide="s"
+        s={{ hide: true }}
       >
         <TableOfContents structure={structure} />
       </Column>
-      <Flex fillWidth mobileDirection="column" horizontal="center">
+      <Flex fillWidth s={{ direction: "column" }} horizontal="center">
         <Column className={styles.avatar} minWidth="160" paddingX="l" gap="m" flex={3}>
           <Column
             style={{
@@ -124,7 +124,13 @@ export default async function About({ params }: AboutParams) {
             <CurrentLocation person={person} />
             <SpokenLanguages languages={person.languages} />
           </Column>
-          <Column hide="s" gap="8" overflow="auto" horizontal="center" className={styles.skills}>
+          <Column
+            s={{ hide: true }}
+            gap="8"
+            overflow="auto"
+            horizontal="center"
+            className={styles.skills}
+          >
             <Skills />
           </Column>
         </Column>
@@ -148,7 +154,8 @@ export default async function About({ params }: AboutParams) {
             </Text>
 
             <Column
-              show="s"
+              hide
+              s={{ hide: false }}
               paddingTop="l"
               overflow="auto"
               horizontal="center"
@@ -167,25 +174,20 @@ export default async function About({ params }: AboutParams) {
               fitWidth
             >
               {social.map((item) => (
-                <div key={item.link}>
-                  <Button
-                    className="s-flex-hide"
-                    key={item.name}
-                    href={item.link}
-                    prefixIcon={item.icon}
-                    label={item.name}
-                    size="s"
-                    variant="secondary"
-                  />
-                  <IconButton
-                    className="s-flex-show"
-                    size="l"
-                    key={`${item.name}-icon`}
-                    href={item.link}
-                    icon={item.icon}
-                    variant="secondary"
-                  />
-                </div>
+                <Flex key={item.link}>
+                  <Flex s={{ hide: true }}>
+                    <Button
+                      href={item.link}
+                      prefixIcon={item.icon}
+                      label={item.name}
+                      size="s"
+                      variant="secondary"
+                    />
+                  </Flex>
+                  <Flex hide s={{ hide: false }}>
+                    <IconButton size="l" href={item.link} icon={item.icon} variant="secondary" />
+                  </Flex>
+                </Flex>
               ))}
               <AboutObfuscatedEmailButton />
             </Flex>
@@ -199,16 +201,18 @@ export default async function About({ params }: AboutParams) {
             {about.work.title}
           </Heading>
           <Column fillWidth gap="l" marginBottom="40">
-            {about.work.experiences.map((experience, index) => (
-              <Column key={`${experience.company.name}-${experience.role}-${index}`} fillWidth>
-                <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
+            {about.work.experiences.map((experience) => (
+              <Column key={`${experience.company.name}-${experience.role}`} fillWidth>
+                <Flex fillWidth horizontal="between" vertical="end" marginBottom="4">
                   <Flex vertical="center" gap="8">
-                    <Image
-                      width={experience.company.image.width}
-                      height={experience.company.image.height}
-                      alt={experience.company.image.alt}
-                      src={experience.company.image.src}
-                    />
+                    {experience.company.image && (
+                      <Image
+                        width={experience.company.image.width}
+                        height={experience.company.image.height}
+                        alt={experience.company.image.alt}
+                        src={experience.company.image.src}
+                      />
+                    )}
                     <Text variant="heading-strong-l" id={experience.company.name}>
                       {experience.company.name}
                     </Text>
@@ -218,12 +222,17 @@ export default async function About({ params }: AboutParams) {
                     {experience.timeframe}
                   </Text>
                 </Flex>
-                <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                <Text variant="body-default-s" onBackground="brand-weak" marginBottom="8">
                   {experience.role}
                 </Text>
-                <Column as="ul">
-                  {experience.achievements.map((achievement, index: number) => (
-                    <Text as="li" variant="body-default-m" key={`${experience.company}-${index}`}>
+                <Column as="ul" className={styles.achievementList}>
+                  {experience.achievements.map((achievement) => (
+                    <Text
+                      as="li"
+                      className={styles.achievementItem}
+                      variant="body-default-m"
+                      key={`${experience.company.name}-${achievement}`}
+                    >
                       {achievement}
                     </Text>
                   ))}
@@ -242,19 +251,18 @@ export default async function About({ params }: AboutParams) {
             {about.studies.title}
           </Heading>
           <Column fillWidth gap="l" marginBottom="40">
-            {about.studies.institutions.map((institution, index) => (
-              <Column
-                key={`${institution.organization.name}-${institution.role}-${index}`}
-                fillWidth
-              >
-                <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
+            {about.studies.institutions.map((institution) => (
+              <Column key={`${institution.organization.name}-${institution.role}`} fillWidth>
+                <Flex fillWidth horizontal="between" vertical="end" marginBottom="4">
                   <Flex vertical="center" gap="8">
-                    <Image
-                      width={institution.organization.image.width}
-                      height={institution.organization.image.height}
-                      alt={institution.organization.image.alt}
-                      src={institution.organization.image.src}
-                    />
+                    {institution.organization.image && (
+                      <Image
+                        width={institution.organization.image.width}
+                        height={institution.organization.image.height}
+                        alt={institution.organization.image.alt}
+                        src={institution.organization.image.src}
+                      />
+                    )}
                     <Text variant="heading-strong-l" id={institution.organization.name}>
                       {institution.organization.name}
                     </Text>
@@ -264,12 +272,12 @@ export default async function About({ params }: AboutParams) {
                     {institution.timeframe}
                   </Text>
                 </Flex>
-                <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                <Text variant="body-default-s" onBackground="brand-weak" marginBottom="8">
                   {institution.role}
                 </Text>
-                <Column as="ul">
+                <Column as="ul" className={styles.studiedFieldList}>
                   {institution.studiedFields.map((studiedField) => (
-                    <Text marginBottom="8" as="li" variant="label-default-m" key={studiedField}>
+                    <Text as="li" variant="label-default-m" key={studiedField}>
                       {studiedField}
                     </Text>
                   ))}

@@ -1,26 +1,23 @@
 "use client";
 
-import { Button, IconButton } from "@once-ui-system/core";
+import { Button, Flex, IconButton } from "@once-ui-system/core";
 import { emailMailToRedirect } from "@/utils/obfuscateEmailUtils";
 
 export function AboutObfuscatedEmailButton() {
   return (
     <>
-      <Button
-        className="s-flex-hide"
-        onClick={emailMailToRedirect}
-        prefixIcon={"email"}
-        label={"Email"}
-        size="s"
-        variant="secondary"
-      />
-      <IconButton
-        className="s-flex-show"
-        onClick={emailMailToRedirect}
-        size="l"
-        icon="email"
-        variant="secondary"
-      />
+      <Flex s={{ hide: true }}>
+        <Button
+          onClick={emailMailToRedirect}
+          prefixIcon={"email"}
+          label={"Email"}
+          size="s"
+          variant="secondary"
+        />
+      </Flex>
+      <Flex hide s={{ hide: false }}>
+        <IconButton onClick={emailMailToRedirect} size="l" icon="email" variant="secondary" />
+      </Flex>
     </>
   );
 }

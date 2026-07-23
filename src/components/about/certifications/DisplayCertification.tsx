@@ -17,12 +17,14 @@ export function DisplayCertification({ certification, locale }: CertificationPro
   return (
     <Column key={`${name}`} fillWidth gap="4">
       <Row vertical="center" gap="8">
-        <Image
-          alt={organization.image.alt}
-          src={organization.image.src}
-          width={organization.image.width}
-          height={organization.image.height}
-        />
+        {organization.image && (
+          <Image
+            alt={organization.image.alt}
+            src={organization.image.src}
+            width={organization.image.width}
+            height={organization.image.height}
+          />
+        )}
         <Text id={name} variant="heading-strong-l">
           {name}
         </Text>
@@ -35,7 +37,7 @@ export function DisplayCertification({ certification, locale }: CertificationPro
         })}
       </Text>
 
-      <Row horizontal="space-between" vertical="center">
+      <Row horizontal="between" vertical="center">
         <Text variant="heading-default-xs" onBackground="neutral-weak">
           {t("about.certifications.id")}
           {certificationId}

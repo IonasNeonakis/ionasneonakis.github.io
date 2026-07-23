@@ -80,7 +80,7 @@ export function ContactForm({ locale }: ContactFormProps) {
         action={contactMeForm.action}
         method="post"
       >
-        <Flex fillWidth maxWidth={30} mobileDirection="column" gap="8">
+        <Flex fillWidth maxWidth={30} s={{ direction: "column" }} gap="8">
           <Column fillWidth gap="12">
             <Input
               id="email-input"

@@ -17,15 +17,14 @@ interface ClientHomeWrapperProps {
 export function ClientHomeWrapper({ children }: ClientHomeWrapperProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [isEmailSent, setIsEmailSent] = useState(false);
+  const hasEmailSentParam = searchParams.has(EMAIL_SENT_SEARCH_PARAM);
+  const [isEmailSent] = useState(hasEmailSentParam);
 
   useEffect(() => {
-    if (searchParams.has(EMAIL_SENT_SEARCH_PARAM)) {
-      setIsEmailSent(true);
-
+    if (hasEmailSentParam) {
       router.replace("/");
     }
-  }, [searchParams, router]);
+  }, [hasEmailSentParam, router]);
 
   return <EmailSentContext value={isEmailSent}>{children}</EmailSentContext>;
 }

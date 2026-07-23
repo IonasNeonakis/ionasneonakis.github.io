@@ -17,7 +17,7 @@ export function Footer() {
       fillWidth
       padding="8"
       horizontal="center"
-      mobileDirection="column"
+      s={{ direction: "column" }}
     >
       <Flex
         className={styles.mobile}
@@ -25,7 +25,7 @@ export function Footer() {
         paddingY="8"
         paddingX="16"
         gap="16"
-        horizontal="space-between"
+        horizontal="between"
         vertical="center"
       >
         <Text variant="body-default-s" onBackground="neutral-strong">
@@ -50,7 +50,7 @@ export function Footer() {
           <ObfuscatedEmailButton />
         </Flex>
       </Flex>
-      <Flex height="80" show="s" />
+      <Flex height="80" hide s={{ hide: false }} />
     </Flex>
   );
 }

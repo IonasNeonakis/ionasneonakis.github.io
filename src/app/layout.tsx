@@ -3,15 +3,14 @@ import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
 
 import { Background, Column, Flex } from "@once-ui-system/core";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import classNames from "classnames";
 import type { Metadata } from "next";
 import type React from "react";
 import { Providers } from "@/app/Providers";
 import { baseURL, effects, style } from "@/app/resources";
 import { fonts } from "@/resources/config";
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-
 
 export function generateMetadata(): Metadata {
   return {

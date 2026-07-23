@@ -19,6 +19,24 @@
     max-height: calc(100dvh - 260px - 40px - 100px);
 }
 
+.achievementList,
+.studiedFieldList {
+    margin-block: var(--static-space-8);
+    padding-inline-start: var(--static-space-20);
+}
+
+.achievementItem {
+    margin-bottom: var(--static-space-8);
+}
+
+.achievementItem:last-child {
+    margin-bottom: 0;
+}
+
+.achievementItem::marker {
+    color: var(--brand-on-background-weak);
+}
+
 
 @media (max-width: breakpoints.$s) {
     .avatar {

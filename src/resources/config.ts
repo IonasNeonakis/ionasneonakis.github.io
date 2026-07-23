@@ -232,4 +232,4 @@ const fonts = {
   code: code,
 };
 
-export { routes, effects, style, display, baseURL, contactMeForm, fonts };
+export { baseURL, contactMeForm, display, effects, fonts, routes, style };
