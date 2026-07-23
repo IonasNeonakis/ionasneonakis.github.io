@@ -50,9 +50,10 @@ export function LanguageDropdown({
           {options.map((option) => (
             <Option
               key={option.value}
+              paddingX="4"
+              paddingY="4"
               label={
-                <Row style={{ width: "2px", height: "12px" }} center>
-                  {" "}
+                <Row style={{ width: "20px", height: "20px" }} center>
                   {option.label}
                 </Row>
               }
