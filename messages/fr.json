@@ -43,11 +43,11 @@
       "title": "Expériences Professionnelles",
       "experiences": {
         "BenefitsLeader": {
-          "companyName": "Leader des avantages salariés & Titres-restaurant",
-          "companyAlt": "Leader des avantages salariés & Titres-restaurant logo",
+          "companyName": "FinTech - Avantages Salariés",
+          "companyAlt": "FinTech - Avantages Salariés logo",
           "timeframe": "Mai 2026 - Aujourd'hui",
           "role": "Développeur Fullstack - Spring Boot (Java) Kafka & React",
-          "achievements": "Mise en place du monitoring avec Datadog sur différentes applications;Développement frontend en respectant les maquettes pixel perfect.;Rework de composants du design system;Développement backend en Spring Boot Java avec Kafka;Développement de microservices et d'API REST;Support des applications en production;Rédaction de documentation technique et diagrammes d'architecture"
+          "achievements": "Mise en place du monitoring avec Datadog sur différentes applications;Développement frontend en respectant les maquettes pixel perfect;Rework de composants du design system;Développement backend en Spring Boot Java avec Kafka;Développement de microservices et d'API REST;Support des applications en production;Rédaction de documentation technique et diagrammes d'architecture"
         },
         "LuxuryLeader": {
           "companyName": "Leader du Luxe",

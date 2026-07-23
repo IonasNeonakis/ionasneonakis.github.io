@@ -43,15 +43,15 @@
       "title": "Work Experiences",
       "experiences": {
         "BenefitsLeader": {
-          "companyName": "Leader in Employee Benefits & Meal Vouchers",
-          "companyAlt": "Leader in Employee Benefits & Meal Vouchers logo",
+          "companyName": "FinTech - Employee Benefits",
+          "companyAlt": "FinTech - Employee Benefits logo",
           "timeframe": "May 2026 - Present",
           "role": "Fullstack Developer - Spring Boot (Java) Kafka & React",
           "achievements": "Set up monitoring with Datadog across multiple applications;Frontend development following pixel-perfect designs;Rework of design system components;Backend development in Spring Boot Java with Kafka;Microservices and REST API development;Production application support;Drafting technical documentation and architecture diagrams"
         },
         "LuxuryLeader": {
           "companyName": "Luxury leader",
-          "companyAlt": "Luxury leade logo",
+          "companyAlt": "Luxury leader logo",
           "timeframe": "December 2022 - April 2026",
           "role": "Fullstack Lead Dev, Spring Boot (Kotlin/Java) & React",
           "achievements": "Technical leadership of a squad of 5 developers;Cross-team technical guidance (choices, trade-offs, best practices);Organization and animation of technology watch across squads;Onboarding of new developers;Implementation and enforcement of best practices (clean code, reviews, methodologies);Technical documentation and diagramming (architecture, flows, components);Development of web, mobile (PWA), and logistics microservices in React & Spring Boot;Creation of internal tools (SDKs, libraries, starters);Production support for applications;Technical ownership of critical applications and microservices"

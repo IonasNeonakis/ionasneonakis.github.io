@@ -24,6 +24,7 @@ import {
   HiOutlineEye,
   HiOutlineEyeSlash,
   HiOutlineLink,
+  HiBriefcase
 } from "react-icons/hi2";
 import {
   PiBookBookmarkDuotone,
@@ -34,6 +35,7 @@ import {
 } from "react-icons/pi";
 
 export const iconLibrary: Record<string, IconType> = {
+  briefcase: HiBriefcase,
   chevronUp: HiChevronUp,
   chevronDown: HiChevronDown,
   chevronRight: HiChevronRight,

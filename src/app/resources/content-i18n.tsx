@@ -28,7 +28,7 @@ interface Home {
 
 interface Organization {
   name: string;
-  image: Image;
+  image?: Image;
 }
 
 interface Experience {
@@ -113,13 +113,7 @@ const createI18nContent = (t: (key: string, options?: unknown) => string): I18nC
     role: t("person.role"),
     avatar: addBasePath("/images/avatar.webp"),
     currentCompany: {
-      name: "Takima",
-      image: {
-        src: addBasePath("/images/companies/takima.webp"),
-        alt: "Takima Logo",
-        height: 30,
-        width: 30,
-      },
+      name: "Freelance",
     },
     location: "Europe/Paris",
     languages: [t("about.french"), t("about.english")],

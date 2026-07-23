@@ -9,7 +9,7 @@ export interface SkillSectionProps {
 
 export function SkillSection({ title, skills }: SkillSectionProps) {
   return (
-    <Accordion size="s" radius="full" title={title}>
+    <Accordion open size="s" radius="full" title={title}>
       <Flex wrap gap="4">
         {skills.map((skill) => (
           <SkillTag key={skill.name} skill={skill} />

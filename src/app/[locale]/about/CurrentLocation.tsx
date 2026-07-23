@@ -1,5 +1,4 @@
 import { Flex, Icon } from "@once-ui-system/core";
-import Image from "next/image";
 import type { Person } from "@/app/resources/content-i18n";
 
 interface CurrentLocationProps {
@@ -12,12 +11,7 @@ export function CurrentLocation({ person }: CurrentLocationProps) {
   return (
     <Flex gap="8" wrap horizontal="center">
       <Flex gap="2" vertical="center">
-        <Image
-          src={currentCompany.image.src}
-          height={currentCompany.image.height}
-          width={currentCompany.image.width}
-          alt={currentCompany.image.alt}
-        />
+        <Icon name="briefcase" />
         {currentCompany.name}
       </Flex>
       <Flex gap="2" vertical="center">
