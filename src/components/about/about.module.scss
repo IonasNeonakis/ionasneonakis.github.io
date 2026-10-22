@@ -13,10 +13,12 @@
     position: sticky !important;
     height: fit-content;
     top: var(--static-space-160);
+    // The sticky column must fit in the viewport so the skills list below can scroll to its end
+    max-height: calc(100dvh - var(--static-space-160) - var(--static-space-24));
 }
 
 .skills {
-    max-height: calc(100dvh - 260px - 40px - 100px);
+    min-height: 0;
 }
 
 .achievementList,
@@ -41,6 +43,7 @@
 @media (max-width: breakpoints.$s) {
     .avatar {
         top: auto;
+        max-height: none;
     }
 
     .textAlign {
